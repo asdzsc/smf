@@ -1,0 +1,112 @@
+<template>
+  <div>
+    <gywmTabs ref="gywmTabs"></gywmTabs>
+    <div class="banner">
+      <van-image class="bannerImg" fit="cover" src="/img/mobile/banner9.png" />
+    </div>
+    <div class="cont">
+      <div
+        class="titleCont"
+        style="padding-top:0.5rem; padding-bottom: 0.2rem;"
+      >
+        <div class="titleLine"></div>
+        <div class="title">
+          公司简介
+        </div>
+      </div>
+      <div class="intro">
+        <p class="text">
+          石门峰纪念公园位于武汉中心城区九峰城市森林保护区，占地面积1109亩，是全国殡葬改革示范单位、湖北省国防教育基地、武汉市爱国主义教育基地和关心下一代党史国史教育基地。
+        </p>
+        <div style="padding-top: 0.4rem;">
+          <van-image
+            width="6.6rem"
+            height="3.8rem"
+            fit="cover"
+            src="/img/mobile/gsjj1.png"
+          />
+        </div>
+        <p class="text">
+          二十多年来，石门峰纪念公园按“公墓变公园+博物馆”的发展模式，陆续建成由“日、月、星、光、山、川、林、海”八大纪念园区和“开国元勋雕塑园”、“辛亥革命纪念园”、“武汉抗战纪念园”、“保卫大武汉中国抗日空军烈士纪念墓园”、“湖北军民抗战博物馆”、“楚天将帅馆”、“时代记忆馆”、“生活票证馆”、“百姓族谱馆”及“圆满人生博物馆”等博物馆聚落组成的现代化人文纪念公园。
+        </p>
+        <div style="padding-top: 0.4rem;">
+          <van-image
+            width="6.6rem"
+            height="3.8rem"
+            fit="cover"
+            src="/img/mobile/gsjj2.png"
+          />
+        </div>
+        <p class="text">
+          未来，石门峰纪念公园将继续以企业责任、社会责任、历史责任为重，集人文艺术、文化、旅游、教育、殡葬及配套服务创新为一体，深耕生命文化产业，力争打造一座凝聚生命艺术、承载武汉城市编年史的文艺殿堂。
+        </p>
+        <div style="padding-top: 0.4rem;">
+          <van-image
+            width="6.6rem"
+            height="3.8rem"
+            fit="cover"
+            src="/img/mobile/gsjj3.png"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  components: {
+    gywmTabs: () => import("@/pages/mobile/views/gywm/components/gywm-tabs.vue")
+  },
+  data() {
+    return {};
+  },
+  mounted() {
+	},
+  methods: {}
+};
+</script>
+
+<style lang="less" scoped>
+.banner {
+  .bannerImg {
+    width: 100%;
+    height: 5rem;
+  }
+}
+
+.cont {
+  .titleCont {
+    display: flex;
+    padding: 0rem 0.4rem;
+
+    .titleLine {
+      width: 8px;
+      height: 0.4rem;
+      background-color: #004930;
+    }
+
+    .title {
+      padding-left: 0.25rem;
+      font-weight: 700;
+      line-height: 0.5rem;
+      color: #666666;
+      font-size: 0.32rem;
+      letter-spacing: 1px;
+    }
+  }
+
+  .intro {
+    font-size: 0.24rem;
+    line-height: 0.5rem;
+    letter-spacing: 1px;
+    color: #333333;
+    padding: 0rem 0.4rem;
+    padding-bottom: 0.8rem;
+
+    .text {
+      text-indent: 2em;
+    }
+  }
+}
+</style>
