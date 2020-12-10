@@ -23,5 +23,13 @@ export default [
 			title: "纪念馆信息管理"
 		},
     component: () => import("@/pages/admin/views/memory/info/list.vue")
+  },
+  {
+    path: "/memory/active/list",
+		name: "/memory/active/list",
+		meta: {
+			title: "激活码管理"
+		},
+    component: () => import("@/pages/admin/views/memory/active/list.vue")
   }
 ];

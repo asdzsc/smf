@@ -31,7 +31,7 @@
 						</div>
 					</div>
 				</div>
-				<paging ref="paging" @setPage="setPage"></paging>
+			<paging v-if="paginghide" ref="paging" @setPage="setPage"></paging>
 			</a-spin>
 		</div>
 
@@ -48,6 +48,7 @@
 				baseUrl: process.env.VUE_APP_BASE_URL,
 				defImg: 'this.src="/img/zwtp.jpg"',
 				loading: false,
+				paginghide:true,
 				model: {
 					current: "1",
 					pageSize: "8",
@@ -56,6 +57,16 @@
 				}
 			};
 		},
+		watch: {
+		   $route: {
+		    handler: function(route) {
+		     if (route.path.split("-")[0] == "/mark/grjn") {
+		      this.paginghide = false;
+		     }
+		    },
+		    immediate: true
+		   }
+		  },
 		methods: {
 			setPage() {
 

@@ -4,26 +4,6 @@
 		<div class="banner"></div>
 		<div class="cont">
 			<xwzxTitle  title="公告中心"></xwzxTitle>
-			<!--
-			<ul class="list">
-			<li class="item" v-for="(item,id) in model.list" :key="id">
-				<div class="newsImg">
-					<img :src="baseUrl + item.cover" alt="">
-				</div>
-				<div class="desc">
-					<div class="newsDtime">
-						<div class="day">{{ parseTime(item.publishTime, "{d}") }}</div>
-						<div class="dtime">
-							{{ parseTime(item.publishTime, "{y}-{m}") }}
-						</div>
-					</div>
-					<div class="intro">
-						<div class="introTitle">{{ item.title }}</div>
-						<div class="introCont">{{ item.intro }}</div>
-					</div>
-				</div>
-			</li>
-			</ul> -->
 			<van-list  :finished="finished" finished-text="没有更多了" @load="onLoad">
 				<div class="list">
 					<div class="item" v-for="(item,id) in model.list" :key="id">
@@ -143,36 +123,24 @@
 
 					.desc {
 						padding-left: 15px;
-
 						.newsDtime {
 							display: flex;
 
 							.day {
-								width: .52rem;
-								height: .37rem;
-								font-family: MicrosoftYaHei;
 								font-size: .48rem;
-								font-weight: normal;
-								font-stretch: normal;
-								letter-spacing: 0px;
 								color: #666666;
 							}
 
 							.dtime {
 								margin-top: .25rem;
 								margin-left: 0.1rem;
-								height: .17rem;
-								font-family: MicrosoftYaHei;
 								font-size: .22rem;
-								font-weight: normal;
-								font-stretch: normal;
-								letter-spacing: 0px;
 								color: #666666;
 							}
 						}
 
 						.intro {
-							margin-top: 17px;
+							margin-top: 0.15rem;
 
 							.introTitle {
 								width: 3.16rem;

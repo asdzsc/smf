@@ -48,8 +48,8 @@
 <style lang="less" scoped>
 	.grjn {
 		background: url("/img/pc/02_banner.png") no-repeat center center;
-		background-size: 100% 100%;
-		height: 3985px;
+		background-size: cover;
+		padding-bottom: 200px;
 		.moreBtn {
 			font-size: 20px;
 			line-height: 20px;
@@ -57,9 +57,6 @@
 			text-align: center;
 			margin-top: 30px;
 			cursor: pointer;
-		}
-		.paging{
-			display: none!important;
 		}
 	}
 </style>

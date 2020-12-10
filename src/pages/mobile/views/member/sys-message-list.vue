@@ -39,9 +39,6 @@
 		setSysMessageAllRead,
 		delSysMessageAll
 	} from '@/pages/pc/api/sysmessage'
-	import {
-		Dialog
-	} from 'vant';
 	export default {
 		data() {
 			return {
@@ -87,7 +84,8 @@
 				});
 			},
 			setAllRead() {
-				Dialog.confirm({
+				this.$dialog
+					.confirm({
 						title: '确认标记所有消息为已读吗？',
 						message: '',
 					})
@@ -107,7 +105,8 @@
 					});
 			},
 			delAll() {
-				Dialog.confirm({
+				this.$dialog
+					.confirm({
 						title: '确认清空所有消息吗？',
 						message: '',
 					})

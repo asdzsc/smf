@@ -223,7 +223,8 @@ export default {
       exportExcel(this.pagination).then(res => {
         this.loadingExportFile = false;
         if (res.code === 0) {
-          window.open(process.env.VUE_APP_BASE_URL + res.data);
+					var tempPage = window.open("", "_blank");
+					tempPage.location = process.env.VUE_APP_BASE_URL + res.data;
         }
       });
     }

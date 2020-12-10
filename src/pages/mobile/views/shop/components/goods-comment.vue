@@ -1,34 +1,35 @@
 <template>
 	<div class="goodsComment">
 		<div class="assessUser">用户评价</div>
-		<div v-if="model.list.length>0">
-			<div class="assess" v-for="item in model.list" :key="item.id">
-				<div class="percent">
-					<p>好评度：{{(item.score * 20) + '%'}}</p>
-					<van-rate v-model="item.score" readonly :size="25" color="#ffd21e" void-icon="star" void-color="#eee" />
+		<van-list  :finished="finished" finished-text="没有更多了" @load="onLoad">
+			<div class="list" v-if="model.list.length>0">
+				<div class="assess" v-for="item in model.list" :key="item.id">
+					<div class="percent">
+						<p>好评度：{{(item.score * 20) + '%'}}</p>
+						<van-rate v-model="item.score" readonly :size="25" color="#ffd21e" void-icon="star" void-color="#eee" />
+					</div>
+					<ul>
+						<li>
+							<div class="userDesc">
+								<van-image round width=".6rem" height=".6rem" :src="getAvatar(item.avatar)" />
+								<div class="userIntro">
+									<p class="name">用户名:{{ item.name }}</p>
+									<p class="date">	<span class="commentDtime">{{ parseTime(item.create_date) }}</span></p>
+								</div>
+							</div>
+							<p class="desc">{{ item.goods_cont }}</p>
+							<div class="assessDesc"   @click="showGoodsImgModal()">
+								<div class="assessDescImg"  
+								 v-for="(imgItem,index) in item.imgList" :key="imgItem + '_' + index" >
+									<img :src="baseUrl + imgItem"  alt="">
+								</div>
+							</div>
+						</li>
+					</ul>
 				</div>
-				<ul>
-					<li>
-						<div class="userDesc">
-							<van-image round width=".6rem" height=".6rem" :src="getAvatar(item.avatar)" />
-							<div class="userIntro">
-								<p class="name">用户名:{{ item.name }}</p>
-								<p class="date">	<span class="commentDtime">{{ parseTime(item.create_date) }}</span></p>
-							</div>
-						</div>
-						<p class="desc">{{ item.goods_cont }}</p>
-						<div class="assessDesc">
-							<div class="assessDescImg"
-							 v-for="(imgItem,index) in item.imgList" :key="imgItem + '_' + index" @click="showImg(imgItem, item.imgList)">
-								<img :src="baseUrl + imgItem"   alt="">
-							</div>
-						</div>
-					</li>
-				</ul>
-				<div class="btn">查看全部</div>
 			</div>
-		</div>
-		<div v-else><van-empty description="暂无数据" /></div>
+			<div v-else><van-empty description="暂无数据" /></div>
+		</van-list>
 		<!-- 用户评价 end -->
 	</div>
 </template>
@@ -56,6 +57,8 @@
 				defImg: `this.src='/img/usernull.png'`,
 				showImgModal: false,
 				loading: false,
+				finished: false,
+				imgCarouselList:[],
 				model: {
 					current: "1",
 					pageSize: "10",
@@ -65,15 +68,18 @@
 					isPaging: true,
 					isShow: '1',
 					total: "0",
+					imgs:[],
 					list: []
 				}
 			};
 		},
 		mounted() {
 			this.loadData();
-			this.showGoodsImgModal();
 		},
 		methods: {
+			onLoad(){
+				this.loadData()
+			},
 			loadData() {
 				var vm = this;
 				this.loading = true
@@ -89,19 +95,17 @@
 								this.$set(item, 'imgList', [])
 							}
 							item.cont = item.cont.replace(/\n/g, '<br>')
+							this.model.imgs = item.imgList;
 						})
 					}
 				})
 			},
-			showGoodsImgModal() {
-				// let imgList = this.model.list.imgList.map(i => {
-				// 	return this.baseUrl + i
-				// })
-				// ImagePreview(imgList);
-			},
-			setPage(pageNum) {
-				this.model.current = pageNum;
-				this.loadData();
+			showGoodsImgModal(imgUrl) {
+				let imgList = this.model.imgs.map(i => {
+					return this.baseUrl + i
+				})
+				this.imgCarouselList = imgList;
+				ImagePreview(imgList);
 			},
 			getAvatar(record) {
 				if (record) {
@@ -113,17 +117,6 @@
 				} else {
 					return "/img/usernull.png";
 				}
-			},
-			showImg(imgUrl, imgList) {
-				this.showImgModal = true;
-				this.$nextTick(() => {
-					setTimeout(() => {
-						this.loadData(imgUrl, imgList);
-					}, 200);
-				});
-			},
-			showImgClose() {
-				this.showImgModal = false;
 			},
 			parseTime(time) {
 				return utils.parseTime(time, "{y}-{m}-{d}");
@@ -140,6 +133,7 @@
 		box-sizing: border-box;
 		padding-bottom: .3rem;
 		.assess {
+			margin-top: .2rem;
 			.percent {
 				display: flex;
 				justify-content: space-between;

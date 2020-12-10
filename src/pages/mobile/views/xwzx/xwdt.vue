@@ -119,25 +119,14 @@ export default {
                 flex-direction: column;
                 justify-content: space-between;
 					.dtime{
-						margin-top: .25rem;
-						margin-left: 0.1rem;
-						height: .17rem;
-						font-family: MicrosoftYaHei;
 						font-size: .22rem;
-						font-weight: normal;
-						font-stretch: normal;
-						letter-spacing: 0px;
 						color: #666666;
 					}
 				.intro{
 					.introTitle{
                         width: 3.37rem;
                         font-weight: bold;
-                        font-family: MicrosoftYaHei;
                         font-size: .28rem;
-                        font-weight: normal;
-                        font-stretch: normal;
-                        letter-spacing: 0px;
                         color: #004930;
                         text-overflow: ellipsis;
 						-webkit-box-orient: vertical;
@@ -147,10 +136,8 @@ export default {
 					}
 					.introCont{
 						width: 3.61rem;
-						font-family: MicrosoftYaHei;
 						font-size: .22rem;
 						line-height: .32rem;
-						letter-spacing: 0px;
 						color: #666666;
 					}
 				}

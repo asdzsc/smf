@@ -47,9 +47,9 @@
 
 <style lang="less" scoped>
 	.grjn {
-		background: url("/img/pc/03_banner11.png") no-repeat center center;
-		background-size: cover;
-		height: 4677px;
+		background: url("/img/pc/03_banner11.png") no-repeat;
+		background-position-x: center;
+		padding-bottom: 200px;
 		.moreBtn {
 			font-size: 20px;
 			line-height: 20px;

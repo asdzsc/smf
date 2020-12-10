@@ -67,7 +67,7 @@ export default [
     path: "/mark/grjn-08",
     name: "/mark/grjn-08",
     meta: {
-      title: "纪念馆模板8--白衣天使"
+      title: "纪念馆模板8-白衣天使"
     },
     component: () => import("@/pages/pc/views/mark/grjn/grjn-08.vue"),
   },

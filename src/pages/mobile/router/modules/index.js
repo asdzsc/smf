@@ -5,32 +5,32 @@ import shop from "./shop"; //商城
 import member from "./member"; //个人中心
 
 export default [{
-        path: "/login",
-        name: "/login",
-        meta: {
-            title: "登录"
-        },
-        component: () =>
-            import ("@/pages/mobile/views/sso/login.vue")
-    },
-    {
-        path: "/register",
-        name: "/register",
-        meta: {
-            title: "注册"
-        },
-        component: () =>
-            import ("@/pages/mobile/views/sso/register.vue")
-    },
-    {
-        path: "/find-pwd",
-        name: "/find-pwd",
-        meta: {
-            title: "忘记密码"
-        },
-        component: () =>
-            import ("@/pages/mobile/views/sso/find-pwd.vue")
-    },
+		path: "/login",
+		name: "/login",
+		meta: {
+			title: "登录"
+		},
+		component: () =>
+			import("@/pages/mobile/views/sso/login.vue")
+	},
+	{
+		path: "/register",
+		name: "/register",
+		meta: {
+			title: "注册"
+		},
+		component: () =>
+			import("@/pages/mobile/views/sso/register.vue")
+	},
+	{
+		path: "/find-pwd",
+		name: "/find-pwd",
+		meta: {
+			title: "忘记密码"
+		},
+		component: () =>
+			import("@/pages/mobile/views/sso/find-pwd.vue")
+	},
 	{
 		path: "/pay/alipay-pay",
 		name: "/pay/alipay-pay",
@@ -47,38 +47,38 @@ export default [{
 		},
 		component: () => import("@/pages/mobile/views/pay/return_url.vue")
 	},
-    {
-        path: "/",
-        name: "mobile-home",
-        meta: {
-            title: "首页"
-        },
-        redirect: "/index",
-        component: () =>
-            import ("@/pages/mobile/layouts/mobile-main.vue"),
-        children: [{
-                path: "/index",
-                name: "/index",
-                meta: {
-                    title: "首页"
-                },
-                component: () =>
-                    import ("@/pages/mobile/views/index.vue")
-            },
-            {
-                path: "/lxwm",
-                name: "/lxwm",
-                meta: {
-                    title: "联系我们"
-                },
-                component: () =>
-                    import ("@/pages/mobile/views/lxwm.vue")
-            },
-            ...gywm,
-            ...zxfw,
-            ...xwzx,
-            ...member,
-            ...shop
-        ]
-    }
+	{
+		path: "/",
+		name: "mobile-home",
+		meta: {
+			title: "首页"
+		},
+		redirect: "/index",
+		component: () =>
+			import("@/pages/mobile/layouts/mobile-main.vue"),
+		children: [{
+				path: "/index",
+				name: "/index",
+				meta: {
+					title: "首页"
+				},
+				component: () =>
+					import("@/pages/mobile/views/index.vue")
+			},
+			{
+				path: "/lxwm",
+				name: "/lxwm",
+				meta: {
+					title: "联系我们"
+				},
+				component: () =>
+					import("@/pages/mobile/views/lxwm.vue")
+			},
+			...gywm,
+			...zxfw,
+			...xwzx,
+			...member,
+			...shop
+		]
+	}
 ];

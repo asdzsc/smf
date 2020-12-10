@@ -170,7 +170,6 @@
 		.cont {
 			.list {
 				margin: .6rem 0 .4rem .4rem;
-
 				.showLoading {
 					position: absolute;
 					left: 50%;

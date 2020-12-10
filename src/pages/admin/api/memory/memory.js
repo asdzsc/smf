@@ -8,10 +8,26 @@ export function getMemoryList(param) {
     data: param
   });
 }
+// 个人纪念馆详情
+export function getMemoryInfo(param) {
+  return request({
+    url: "/api/memory/info/getMemoryInfo",
+    method: "post",
+    data: param
+  });
+}
 // 修改纪念馆信息状态
 export function setMemoryStatus(param) {
   return request({
     url: "/api/memory/info/setMemoryStatus",
+    method: "post",
+    data: param
+  });
+}
+// 保存个人主页信息
+export function saveMemoryInfo(param) {
+  return request({
+    url: "/api/memory/info/saveMemoryInfo",
     method: "post",
     data: param
   });
@@ -24,3 +40,43 @@ export function delMemory(param) {
     data: param
   });
 }
+
+// 查看激活码列表
+export function getMemoryActiveList(param) {
+  return request({
+    url: "/api/memory/active/getMemoryActiveList",
+    method: "post",
+    data: param
+  });
+}
+
+// 批量生成激活码
+export function saveMemoryActive(param) {
+  return request({
+    url: "/api/memory/active/saveMemoryActive",
+    method: "post",
+    data: param
+  });
+}
+
+// 删除激活码
+export function delMemoryActive(param) {
+  return request({
+    url: "/api/memory/active/delMemoryActive",
+    method: "post",
+    data: param
+  });
+}
+
+// 导出激活码
+export function exportExcel(param) {
+  return request({
+    url: "/api/memory/active/exportExcel",
+    method: "post",
+    data: param
+  });
+}
+
+
+
+

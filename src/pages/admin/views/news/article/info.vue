@@ -72,12 +72,14 @@
           style="width:100%;height:500px;"
         ></script>
       </a-form-model-item>
-
-      <a-form-model-item :wrapper-col="{ span: 14, offset: 4 }">
-        <a-button type="primary" @click="onSubmit">确定</a-button>
-        <a-button @click="onClose" style="margin-left: 10px;">取消</a-button>
-      </a-form-model-item>
     </a-form-model>
+		
+		<div style="height:50px;"></div>
+		<div class="submit-cont">
+			<a-button type="primary" @click="onSubmit">确定</a-button>
+			<a-button @click="onClose" style="margin-left: 10px;">取消</a-button>
+		</div>
+		
   </a-drawer>
 </template>
 <script>
@@ -205,4 +207,15 @@ export default {
   color: #ccc;
   font-size: 12px;
 }
+
+.submit-cont {
+		position: fixed;
+		bottom: 10px;
+		background-color: #ffffff;
+		z-index: 9999;
+		width: 71%;
+		border: 1px solid #eeeeee;
+		text-align: center;
+		padding: 10px;
+	}
 </style>

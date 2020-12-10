@@ -10,6 +10,11 @@ import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.css";
 Vue.use(Antd);
 
+// swiper
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
+
+Vue.use(VueAwesomeSwiper, /* { default global options } */ )
 
 
 import NProgress from "nprogress";
@@ -27,18 +32,18 @@ Vue.use(VueClipboard);
 import VueAMap from "vue-amap";
 Vue.use(VueAMap);
 VueAMap.initAMapApiLoader({
-  key: "128d83dd425d1ef0aa8d1f0663e14ede",
-  plugin: [
-    "AMap.Autocomplete",
-    "AMap.PlaceSearch",
-    "AMap.Scale",
-    "AMap.OverView",
-    "AMap.ToolBar",
-    "AMap.MapType",
-    "AMap.PolyEditor",
-    "AMap.CircleEditor"
-  ],
-  v: "1.4.9"
+    key: "128d83dd425d1ef0aa8d1f0663e14ede",
+    plugin: [
+        "AMap.Autocomplete",
+        "AMap.PlaceSearch",
+        "AMap.Scale",
+        "AMap.OverView",
+        "AMap.ToolBar",
+        "AMap.MapType",
+        "AMap.PolyEditor",
+        "AMap.CircleEditor"
+    ],
+    v: "1.4.9"
 });
 
 import VideoPlayer from "vue-video-player";
@@ -54,15 +59,15 @@ Vue.use(VideoPlayer);
 
 //系统错误捕获
 const errorHandler = (error, vm) => {
-  console.error("抛出全局异常");
-  console.error(vm);
-  console.error(error);
+    console.error("抛出全局异常");
+    console.error(vm);
+    console.error(error);
 };
 Vue.config.errorHandler = errorHandler;
 Vue.prototype.$throw = error => errorHandler(error, this);
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount("#app");

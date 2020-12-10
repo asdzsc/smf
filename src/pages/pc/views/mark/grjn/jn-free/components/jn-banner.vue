@@ -36,11 +36,9 @@
 
 <style lang="less" scoped>
 	.banner {
-		// height: 880px;
+		height: 880px;
 		display: flex;
 		justify-content: center;
-		// align-items: center;
-
 		.bannerTitle {
 			width: 768px;
 			height: 613px;

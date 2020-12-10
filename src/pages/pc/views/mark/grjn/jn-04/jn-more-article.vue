@@ -1,6 +1,6 @@
 <template>
 	<div class="grjn">
-		<jnBanner style="height: 820px;"></jnBanner>
+		<jnBanner></jnBanner>
 		<jn-article></jn-article>
 	</div>
 </template>
@@ -21,8 +21,8 @@
 
 <style lang="less" scoped>
 	.grjn {
-		background-image: url("/img/pc/04_banner.png");
-		background-repeat: no-repeat;
-		background-size: 100% auto;
+		background: url("/img/pc/04_banner.png") no-repeat;
+		background-position-x: center;
+		padding-bottom: 200px;
 	}
 </style>

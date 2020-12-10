@@ -3,7 +3,7 @@
 		<div class="title">
 			 <p>纪念</p>
 			 <span>★</span>
-			 <p>视频	</p>
+			 <p>视频</p>
 		</div>
 		<div class="videoInfo">
 			<a-spin size="large" tip="加载中..." :spinning="loading">
@@ -42,7 +42,7 @@
  
 				</div>
 			</a-spin>
-			<paging ref="paging" @setPage="setPage"></paging>
+			<paging v-if="paginghide" ref="paging" @setPage="setPage"></paging>
 		</div>
 	</div>
 </template>
@@ -57,6 +57,7 @@
 				baseUrl: process.env.VUE_APP_BASE_URL,
 				defImg: 'this.src="/img/zwtp.jpg"',
 				loading: false,
+				paginghide:true,
 				model: {
 					current: "1",
 					pageSize: "8",
@@ -65,6 +66,16 @@
 				}
 			};
 		},
+		watch: {
+		   $route: {
+		    handler: function(route) {
+		     if (route.path.split("-")[0] == "/mark/grjn") {
+		      this.paginghide = false;
+		     }
+		    },
+		    immediate: true
+		   }
+		  },
 		methods: {
 			setPage() {
 

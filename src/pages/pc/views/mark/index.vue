@@ -1,281 +1,303 @@
 <template>
-	<div class="home">
-		<div class="carousel">
-			<!-- :autoplay="true" -->
-			<a-carousel :dot-position="'right'" arrows>
-				<div class="carouselBox">
-					<img class="carouselImg" src="/img/pc/banner.png" alt="">
-					<div class="carouselDesc">
-						<p class="carouselDescInfo">追思缅怀亲人的专属空间 </p>
-						<p class="carouselDescTitle">网 上 纪 念 馆</p>
-						<p class="carouselDescInfo1">让爱与思念没有距离，让生命的故事永久流传</p>
-						<div class="searchBtn">
-							查找纪念馆
-						</div>
-					</div>
-				</div>
-				<div><img src="/img/banner.jpg" alt=""></div>
-			</a-carousel>
-		</div>
-		<div class="cont">
-			<div class="title">
-				<p class="titleName">名 人 先 贤</p>
-				<p class="titleDesc">整理记录名人先贤生命故事，追忆他们的卓越功绩，让名人精神千古流传</p>
-				<div class="searchBtn" style="margin: 0 auto;">
-					查找名人
-				</div>
-			</div>
-			<div class="introImgs">
-				<div class="imgItem">
-					<img src="/img/pc/home_1.png" />
-				</div>
-				<div class="imgItem">
-					<img src="/img/pc/home_2.png" />
-				</div>
-				<div class="imgItem">
-					<img src="/img/pc/home_3.png" />
-				</div>
-				<div class="imgItem">
-					<img src="/img/pc/home_4.png" />
-				</div>
-				<div class="imgItem">
-					<img src="/img/pc/home_5.png" />
-				</div>
-				<div class="imgItem">
-					<img src="/img/pc/home_6.png" />
-				</div>
-			</div>
-		</div>
-		<div class="cont1">
-			<div class="title">
-				<p class="titleName">革 命 先 烈</p>
-				<p class="titleDesc">
-					让爱与思念没有距离那些曾经在风雨如磐的日子里为了理想、信念，<br>
-					为了民族和国家的美好明天而抛头颅洒热血的革命先烈们<br>
-					如一座座丰碑永远展现在我们面前</p>
-				<div class="searchBtn">
-					查找先烈
-				</div>
-			</div>
-		</div>
-		<div class="cont2">
-			<div class="title">
-				<p class="titleName">全方位服务<br>让您轻松享受便捷网上纪念服务</p>
-				<p class="titleDesc">海量模版为您的“他/她”快捷创建网上纪念馆</p>
-				<div class="searchBtn">
-					创建纪念馆
-				</div>
-			</div>
-		</div>
-		<div class="cont3">
-			<div class="title">
-				<p class="titleName">寻 根 问 祖</p>
-				<p class="titleDesc">
-					你是谁？你从哪里来？ <br>
-					在这里，你将追根溯源，找到你想要知道的答案
-				</p>
-				<div class="searchBtn">
-					查找族谱
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="home">
+    <div class="carousel">
+      <!-- :autoplay="true" -->
+      <div class="carouselWrap" v-swiper:mySwiper="swiperOption">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide carouselBox swipera">
+            <img class="carouselImg" src="/img/pc/banner.png" alt="" />
+            <div class="carouselDesc">
+              <p class="carouselDescInfo">追思缅怀亲人的专属空间</p>
+              <p class="carouselDescTitle">网 上 纪 念 馆</p>
+              <p class="carouselDescInfo1">
+                让爱与思念没有距离，让生命的故事永久流传
+              </p>
+              <div class="searchBtn">
+                查找纪念馆
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide carouselBox swipera">
+            <img class="carouselImg" src="/img/banner.jpg" alt="" />
+          </div>
+        </div>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </div>
+    </div>
+    <div class="cont">
+      <div class="title">
+        <p class="titleName">名 人 先 贤</p>
+        <p class="titleDesc">
+          整理记录名人先贤生命故事，追忆他们的卓越功绩，让名人精神千古流传
+        </p>
+        <div class="searchBtn" style="margin: 0 auto;">
+          查找名人
+        </div>
+      </div>
+      <div class="introImgs">
+        <div class="imgItem">
+          <img src="/img/pc/home_1.png" />
+        </div>
+        <div class="imgItem">
+          <img src="/img/pc/home_2.png" />
+        </div>
+        <div class="imgItem">
+          <img src="/img/pc/home_3.png" />
+        </div>
+        <div class="imgItem">
+          <img src="/img/pc/home_4.png" />
+        </div>
+        <div class="imgItem">
+          <img src="/img/pc/home_5.png" />
+        </div>
+        <div class="imgItem">
+          <img src="/img/pc/home_6.png" />
+        </div>
+      </div>
+    </div>
+    <div class="cont1">
+      <div class="title">
+        <p class="titleName">革 命 先 烈</p>
+        <p class="titleDesc">
+          让爱与思念没有距离那些曾经在风雨如磐的日子里为了理想、信念，<br />
+          为了民族和国家的美好明天而抛头颅洒热血的革命先烈们<br />
+          如一座座丰碑永远展现在我们面前
+        </p>
+        <div class="searchBtn">
+          查找先烈
+        </div>
+      </div>
+    </div>
+    <div class="cont2">
+      <div class="title">
+        <p class="titleName">全方位服务<br />让您轻松享受便捷网上纪念服务</p>
+        <p class="titleDesc">海量模版为您的“他/她”快捷创建网上纪念馆</p>
+        <div class="searchBtn">
+          创建纪念馆
+        </div>
+      </div>
+    </div>
+    <div class="cont3">
+      <div class="title">
+        <p class="titleName">寻 根 问 祖</p>
+        <p class="titleDesc">
+          你是谁？你从哪里来？ <br />
+          在这里，你将追根溯源，找到你想要知道的答案
+        </p>
+        <div class="searchBtn">
+          查找族谱
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-
-			};
-		}
-	};
+export default {
+  data() {
+    return {
+      //banner轮播
+      swiperOption: {
+        loop: true, //循环
+        direction: "vertical", //纵向轮播
+        observer: true, //修改swiper自己或子元素时，自动初始化swiper
+        observeParents: true, //修改swiper的父元素时，自动初始化swiper
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        }, //圆点
+        autoplay: true,//自动轮播
+      },
+    };
+  },
+};
 </script>
 
 <style lang="less" scoped>
-	.home {
-		.searchBtn {
-			width: 200px;
-			height: 40px;
-			background-color: #00754e;
-			text-align: center;
-			line-height: 40px;
-			color: #fff;
-			cursor: pointer;
-		}
+.home {
+  .searchBtn {
+    width: 200px;
+    height: 40px;
+    background-color: #00754e;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    cursor: pointer;
+  }
 
-		.carousel {
-			.carouselBox {
-				position: relative;
+  .carouselWrap {
+    height: 603px;
+    .carouselBox {
+      .carouselImg {
+        width: 100%;
+        height: 100%;
+      }
+      .carouselDesc {
+        position: absolute;
+        left: 7%;
+        top: 35%;
+        color: #fff;
 
-				.carouselDesc {
-					position: absolute;
-					left: 7%;
-					top: 35%;
-					color: #fff;
+        .carouselDescInfo {
+          font-size: 32px;
+          line-height: 28px;
+          letter-spacing: 3px;
+        }
 
-					.carouselDescInfo {
-						font-size: 32px;
-						line-height: 28px;
-						letter-spacing: 3px;
-					}
+        .carouselDescTitle {
+          font-size: 60px;
+          line-height: 28px;
+          letter-spacing: 3px;
+        }
 
-					.carouselDescTitle {
-						font-size: 60px;
-						line-height: 28px;
-						letter-spacing: 3px;
-					}
+        .carouselDescInfo1 {
+          font-size: 24px;
+          line-height: 28px;
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
 
-					.carouselDescInfo1 {
-						font-size: 24px;
-						line-height: 28px;
-						letter-spacing: 1px;
-					}
-				}
-			}
+  .cont {
+    margin: 0 auto;
+    width: 1240px;
 
-		}
+    .title {
+      text-align: center;
+      margin-top: 110px;
 
-		.cont {
-			margin: 0 auto;
-			width: 1240px;
+      .titleName {
+        font-size: 60px;
+        font-weight: bold;
+        line-height: 28px;
+        letter-spacing: 6px;
+        color: #333333;
+      }
 
-			.title {
-				text-align: center;
-				margin-top: 110px;
+      .titleDesc {
+        font-size: 24px;
+        line-height: 28px;
+        letter-spacing: 1px;
+        color: #666666;
+      }
+    }
 
-				.titleName {
-					font-size: 60px;
-					font-weight: bold;
-					line-height: 28px;
-					letter-spacing: 6px;
-					color: #333333;
-				}
+    .introImgs {
+      margin-top: 50px;
+      display: inline-block;
 
-				.titleDesc {
-					font-size: 24px;
-					line-height: 28px;
-					letter-spacing: 1px;
-					color: #666666;
-				}
-			}
+      .imgItem {
+        width: 400px;
+        height: 260px;
+        float: left;
+        margin-right: 20px;
+        margin-bottom: 20px;
 
-			.introImgs {
-				margin-top: 50px;
-				display: inline-block;
+        &:nth-child(3n + 3) {
+          margin-right: 0px;
+        }
 
-				.imgItem {
-					width: 400px;
-					height: 260px;
-					float: left;
-					margin-right: 20px;
-					margin-bottom: 20px;
+        img {
+          width: 400px;
+          height: 260px;
+        }
+      }
+    }
+  }
 
-					&:nth-child(3n + 3) {
-						margin-right: 0px;
-					}
+  .cont1 {
+    position: relative;
+    margin-top: 70px;
+    height: 980px;
+    background: url("/img/pc/banner1.png") no-repeat center center;
+    background-size: cover;
 
-					img {
-						width: 400px;
-						height: 260px;
-					}
-				}
-			}
-		}
+    .title {
+      position: absolute;
+      color: #ffffff;
+      left: 7%;
+      top: 20%;
 
-		.cont1 {
-			position: relative;
-			margin-top: 70px;
-			height: 980px;
-			background: url("/img/pc/banner1.png") no-repeat center center;
-			background-size: cover;
+      .titleName {
+        font-size: 60px;
+        line-height: 28px;
+        letter-spacing: 2px;
+      }
 
-			.title {
-				position: absolute;
-				color: #ffffff;
-				left: 7%;
-				top: 20%;
+      .titleDesc {
+        font-size: 24px;
+        letter-spacing: 1px;
+      }
+    }
+  }
 
-				.titleName {
-					font-size: 60px;
-					line-height: 28px;
-					letter-spacing: 2px;
-				}
+  .cont2,
+  .cont3 {
+    margin-top: 70px;
+    position: relative;
+    height: 980px;
+    background: url("/img/pc/banner2.png") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-				.titleDesc {
-					font-size: 24px;
-					letter-spacing: 1px;
-				}
-			}
-		}
+    .title {
+      position: absolute;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
 
-		.cont2,.cont3 {
-			margin-top: 70px;
-			position: relative;
-			height: 980px;
-			background: url("/img/pc/banner2.png") no-repeat center center;
-			background-size: cover;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+      .titleName {
+        font-size: 46px;
+        font-weight: bold;
+        line-height: 66px;
+        letter-spacing: 2px;
+        color: #333333;
+      }
 
-			.title {
-				position: absolute;
-				text-align: center;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				flex-direction: column;
+      .titleDesc {
+        font-size: 24px;
+        line-height: 66px;
+        letter-spacing: 1px;
+        color: #666666;
+        margin-top: 0;
+      }
+    }
+  }
+  .cont3 {
+    background: url("/img/pc/banner3.png") no-repeat center center;
+    background-size: cover;
+    align-items: inherit;
+    height: 980px;
+    position: relative;
+    .title {
+      position: absolute;
+      top: 15%;
+      .titleName {
+        color: #fff;
+        line-height: 28px;
+      }
+      .titleDesc {
+        color: #fff;
+        line-height: 36px;
+      }
+    }
+  }
+  .slick-slide {
+    width: 100%;
+    height: calc(100vh - 70px);
+    text-align: center;
+    overflow: hidden;
 
-				.titleName {
-					font-size: 46px;
-					font-weight: bold;
-					line-height: 66px;
-					letter-spacing: 2px;
-					color: #333333;
-				}
-
-				.titleDesc {
-					font-size: 24px;
-					line-height: 66px;
-					letter-spacing: 1px;
-					color: #666666;
-					margin-top: 0;
-				}
-			}
-		}
-		.cont3{
-			background: url("/img/pc/banner3.png") no-repeat center center;
-			background-size: cover;
-			align-items: inherit;
-			height: 980px;
-			position: relative;
-			.title{
-				
-				position: absolute;
-				top: 15%;
-				.titleName {
-				color: #fff;	
-				line-height: 28px;
-				}
-				.titleDesc {
-					color: #fff;	
-					line-height: 36px;
-				}
-				
-			}
-		}
-		.slick-slide {
-			width: 100%;
-			height: calc(100vh - 70px);
-			text-align: center;
-			overflow: hidden;
-
-			img {
-				display: block;
-				width: 100%;
-				height: calc(100vh - 70px);
-			}
-		}
-	}
+    img {
+      display: block;
+      width: 100%;
+      height: calc(100vh - 70px);
+    }
+  }
+}
 </style>

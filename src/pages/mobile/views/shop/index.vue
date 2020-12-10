@@ -1,6 +1,5 @@
 <template>
 	<div class="index">
-		
 		<van-tabs v-model="active" color="#004930" scrollspy sticky>
 			<div class='banner' v-for="item in banners" :key="item.id" @click="openUrl(item.phoneUrl)">
 				<img :src="baseUrl + item.phoneImg" alt="">
@@ -10,7 +9,6 @@
 				<div class="more"><a href="/mobile/#/shop/more">查看更多</a></div>
 			</div>
 			<!-- vr实景选墓 start -->
-		
 			<div class="vrxuanmu">
 				<div class="xuanbeiBox">
 					<div class="item">
@@ -38,7 +36,7 @@
 			<van-tab :title="'鲜花推荐'">
 				<div class="contHead">
 					<div class="contTitle">鲜花推荐</div>
-					<div class="more">查看更多</div>
+					<!-- <div class="more">查看更多</div> -->
 				</div>
 				<ul class="xhtj" v-if="xhAllList.length > 0">
 					<li v-for="item in xhAllList" :key="item.id" @click="openGoodsInfo(item)" class="v_item">
@@ -60,7 +58,7 @@
 			<van-tab :title="'代客祭扫'">
 				<div class="contHead">
 					<div class="contTitle">代客祭扫</div>
-					<div class="more">查看更多</div>
+					<!-- <div class="more">查看更多</div> -->
 				</div>
 				<ul class="xhtj dkjs" v-if="dkjsList.length > 0">
 					<li class="v_item" v-for="item in dkjsList" :key="item.id" @click="openGoodsInfo(item)">
@@ -481,7 +479,7 @@
 
 		.custom-indicator {
 			right: 1%;
-			bottom: 40%;
+			bottom: 43%;
 			font-size: .5rem;
 			color: #fff;
 		}
@@ -489,6 +487,7 @@
 		.lyfw {
 			margin: auto .14rem;
 			padding-bottom: .2rem;
+			margin-bottom: .2rem;
 			background-color: #ffffff;
 			box-shadow: 0px 0px 10px 0px rgba(143, 143, 143, 0.5), 0px 0px 10px 0px rgba(143, 143, 143, 0.5);
 
@@ -522,11 +521,10 @@
 			.buy {
 				display: flex;
 				justify-content: space-between;
-				height: .60rem;
 				align-items: center;
 				width: 95%;
 				margin: 0 auto;
-
+				margin-top: .2rem;
 				.price {
 					color: #d54040;
 					font-size: .22rem;

@@ -327,7 +327,8 @@ export default {
       exportExcel({ id: item.id }).then(res => {
         this.$message.destroy();
         if (res.code === 0) {
-          window.open(process.env.VUE_APP_BASE_URL + res.data);
+					var tempPage = window.open("", "_blank");
+					tempPage.location = process.env.VUE_APP_BASE_URL + res.data;
         }
       });
     },

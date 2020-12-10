@@ -40,19 +40,42 @@
 							</span>
 						</template>
 						<template slot="action" slot-scope="record">
-							<a-button title="编辑" icon="edit" shape="round" type="primary" size="small" @click="edit(record)" />
-							&nbsp;
-							<a-button title="删除" icon="delete" shape="round" type="danger" size="small" :disabled="record.adminType === 'sys' ? true : false"
-							 @click="del([record.id])" />
+							<a-dropdown>
+								<a-menu slot="overlay">
+									<a-menu-item @click="edit(record)">
+										<a-icon type="edit" />编辑
+									</a-menu-item>
+									<a-menu-item>
+										<a-icon type="qrcode" />二维码
+									</a-menu-item>
+									<a-menu-item>
+										<a-icon type="file-image" />纪念相册
+									</a-menu-item>
+									<a-menu-item>
+										<a-icon type="message" />祭奠留言
+									</a-menu-item>
+									<a-menu-item>
+										<a-icon type="profile" />纪念文章
+									</a-menu-item>
+									<a-menu-item>
+										<a-icon type="video-camera" />纪念视频
+									</a-menu-item>
+									<a-menu-item @click="del([record.id])" style="color:#ff7875;">
+										<a-icon type="delete" />删除
+									</a-menu-item>
+								</a-menu>
+								<a-button title="更多" shape="round" type="primary" size="small">
+									操作&nbsp;&nbsp;
+									<a-icon type="down" />
+								</a-button>
+							</a-dropdown>
 						</template>
 					</a-table>
-					<articleInfo v-if="showInfo" :id="infoId" ref="roleInfo" @onClose="infoClose"></articleInfo>
 				</div>
 			</a-col>
 		</a-row>
 
-		<articleInfo v-if="showInfo" :id="infoId" ref="roleInfo" @onClose="infoClose"></articleInfo>
-		<goodsInfo v-if="showGoodsInfo" :id="goodsinfoId" ref="goodsInfo" @onClose="goodsInfoClose"></goodsInfo>
+		<info v-if="showInfo" :id="infoId" ref="info" @onClose="infoClose"></info>
 		<showImg v-if="showImgModal" ref="showImg" @onClose="showImgClose"></showImg>
 	</a-card>
 </template>
@@ -71,8 +94,7 @@
 
 	export default {
 		components: {
-			articleInfo: () => import("@/pages/admin/views/news/article/info"),
-			goodsInfo: () => import("@/pages/admin/views/shop/goods/info"),
+			info: () => import("@/pages/admin/views/memory/info/info"),
 			showImg: () => import("@/pages/admin/components/show-img/show-img.vue")
 		},
 		data() {
@@ -146,8 +168,6 @@
 				],
 				showInfo: false,
 				infoId: "",
-				showGoodsInfo: false,
-				goodsinfoId: '',
 				showImgModal: false
 			};
 		},
@@ -303,7 +323,7 @@
 	.operator {
 		margin-bottom: 18px;
 	}
-	
+
 	.fmImg {
 		min-width: 40px;
 		min-height: 40px;

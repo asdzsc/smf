@@ -83,7 +83,7 @@
 						</div>
 					</div>
 				</div>
-				<div v-if="model.goodsType === '0' || model.goodsType === '3'" class="quantity">
+				<div v-if="model.goodsType === '1' || model.goodsType === '3'" class="quantity">
 					<div class="quantityTitle">数量</div>
 					<div class="goodsNumCont">
 						<div class="goodsNum">
@@ -100,7 +100,7 @@
 					</div>
 				</div>
 
-				<div v-if="model.goodsType === '0'" class="buyCont">
+				<div v-if="model.goodsType === '1'" class="buyCont">
 					<div @click.stop="addCart()" class="buyLeft">加入购物车</div>
 					<div @click.stop="openConfirmOrder()" class="buyRight">
 						立即购买

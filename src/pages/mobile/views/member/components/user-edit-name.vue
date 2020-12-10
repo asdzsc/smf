@@ -24,6 +24,7 @@
 		},
 		methods: {
 			onClose(action, done) {
+				console.log(action)
 				if (action === 'confirm') {
 					saveMemberInfo(this.model).then(res => {
 						if (res.code === 0) {

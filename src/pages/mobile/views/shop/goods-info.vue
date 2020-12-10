@@ -1,15 +1,10 @@
 <template>
 	<div class="goodsInfo">
 		<div class="banner">
-			<!-- <ul> -->
-			<!-- <li v-for="item in imgCarouselList" > -->
 			<img :src="goodsImg" alt="">
 			<div @click="showGoodsImgModal()" class="magnify">
 				<van-icon name="search" class="search" />
 			</div>
-			<!-- </li> -->
-			<!-- </ul> -->
-
 		</div>
 		<!-- 商品价格 start -->
 		<div class="goodsPrice">
@@ -23,6 +18,7 @@
 			</div>
 		</div>
 		<!-- 商品价格 end-->
+		<!-- 规格选择 start-->
 		<div v-if="model.isSpec === '1'" class="goodsChoose">
 			<div v-for="item in specNameList" :key="item.id" class="specList">
 				<div class="specName">
@@ -52,43 +48,8 @@
 				</div>
 			</div>
 		</div>
+		<!-- 规格选择 end-->
 		<!-- 用户评价 start -->
-		<!-- 		<div class="assess">
-			<div class="assessUser">用户评价（26）</div>
-			<div class="percent">
-				<p>好评度：100%</p>
-				<van-rate v-model="value" :size="25" color="#ffd21e" void-icon="star" void-color="#eee" />
-			</div>
-			<div class="userDesc">
-				<van-image round width=".6rem" height=".6rem" src="/img/mobile/head.png" />
-				<div class="userIntro">
-					<p class="name">用户名</p>
-					<p class="date">2020年07月26日，购买了标准套餐</p>
-				</div>
-			</div>
-			<div class="assessDesc">
-				<p>产品非常好，服务贴心，客服人员很专业！</p>
-				<div class="assessDescImg">
-					<img src="/img/mobile/assess1.png" alt="">
-					<img src="/img/mobile/assess1.png" alt="">
-				</div>
-			</div>
-			<div class="userDesc">
-				<van-image round width=".6rem" height=".6rem" src="/img/mobile/head.png" />
-				<div class="userIntro">
-					<p class="name">用户名</p>
-					<p class="date">2020年07月26日，购买了标准套餐</p>
-				</div>
-			</div>
-			<div class="assessDesc">
-				<p>产品非常好，服务贴心，客服人员很专业！</p>
-				<div class="assessDescImg">
-					<img src="/img/mobile/assess1.png" alt="">
-					<img src="/img/mobile/assess1.png" alt="">
-				</div>
-			</div>
-			<div class="btn">查看全部</div>
-		</div> -->
 		<goodsComment v-if="model.id" :goodsId="model.id"></goodsComment>
 		<!-- 用户评价 end -->
 		<!-- 商品详情 start -->
@@ -98,13 +59,6 @@
 				
 			</div>
 			<div v-else><van-empty description="暂无数据" /></div>
-			<!-- 			<div class="detailTitle">产品详情</div>
-			<div class="detailDesc">
-				<p> 主要花材：<br>
-					白菊，香槟玫瑰，黄菊，黄莺</p>
-				<p class="card">赠品：卡片</p>
-				<img src="/img/mobile/assess2.png" alt="">
-			</div> -->
 		</div>
 		<div class="detailCart">
 			<div class="buy" @click="openConfirmOrder">立即购买</div>
@@ -245,15 +199,6 @@
 				})
 				this.imgCarouselList = imgList;
 				ImagePreview(imgList);
-			},
-			openUrl(url) {
-				if (url) {
-					if (url.indexOf("http") >= 0) {
-						window.location = url;
-					} else {
-						this.$router.push(url);
-					}
-				}
 			},
 			//判断选中规格
 			isCheckSpec(sid, sv) {
