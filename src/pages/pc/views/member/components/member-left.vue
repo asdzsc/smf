@@ -19,7 +19,7 @@ export default {
       list: [
         {
           title: "网上纪念馆",
-          url: ""
+          url: "/mark/home"
         },
         {
           title: "落葬人信息",

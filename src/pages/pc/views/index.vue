@@ -142,7 +142,7 @@
       <div class="jinianBox">
         <div class="title">网上纪念馆</div>
         <div class="jinianList">
-          <div class="item">
+          <div class="item" @click="$router.push('/mark/home')">
             <img src="/img/zhangsan.jpg" alt="" />
             <div class="name">著名曲艺作家、相声表演艺术家</div>
             <div class="intr">夏雨田</div>

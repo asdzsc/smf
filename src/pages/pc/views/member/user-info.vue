@@ -106,7 +106,7 @@
               </a-col>
             </a-row>
           </div>
-					<a-empty v-if="list.length === 0" />
+          <a-empty v-if="list.length === 0" />
         </div>
         <div v-if="!finished" @click="_cemeteryList()" class="moreBtn">
           更多墓址
@@ -155,20 +155,24 @@ import {
   getMemberInfo,
   verifyBindWx,
   saveCemetery,
-  delCemetery
+  delCemetery,
 } from "@/pages/pc/api/user";
 
 export default {
   components: {
-    memberHead: () => import("@/pages/pc/views/member/components/member-head.vue"),
-    memberLeft: () => import("@/pages/pc/views/member/components/member-left.vue"),
-    userEditName: () => import("@/pages/pc/views/member/components/user-edit-name.vue"),
+    memberHead: () =>
+      import("@/pages/pc/views/member/components/member-head.vue"),
+    memberLeft: () =>
+      import("@/pages/pc/views/member/components/member-left.vue"),
+    userEditName: () =>
+      import("@/pages/pc/views/member/components/user-edit-name.vue"),
     userEditMobile: () =>
       import("@/pages/pc/views/member/components/user-edit-mobile.vue"),
-    userEditPwd: () => import("@/pages/pc/views/member/components/user-edit-pwd.vue"),
+    userEditPwd: () =>
+      import("@/pages/pc/views/member/components/user-edit-pwd.vue"),
     cemeteryInfo: () =>
       import("@/pages/pc/views/shop/order/components/cemetery-info.vue"), //添加服务墓址
-    myserve: () => import("@/pages/pc/components/myserve.vue")
+    myserve: () => import("@/pages/pc/components/myserve.vue"),
   },
   data() {
     return {
@@ -182,9 +186,9 @@ export default {
       finished: false,
       model: {
         current: 0,
-        pageSize: 3
+        pageSize: 3,
       },
-      list: []
+      list: [],
     };
   },
   mounted() {
@@ -196,7 +200,7 @@ export default {
   },
   methods: {
     _getMemberInfo() {
-      getMemberInfo().then(res => {
+      getMemberInfo().then((res) => {
         if (res.code === 0) {
           Object.assign(this.user, res.data);
           this.$store.commit("account/setUser", res.data);
@@ -204,7 +208,7 @@ export default {
       });
     },
     _verifyBindWx() {
-      verifyBindWx().then(res => {
+      verifyBindWx().then((res) => {
         if (res.code === 0) {
           this.isBindWx = res.data;
         }
@@ -251,9 +255,10 @@ export default {
     _cemeteryList() {
       if (!this.finished) {
         this.model.current++;
-        cemeteryList(this.model).then(res => {
+        cemeteryList(this.model).then((res) => {
+          console.log(res);
           if (res.code === 0) {
-            res.data.list.forEach(x => {
+            res.data.list.forEach((x) => {
               if (x.isCheck === "1") {
                 this.$set(x, "check", true);
               } else {
@@ -286,7 +291,7 @@ export default {
     //设置默认服务墓址
     saveIsCheck(item) {
       item.isCheck = "1";
-      saveCemetery(item).then(res => {
+      saveCemetery(item).then((res) => {
         if (res.code === 0) {
           this.$message.success("设置成功");
           this.loadCemeteryList();
@@ -305,17 +310,17 @@ export default {
         cancelText: "取消",
         onOk() {
           delCemetery({
-            id: nid
-          }).then(res => {
+            id: nid,
+          }).then((res) => {
             if (res.code === 0) {
               vm.loadCemeteryList();
             }
           });
         },
-        onCancel() {}
+        onCancel() {},
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

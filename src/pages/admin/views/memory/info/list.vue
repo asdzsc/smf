@@ -8,6 +8,8 @@
 				<div class="operator">
 					<a-row type="flex" justify="start">
 						<a-col style="padding-right:10px;">
+							<a-button @click="saveSort()" type="primary" icon="sort-ascending">保存排序</a-button>
+							&nbsp;
 							<a-button @click="add()" type="primary" icon="plus">新增</a-button>
 							&nbsp;
 							<a-button @click="delAll()" icon="delete" type="danger">批量删除</a-button>
@@ -39,16 +41,19 @@
 								{{ record.templateName }}
 							</span>
 						</template>
+						<template slot="sortId" slot-scope="record">
+							<a-input-number :min="0" v-model="record.sortId" @change="changeSort(record)" />
+						</template>
 						<template slot="action" slot-scope="record">
 							<a-dropdown>
 								<a-menu slot="overlay">
 									<a-menu-item @click="edit(record)">
 										<a-icon type="edit" />编辑
 									</a-menu-item>
-									<a-menu-item>
+									<a-menu-item @click="showQrcode(record)">
 										<a-icon type="qrcode" />二维码
 									</a-menu-item>
-									<a-menu-item>
+									<a-menu-item @click="showMediaImg(record)">
 										<a-icon type="file-image" />纪念相册
 									</a-menu-item>
 									<a-menu-item>
@@ -57,7 +62,7 @@
 									<a-menu-item>
 										<a-icon type="profile" />纪念文章
 									</a-menu-item>
-									<a-menu-item>
+									<a-menu-item @click="showMediaVideo(record)">
 										<a-icon type="video-camera" />纪念视频
 									</a-menu-item>
 									<a-menu-item @click="del([record.id])" style="color:#ff7875;">
@@ -77,6 +82,9 @@
 
 		<info v-if="showInfo" :id="infoId" ref="info" @onClose="infoClose"></info>
 		<showImg v-if="showImgModal" ref="showImg" @onClose="showImgClose"></showImg>
+		<memoryQrcode ref="memoryQrcode"></memoryQrcode>
+		<memoryMedia v-if="showMemoryMediaImg" :memoryId="infoId" mediaType="image" ref="memoryMediaImg" @onClose="mediaImgClose"></memoryMedia>
+		<memoryMedia v-if="showMemoryMediaVideo" :memoryId="infoId" mediaType="video" ref="memoryMediaVideo" @onClose="mediaVideoClose"></memoryMedia>
 	</a-card>
 </template>
 
@@ -86,7 +94,8 @@
 	} from "@/pages/admin/api/memory/column";
 	import {
 		getMemoryList,
-		setMemoryStatus
+		setMemoryStatus,
+		saveMemorySort
 	} from "@/pages/admin/api/memory/memory";
 	import {
 		delNews
@@ -95,7 +104,9 @@
 	export default {
 		components: {
 			info: () => import("@/pages/admin/views/memory/info/info"),
-			showImg: () => import("@/pages/admin/components/show-img/show-img.vue")
+			showImg: () => import("@/pages/admin/components/show-img/show-img.vue"),
+			memoryQrcode: () => import("@/pages/admin/views/memory/info/components/info-qrcode.vue"),
+			memoryMedia: () => import("@/pages/admin/views/memory/info/components/info-media.vue")
 		},
 		data() {
 			return {
@@ -151,6 +162,15 @@
 						width: 100
 					},
 					{
+						title: "排序",
+						dataIndex: "",
+						scopedSlots: {
+							customRender: "sortId"
+						},
+						align: "center",
+						width: 100
+					},
+					{
 						title: "创建日期",
 						dataIndex: "createDate",
 						align: "center",
@@ -168,7 +188,9 @@
 				],
 				showInfo: false,
 				infoId: "",
-				showImgModal: false
+				showImgModal: false,
+				showMemoryMediaImg: false, //显示相册附件
+				showMemoryMediaVideo: false //显示视频附件
 			};
 		},
 		mounted() {
@@ -248,6 +270,24 @@
 					onCancel() {}
 				});
 			},
+			//编辑排序
+			changeSort(record) {
+				var query = this.list.filter(x => {
+					return x.id === record.id;
+				});
+				if (query.length > 0) {
+					query[0].sortId = record.sortId;
+				}
+			},
+			//保存排序
+			saveSort() {
+				saveMemorySort(this.list).then(res => {
+					if (res.code === 0) {
+						this.$message.success("数据提交成功");
+						this.getList();
+					}
+				});
+			},
 			add() {
 				this.infoId = "";
 				this.showInfo = true;
@@ -314,6 +354,30 @@
 			},
 			showImgClose() {
 				this.showImgModal = false;
+			},
+			//显示二维码
+			showQrcode(record) {
+				this.$refs.memoryQrcode.loadData(record);
+			},
+			//显示相册附件
+			showMediaImg(record) {
+				this.infoId = record.id
+				this.showMemoryMediaImg = true
+			},
+			mediaImgClose() {
+				this.$nextTick(() => {
+					this.showMemoryMediaImg = false
+				})
+			},
+			//显示视频附件
+			showMediaVideo(record) {
+				this.infoId = record.id
+				this.showMemoryMediaVideo = true
+			},
+			mediaVideoClose() {
+				this.$nextTick(() => {
+					this.showMemoryMediaVideo = false
+				})
 			}
 		}
 	};

@@ -23,16 +23,18 @@
         <p class="desc">海量模版为您的“他/她”量身打造私人网上纪念馆</p>
       </div>
       <!-- 轮播图片 start -->
-      <div class="carouselBox" v-swiper:mySwiper="swiperOption">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide swipera">
-            <img src="/img/pc/banner4.png" alt="" />
-          </div>
-          <div class="swiper-slide swipera">
-            <img src="/img/pc/banner4.png" alt="" />
-          </div>
-          <div class="swiper-slide swipera">
-            <img src="/img/pc/banner4.png" alt="" />
+      <div class="carouselBox">
+        <div class="swiper-wrap" v-swiper:mySwiper="swiperOption">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide swipera">
+              <img src="/img/pc/banner4.png" alt="" />
+            </div>
+            <div class="swiper-slide swipera">
+              <img src="/img/pc/banner5.png" alt="" />
+            </div>
+            <div class="swiper-slide swipera">
+              <img src="/img/pc/banner6.png" alt="" />
+            </div>
           </div>
         </div>
         <div class="swiper-button-prev" slot="button"></div>
@@ -123,11 +125,11 @@ export default {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
-        autoplay: true,//自动轮播
-        loop: true,//循环
+        autoplay: true, //自动轮播
+        loop: true, //循环
         observer: true, //修改swiper自己或子元素时，自动初始化swiper
         observeParents: true, //修改swiper的父元素时，自动初始化swiper
-        effect: "coverflow",//3d效果
+        effect: "coverflow", //3d效果
         centeredSlides: true,
         slidesPerView: 1.4,
         coverflowEffect: {
@@ -187,28 +189,32 @@ export default {
   .cont {
     .carouselBox {
       width: 969px;
-	  margin: 0 auto;
-	  .swiper-button-prev{
-		  background-image: url('/img/pc/icon_left.png');
-		  		  background-repeat: no-repeat;
-		  background-size: 100% 100%;
-		  color: transparent;
-		  width: 50px;
-		  height: 50px;
-	  }
-	.swiper-button-next{
-		  background-image: url('/img/pc/icon_right.png');
-		  background-repeat: no-repeat;
-		  background-size: 100% 100%;
-		  color: transparent;
-		  		  width: 50px;
-		  height: 50px;
-	  }
-      .swipera {
-        width: 500px;
-        img {
-          margin: 0 auto;
-          width: 100%;
+      margin: 0 auto;
+      position: relative;
+      .swiper-button-prev {
+        background-image: url("/img/pc/icon_left.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        color: transparent;
+        width: 50px;
+        height: 50px;
+        left: -100px;
+      }
+      .swiper-button-next {
+        background-image: url("/img/pc/icon_right.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        color: transparent;
+        width: 50px;
+        height: 50px;
+        right: -100px;
+      }
+      .swiper-wrap {
+        .swipera {
+          width: 500px;
+          img {
+            height: 420px;
+          }
         }
       }
     }
