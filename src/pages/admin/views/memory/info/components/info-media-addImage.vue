@@ -3,7 +3,7 @@
 	 @ok="handleOk">
 		<a-form-model :model="model" :label-col="{ span: 4 }" :wrapper-col="{ span: 18 }">
 			<a-form-model-item label="照片" class="formItemAvatar">
-				<imgsUpload ref="imgsUpload" :count="1" :multiple="false" @change="changeUpload"></imgsUpload>
+				<imgsUpload ref="imgsUpload" :count="1" :multiple="false" @change="changeUpload" @remove="removeUpload"></imgsUpload>
 			</a-form-model-item>
 			<a-form-model-item label="标题">
 				<a-input v-model="model.title" placeholder="请输入附件标题" style="width:400px;" />
@@ -104,6 +104,11 @@
 				}
 				this.model.cover = file.imgUrl;
 				this.model.url = file.imgUrl;
+			},
+			//删除上传图片
+			removeUpload(file){
+				this.model.cover = '';
+				this.model.url = '';
 			},
 			handleOk() {
 				saveMemoryMedia(this.model).then(res => {

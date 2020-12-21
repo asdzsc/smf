@@ -13,8 +13,7 @@ Vue.use(Antd);
 // swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
-
-Vue.use(VueAwesomeSwiper, /* { default global options } */ )
+Vue.use(VueAwesomeSwiper, /* { default options with global component } */ )
 
 
 import NProgress from "nprogress";

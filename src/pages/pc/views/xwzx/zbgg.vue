@@ -8,13 +8,13 @@
 				<a-icon slot="indicator" type="loading" style="font-size: 30px; color: #004930;" spin />
 				<div class="list">
 					<a-empty v-if="model.list.length === 0" />
-					<div v-for="item in model.list" :key="item.id" class="item">
+					<div v-for="item in model.list" :key="item.id" @click.stop="$router.push('/xwzx/zbggInfo?id='+item.id)" class="item">
 						<div class="itemTitleCont">
 							<div class="line"></div>
 							<diV class="itemTitle">
 								{{ item.title }}
 							</diV>
-							<div v-if="item.proFile" class="downfile" @click="openUrl(baseUrl + item.proFile)">
+							<div v-if="item.isCont === '0' && item.pdfFile" class="downfile" @click.stop="openUrl(baseUrl + item.pdfFile)">
 								<a-icon type="link" /> 下载项目详情
 							</div>
 						</div>

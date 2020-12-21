@@ -8,6 +8,14 @@ export function newsList(param) {
     data: param
   });
 }
+// 查看新闻详情
+export function newsInfo(param) {
+  return request({
+    url: "/web-api/news/newsInfo",
+    method: "post",
+    data: param
+  });
+}
 
 //招标广告
 export function newsZbggList(param) {
@@ -18,3 +26,11 @@ export function newsZbggList(param) {
   });
 }
 
+//招标广告详情
+export function newsZbggInfo(param) {
+  return request({
+    url: "/web-api/newszbgg/newsZbggInfo",
+    method: "post",
+    data: param
+  });
+}

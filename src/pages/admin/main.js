@@ -53,6 +53,9 @@ window.UE.Editor.prototype.getActionUrl = function(action) {
   }
 };
 
+// import pdf from 'vue-pdf'
+// Vue.use(pdf);
+
 //系统错误捕获
 const errorHandler = (error, vm) => {
   console.error("抛出全局异常");

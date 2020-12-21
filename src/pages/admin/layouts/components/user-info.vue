@@ -35,11 +35,11 @@
           {{ user.roleNames }}
         </div>
       </a-form-model-item>
-      <a-form-model-item label="部门">
+     <!-- <a-form-model-item label="部门">
         <div>
           {{ user.departmentName }}
         </div>
-      </a-form-model-item>
+      </a-form-model-item> -->
     </a-form-model>
   </a-modal>
 </template>

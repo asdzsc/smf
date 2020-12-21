@@ -8,8 +8,8 @@ export default [{
             import ("@/pages/pc/views/mark/grjn/search-index.vue"),
     },
     {
-        path: "/mark/grjn/index",
-        name: "/mark/grjn",
+        path: "/mark/grjn/index?id=:id",
+        name: "/mark/grjn-00",
         meta: {
             title: "个人纪念馆"
         },
@@ -17,7 +17,7 @@ export default [{
             import ("@/pages/pc/views/mark/grjn/index.vue"),
     },
     {
-        path: "/mark/grjn-01",
+        path: "/mark/grjn-01?id=:id",
         name: "/mark/grjn-01",
         meta: {
             title: "纪念馆模板1-辛亥英烈"
@@ -26,7 +26,7 @@ export default [{
             import ("@/pages/pc/views/mark/grjn/grjn-01.vue"),
     },
     {
-        path: "/mark/grjn-02",
+        path: "/mark/grjn-02?id=:id",
         name: "/mark/grjn-02",
         meta: {
             title: "纪念馆模板2-抗战英雄"
@@ -35,7 +35,7 @@ export default [{
             import ("@/pages/pc/views/mark/grjn/grjn-02.vue"),
     },
     {
-        path: "/mark/grjn-03",
+        path: "/mark/grjn-03?id=:id",
         name: "/mark/grjn-03",
         meta: {
             title: "纪念馆模板3-红色先烈"
@@ -44,7 +44,7 @@ export default [{
             import ("@/pages/pc/views/mark/grjn/grjn-03.vue"),
     },
     {
-        path: "/mark/grjn-04",
+        path: "/mark/grjn-04?id=:id",
         name: "/mark/grjn-04",
         meta: {
             title: "纪念馆模板4-共和国卫士"
@@ -53,7 +53,7 @@ export default [{
             import ("@/pages/pc/views/mark/grjn/grjn-04.vue"),
     },
     {
-        path: "/mark/grjn-05",
+        path: "/mark/grjn-05?id=:id",
         name: "/mark/grjn-05",
         meta: {
             title: "纪念馆模板5-爱心天使"
@@ -62,7 +62,7 @@ export default [{
             import ("@/pages/pc/views/mark/grjn/grjn-05.vue"),
     },
     {
-        path: "/mark/grjn-06",
+        path: "/mark/grjn-06?id=:id",
         name: "/mark/grjn-06",
         meta: {
             title: "纪念馆模板6-文学巨匠"
@@ -71,7 +71,7 @@ export default [{
             import ("@/pages/pc/views/mark/grjn/grjn-06.vue"),
     },
     {
-        path: "/mark/grjn-07",
+        path: "/mark/grjn-07?id=:id",
         name: "/mark/grjn-07",
         meta: {
             title: "纪念馆模板7-艺术大师"
@@ -80,7 +80,7 @@ export default [{
             import ("@/pages/pc/views/mark/grjn/grjn-07.vue"),
     },
     {
-        path: "/mark/grjn-08",
+        path: "/mark/grjn-08?id=:id",
         name: "/mark/grjn-08",
         meta: {
             title: "纪念馆模板8-白衣天使"
@@ -89,7 +89,7 @@ export default [{
             import ("@/pages/pc/views/mark/grjn/grjn-08.vue"),
     },
     {
-        path: "/mark/grjn-09",
+        path: "/mark/grjn-09?id=:id",
         name: "/mark/grjn-09",
         meta: {
             title: "纪念馆模板9-辛勤园丁"
@@ -98,7 +98,7 @@ export default [{
             import ("@/pages/pc/views/mark/grjn/grjn-09.vue"),
     },
     {
-        path: "/mark/grjn-10",
+        path: "/mark/grjn-10?id=:id",
         name: "/mark/grjn-10",
         meta: {
             title: "纪念馆模板10-钢铁英雄"
@@ -107,7 +107,7 @@ export default [{
             import ("@/pages/pc/views/mark/grjn/grjn-10.vue"),
     },
     {
-        path: "/mark/grjn-11",
+        path: "/mark/grjn-11?id=:id",
         name: "/mark/grjn-11",
         meta: {
             title: "纪念馆模板11-不凡人生"
@@ -132,5 +132,14 @@ export default [{
         },
         component: () =>
             import ("@/pages/pc/views/mark/zpg/index.vue")
+    },
+    {
+        path: "/mark/create",
+        name: "/mark/create",
+        meta: {
+            title: "创建主页"
+        },
+        component: () =>
+            import ("@/pages/pc/views/mark/create/index.vue")
     }
 ];

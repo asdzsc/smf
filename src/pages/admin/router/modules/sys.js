@@ -37,5 +37,13 @@ export default [{
 			title: "系统日志"
 		},
 		component: () => import("@/pages/admin/views/sys/log/list.vue")
+	},
+	{
+		path: "/sys/banner/list",
+		name: "/sys/banner/list",
+		meta: {
+			title: "轮播图"
+		},
+		component: () => import("@/pages/admin/views/sys/banner/list.vue")
 	}
 ];

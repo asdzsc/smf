@@ -8,10 +8,43 @@ export function templateInfo(param) {
         data: param
     });
 }
-// 获取个人纪念馆列表
-export function getUserMemoryList(param) {
+// 获取查看纪念馆栏目列表
+export function getMemoryColumnList(param) {
     return request({
-        url: "/web-api/website/memory/info/getUserMemoryList",
+        url: "/web-api/website/memory/column/getMemoryColumnList",
+        method: "post",
+        data: param
+    });
+}
+// 前端展示纪念馆列表
+export function memoryList(param) {
+    return request({
+        url: "/web-api/website/memory/info/memoryList",
+        method: "post",
+        data: param
+    });
+}
+// 个人纪念馆详情
+export function getMemoryInfo(param) {
+    return request({
+        url: "/web-api/website/memory/info/getMemoryInfo",
+        method: "post",
+        data: param
+    });
+}
+//  个人纪念馆附件列表  
+export function memoryMediaList(param) {
+    return request({
+        url: "/web-api/website/memory/info/memoryMediaList",
+        method: "post",
+        data: param
+    });
+}
+
+// 保存个人主页信息
+export function saveMemoryInfo(param) {
+    return request({
+        url: "/web-api/website/memory/info/saveMemoryInfo",
         method: "post",
         data: param
     });

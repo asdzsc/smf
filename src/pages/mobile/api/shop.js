@@ -3,7 +3,7 @@ import request from "@/pages/mobile/libs/request";
 // 轮播图列表
 export function bannerList(param) {
   return request({
-    url: "/web-api/shopbanner/bannerList",
+    url: "/web-api/sysbanner/bannerList",
     method: "post",
     data: param
   });

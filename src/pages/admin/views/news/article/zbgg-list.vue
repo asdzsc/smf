@@ -20,21 +20,22 @@
           onChange: onSelectChange
         }" :loading="loading"
 			 @change="onChange">
-			 
-			 <template slot="itemTitle" slot-scope="record">
-			 	<span v-if="record.isTop === '1'" style="color: red;" >[置顶]</span>{{ record.title }}
-			 </template>
+
+				<template slot="itemTitle" slot-scope="record">
+					<div>编号：{{ record.zbNo }}</div>
+					<div><span v-if="record.isTop === '1'" style="color: red;">[置顶]</span>{{ record.title }}</div>
+				</template>
 				<template slot="endTime" slot-scope="record">
 					{{ parseTime(record.endTime) }}
 				</template>
 				<template slot="proTime" slot-scope="record">
 					{{ parseTime(record.proTime) }}
 				</template>
-				<template slot="proFile" slot-scope="record">
-					<a v-if="record.proFile" :href="baseUrl + record.proFile" target="_blank">下载附件</a>
-					<span v-else>未上传</span>
+				<template slot="isCont" slot-scope="record">
+					<a v-if="record.isCont === '0'" :href="baseUrl + record.pdfFile" target="_blank">下载附件</a>
+					<span v-else>图文内容</span>
 				</template>
-				
+
 				<template slot="action" slot-scope="record">
 					<a-button title="编辑" icon="edit" shape="round" type="primary" size="small" @click="edit(record)" />
 					&nbsp;
@@ -117,13 +118,13 @@
 						width: 150
 					},
 					{
-						title: "附件",
+						title: "内容类型",
 						dataIndex: "",
 						scopedSlots: {
-							customRender: "proFile"
+							customRender: "isCont"
 						},
 						align: "center",
-						width: 100
+						width: 150
 					},
 					{
 						title: "创建日期",

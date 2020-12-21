@@ -3,7 +3,7 @@ import request from "@/pages/pc/libs/request";
 // 轮播图列表
 export function bannerList(param) {
   return request({
-    url: "/web-api/shopbanner/bannerList",
+    url: "/web-api/sysbanner/bannerList",
     method: "post",
     data: param
   });
@@ -12,6 +12,13 @@ export function bannerList(param) {
 export function goodsColumnList(param) {
   return request({
     url: "/web-api/goodscolumn/goodsColumnList",
+    method: "post",
+    data: param
+  });
+}
+export function getGoodsColumnInfo(param) {
+  return request({
+    url: "/web-api/goodscolumn/getGoodsColumnInfo",
     method: "post",
     data: param
   });

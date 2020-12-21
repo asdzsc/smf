@@ -1,36 +1,27 @@
 <template>
   <div class="home">
-    <div class="carousel">
-      <!-- :autoplay="true" -->
-      <div class="carouselWrap" v-swiper:mySwiper="swiperOption">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide carouselBox swipera">
-            <img class="carouselImg" src="/img/pc/banner.png" alt="" />
-            <div class="carouselDesc">
-              <p class="carouselDescInfo">追思缅怀亲人的专属空间</p>
-              <p class="carouselDescTitle">网 上 纪 念 馆</p>
-              <p class="carouselDescInfo1">
-                让爱与思念没有距离，让生命的故事永久流传
-              </p>
-              <div class="searchBtn">
-                查找纪念馆
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide carouselBox swipera">
-            <img class="carouselImg" src="/img/banner.jpg" alt="" />
-          </div>
+    <!-- 顶部图片 start -->
+    <div class="carouselWrap">
+      <a-carousel :dot-position="dotPosition" :autoplay="true">
+        <div
+          v-for="item in banners"
+          :key="item.id"
+          :style="item.url ? 'cursor: pointer;' : ''"
+          @click="openUrl(item.url)"
+        >
+          <img :src="baseUrl + item.img" />
         </div>
-        <div class="swiper-pagination" slot="pagination"></div>
-      </div>
+      </a-carousel>
     </div>
+
+    <!-- 顶部图片 end -->
     <div class="cont">
       <div class="title">
         <p class="titleName">名 人 先 贤</p>
         <p class="titleDesc">
           整理记录名人先贤生命故事，追忆他们的卓越功绩，让名人精神千古流传
         </p>
-        <div class="searchBtn" style="margin: 0 auto;">
+        <div class="searchBtn" @click="openUrl()" style="margin: 0 auto;">
           查找名人
         </div>
       </div>
@@ -63,7 +54,7 @@
           为了民族和国家的美好明天而抛头颅洒热血的革命先烈们<br />
           如一座座丰碑永远展现在我们面前
         </p>
-        <div class="searchBtn">
+        <div class="searchBtn" @click="openUrl('/mark/grjn')">
           查找先烈
         </div>
       </div>
@@ -72,7 +63,7 @@
       <div class="title">
         <p class="titleName">全方位服务<br />让您轻松享受便捷网上纪念服务</p>
         <p class="titleDesc">海量模版为您的“他/她”快捷创建网上纪念馆</p>
-        <div class="searchBtn">
+        <div class="searchBtn" @click="openUrl()">
           创建纪念馆
         </div>
       </div>
@@ -84,7 +75,7 @@
           你是谁？你从哪里来？ <br />
           在这里，你将追根溯源，找到你想要知道的答案
         </p>
-        <div class="searchBtn">
+        <div class="searchBtn" @click="openUrl('/mark/zpg')">
           查找族谱
         </div>
       </div>
@@ -93,22 +84,38 @@
 </template>
 
 <script>
+import { bannerList } from "@/pages/pc/api/shop";
+
 export default {
   data() {
     return {
-      //banner轮播
-      swiperOption: {
-        loop: true, //循环
-        direction: "vertical", //纵向轮播
-        observer: true, //修改swiper自己或子元素时，自动初始化swiper
-        observeParents: true, //修改swiper的父元素时，自动初始化swiper
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        }, //圆点
-        autoplay: true,//自动轮播
-      },
+      baseUrl: process.env.VUE_APP_BASE_URL,
+      dotPosition: "right",
+      banners: [],
     };
+  },
+  mounted() {
+    this._bannerList();
+  },
+  methods: {
+    _bannerList() {
+      bannerList({
+        bannerType: "3",
+      }).then((res) => {
+        if (res.code === 0) {
+          this.banners = res.data;
+        }
+      });
+    },
+    openUrl(url) {
+      if (url) {
+        if (url.indexOf("http") >= 0) {
+          window.location = url;
+        } else {
+          this.$router.push(url);
+        }
+      }
+    },
   },
 };
 </script>
@@ -126,34 +133,19 @@ export default {
   }
 
   .carouselWrap {
-    height: 603px;
-    .carouselBox {
-      .carouselImg {
+    height: calc(100vh - 70px);
+    // 顶部图片
+    /deep/ .ant-carousel {
+      .slick-slide {
         width: 100%;
-        height: 100%;
-      }
-      .carouselDesc {
-        position: absolute;
-        left: 7%;
-        top: 35%;
-        color: #fff;
+        height: calc(100vh - 70px);
+        text-align: center;
+        overflow: hidden;
 
-        .carouselDescInfo {
-          font-size: 32px;
-          line-height: 28px;
-          letter-spacing: 3px;
-        }
-
-        .carouselDescTitle {
-          font-size: 60px;
-          line-height: 28px;
-          letter-spacing: 3px;
-        }
-
-        .carouselDescInfo1 {
-          font-size: 24px;
-          line-height: 28px;
-          letter-spacing: 1px;
+        img {
+          display: block;
+          width: 100%;
+          height: calc(100vh - 70px);
         }
       }
     }
@@ -268,25 +260,30 @@ export default {
       }
     }
   }
+
   .cont3 {
     background: url("/img/pc/banner3.png") no-repeat center center;
     background-size: cover;
     align-items: inherit;
     height: 980px;
     position: relative;
+
     .title {
       position: absolute;
       top: 15%;
+
       .titleName {
         color: #fff;
         line-height: 28px;
       }
+
       .titleDesc {
         color: #fff;
         line-height: 36px;
       }
     }
   }
+
   .slick-slide {
     width: 100%;
     height: calc(100vh - 70px);

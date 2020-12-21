@@ -3,7 +3,7 @@
 	 @ok="handleOk">
 		<a-form-model :model="model" :label-col="{ span: 4 }" :wrapper-col="{ span: 18 }">
 			<a-form-model-item label="视频封面" class="formItemAvatar">
-				<imgsUpload ref="imgsUpload" :count="1" :multiple="false" @change="changeUpload"></imgsUpload>
+				<imgsUpload ref="imgsUpload" :count="1" :multiple="false" @change="changeUpload" @remove="removeUpload"></imgsUpload>
 			</a-form-model-item>
 			<a-form-model-item label="视频" class="formItemAvatar">
 				<div style="padding-top: 10px;">
@@ -146,6 +146,10 @@
 			changeUpload(file) {
 				this.model.cover = file.imgUrl;
 				this.playerOptions.poster = this.baseUrl + file.imgUrl
+			},
+			removeUpload(file){
+				this.model.cover = '';
+				this.playerOptions.poster = "/img/admin/zwtp.jpg"
 			},
 			uploadingFileUpload() {
 				this.loadingFile = true

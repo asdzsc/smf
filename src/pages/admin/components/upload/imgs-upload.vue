@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<a-upload name="file" listType="picture-card" accept="image/*" :headers="headers" :action="uploadUrl" :beforeUpload="beforeUpload"
-		 @change="handleChange" :file-list="fileList" @preview="handlePreview" :multiple="multiple">
+		 @change="handleChange" :file-list="fileList" @preview="handlePreview" :remove="remove" :multiple="multiple">
 			<div v-if="isUpload">
 				<a-icon :type="loading ? 'loading' : 'plus'" />
 				<div class="ant-upload-text">
@@ -85,6 +85,10 @@
 					this.$message.error("上传图片不能大于4MB");
 				}
 				return isLt4M;
+			},
+			remove(file){
+				console.log('remove',file)
+				this.$emit("remove", file)
 			},
 			async handlePreview(file) {
 				if (!file.url && !file.preview) {

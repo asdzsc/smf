@@ -1,23 +1,24 @@
 <template>
   <div class="grjn">
-    <jn-banner></jn-banner>
-    <jn-photo></jn-photo>
-    <jn-message></jn-message>
-    <div class="moreBtn" @click="openUrl('/mark/grjn/jn-02/jn-more-message')">
+    <jn-banner :bannerModal="this.model"></jn-banner>
+    <jn-photo v-if="photoTag"></jn-photo>
+    <jn-message v-if="msgTag"></jn-message>
+    <div class="moreBtn" v-if="hideTag" @click="msgMore()">
       更多留言
     </div>
-    <jn-article></jn-article>
-    <div class="moreBtn" @click="openUrl('/mark/grjn/jn-02/jn-more-article')">
+    <jn-article v-if="articleTag"></jn-article>
+    <div class="moreBtn" v-if="hideTag" @click="articleMore()">
       更多文章
     </div>
-    <jn-video></jn-video>
-    <div class="moreBtn" @click="openUrl('/mark/grjn/jn-02/jn-more-video')">
+    <jn-video v-if="videoTag"></jn-video>
+    <div class="moreBtn" v-if="hideTag" @click="videoMore()">
       更多视频
     </div>
   </div>
 </template>
 
 <script>
+import $ from "jquery";
 export default {
   components: {
     jnPhoto: () =>
@@ -31,18 +32,63 @@ export default {
     jnVideo: () =>
       import("@/pages/pc/views/mark/grjn/jn-02/components/jn-video.vue"),
   },
+  props: {
+    detailModal: {
+      type: Object,
+      default: () => {
+        return {};
+      },
+    },
+  },
   data() {
-    return {};
+    return {
+      baseUrl: process.env.VUE_APP_BASE_URL,
+      defImg: 'this.src="/img/zwtp.jpg"',
+      loading: false,
+      model: {},
+      photoTag: true,
+      msgTag: true,
+      articleTag: true,
+      videoTag: true,
+      hideTag: true,
+    };
+  },
+  mounted() {
+    this.model = this.detailModal;
   },
   methods: {
-    openUrl(url) {
-      if (url) {
-        if (url.indexOf("http") >= 0) {
-          window.location = url;
-        } else {
-          this.$router.push(url);
-        }
-      }
+    msgMore() {
+      this.photoTag = false;
+      this.articleTag = false;
+      this.videoTag = false;
+      this.hideTag = false;
+      $(".grjn").css({
+        "background-position": "top",
+        "background-size": "auto",
+        "padding-bottom": "100px",
+      });
+    },
+    articleMore() {
+      this.photoTag = false;
+      this.msgTag = false;
+      this.videoTag = false;
+      this.hideTag = false;
+      $(".grjn").css({
+        "background-position": "top",
+        "background-size": "auto",
+        "padding-bottom": "100px",
+      });
+    },
+    videoMore() {
+      this.photoTag = false;
+      this.msgTag = false;
+      this.articleTag = false;
+      this.hideTag = false;
+      $(".grjn").css({
+        "background-position": "top",
+        "background-size": "100% auto",
+        "padding-bottom": "100px",
+      });
     },
   },
 };

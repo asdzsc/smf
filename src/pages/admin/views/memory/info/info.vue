@@ -31,7 +31,7 @@
 					所属类别
 				</a-col>
 				<a-col class="text">
-					<a-select v-model="model.columnIdsKey" @change="changeColumnIds" style="width: 350px;" placeholder="请选择所属类别">
+					<a-select v-model="model.columnIdsKey" mode="multiple" @change="changeColumnIds" style="width: 350px;" placeholder="请选择所属类别">
 						<a-select-option value="">
 							请选择所属类别
 						</a-select-option>
@@ -45,6 +45,9 @@
 				</a-col>
 				<a-col class="text">
 					<a-select v-model="model.templateId" style="width: 350px;" placeholder="请选择所属模版">
+						<a-select-option value="0">
+							免费模版
+						</a-select-option>
 						<a-select-option v-for="item in templateList" :key="item.id" :value="item.id">
 							{{ item.title }}
 						</a-select-option>
@@ -222,7 +225,7 @@
 				ue: null,
 				model: {
 					id: "",
-					columnIdsKey: '',
+					columnIdsKey: [],
 					columnIds: [], //类别
 					name: '', //姓名
 					gender: '', //性别
@@ -269,9 +272,9 @@
 						if (res.code === 0) {
 							Object.assign(this.model, res.data);
 							if (this.model.columnIds && this.model.columnIds.length > 0) {
-								this.model.columnIdsKey = this.model.columnIds[0]
+								this.model.columnIdsKey = [this.model.columnIds[0]]
 							}
-							this.model.templateId = this.model.templateId || ''
+							this.model.templateId = this.model.templateId || '0'
 
 							if (this.model.birthday) {
 								this.model.birthdayDate = moment(this.model.birthday);
@@ -310,7 +313,7 @@
 			},
 			//选择所属类别
 			changeColumnIds(value, label, extra) {
-				this.model.columnIds = [value];
+				this.model.columnIds = value
 			},
 			//选择出生时间
 			changeBirthdayDate(date, dateString) {
@@ -389,10 +392,10 @@
 				}).then(res => {
 					if (res.code === 0) {
 						this.templateList = res.data.list
-						this.templateList.unshift({
-							id: '',
-							title: '免费模版'
-						});
+						// this.templateList.unshift({
+						// 	id: '',
+						// 	title: '免费模版'
+						// });
 					}
 				})
 			},

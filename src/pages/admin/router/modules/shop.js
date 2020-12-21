@@ -7,6 +7,14 @@ export default [{
 		component: () => import("@/pages/admin/views/shop/goods/class-list.vue")
 	},
 	{
+		path: "/shop/banner/list",
+		name: "/shop/banner/list",
+		meta: {
+			title: "轮播图"
+		},
+		component: () => import("@/pages/admin/views/sys/banner/list.vue")
+	},
+	{
 		path: "/shop/goods/list",
 		name: "/shop/goods/list",
 		meta: {
@@ -29,14 +37,6 @@ export default [{
 			title: "订单-评论管理"
 		},
 		component: () => import("@/pages/admin/views/shop/order/comment/list.vue")
-	},
-	{
-		path: "/shop/banner/list",
-		name: "/shop/banner/list",
-		meta: {
-			title: "商城轮播图"
-		},
-		component: () => import("@/pages/admin/views/shop/banner/list.vue")
 	},
 	{
 		path: "/shop/serveuser/list",
