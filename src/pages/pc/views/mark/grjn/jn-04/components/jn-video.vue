@@ -10,7 +10,7 @@
         <img src="/img/pc/04_title.png" alt="" />
       </div>
     </div>
-    <div class="videoInfo">
+    <div class="videoInfo" v-if="this.model != ''">
       <a-spin size="large" tip="加载中..." :spinning="loading">
         <a-icon
           slot="indicator"
@@ -28,6 +28,7 @@
               <video
                 :src="baseUrl + item.url"
                 :poster="baseUrl + item.cover"
+                :onerror="defImg"
                 controls
               ></video>
             </div>
@@ -38,8 +39,9 @@
           </div>
         </div>
       </a-spin>
-      <paging v-if="paginghide" ref="paging" @setPage="setPage"></paging>
+      <paging class="paginghide" ref="paging" @setPage="setPage"></paging>
     </div>
+    <div v-else><a-empty /></div>
   </div>
 </template>
 
@@ -54,14 +56,14 @@ export default {
       baseUrl: process.env.VUE_APP_BASE_URL,
       defImg: 'this.src="/img/zwtp.jpg"',
       loading: false,
-      paginghide: true,
       model: {
         isPage: true,
         current: 1,
+        list: [],
         pageSize: 3,
         searchText: "",
         memoryId: this.$route.params.id,
-        mediaType: "",
+        mediaType: "video",
       },
     };
   },
@@ -75,7 +77,6 @@ export default {
         this.loading = false;
         if (res.code === 0) {
           Object.assign(this.model, res.data);
-          console.log(this.model);
           setTimeout(() => {
             this.$refs.paging.setPageInfo(this.model);
           }, 200);
@@ -115,6 +116,9 @@ export default {
 
   .videoInfo {
     position: relative;
+    .paginghide {
+      display: none;
+    }
     .videoInfoBox {
       width: 1260px;
       height: 280px;

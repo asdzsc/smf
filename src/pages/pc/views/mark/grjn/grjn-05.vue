@@ -2,15 +2,19 @@
   <div class="grjn">
     <jn-banner :bannerModal="this.model"></jn-banner>
     <jn-photo v-if="photoTag"></jn-photo>
-    <jn-message v-if="msgTag"></jn-message>
+    <jn-message ref="myChild" @videoMore="videoMore" v-if="msgTag"></jn-message>
     <div class="moreBtn" v-if="hideTag" @click="msgMore()">
       更多留言
     </div>
-    <jn-article v-if="articleTag"></jn-article>
+    <jn-article
+      ref="myChild"
+      v-if="articleTag"
+      @videoMore="videoMore"
+    ></jn-article>
     <div class="moreBtn" v-if="hideTag" @click="articleMore()">
       更多文章
     </div>
-    <jn-video v-if="videoTag"></jn-video>
+    <jn-video ref="myChild" v-if="videoTag" @videoMore="videoMore"></jn-video>
     <div class="moreBtn" v-if="hideTag" @click="videoMore()">
       更多视频
     </div>
@@ -67,6 +71,7 @@ export default {
         "background-position": "top",
         "padding-bottom": "100px",
       });
+      $(".paginghide").css("display", "block");
     },
     articleMore() {
       this.photoTag = false;
@@ -77,6 +82,7 @@ export default {
         "background-position": "top",
         "padding-bottom": "100px",
       });
+      $(".paginghide").css("display", "block");
     },
     videoMore() {
       this.photoTag = false;
@@ -87,6 +93,7 @@ export default {
         "background-position": "top",
         "padding-bottom": "100px",
       });
+      $(".paginghide").css("display", "block");
     },
   },
 };

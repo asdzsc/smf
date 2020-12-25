@@ -63,7 +63,7 @@
       <div class="title">
         <p class="titleName">全方位服务<br />让您轻松享受便捷网上纪念服务</p>
         <p class="titleDesc">海量模版为您的“他/她”快捷创建网上纪念馆</p>
-        <div class="searchBtn" @click="openUrl()">
+        <div class="searchBtn" @click="openUrl('/mark/create')">
           创建纪念馆
         </div>
       </div>
@@ -152,13 +152,11 @@ export default {
   }
 
   .cont {
-    margin: 0 auto;
-    width: 1240px;
-
+	  width: 1240px;
+	  margin:  0 auto;
     .title {
       text-align: center;
       margin-top: 110px;
-
       .titleName {
         font-size: 60px;
         font-weight: bold;
@@ -168,8 +166,8 @@ export default {
       }
 
       .titleDesc {
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 28px;
+        line-height: 46px;
         letter-spacing: 1px;
         color: #666666;
       }

@@ -67,7 +67,7 @@
           </div>
         </div>
       </a-spin>
-      <paging v-if="paginghide" ref="paging" @setPage="setPage"></paging>
+      <paging class="paginghide" ref="paging" @setPage="setPage"></paging>
     </div>
   </div>
 </template>
@@ -82,7 +82,6 @@ export default {
       baseUrl: process.env.VUE_APP_BASE_URL,
       defImg: 'this.src="/img/zwtp.jpg"',
       loading: false,
-      paginghide: true,
       model: {
         current: "1",
         pageSize: "8",
@@ -90,16 +89,6 @@ export default {
         list: [],
       },
     };
-  },
-  watch: {
-    $route: {
-      handler: function(route) {
-        if (route.path.split("-")[0] == "/mark/grjn") {
-          this.paginghide = false;
-        }
-      },
-      immediate: true,
-    },
   },
   methods: {
     setPage() {},
@@ -146,6 +135,9 @@ export default {
   }
 
   .lyInfo {
+    .paginghide {
+      display: none;
+    }
     .lyList {
       margin-top: 30px;
       background-color: #ffffff;
@@ -162,8 +154,6 @@ export default {
       .lyListInfo {
         display: flex;
         flex-direction: column;
-        justify-lylistent: space-between;
-
         .lyListGift {
           height: 62px;
           line-height: 62px;

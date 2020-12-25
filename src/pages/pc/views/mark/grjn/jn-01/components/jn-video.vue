@@ -16,22 +16,27 @@
         />
         <div class="videoItem">
           <div class="videoList" v-for="item in model.list" :key="item.id">
-            <video
-              :src="baseUrl + item.url"
-              :poster="baseUrl + item.cover"
-              controls
-            ></video>
+            <div class="videoPlay">
+              <video
+                :src="baseUrl + item.url"
+                :poster="baseUrl + item.cover"
+                :onerror="defImg"
+                controls
+              ></video>
+              <div class="video_icon">
+                <img src="/img/pc/1_video.png" alt="" />
+              </div>
+            </div>
             <div class="videoCont">
-              <img src="/img/pc/1_video.png" alt="" />
               <p class="videoTitle">{{ item.title }}</p>
               <p class="videoTime">{{ item.createDate }}</p>
             </div>
           </div>
         </div>
       </a-spin>
-      <paging v-if="paginghide" ref="paging" @setPage="setPage"></paging>
+      <paging class="paginghide" ref="paging" @setPage="setPage"></paging>
     </div>
-    <div><a-empty /></div>
+    <div v-else><a-empty /></div>
   </div>
 </template>
 <script>
@@ -45,7 +50,7 @@ export default {
       baseUrl: process.env.VUE_APP_BASE_URL,
       defImg: 'this.src="/img/zwtp.jpg"',
       loading: false,
-      paginghide: true,
+
       model: {
         isPage: true,
         current: 1,
@@ -61,6 +66,9 @@ export default {
     this._memoryMediaList();
   },
   methods: {
+    parentHandleclick(e) {
+      this.$emit("videoMore");
+    },
     _memoryMediaList() {
       this.loading = true;
       memoryMediaList(this.model).then((res) => {
@@ -111,6 +119,9 @@ export default {
   }
 
   .videoInfo {
+    .paginghide {
+      display: none;
+    }
     .videoItem {
       display: flex;
       flex-wrap: wrap;

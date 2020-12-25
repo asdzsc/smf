@@ -1,7 +1,27 @@
 <template>
   <div class="create">
     <div class="createBox">
-      <avatarUpload></avatarUpload>
+      <div class="avatarUpload">
+        <avatarUpload
+          :avtarModel="this.model"
+          ref="avatarPhotoUpload"
+          @change="uploadPhoto"
+        ></avatarUpload>
+        <div class="search">
+          <input
+            type="text"
+            v-model="model.name"
+            placeholder="请输入亲人姓名"
+          />
+        </div>
+      </div>
+
+      <!-- <avatarUpload
+        :avtarModel="this.model"
+        ref="avatarPhotoUpload"
+        @change="uploadPhoto"
+      ></avatarUpload> -->
+
       <div class="intro">
         <div class="title">
           <p>生平简介</p>
@@ -11,23 +31,42 @@
         <div class="introInfo">
           <div class="date">
             <span>出生日期：</span>
-            <input type="text" placeholder="请输入出生日期" />
+            <input
+              v-model="model.birthday"
+              type="text"
+              placeholder="请输入出生日期"
+            />
           </div>
           <div class="date">
             <span>出生地：</span>
-            <input type="text" placeholder="请输入出生地" />
+            <input
+              v-model="model.birthdayAddress"
+              type="text"
+              placeholder="请输入出生地"
+            />
           </div>
           <div class="date">
             <span>离世日期：</span>
-            <input type="text" placeholder="请输入离世日期" />
+            <input
+              v-model="model.dieTime"
+              type="text"
+              placeholder="请输入离世日期"
+            />
           </div>
           <div class="date">
             <span>离世地：</span>
-            <input type="text" placeholder="请输入离世地" />
+            <input
+              v-model="model.dieAddress"
+              type="text"
+              placeholder="请输入离世地"
+            />
           </div>
           <div class="selfInfo">
             <span>个人简介</span>
-            <textarea placeholder="请输入个人简介"></textarea>
+            <textarea
+              v-model="model.intro"
+              placeholder="请输入个人简介"
+            ></textarea>
           </div>
         </div>
         <!-- 生平简介 end-->
@@ -36,7 +75,7 @@
           <p>纪念相册</p>
           <div class="line"></div>
         </div>
-        <photoUpload></photoUpload>
+        <photoUpload :photoModel="this.model"></photoUpload>
         <!-- 纪念相册 end-->
         <!-- 祭奠留言 start-->
         <div class="title">
@@ -117,10 +156,9 @@
 </template>
 
 <script>
+import { getMemoryInfo } from "@/pages/pc/api/mark.js";
 export default {
   components: {
-    avatarUpload: () =>
-      import("@/pages/pc/views/mark/create/components/avatarUpload.vue"),
     photoUpload: () =>
       import("@/pages/pc/views/mark/create/components/photoUpload.vue"),
     lyInfo: () => import("@/pages/pc/views/mark/create/components/lyInfo.vue"),
@@ -128,10 +166,61 @@ export default {
       import("@/pages/pc/views/mark/create/components/articleUpload.vue"),
     videoUpload: () =>
       import("@/pages/pc/views/mark/create/components/videoUpload.vue"),
+    avatarUpload: () =>
+      import("@/pages/pc/components/upload/avatar-upload.vue"),
   },
+  data() {
+    return {
+      baseUrl: process.env.VUE_APP_BASE_URL,
+      loading: false,
+      model: {
+        id: "1", //个人主页id
+        columnIds: [""],
+        name: "测试", //姓名
+        gender: "男", //性别
+        birthday: "1990-01-01 00:00:00", //	出生日期
+        dieTime: "2020-01-01 00:00:00", //	离世日期
+        birthdayAddress: null, //出生城市
+        dieAddress: null, //离世城市
+        photo: null, //头像
+        cover: null,
+        phoneCover: null,
+        bg: null,
+        phoneBg: null,
+        buryAddress: null,
+        templateId: "491872340996337665",
+        activateCode: null,
+        mobiles: ["17612770945"],
+        status: "0",
+        memoryType: "0",
+        sortId: 0,
+        expireTime: null,
+        intro: null,
+        cont: null,
+      },
+    };
+  },
+  mounted() {},
   methods: {
     handleChange(value) {
       // console.log(`selected ${value}`);
+    },
+    bindData() {
+      this.$refs.avatarPhotoUpload.loadData(this.model.photo);
+    },
+    //头像上传
+    uploadPhoto(imgUrl) {
+      this.model.photo = imgUrl;
+    },
+    // 保存个人主页信息
+    onSubmit() {
+      this.model.cont = this.ue.getContent();
+      saveMemoryInfo(this.model).then((res) => {
+        if (res.code === 0) {
+          this.$message.success("数据提交成功");
+          this.onClose(res);
+        }
+      });
     },
   },
 };
@@ -174,6 +263,56 @@ export default {
     padding-top: 150px;
     padding-bottom: 30px;
     position: relative;
+    .avatarUpload {
+      /deep/ .ant-upload.ant-upload-select-picture-card {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -90px;
+        width: 180px;
+        height: 180px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0px 4px 10px 0px rgba(0, 73, 48, 0.2);
+      }
+      .avatar-uploader {
+        .ant-upload {
+          width: 180px;
+          height: 180px;
+          border-radius: 50%;
+        }
+        .ant-upload-select-picture-card i {
+          font-size: 50px;
+          color: #00744c;
+        }
+
+        .ant-upload-select-picture-card .ant-upload-text {
+          margin-top: 8px;
+          color: #666;
+        }
+        img {
+          width: 100%;
+          max-height: 100%;
+        }
+      }
+      .search {
+        width: 280px;
+        height: 40px;
+        margin: 0 auto;
+        input {
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          padding-top: 14px;
+          padding-bottom: 14px;
+          background-color: #ffffff;
+          border: none;
+          border-radius: 10px;
+          font-size: 18px;
+        }
+      }
+    }
     .intro {
       width: 1100px;
       margin: 0 auto;

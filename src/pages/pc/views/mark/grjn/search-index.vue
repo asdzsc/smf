@@ -11,7 +11,15 @@
       </div>
     </div>
     <div class="banner">
-      <img src="/img/pc/search_banner.png" alt="" />
+      <img v-if="showImg" src="/img/pc/banner7.png" alt="" />
+      <div class="imgBox" v-for="(item, index) in checkList" :key="item.id">
+        <img
+          v-show="swiperindex == index"
+          :src="baseUrl + item.img"
+          :onerror="defImg1"
+          alt=""
+        />
+      </div>
     </div>
     <div class="checkBox">
       <img
@@ -22,7 +30,7 @@
       />
       <ul class="checkList">
         <li
-          @click="handleCheck(item.id)"
+          @click="handleCheck(item.id, index)"
           :class="{ checkListSelect: tab == item.id }"
           :key="item.id"
           v-for="(item, index) in checkList"
@@ -59,7 +67,9 @@ export default {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
       defImg: 'this.src="/img/zwtp.jpg"',
+      defImg1: 'this.src="/img/pc/banner7.png"',
       loading: false,
+      show: false,
       tag: true,
       allList: [],
       checkList: [],
@@ -78,6 +88,8 @@ export default {
         list: [],
         notId: [],
       },
+      swiperindex: null,
+      showImg: true,
     };
   },
   watch: {
@@ -99,17 +111,21 @@ export default {
     });
   },
   methods: {
-    handleCheck(id) {
+    handleCheck(id, index) {
       this.tab = id;
+      this.checkList.mergerId = id;
       this.model.columnId = id;
       this.model.current = 0;
-      this.allList = [];
+      // this.allList = [];
+      this.showImg = false;
+      this.swiperindex = index;
       this._memoryList();
     },
     // 获取查看纪念馆栏目列表
     _getMemoryColumnList() {
       this.loading = true;
       getMemoryColumnList(this.modelCol).then((res) => {
+        // console.log(res);
         if (res.code === 0) {
           Object.assign(this.model, res.data);
           this.checkList = this.model.list;
@@ -157,6 +173,15 @@ export default {
         this.tabIndex = this.tabIndex + 1;
       }
     },
+    openUrl(url) {
+      if (url) {
+        if (url.indexOf("http") >= 0) {
+          window.location = url;
+        } else {
+          this.$router.push(url);
+        }
+      }
+    },
   },
 };
 </script>
@@ -167,6 +192,7 @@ export default {
     position: fixed;
     right: 0;
     top: 50%;
+    z-index: 66;
     transform: translateY(-75%);
     color: #fff;
     font-size: 24px;
@@ -207,6 +233,7 @@ export default {
     position: relative;
     img {
       width: 100%;
+      height: 377px;
     }
   }
   .checkBox {
@@ -252,157 +279,5 @@ export default {
     width: 1250px;
     margin: 0 auto;
   }
-  // .searchCont {
-  //   width: 1250px;
-  //   margin: 0 auto;
-  //   .middleLine {
-  //     height: 1px;
-  //     background-color: #d6d6d6;
-  //     margin-top: 100px;
-  //   }
-  //   .searchTop {
-  //     .searchTitle {
-  //       width: 130px;
-  //       height: 40px;
-  //       font-size: 40px;
-  //       font-weight: bold;
-  //       line-height: 70px;
-  //       letter-spacing: 3px;
-  //       color: #00744c;
-  //       margin: 100px auto;
-  //     }
-  //     .topList {
-  //       list-style: none;
-  //       display: flex;
-  //       li {
-  //         width: 400px;
-  //         height: 400px;
-  //         position: relative;
-  //         margin-right: 20px;
-  //         img {
-  //           width: 100%;
-  //           height: 100%;
-  //         }
-  //         .topBox {
-  //           display: none;
-  //           position: absolute;
-  //           bottom: 0;
-  //           left: 0;
-  //           width: 100%;
-  //           height: 155px;
-  //           background-color: #004930;
-  //           opacity: 0.6;
-  //           color: #fff;
-  //           font-size: 26px;
-  //           font-weight: bold;
-  //           .name {
-  //             height: 55px;
-  //             display: flex;
-  //             line-height: 55px;
-  //             justify-content: space-around;
-  //             border-bottom: 4px solid #eee;
-  //           }
-  //           .topBoxBtn {
-  //             margin: 0 auto;
-  //             margin-top: 20px;
-  //             width: 220px;
-  //             height: 60px;
-  //             color: #004930;
-  //             text-align: center;
-  //             line-height: 60px;
-  //             background-color: #ffffff;
-  //             border-radius: 30px;
-  //             cursor: pointer;
-  //           }
-  //         }
-  //         &:last-child {
-  //           margin-right: 0;
-  //         }
-  //         &:hover {
-  //           .topBox {
-  //             display: block;
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  //   .searchBottom {
-  //     margin-top: 75px;
-  //     .moreBtn {
-  //       width: 290px;
-  //       height: 50px;
-  //       text-align: center;
-  //       line-height: 50px;
-  //       background-color: #00744c;
-  //       border-radius: 25px;
-  //       font-size: 20px;
-  //       color: #fff;
-  //       margin: 0 auto;
-  //       cursor: pointer;
-  //       margin-top: 50px;
-  //       margin-bottom: 200px;
-  //     }
-  //     .bottomList {
-  //       list-style: none;
-  //       display: flex;
-  //       flex-wrap: wrap;
-  //       li {
-  //         width: 285px;
-  //         height: 285px;
-  //         position: relative;
-  //         margin-right: 35px;
-  //         margin-top: 25px;
-  //         img {
-  //           width: 100%;
-  //           height: 100%;
-  //         }
-  //         .bottomBox {
-  //           display: none;
-  //           position: absolute;
-  //           bottom: 0;
-  //           left: 0;
-  //           width: 100%;
-  //           height: 95px;
-  //           background-color: #0d0e08;
-  //           opacity: 0.6;
-  //           color: #fff;
-  //           font-size: 14px;
-  //           font-weight: bold;
-  //           .name {
-  //             width: 90%;
-  //             margin: 0 auto;
-  //             height: 40px;
-  //             display: flex;
-  //             line-height: 40px;
-  //             padding-bottom: 5px;
-  //             justify-content: space-around;
-  //             border-bottom: 2px solid #eee;
-  //             box-sizing: border-box;
-  //           }
-  //           .bottomBoxBtn {
-  //             margin: 0 auto;
-  //             margin-top: 12.5px;
-  //             width: 110px;
-  //             height: 30px;
-  //             color: #004930;
-  //             text-align: center;
-  //             line-height: 30px;
-  //             background-color: #ffffff;
-  //             border-radius: 15px;
-  //             cursor: pointer;
-  //           }
-  //         }
-  //         &:nth-child(4n) {
-  //           margin-right: 0;
-  //         }
-  //         &:hover {
-  //           .bottomBox {
-  //             display: block;
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 }
 </style>

@@ -2,7 +2,11 @@
   <div class="banner">
     <div class="bannerTitle">
       <div class="bannerAvatar">
-        <a-avatar :size="160" :src="baseUrl + bannerModel.photo" />
+        <a-avatar
+          :size="160"
+          :src="baseUrl + bannerModel.photo"
+          :onerror="defImg"
+        />
       </div>
       <p class="bannerName">{{ bannerModel.name }}</p>
       <div class="bannerTime">

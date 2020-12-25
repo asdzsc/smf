@@ -145,7 +145,6 @@ export default {
         this.loading = false;
         if (res.code === 0) {
           Object.assign(this.model, res.data);
-          // console.log(this.model);
         }
       });
     },

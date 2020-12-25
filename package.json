@@ -24,6 +24,7 @@
     "snowflake-id": "^1.1.0",
     "swiper": "^5.2.0",
     "tim-js-sdk": "^2.8.4",
+    "v-viewer": "^1.5.1",
     "vant": "^2.10.14",
     "videojs-contrib-hls": "^5.15.0",
     "vue": "^2.6.11",
@@ -44,6 +45,7 @@
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
+    "compression-webpack-plugin": "^1.1.12",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11"

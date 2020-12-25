@@ -32,5 +32,22 @@ export default [{
         },
         component: () =>
             import ("@/pages/mobile/views/xwzx/zbgg.vue")
+    }, {
+        path: "/xwzx/newsInfo",
+        name: "/xwzx/newsInfo",
+        meta: {
+            title: "新闻详情"
+        },
+        component: () =>
+            import ("@/pages/mobile/views/xwzx/news-info.vue")
+    },
+    {
+        path: "/xwzx/zbggInfo",
+        name: "/xwzx/zbggInfo",
+        meta: {
+            title: "招标广告详情"
+        },
+        component: () =>
+            import ("@/pages/mobile/views/xwzx/zbgg-info.vue")
     }
 ];

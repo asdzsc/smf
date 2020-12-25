@@ -10,17 +10,13 @@
       <div class="img" v-for="item in this.model.list" :key="item.id">
         <img :src="baseUrl + item.url" alt="" />
       </div>
-      <photoPaging
-        class="page"
-        v-if="paginghide"
-        ref="paging"
-        @setPage="setPage"
-      ></photoPaging>
+      <photoPaging class="page" ref="paging" @setPage="setPage"></photoPaging>
     </div>
   </div>
 </template>
 <script>
 import { memoryMediaList } from "@/pages/pc/api/mark.js";
+import $ from "jquery";
 export default {
   components: {
     photoPaging: () =>
@@ -30,7 +26,7 @@ export default {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
       defImg: 'this.src="/img/zwtp.jpg"',
-      paginghide: true,
+
       model: {
         isPage: true,
         current: 1,
@@ -49,10 +45,14 @@ export default {
     _memoryMediaList() {
       this.loading = true;
       memoryMediaList(this.model).then((res) => {
-        console.log(res);
         this.loading = false;
         if (res.code === 0) {
           Object.assign(this.model, res.data);
+          if (this.model.list.length <= 3) {
+            $(".page").css("top", "0");
+          } else {
+            $(".page").css("top", "-295px");
+          }
           setTimeout(() => {
             this.$refs.paging.setPageInfo(this.model);
           }, 200);

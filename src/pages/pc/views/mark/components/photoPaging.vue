@@ -22,7 +22,9 @@ export default {
       },
     };
   },
-  mounted() {},
+  mounted() {
+ 
+  },
   methods: {
     setPageInfo(pageInfo) {
       Object.assign(this.model, pageInfo);
@@ -30,6 +32,7 @@ export default {
     setPage(pageNum) {
       this.$emit("setPage", pageNum);
     },
+   
   },
 };
 </script>
@@ -40,6 +43,10 @@ export default {
   margin-bottom: 25px;
   margin-top: 25px;
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: -295px;
 
   span {
     margin-left: 20px;
@@ -61,14 +68,10 @@ export default {
     }
   }
   .prev {
-    position: absolute;
-    left: -100px;
-    top: -295px;
+    margin-left: -70px;
   }
   .next {
-    position: absolute;
-    right: -50px;
-    top: -295px;
+    margin-right: -60px;
   }
 }
 </style>

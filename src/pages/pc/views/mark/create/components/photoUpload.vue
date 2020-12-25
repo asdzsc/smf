@@ -21,12 +21,24 @@
 </template>
 <script>
 export default {
+  props: {
+    photoModel: {
+      type: Object,
+      default: {},
+    },
+  },
   data() {
     return {
+      baseUrl: process.env.VUE_APP_BASE_URL,
+      loading: false,
       previewVisible: false,
       previewImage: "",
       fileList: [],
+      model: {},
     };
+  },
+  mounted() {
+    this.model = this.photoModel;
   },
   methods: {
     handleCancel() {

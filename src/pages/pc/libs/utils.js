@@ -37,39 +37,34 @@ export function timestampToDateString(timestamp) {
 	return parseTime(date);
 }
 
-export function formatTime(time, cFormat) {
-	if (time && time.replace) {
-		time = time.replace(/-/g, "/");
+export function handleDate(dateStr) {
+	var dateTimeStamp = new Date(dateStr).getTime();
+	var minute = 1000 * 60;
+	var hour = minute * 60;
+	var day = hour * 24;
+
+	var result = '';
+	var now = new Date().getTime();
+	var diffValue = now - dateTimeStamp;
+	if (diffValue < 0) {
+		return result = "刚刚";
 	}
-	time = +time * 1000;
-	const d = new Date(time);
-	const now = Date.now();
-	const diff = (now - d) / 1000;
-	if (diff < 30) {
-		return "刚刚";
-	} else if (diff < 3600) {
-		// less 1 hour
-		return Math.ceil(diff / 60) + "分钟前";
-	} else if (diff < 3600 * 24) {
-		return Math.ceil(diff / 3600) + "小时前";
-	} else if (diff < 3600 * 24 * 2) {
-		return "1天前";
-	}
-	if (cFormat) {
-		return parseTime(time, cFormat);
-	} else {
-		return (
-			d.getMonth() +
-			1 +
-			"月" +
-			d.getDate() +
-			"日" +
-			d.getHours() +
-			"时" +
-			d.getMinutes() +
-			"分"
-		);
-	}
+	var dayC = diffValue / day;
+	var hourC = diffValue / hour;
+	var minC = diffValue / minute;
+	if (parseInt(dayC) > 30) {
+		result = "" + this.$format(dateTimeStamp, "yyyy-MM-dd");
+	} else if (parseInt(dayC) > 1) {
+		result = "" + parseInt(dayC) + "天前";
+	} else if (parseInt(dayC) == 1) {
+		result = "昨天";
+	} else if (hourC >= 1) {
+		result = "" + parseInt(hourC) + "小时前";
+	} else if (minC >= 5) {
+		result = "" + parseInt(minC) + "分钟前";
+	} else
+		result = "刚刚";
+	return result;
 }
 
 export function parseMoney(s, n) {

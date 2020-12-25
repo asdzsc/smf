@@ -5,7 +5,7 @@
       <div class="line"></div>
     </div>
     <div>
-      <div class="videoInfo">
+      <div class="videoInfo" v-if="this.model.list != ''">
         <a-spin size="large" tip="加载中..." :spinning="loading">
           <a-icon
             slot="indicator"
@@ -18,6 +18,7 @@
               <video
                 :src="baseUrl + item.url"
                 :poster="baseUrl + item.cover"
+                :onerror="defImg"
                 controls
               ></video>
               <div class="videoCont">
@@ -28,14 +29,16 @@
             </div>
           </div>
         </a-spin>
-        <paging v-if="paginghide" ref="paging" @setPage="setPage"></paging>
+        <paging class="paginghide" ref="paging" @setPage="setPage"></paging>
       </div>
+      <div v-else><a-empty /></div>
     </div>
   </div>
 </template>
 
 <script>
 import { memoryMediaList } from "@/pages/pc/api/mark.js";
+import $ from "jquery";
 export default {
   components: {
     paging: () => import("@/pages/pc/views/mark/components/paging.vue"),
@@ -45,7 +48,6 @@ export default {
       baseUrl: process.env.VUE_APP_BASE_URL,
       defImg: 'this.src="/img/zwtp.jpg"',
       loading: false,
-      paginghide: true,
       model: {
         isPage: true,
         current: 1,
@@ -60,6 +62,9 @@ export default {
     this._memoryMediaList();
   },
   methods: {
+    parentHandleclick(e) {
+      this.$emit("videoMore");
+    },
     _memoryMediaList() {
       this.loading = true;
       memoryMediaList(this.model).then((res) => {
@@ -103,6 +108,9 @@ export default {
   }
 
   .videoInfo {
+    .paginghide {
+      display: none;
+    }
     .videoItem {
       display: flex;
       flex-wrap: wrap;

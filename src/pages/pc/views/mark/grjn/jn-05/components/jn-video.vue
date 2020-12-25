@@ -5,7 +5,7 @@
       <p>纪念视频</p>
       <img src="/img/pc/05_hert.png" alt="" />
     </div>
-    <div class="videoInfo">
+    <div class="videoInfo" v-if="this.model.list != ''">
       <a-spin size="large" tip="加载中..." :spinning="loading">
         <a-icon
           slot="indicator"
@@ -20,6 +20,7 @@
               <video
                 :src="baseUrl + item.url"
                 :poster="baseUrl + item.cover"
+                :onerror="defImg"
                 controls
               ></video>
             </div>
@@ -30,8 +31,9 @@
           </div>
         </div>
       </a-spin>
-      <paging v-if="paginghide" ref="paging" @setPage="setPage"></paging>
+      <paging class="paginghide" ref="paging" @setPage="setPage"></paging>
     </div>
+    <div v-else><a-empty /></div>
   </div>
 </template>
 
@@ -53,7 +55,7 @@ export default {
         pageSize: 3,
         searchText: "",
         memoryId: this.$route.params.id,
-        mediaType: "",
+        mediaType: "video",
       },
     };
   },
@@ -61,13 +63,15 @@ export default {
     this._memoryMediaList();
   },
   methods: {
+    parentHandleclick(e) {
+      this.$emit("videoMore");
+    },
     _memoryMediaList() {
       this.loading = true;
       memoryMediaList(this.model).then((res) => {
         this.loading = false;
         if (res.code === 0) {
           Object.assign(this.model, res.data);
-          console.log(this.model);
           setTimeout(() => {
             this.$refs.paging.setPageInfo(this.model);
           }, 200);
@@ -108,6 +112,9 @@ export default {
   }
 
   .videoInfo {
+    .paginghide {
+      display: none;
+    }
     .videoItem {
       display: flex;
       flex-wrap: wrap;

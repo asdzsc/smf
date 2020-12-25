@@ -52,12 +52,12 @@ export default {
       menuList: [
         { name: "首页", url: "/" },
         { name: "关于我们", url: "/gywm" },
-        { name: "VR720实景购墓", url: "" },
+        { name: "VR720实景购墓", url: "/shop/more" },
         { name: "在线服务", url: "/zxfw" },
-        { name: "博物馆群", url: "" },
+        { name: "博物馆群", url: "/mark" },
         { name: "公司新闻", url: "/xwzx" },
-        { name: "联系我们", url: "/lxwm" }
-      ]
+        { name: "联系我们", url: "/lxwm" },
+      ],
     };
   },
   watch: {
@@ -65,8 +65,8 @@ export default {
       handler() {
         this.show = false;
       },
-      deep: true
-    }
+      deep: true,
+    },
   },
   mounted() {},
   methods: {
@@ -74,8 +74,8 @@ export default {
       if (url) {
         this.$router.push(url);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="less" scoped>
@@ -85,7 +85,7 @@ export default {
     padding: 0px 0.4rem;
     background-color: #004930;
     position: relative;
-	z-index: 6;
+    z-index: 6;
     .head-nav {
       width: 0.42rem;
       padding-top: 0.25rem;

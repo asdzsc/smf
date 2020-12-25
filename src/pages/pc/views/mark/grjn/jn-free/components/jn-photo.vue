@@ -6,9 +6,13 @@
     </div>
     <div class="photosInfo">
       <!-- :autoplay="true" -->
+
       <div class="img" v-for="item in this.model.list" :key="item.id">
-        <img :src="baseUrl + item.url" alt="" />
+        <viewer class="viewer">
+          <img :src="baseUrl + item.url" :onerror="defImg" alt="" />
+        </viewer>
       </div>
+
       <!--  
       <a-carousel arrows>
         <div class="carsoule" v-for="item in this.model.list" :key="item.id">
@@ -45,6 +49,7 @@
       <photoPaging
         v-if="paginghide"
         ref="paging"
+        class="page"
         @setPage="setPage"
       ></photoPaging>
     </div>
@@ -53,6 +58,7 @@
 
 <script>
 import { memoryMediaList } from "@/pages/pc/api/mark.js";
+import $ from "jquery";
 export default {
   components: {
     photoPaging: () =>
@@ -91,6 +97,11 @@ export default {
         this.loading = false;
         if (res.code === 0) {
           Object.assign(this.model, res.data);
+          if (this.model.list.length <= 3) {
+            $(".page").css("top", "0");
+          } else {
+            $(".page").css("top", "-295px");
+          }
           setTimeout(() => {
             this.$refs.paging.setPageInfo(this.model);
           }, 200);
@@ -139,9 +150,13 @@ export default {
       height: 240px;
       margin-top: 20px;
       margin-right: 20px;
-      img {
+      .viewer {
         width: 100%;
         height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
       &:nth-child(3) {
         width: 460px;

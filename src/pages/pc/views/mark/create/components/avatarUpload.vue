@@ -18,39 +18,56 @@
       </div>
     </a-upload>
     <div class="search">
-      <input type="text" placeholder="请输入亲人姓名" />
+      <input type="text" v-model="model.name" placeholder="请输入亲人姓名" />
     </div>
   </div>
 </template>
 
 <script>
-function getBase64(img, callback) {
-  const reader = new FileReader();
-  reader.addEventListener("load", () => callback(reader.result));
-  reader.readAsDataURL(img);
-}
 export default {
+  props: {
+    avtarModel: {
+      type: Object,
+      default: {},
+    },
+  },
   data() {
     return {
-      loading: false,
+      baseUrl: process.env.VUE_APP_BASE_URL,
       imageUrl: "",
+      headers: {
+        token: this.$store.state.adminAccount.token || "",
+      },
       uploadUrl: process.env.VUE_APP_BASE_URL + "/api/upload/fileUpload",
       formData: { isThumbnails: true },
       loading: false,
+      model: {},
     };
+  },
+  mounted() {
+    this.model = this.avtarModel;
   },
   methods: {
     handleChange(info) {
+      console.log(info);
       if (info.file.status === "uploading") {
         this.loading = true;
         return;
       }
       if (info.file.status === "done") {
-        // Get this url from response in real world.
-        getBase64(info.file.originFileObj, (imageUrl) => {
-          this.imageUrl = imageUrl;
-          this.loading = false;
-        });
+        this.loading = false;
+        var res = info.file.response;
+        if (res.code === 0) {
+          this.imageUrl = process.env.VUE_APP_BASE_URL + res.uploadUrl;
+          if (this.id) {
+            this.$emit("change", {
+              id: this.id,
+              uploadUrl: res.uploadUrl,
+            });
+          } else {
+            this.$emit("change", res.uploadUrl);
+          }
+        }
       }
     },
     beforeUpload(file) {
@@ -65,52 +82,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-/deep/ .ant-upload.ant-upload-select-picture-card {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -90px;
-  width: 180px;
-  height: 180px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0px 4px 10px 0px rgba(0, 73, 48, 0.2);
-}
-.avatar-uploader {
-  .ant-upload {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-  }
-  .ant-upload-select-picture-card i {
-    font-size: 50px;
-    color: #00744c;
-  }
 
-  .ant-upload-select-picture-card .ant-upload-text {
-    margin-top: 8px;
-    color: #666;
-  }
-  img {
-    width: 100%;
-    max-height: 100%;
-  }
-}
-.search {
-  width: 280px;
-  height: 40px;
-  margin: 0 auto;
-  input {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    background-color: #ffffff;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-  }
-}
 </style>

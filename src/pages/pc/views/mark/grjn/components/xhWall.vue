@@ -6,16 +6,13 @@
       </div>
       <ul class="topList">
         <li v-for="item in topList" :key="item.id">
-          <img :src="baseUrl + item.photo" alt="" />
+          <img :src="baseUrl + item.photo" :onerror="defImg" alt="" />
           <div class="topBox">
             <div class="name">
               <p>{{ item.name }}</p>
               <p>1213次纪念</p>
             </div>
-            <div
-              class="topBoxBtn"
-              @click="handleClick(item.id, item.templateId)"
-            >
+            <div class="topBoxBtn" @click="handleClick(item.id)">
               纪念他
             </div>
           </div>
@@ -32,18 +29,15 @@
               <p>{{ item.name }}</p>
               <p>1213次纪念</p>
             </div>
-            <div
-              class="bottomBoxBtn"
-              @click="handleClick(item.id, item.templateId)"
-            >
+            <div class="bottomBoxBtn" @click="handleClick(item.id)">
               纪念他
             </div>
           </div>
         </li>
       </ul>
-      <div v-if="bigMore" class="moreBtn" @click="handleMore()">
-        查看更多
-      </div>
+    </div>
+    <div v-if="bigMore" class="moreBtn" @click="handleMore()">
+      查看更多
     </div>
   </div>
 </template>
@@ -67,6 +61,7 @@ export default {
   },
   methods: {
     loadData(model) {
+      console.log(model);
       if (model.current === 1) {
         this.topList = model.list.slice(0, 3);
         this.bottomList = model.list.splice(3, 11);
@@ -82,58 +77,6 @@ export default {
           id: id,
         },
       });
-      // if (templateId === "491872340996337665") {
-      //   this.$router.push({
-      //     name: "/mark/grjn-01",
-      //     params: {
-      //       id: id,
-      //     },
-      //   });
-      // } else if (templateId === "491875274498977792") {
-      //   this.$router.push({
-      //     name: "/mark/grjn-02",
-      //     params: {
-      //       id: id,
-      //     },
-      //   });
-      // } else if (templateId === "491877416861380608") {
-      //   this.$router.push({
-      //     name: "/mark/grjn-03",
-      //     params: {
-      //       id: id,
-      //     },
-      //   });
-      // } else if (templateId === "492120168356458496") {
-      //   this.$router.push({
-      //     name: "/mark/grjn-04",
-      //     params: {
-      //       id: id,
-      //     },
-      //   });
-      // } else if (templateId === "492123533807267840") {
-      //   this.$router.push({
-      //     name: "/mark/grjn-05",
-      //     params: {
-      //       id: id,
-      //     },
-      //   });
-      // } else if (templateId === "492123993989525504") {
-      //   this.$router.push({
-      //     name: "/mark/grjn-06",
-      //     params: {
-      //       id: id,
-      //     },
-      //   });
-      // } else if (templateId === "492124529899941889") {
-      //   this.$router.push({
-      //     name: "/mark/grjn-07",
-      //     params: {
-      //       id: id,
-      //     },
-      //   });
-      // } else {
-
-      // }
     },
     // 查看更多
     handleMore() {
@@ -237,22 +180,23 @@ export default {
       }
     }
   }
+  .moreBtn {
+    width: 290px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    background-color: #00744c;
+    border-radius: 25px;
+    font-size: 20px;
+    color: #fff;
+    margin: 0 auto;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-bottom: 200px;
+  }
   .searchBottom {
     margin-top: 75px;
-    .moreBtn {
-      width: 290px;
-      height: 50px;
-      text-align: center;
-      line-height: 50px;
-      background-color: #00744c;
-      border-radius: 25px;
-      font-size: 20px;
-      color: #fff;
-      margin: 0 auto;
-      cursor: pointer;
-      margin-top: 50px;
-      margin-bottom: 200px;
-    }
+
     .bottomList {
       list-style: none;
       display: flex;

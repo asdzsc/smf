@@ -24,16 +24,16 @@ export default {
   props: {
     id: {
       type: String,
-      default: ""
+      default: "",
     },
     img: {
       type: String,
-      default: ""
+      default: "",
     },
     isThumbnails: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
     // itemList: {
     //   type: Array,
     //   default: () => []
@@ -43,11 +43,11 @@ export default {
     return {
       uploadUrl: process.env.VUE_APP_BASE_URL + "/api/upload/fileUpload",
       headers: {
-        token: this.$store.state.account.token
+        token: this.$store.state.account.token,
       },
       formData: { isThumbnails: true },
       imageUrl: "",
-      loading: false
+      loading: false,
     };
   },
   created() {},
@@ -80,7 +80,7 @@ export default {
           if (this.id) {
             this.$emit("change", {
               id: this.id,
-              uploadUrl: res.uploadUrl
+              uploadUrl: res.uploadUrl,
             });
           } else {
             this.$emit("change", res.uploadUrl);
@@ -99,8 +99,8 @@ export default {
         this.$message.error("上传图片不能大于4MB");
       }
       return isLt4M;
-    }
-  }
+    },
+  },
 };
 </script>
 

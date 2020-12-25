@@ -5,7 +5,7 @@
       <p>纪念视频</p>
       <img src="/img/pc/02_star.png" alt="" />
     </div>
-    <div class="videoInfo">
+    <div class="videoInfo" v-if="this.model.list != ''">
       <a-spin size="large" tip="加载中..." :spinning="loading">
         <a-icon
           slot="indicator"
@@ -20,6 +20,8 @@
               <video
                 :src="baseUrl + item.url"
                 :poster="baseUrl + item.cover"
+                :onerror="defImg"
+                controls
               ></video>
             </div>
             <div class="videoCont">
@@ -29,8 +31,9 @@
           </div>
         </div>
       </a-spin>
-      <paging v-if="paginghide" ref="paging" @setPage="setPage"></paging>
+      <paging class="paginghide" ref="paging" @setPage="setPage"></paging>
     </div>
+    <div v-else><a-empty /></div>
   </div>
 </template>
 
@@ -45,14 +48,15 @@ export default {
       baseUrl: process.env.VUE_APP_BASE_URL,
       defImg: 'this.src="/img/zwtp.jpg"',
       loading: false,
-      paginghide: true,
+
       model: {
         isPage: true,
         current: 1,
+        list: [],
         pageSize: 3,
         searchText: "",
         memoryId: this.$route.params.id,
-        mediaType: "",
+        mediaType: "video",
       },
     };
   },
@@ -104,6 +108,9 @@ export default {
   }
 
   .videoInfo {
+    .paginghide {
+      display: none;
+    }
     .videoItem {
       display: flex;
       flex-wrap: wrap;
