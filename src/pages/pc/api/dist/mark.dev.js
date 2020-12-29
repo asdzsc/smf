@@ -8,8 +8,9 @@ exports.getMemoryColumnList = getMemoryColumnList;
 exports.memoryList = memoryList;
 exports.getMemoryInfo = getMemoryInfo;
 exports.memoryMediaList = memoryMediaList;
+exports.memoryMsgList = memoryMsgList;
 
-var _request = _interopRequireDefault(require("@/pages/mobile/libs/request"));
+var _request = _interopRequireDefault(require("@/pages/pc/libs/request"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -53,6 +54,15 @@ function getMemoryInfo(param) {
 function memoryMediaList(param) {
   return (0, _request["default"])({
     url: "/web-api/website/memory/info/memoryMediaList",
+    method: "post",
+    data: param
+  });
+} // 留言/文章列表
+
+
+function memoryMsgList(param) {
+  return (0, _request["default"])({
+    url: "/web-api/website/memory/msg/memoryMsgList",
     method: "post",
     data: param
   });

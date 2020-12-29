@@ -3,6 +3,17 @@
     <!-- banner start -->
     <div class="banner">
       <div class="bannerTitle">
+        <div class="create">
+          <div class="createAvatar">
+            <van-image
+              round
+              width=".50rem"
+              height=".50rem"
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+          </div>
+          <div class="createName">创建者</div>
+        </div>
         <div class="bannerAvatar">
           <van-image
             round
@@ -22,9 +33,9 @@
             睡吧，睡吧。总有一天，你会醒来。 时光不老，伊人不朽…
           </div>
           <div class="bannerBtn">纪念他</div>
+          <p class="bannerTimes">已有<span>432</span>次纪念</p>
         </div>
       </div>
-      <p class="bannerTimes">已有<span>432</span>次纪念</p>
     </div>
     <!-- banner end -->
     <!-- photo start -->
@@ -184,7 +195,6 @@
         <p>念</p>
         <p>视</p>
         <p>频</p>
-        <div class="line"></div>
       </div>
       <div class="videoInfo">
         <div class="videoList">
@@ -245,18 +255,7 @@ export default {
     margin: 0 auto;
     padding: 20% 0;
     padding-bottom: 3%;
-    .bannerTimes {
-      font-size: 0.26rem;
-      line-height: 0.28rem;
-      color: #610a0a;
-      text-align: center;
-      margin-top: 0.2rem;
-      span {
-        font-size: 0.4rem;
-        font-weight: bold;
-        letter-spacing: 0.02rem;
-      }
-    }
+
     .bannerTitle {
       height: 6.54rem;
       background-image: url("/img/mobile/mark/line_01.png");
@@ -264,6 +263,23 @@ export default {
       position: relative;
       text-align: center;
       color: #872121;
+      .bannerTimes {
+        font-size: 0.26rem;
+        line-height: 0.28rem;
+        color: #610a0a;
+        text-align: center;
+        margin-top: 0.2rem;
+        span {
+          font-size: 0.4rem;
+          font-weight: bold;
+          letter-spacing: 0.02rem;
+        }
+      }
+      .create {
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+      }
       .bannerAvatar {
         position: absolute;
         top: -0.8rem;
@@ -315,6 +331,7 @@ export default {
     text-align: center;
     margin: 0.5rem 0;
     display: flex;
+    align-items: center;
     justify-content: center;
 
     p {
@@ -352,7 +369,6 @@ export default {
       flex-direction: row-reverse;
       .title {
         font-size: 0.36rem;
-        font-weight: bold;
         line-height: 0.28rem;
         letter-spacing: 0.02rem;
         color: #333333;

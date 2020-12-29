@@ -3,6 +3,17 @@
     <!-- banenr start -->
     <div class="banner">
       <div class="bannerTitle">
+        <div class="create">
+          <div class="createAvatar">
+            <van-image
+              round
+              width=".50rem"
+              height=".50rem"
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+          </div>
+          <div class="createName">创建者</div>
+        </div>
         <div class="bannerAvatar">
           <van-image
             round
@@ -241,6 +252,11 @@ export default {
       position: relative;
       text-align: center;
       color: #ffffff;
+      .create {
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+      }
       .bannerAvatar {
         position: absolute;
         top: -0.8rem;

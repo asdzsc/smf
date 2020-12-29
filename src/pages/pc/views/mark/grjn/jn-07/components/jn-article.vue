@@ -99,7 +99,6 @@ export default {
       font-weight: bold;
       line-height: 42px;
       color: #3c3427;
-      line-height: 0;
     }
 
     .zw {

@@ -73,6 +73,7 @@
 </template>
 
 <script>
+import { memoryMsgList } from "@/pages/pc/api/mark.js";
 export default {
   components: {
     paging: () => import("@/pages/pc/views/mark/components/paging.vue"),
@@ -83,14 +84,33 @@ export default {
       defImg: 'this.src="/img/zwtp.jpg"',
       loading: false,
       model: {
-        current: "1",
-        pageSize: "8",
-        total: "0",
-        list: [],
+        current: 1, //	当前页
+        pageSize: 3, //每页条数
+        searchText: "", //关键字搜索
+        memoryId: this.$route.params.id, //个人主页id
+        msgType: "1", //消息类型 1留言 2文章
+        status: "0", //	0显示 1隐藏
       },
     };
   },
+  mounted() {
+    this._memoryMsgList();
+  },
   methods: {
+    _memoryMsgList() {
+      this.loading = true;
+      memoryMsgList(this.model).then((res) => {
+        this.loading = false;
+        console.log(res);
+        if (res.code === 0) {
+          // console.log(res);
+          // Object.assign(this.model, res.data);
+          // setTimeout(() => {
+          //   this.$refs.paging.setPageInfo(this.model);
+          // }, 200);
+        }
+      });
+    },
     setPage() {},
   },
 };

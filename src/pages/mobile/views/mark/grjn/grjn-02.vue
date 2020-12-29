@@ -3,6 +3,17 @@
     <!-- banner start -->
     <div class="banner">
       <div class="bannerTitle">
+        <div class="create">
+          <div class="createAvatar">
+            <van-image
+              round
+              width=".50rem"
+              height=".50rem"
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+          </div>
+          <div class="createName">创建者</div>
+        </div>
         <div class="bannerAvatar">
           <van-image
             round
@@ -22,9 +33,9 @@
             睡吧，睡吧。总有一天，你会醒来。 时光不老，伊人不朽…
           </div>
           <div class="bannerBtn">纪念他</div>
+          <p class="bannerTimes">已有<span>432</span>次纪念</p>
         </div>
       </div>
-      <p class="bannerTimes">已有<span>432</span>次纪念</p>
     </div>
     <!-- banner end -->
     <!-- photo start -->
@@ -57,6 +68,159 @@
       </div>
     </div>
     <!-- photo end -->
+    <!-- ly start -->
+    <div class="ly">
+      <div class="lyTitle">
+        <div class="lyBtn">我要纪念</div>
+        <div class="title">
+          <img src="/img/mobile/mark/star_02.png" alt="" />
+          <p>祭奠留言</p>
+          <img src="/img/mobile/mark/star_02.png" alt="" />
+        </div>
+      </div>
+      <div class="lyInfo">
+        <div class="lyList">
+          <div class="lyListAvatar">
+            <van-image
+              round
+              width=".64rem"
+              height=".64rem"
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+          </div>
+          <div class="lyListInfo">
+            <div class="lyListGift">
+              <div class="lyListGiftName">
+                <p>“小姑姑”</p>
+                给
+                <p>“姚贝娜”</p>
+                送出了
+                <p>月季</p>
+              </div>
+              <div class="lyListGiftIcon">
+                <van-image
+                  round
+                  width=".64rem"
+                  height=".64rem"
+                  src="https://img.yzcdn.cn/vant/cat.jpeg"
+                />
+              </div>
+            </div>
+            <div class="lyListMsg">
+              贝娜，我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。贝娜我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。
+            </div>
+            <div class="lyListName">
+              <p style="margin-right: .20rem;">爸爸</p>
+              <p>2020年1月1日 11:40</p>
+            </div>
+          </div>
+        </div>
+        <div class="lyList">
+          <div class="lyListAvatar">
+            <van-image
+              round
+              width=".64rem"
+              height=".64rem"
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+          </div>
+          <div class="lyListInfo">
+            <div class="lyListGift">
+              <div class="lyListGiftName">
+                <p>“小姑姑”</p>
+                给
+                <p>“姚贝娜”</p>
+                送出了
+                <p>月季</p>
+              </div>
+              <div class="lyListGiftIcon">
+                <van-image
+                  round
+                  width=".64rem"
+                  height=".64rem"
+                  src="https://img.yzcdn.cn/vant/cat.jpeg"
+                />
+              </div>
+            </div>
+            <div class="lyListMsg">
+              贝娜，我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。贝娜我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。
+            </div>
+            <div class="lyListName">
+              <p style="margin-right: .20rem;">爸爸</p>
+              <p>2020年1月1日 11:40</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="moreBtn">更多留言</div>
+    </div>
+    <!-- ly end -->
+    <!-- artice start -->
+    <div class="article">
+      <div class="title">
+        <img src="/img/mobile/mark/star_02.png" alt="" />
+        <p>纪念相册</p>
+        <img src="/img/mobile/mark/star_02.png" alt="" />
+      </div>
+      <div class="articleInfo">
+        <div class="articleList">
+          <img src="/img/mobile/mark/photo_05.png" alt="" />
+          <div class="articleCont">
+            <p class="articleTitle">纪念你</p>
+            <p class="articleMsg">
+              时间一晃黄的，跨过了2014，在时间的长河中，你我她，都如大海里的一滴水，渺小的激不起一点点涟漪。感叹生命的短暂，然又为生命的伟大而惊奇。
+            </p>
+          </div>
+        </div>
+        <div class="articleList">
+          <img src="/img/mobile/mark/photo_06.png" alt="" />
+          <div class="articleCont">
+            <p class="articleTitle">纪念你</p>
+            <p class="articleMsg">
+              时间一晃黄的，跨过了2014，在时间的长河中，你我她，都如大海里的一滴水，渺小的激不起一点点涟漪。感叹生命的短暂，然又为生命的伟大而惊奇。
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="moreBtn">更多文章</div>
+    </div>
+    <!-- article end -->
+    <!-- video start -->
+    <div class="video">
+      <div class="title">
+        <img src="/img/mobile/mark/star_02.png" alt="" />
+        <p>纪念视频</p>
+        <img src="/img/mobile/mark/star_02.png" alt="" />
+      </div>
+      <div class="videoInfo">
+        <div class="videoList">
+          <video
+            src=""
+            poster="/img/mobile/mark/photo_07.png"
+            :onerror="defImg"
+          ></video>
+          <div class="videoCont">
+            <van-icon size=".94rem" name="play-circle-o" />
+          </div>
+          <p class="videoTitle">第一次演唱会</p>
+          <p class="videoTime">2020年1月1日</p>
+        </div>
+        <div class="videoList">
+          <video
+            src=""
+            poster="/img/mobile/mark/photo_08.png"
+            :onerror="defImg"
+          ></video>
+          <div class="videoCont">
+            <van-icon size=".94rem" name="play-circle-o" />
+          </div>
+          <p class="videoTitle">第一次演唱会</p>
+          <p class="videoTime">2020年1月1日</p>
+        </div>
+      </div>
+      <div class="moreBtn">更多视频</div>
+    </div>
+    <!-- video end -->
   </div>
 </template>
 
@@ -85,10 +249,16 @@ export default {
     display: flex;
     font-size: 0.36rem;
     color: #0d1351;
+    align-items: center;
     text-align: center;
     margin: 0.5rem 0;
     justify-content: center;
     align-items: center;
+
+    img {
+      width: 0.34rem;
+      height: 0.34rem;
+    }
     p {
       margin: 0 0.2rem;
     }
@@ -97,20 +267,9 @@ export default {
     // width: 5.82rem;
     width: 92%;
     margin: 0 auto;
-    padding: 15% 0;
+    padding: 20% 0;
     padding-bottom: 3%;
-    .bannerTimes {
-      font-size: 0.26rem;
-      line-height: 0.28rem;
-      color: #0d1351;
-      text-align: center;
-      margin-top: 0.2rem;
-      span {
-        font-size: 0.4rem;
-        font-weight: bold;
-        letter-spacing: 0.02rem;
-      }
-    }
+
     .bannerTitle {
       height: 6.54rem;
       background-image: url("/img/mobile/mark/line_02.png");
@@ -118,6 +277,23 @@ export default {
       position: relative;
       text-align: center;
       color: #333333;
+      .bannerTimes {
+        font-size: 0.26rem;
+        line-height: 0.28rem;
+        color: #0d1351;
+        text-align: center;
+        margin-top: 0.2rem;
+        span {
+          font-size: 0.4rem;
+          font-weight: bold;
+          letter-spacing: 0.02rem;
+        }
+      }
+      .create {
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+      }
       .bannerAvatar {
         position: absolute;
         top: -0.8rem;
@@ -173,6 +349,154 @@ export default {
         width: 48%;
         &:nth-child(2n) {
           margin-right: 0;
+        }
+      }
+    }
+  }
+  .ly {
+    padding: 0 0.4rem;
+    .lyTitle {
+      display: flex;
+      flex-direction: row-reverse;
+      .title {
+        display: flex;
+        font-size: 0.36rem;
+        color: #0d1351;
+        text-align: center;
+        margin: 0.5rem 0;
+        justify-content: center;
+        align-items: center;
+        margin-right: 0.65rem;
+        img {
+          width: 0.34rem;
+          height: 0.34rem;
+        }
+        p {
+          margin: 0 0.2rem;
+        }
+      }
+      .lyBtn {
+        width: 1.4rem;
+        height: 0.5rem;
+        background-color: #ffffff;
+        box-shadow: 0px 0.02rem 0.05rem 0px rgba(101, 101, 101, 0.35);
+        font-size: 0.24rem;
+        line-height: 0.5rem;
+        color: #1b2159;
+        text-align: center;
+        margin-top: 7%;
+      }
+    }
+    .lyInfo {
+      width: 100%;
+      .lyList {
+        display: flex;
+        padding: 0.5rem;
+        box-sizing: border-box;
+        margin-top: 0.5rem;
+        background-color: #ffffff;
+        box-shadow: 0px 0.02rem 0.05rem 0px rgba(101, 101, 101, 0.35);
+        .lyListInfo {
+          margin-left: 0.2rem;
+          .lyListGift {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .lyListGiftIcon {
+              margin-right: 0.3rem;
+              border-radius: 50%;
+              width: 0.64rem;
+              height: 0.64rem;
+              background-image: url(/img/mobile/mark/ly_avata02.png);
+              background-size: 100% 91%;
+              padding: 0.1rem;
+              background-position: center;
+              background-repeat: no-repeat;
+            }
+            .lyListGiftName {
+              display: flex;
+              font-size: 0.2rem;
+              line-height: 0.62rem;
+              color: #0d1351;
+            }
+          }
+          .lyListMsg {
+            font-size: 0.24rem;
+            line-height: 0.32rem;
+            color: #0d1351;
+            margin: 0.2rem 0;
+          }
+          .lyListName {
+            display: flex;
+            color: #0d1351;
+            font-size: 0.2rem;
+          }
+        }
+      }
+    }
+  }
+  .article {
+    padding: 0 0.4rem;
+    .articleInfo {
+      .articleList {
+        width: 100%;
+        border-radius: 0.1rem;
+        background-color: #ffffff;
+        box-shadow: 0rem 0.04rem 0.1rem 0rem rgba(101, 101, 101, 0.35);
+        margin-top: 0.5rem;
+        padding: 0.5rem;
+        box-sizing: border-box;
+        img {
+          width: 100%;
+        }
+        .articleCont {
+          // padding: 0.3rem 0.5rem;
+          box-sizing: border-box;
+          .articleTitle {
+            font-size: 0.3rem;
+            margin: 0.2rem 0;
+            letter-spacing: 0.01rem;
+            color: #333333;
+          }
+          .articleMsg {
+            text-align: justify;
+            font-size: 0.24rem;
+            line-height: 0.32rem;
+            color: #999999;
+          }
+        }
+      }
+    }
+  }
+  .video {
+    padding: 0 0.4rem;
+    padding-bottom: 0.5rem;
+    .videoInfo {
+      .videoList {
+        text-align: center;
+        position: relative;
+        margin-top: 0.5rem;
+        video {
+          width: 100%;
+          height: 4rem;
+        }
+        .videoCont {
+          color: #ffffff;
+          position: absolute;
+          left: 50%;
+          top: 38%;
+          transform: translate(-0.47rem, -0.47rem);
+        }
+        .videoTitle {
+          font-size: 0.3rem;
+          line-height: 0.3rem;
+          margin-top: 0.5rem;
+          color: #0d1351;
+        }
+        .videoTime {
+          font-size: 0.22rem;
+          line-height: 0.7rem;
+          color: #927255;
         }
       }
     }

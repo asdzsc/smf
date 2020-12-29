@@ -61,7 +61,6 @@ export default {
   },
   methods: {
     loadData(model) {
-      console.log(model);
       if (model.current === 1) {
         this.topList = model.list.slice(0, 3);
         this.bottomList = model.list.splice(3, 11);

@@ -41,10 +41,10 @@ export function memoryMediaList(param) {
     });
 }
 
-// 保存个人主页信息
-export function saveMemoryInfo(param) {
+// 留言/文章列表
+export function memoryMsgList(param) {
     return request({
-        url: "/web-api/website/memory/info/saveMemoryInfo",
+        url: "/web-api/website/memory/msg/memoryMsgList",
         method: "post",
         data: param
     });

@@ -40,12 +40,3 @@ export function memoryMediaList(param) {
         data: param
     });
 }
-
-// 保存个人主页信息
-export function saveMemoryInfo(param) {
-    return request({
-        url: "/web-api/website/memory/info/saveMemoryInfo",
-        method: "post",
-        data: param
-    });
-}

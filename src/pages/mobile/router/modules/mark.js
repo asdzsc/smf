@@ -8,13 +8,13 @@ export default [{
             import ("@/pages/mobile/views/mark/grjn/search-index.vue"),
     },
     {
-        path: "/mark/grjn/grjn-02",
+        path: "/mark/grjn/grjn-00",
         name: "/mark/grjn-00",
         meta: {
             title: "个人纪念馆"
         },
         component: () =>
-            import ("@/pages/mobile/views/mark/grjn/grjn-02.vue"),
+            import ("@/pages/mobile/views/mark/grjn/grjn-08.vue"),
     },
     {
         path: "/mark/grjn/index?id=:id",

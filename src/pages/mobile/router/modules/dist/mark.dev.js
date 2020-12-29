@@ -23,14 +23,14 @@ var _default = [{
     });
   }
 }, {
-  path: "/mark/grjn/grjn-02",
+  path: "/mark/grjn/grjn-00",
   name: "/mark/grjn-00",
   meta: {
     title: "个人纪念馆"
   },
   component: function component() {
     return Promise.resolve().then(function () {
-      return _interopRequireWildcard(require("@/pages/mobile/views/mark/grjn/grjn-02.vue"));
+      return _interopRequireWildcard(require("@/pages/mobile/views/mark/grjn/grjn-08.vue"));
     });
   }
 }, {
