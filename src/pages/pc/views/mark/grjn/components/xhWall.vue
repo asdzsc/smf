@@ -10,7 +10,7 @@
           <div class="topBox">
             <div class="name">
               <p>{{ item.name }}</p>
-              <p>1213次纪念</p>
+              <p>{{ item.msgNum }}次纪念</p>
             </div>
             <div class="topBoxBtn" @click="handleClick(item.id)">
               纪念他
@@ -23,11 +23,11 @@
     <div class="searchBottom">
       <ul class="bottomList">
         <li v-for="item in bottomList" :key="item.id">
-          <img :src="baseUrl + item.photo" alt="" />
+          <img :src="baseUrl + item.photo" :onerror="defImg" alt="" />
           <div class="bottomBox">
             <div class="name">
               <p>{{ item.name }}</p>
-              <p>1213次纪念</p>
+              <p>{{ item.msgNum }}次纪念</p>
             </div>
             <div class="bottomBoxBtn" @click="handleClick(item.id)">
               纪念他
@@ -52,6 +52,7 @@ export default {
       allList: [],
       topList: [],
       bottomList: [],
+      total: "",
     };
   },
   watch: {

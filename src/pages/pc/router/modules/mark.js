@@ -17,6 +17,15 @@ export default [{
             import ("@/pages/pc/views/mark/grjn/index.vue"),
     },
     {
+        path: "/mark/grjn/keyword=:keyword",
+        name: "/mark/grjn-02",
+        meta: {
+            title: "查找纪念馆"
+        },
+        component: () =>
+            import ("@/pages/pc/views/mark/grjn/search-index.vue"),
+    },
+    {
         path: "/mark/gybg",
         name: "/mark/gybg",
         meta: {

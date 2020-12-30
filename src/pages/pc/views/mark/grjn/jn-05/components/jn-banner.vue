@@ -4,36 +4,34 @@
       <div class="bannerAvatar">
         <a-avatar
           :size="160"
-          :src="baseUrl + bannerModal.photo"
+          :src="baseUrl + bannerModel.photo"
           :onerror="defImg"
         />
       </div>
       <div class="bannerCreate">
-        <a-avatar
-          :size="50"
-          src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-        />
-        <p class="bannerCreateName">创建者</p>
+        <a-avatar :size="50" :src="bannerModel.createAvatar" />
+        <p class="bannerCreateName">{{ bannerModel.createName }}</p>
       </div>
-      <p class="bannerName">{{ bannerModal.name }}</p>
+      <p class="bannerName">{{ bannerModel.name }}</p>
       <div class="bannerTime">
         <p>
-          出生：{{ bannerModal.birthday }}
-          {{ bannerModal.birthdayAddress }}
+          出生：{{ bannerModel.birthday }}
+          {{ bannerModel.birthdayAddress }}
         </p>
         <p>
-          离世：{{ bannerModal.dieTime }}
-          {{ bannerModal.dieAddress }}
+          离世：{{ bannerModel.dieTime }}
+          {{ bannerModel.dieAddress }}
         </p>
       </div>
       <div class="bannerMsg">
-        {{ bannerModal.intro }}
+        {{ bannerModel.intro }}
       </div>
       <div class="bannerBtn">
         纪念她
       </div>
       <div class="bannerTimes">
-        已有<span>432</span>次纪念
+        已有<span>{{ bannerModel.msgNum }}</span
+        >次纪念
       </div>
     </div>
   </div>
@@ -43,7 +41,7 @@
 export default {
   props: {
     //数据
-    bannerModal: {
+    bannerModel: {
       //type 接收的数据类型
       type: Object,
       default: () => {
@@ -93,6 +91,7 @@ export default {
         font-size: 20px;
         color: #343437;
         margin-top: 20px;
+        padding-left: 5px;
       }
     }
 

@@ -7,7 +7,9 @@
     </div>
     <div class="photosInfo">
       <div class="img" v-for="item in this.model.list" :key="item.id">
-        <img :src="baseUrl + item.url" :onerror="defImg" alt="" />
+        <viewer class="viewer">
+          <img :src="baseUrl + item.url" :onerror="defImg" alt="" />
+        </viewer>
       </div>
       <photoPaging class="page" ref="paging" @setPage="setPage"></photoPaging>
     </div>
@@ -82,9 +84,13 @@ export default {
     justify-content: center;
     align-items: center;
 
-    img {
-      width: 40px;
-      height: 40px;
+    .viewer {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     p {
@@ -99,9 +105,13 @@ export default {
       height: 240px;
       margin-top: 20px;
       margin-right: 20px;
-      img {
+      .viewer {
         width: 100%;
         height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
       &:nth-child(3) {
         width: 460px;

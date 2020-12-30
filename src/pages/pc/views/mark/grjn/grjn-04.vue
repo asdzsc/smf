@@ -1,6 +1,6 @@
 <template>
   <div class="grjn">
-    <jn-banner :bannerModal="this.model"></jn-banner>
+    <jn-banner :bannerModel="this.model"></jn-banner>
     <jn-photo v-if="photoTag"></jn-photo>
     <jn-message ref="myChild" @videoMore="videoMore" v-if="msgTag"></jn-message>
     <div class="moreBtn" v-if="hideTag" @click="msgMore()">

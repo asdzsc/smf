@@ -10,7 +10,7 @@
         我要纪念
       </div>
     </div>
-    <div class="lyInfo">
+    <div class="lyInfo" v-if="this.model.list != ''">
       <a-spin size="large" tip="加载中..." :spinning="loading">
         <a-icon
           slot="indicator"
@@ -18,73 +18,39 @@
           style="font-size: 30px; color: #004930;"
           spin
         />
-        <div class="lyList">
+        <div class="lyList" v-for="item in model.list" :key="item.id">
           <div class="lyListAvatar">
             <div class="lyListGiftName">
-              <a-avatar
-                :size="64"
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-              <div class="lyListSend">
-                <p class="name">“小姑姑”</p>
+              <a-avatar :size="64" :src="item.avatar" :onerror="defImg" />
+              <div class="lyListSend" v-if="item.goodsId != null">
+                <p class="name">{{ item.nickname }}</p>
                 <p class="to">送出了</p>
-                <p class="gift">风铃花</p>
+                <p class="gift">{{ item.goodsTitle }}</p>
               </div>
             </div>
             <div class="lyListName">
-              <p style="margin-right: 20px;">爸爸</p>
-              <p>2020年1月1日 11:40</p>
+              <p style="margin-right: 20px;">{{ item.nickname }}</p>
+              <p>{{ item.createDate }}</p>
             </div>
           </div>
           <div class="lyListInfo">
             <p>
-              贝娜，我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。贝娜我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。
+              {{ item.cont }}
             </p>
-            <div class="lyListInfoGift">
-              <a-avatar
-                :size="100"
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="lyList">
-          <div class="lyListAvatar">
-            <div class="lyListGiftName">
-              <a-avatar
-                :size="64"
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-              <div class="lyListSend">
-                <p class="name">“小姑姑”</p>
-                <p class="to">送出了</p>
-                <p class="gift">风铃花</p>
-              </div>
-            </div>
-            <div class="lyListName">
-              <p style="margin-right: 20px;">爸爸</p>
-              <p>2020年1月1日 11:40</p>
-            </div>
-          </div>
-          <div class="lyListInfo">
-            <p>
-              贝娜，我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。贝娜我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。
-            </p>
-            <div class="lyListInfoGift">
-              <a-avatar
-                :size="100"
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
+            <div class="lyListInfoGift" v-if="item.goodsId != null">
+              <a-avatar :src="baseUrl + item.goodsCover" :onerror="defImg" />
             </div>
           </div>
         </div>
       </a-spin>
       <paging class="paginghide" ref="paging" @setPage="setPage"></paging>
     </div>
+    <div v-else><a-empty /></div>
   </div>
 </template>
 
 <script>
+import { memoryMsgList } from "@/pages/pc/api/mark.js";
 export default {
   components: {
     paging: () => import("@/pages/pc/views/mark/components/paging.vue"),
@@ -95,16 +61,36 @@ export default {
       defImg: 'this.src="/img/zwtp.jpg"',
       loading: false,
       model: {
-        current: "1",
-        pageSize: "8",
-        total: "0",
-        list: [],
+        current: 1, //	当前页
+        pageSize: 3, //每页条数
+        searchText: "", //关键字搜索
+        memoryId: this.$route.params.id, //个人主页id
+        msgType: "1", //消息类型 1留言 2文章
+        status: "0", //	0显示 1隐藏
       },
     };
   },
-
+  mounted() {
+    this._memoryMsgList();
+  },
   methods: {
-    setPage() {},
+    _memoryMsgList() {
+      this.loading = true;
+      memoryMsgList(this.model).then((res) => {
+        this.loading = false;
+        if (res.code === 0) {
+          console.log(res);
+          Object.assign(this.model, res.data);
+          setTimeout(() => {
+            this.$refs.paging.setPageInfo(this.model);
+          }, 200);
+        }
+      });
+    },
+    setPage(pageNum) {
+      this.model.current = pageNum;
+      this._memoryMsgList();
+    },
   },
 };
 </script>
@@ -212,13 +198,21 @@ export default {
         color: #872121;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         .lyListInfoGift {
           width: 120px;
           height: 120px;
           background-image: url("/img/pc/02avatarbj.png");
           background-size: 100% auto;
           background-repeat: no-repeat;
-          background-position: center center;
+          /deep/.ant-avatar {
+            width: 88px;
+            height: 88px;
+            line-height: 100px;
+            font-size: 18px;
+            margin-top: 7px;
+            margin-left: 20px;
+          }
         }
       }
     }

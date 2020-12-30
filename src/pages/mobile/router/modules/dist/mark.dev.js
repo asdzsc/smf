@@ -30,7 +30,7 @@ var _default = [{
   },
   component: function component() {
     return Promise.resolve().then(function () {
-      return _interopRequireWildcard(require("@/pages/mobile/views/mark/grjn/grjn-08.vue"));
+      return _interopRequireWildcard(require("@/pages/mobile/views/mark/grjn/grjn-10.vue"));
     });
   }
 }, {

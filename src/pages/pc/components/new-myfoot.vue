@@ -10,12 +10,8 @@
       <div @click="$router.push('/mark/zpg')">族谱馆</div>
     </div>
     <div class="search">
-      <input
-        type="text"
-        id="searchkey2"
-        name="searchkey2"
-        placeholder="查找亲友姓名"
-      />
+      <input type="text" placeholder="查找亲友姓名" v-model="keyword" />
+      <img @click="handleSearch" src="/img/pc/search.png" alt="" />
     </div>
     <div class="copyright">
       <span style="padding:0 5px;"></span
@@ -46,6 +42,7 @@ export default {
   data() {
     return {
       showBackTop: false,
+      keyword: "",
     };
   },
   computed: {},
@@ -61,6 +58,14 @@ export default {
     });
   },
   methods: {
+    handleSearch() {
+      this.$router.push({
+        name: "/mark/grjn-02",
+        params: {
+          keyword: this.keyword,
+        },
+      });
+    },
     toTop() {
       // window.scrollTo({
       //   top: 0,
@@ -135,6 +140,7 @@ export default {
     width: 340px;
     height: 46px;
     margin: 20px auto;
+    position: relative;
     input {
       width: 100%;
       height: 100%;
@@ -146,9 +152,11 @@ export default {
       font-size: 18px;
       padding-left: 10px;
       padding-right: 48px;
-      background-repeat: no-repeat;
-      background-position: 298px center;
-      background-image: url("/img/pc/search.png");
+    }
+    img {
+      position: absolute;
+      right: -40px;
+      top: 8px;
     }
   }
   .footContent {

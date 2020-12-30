@@ -10,7 +10,7 @@
         <img src="/img/pc/04_title.png" alt="" />
       </div>
     </div>
-    <div class="videoInfo" v-if="this.model != ''">
+    <div class="videoInfo" v-if="this.model.list != ''">
       <a-spin size="large" tip="加载中..." :spinning="loading">
         <a-icon
           slot="indicator"

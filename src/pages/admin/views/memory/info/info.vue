@@ -228,7 +228,7 @@
 					columnIdsKey: [],
 					columnIds: [], //类别
 					name: '', //姓名
-					gender: '', //性别
+					gender: '男', //性别
 					photo: '', //头像照片
 					birthdayDate: null,
 					birthday: '', //生日
@@ -244,7 +244,7 @@
 					bg: '', //背景
 					phoneBg: '', //手机背景
 					buryAddress: '', //安装地址
-					templateId: '', //模版id
+					templateId: '0', //模版id
 					activateCode: '', //激活码
 					mobiles: [], //手机号
 					status: '0', //显示状态 0显示 1影藏
@@ -318,12 +318,12 @@
 			//选择出生时间
 			changeBirthdayDate(date, dateString) {
 				this.model.birthdayDate = date;
-				this.model.birthday = dateString;
+				this.model.birthday = dateString + " 00:00:00";
 			},
 			//选择离世日期
 			changeDieTimeDate(date, dateString) {
 				this.model.dieTimeDate = date;
-				this.model.dieTime = dateString;
+				this.model.dieTime = dateString + " 00:00:00";
 			},
 			//选择到期时间
 			changeExpireTimeDate(date, dateString) {

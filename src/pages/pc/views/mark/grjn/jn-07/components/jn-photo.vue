@@ -4,12 +4,15 @@
       <p class="yw">Souvenir album</p>
       <p class="zw">纪念相册</p>
     </div>
-    <div class="photosInfo">
+    <div class="photosInfo" v-if="this.model.list != ''">
       <div class="img" v-for="item in this.model.list" :key="item.id">
-        <img :src="baseUrl + item.url" :onerror="defImg" alt="" />
+        <viewer class="viewer">
+          <img :src="baseUrl + item.url" :onerror="defImg" alt="" />
+        </viewer>
       </div>
       <photoPaging class="page" ref="paging" @setPage="setPage"></photoPaging>
     </div>
+    <div v-else><a-empty /></div>
   </div>
 </template>
 
@@ -105,9 +108,13 @@ export default {
       height: 240px;
       margin-top: 20px;
       margin-right: 20px;
-      img {
+      .viewer {
         width: 100%;
         height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
       &:nth-child(3) {
         width: 460px;

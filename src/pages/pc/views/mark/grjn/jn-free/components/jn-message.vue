@@ -9,7 +9,7 @@
         我要纪念
       </div>
     </div>
-    <div class="lyInfo">
+    <div class="lyInfo" v-if="this.model.list != ''">
       <a-spin size="large" tip="加载中..." :spinning="loading">
         <a-icon
           slot="indicator"
@@ -17,58 +17,40 @@
           style="font-size: 30px; color: #004930;"
           spin
         />
-        <div class="lyList">
+        <div class="lyList" v-for="item in model.list" :key="item.id">
           <div class="lyListAvatar">
-            <a-avatar
-              :size="64"
-              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            />
+            <a-avatar :size="70" :src="item.goodsCover" :onerror="defImg" />
           </div>
           <div class="lyListInfo">
-            <div class="lyListMsg">
-              贝娜，我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。贝娜我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。
-            </div>
-            <div class="lyListName">
-              <p style="margin-right: 20px;">爸爸</p>
-              <p>2020年1月1日 11:40</p>
-            </div>
-          </div>
-        </div>
-        <div class="lyList">
-          <div class="lyListAvatar">
-            <a-avatar
-              :size="64"
-              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-            />
-          </div>
-          <div class="lyListInfo">
-            <div class="lyListGift">
+            <div class="lyListGift" v-if="item.goodsId != null">
               <div class="lyListGiftIcon">
                 <a-avatar
                   :size="70"
-                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                  :src="baseUrl + item.goodsCover"
+                  :onerror="defImg"
                 />
               </div>
               <div class="lyListGiftName">
-                <p>“小姑姑”</p>
-                给
-                <p>“姚贝娜”</p>
-                送出了
-                <p>月季</p>
+                <p style="margin-right: 5px;">"{{ item.nickname }}"</p>
+                <span style="margin-right: 5px;">给</span>
+                <p style="margin-right: 5px;">"{{ item.memoryName }}"</p>
+                <span style="margin-right: 5px;">送出了</span>
+                <p style="margin-right: 5px;">{{ item.goodsTitle }}</p>
               </div>
             </div>
             <div class="lyListMsg">
-              贝娜，我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。贝娜我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。
+              {{ item.cont }}
             </div>
             <div class="lyListName">
-              <p style="margin-right: 20px;">小姑</p>
-              <p>2020年1月1日 11:40</p>
+              <p style="margin-right: 20px;">{{ item.nickname }}</p>
+              <p>{{ item.createDate }}</p>
             </div>
           </div>
         </div>
       </a-spin>
       <paging class="paginghide" ref="paging" @setPage="setPage"></paging>
     </div>
+    <div v-else><a-empty /></div>
   </div>
 </template>
 
@@ -81,7 +63,7 @@ export default {
   data() {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
-      defImg: 'this.src="/img/zwtp.jpg"',
+      defImg: 'this.src="/img/wfck.png"',
       loading: false,
       model: {
         current: 1, //	当前页
@@ -95,23 +77,27 @@ export default {
   },
   mounted() {
     this._memoryMsgList();
+    this.handleAvatar();
   },
   methods: {
     _memoryMsgList() {
       this.loading = true;
       memoryMsgList(this.model).then((res) => {
         this.loading = false;
-        console.log(res);
         if (res.code === 0) {
-          // console.log(res);
-          // Object.assign(this.model, res.data);
-          // setTimeout(() => {
-          //   this.$refs.paging.setPageInfo(this.model);
-          // }, 200);
+          console.log(res);
+          Object.assign(this.model, res.data);
+          setTimeout(() => {
+            this.$refs.paging.setPageInfo(this.model);
+          }, 200);
         }
       });
     },
-    setPage() {},
+    handleAvatar(item) {},
+    setPage(pageNum) {
+      this.model.current = pageNum;
+      this._memoryMsgList();
+    },
   },
 };
 </script>
@@ -169,17 +155,24 @@ export default {
 
       .lyListAvatar {
         margin-right: 30px;
+        .avatar {
+          width: 64px;
+          border-radius: 50%;
+          height: 64px;
+        }
       }
 
       .lyListInfo {
         display: flex;
         flex-direction: column;
+        width: 100%;
         .lyListGift {
           height: 62px;
           line-height: 62px;
           background-color: #00744c;
           border-radius: 10px;
           margin-bottom: 20px;
+          width: 100%;
           position: relative;
 
           .lyListGiftIcon {

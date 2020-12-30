@@ -31,7 +31,7 @@
       </a-spin>
       <paging class="paginghide" ref="paging" @setPage="setPage"></paging>
     </div>
-    <div v-else><a-empty /></div>
+    <div v-else><a-empty style="color: #fff" /></div>
   </div>
 </template>
 

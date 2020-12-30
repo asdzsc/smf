@@ -1,9 +1,9 @@
 <template>
   <div class="searchIndex">
     <div class="rightMenu">
-      <div class="createBtn">
+      <div class="createBtn" @click="showDiv = true">
         <img src="/img/pc/search_create.png" alt="" />
-        <p @click="openUrl('/mark/create')">创建主页</p>
+        <p>创建主页</p>
       </div>
       <div class="writeBtn">
         <img src="/img/pc/search_write.png" alt="" />
@@ -52,6 +52,31 @@
       </div>
       <div v-else style="margin:100px 0;"><a-empty /></div>
     </div>
+    <div class="activeDiv" v-if="showDiv">
+      <img src="/img/pc/syjhm.jpg" alt="" />
+      <p class="activeTitle">创建主页</p>
+      <p>请输入我们给您提供的激活码，即可获得该追思主页使用权：</p>
+      <input
+        type="text"
+        class="input"
+        v-model="divCode"
+        placeholder="输入激活码"
+      />
+      <div class="popup-btn">
+        <input
+          type="button"
+          @click="showDiv = false"
+          class="back-btn"
+          value="取消"
+        />
+        <input
+          type="button"
+          @click="handleCreate"
+          class="submit-btn"
+          value="继续"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -71,9 +96,10 @@ export default {
       loading: false,
       show: false,
       tag: true,
-      allList: [],
-      checkList: [],
-      topList: [],
+      showDiv: false, //激活码框
+      allList: [], //所有数据
+      checkList: [], //tab 数据
+      topList: [], //前三个数据
       tab: null,
       tabIndex: 0,
       modelCol: {
@@ -87,9 +113,11 @@ export default {
         columnId: "",
         list: [],
         notId: [],
+        total: "",
       },
       swiperindex: null,
-      showImg: true,
+      showImg: true, //默认墓碑图片
+      divCode: "", //激活码
     };
   },
   watch: {
@@ -111,6 +139,7 @@ export default {
     });
   },
   methods: {
+    // tab 切换
     handleCheck(id, index) {
       this.tab = id;
       this.checkList.mergerId = id;
@@ -182,6 +211,18 @@ export default {
         }
       }
     },
+    //创建模板
+    handleCreate() {
+      // alert("")
+      if (this.divCode != "") {
+        // this.$router.push({
+        //   name: "/mark/create",
+        // });
+        this.$message.success("验证成功！");
+      } else {
+        this.$message.error("激活码不能为空！");
+      }
+    },
   },
 };
 </script>
@@ -234,6 +275,58 @@ export default {
     img {
       width: 100%;
       height: 377px;
+    }
+  }
+  .activeDiv {
+    background-color: #fff;
+    width: 600px;
+    height: 400px;
+    position: fixed;
+    left: 30%;
+    right: 30%;
+    top: 15%;
+    border: 2px;
+    border-radius: 10px;
+    border-color: #22be6d;
+    border-style: solid;
+    text-align: center;
+    z-index: 99;
+    img {
+      margin: 30px 0;
+    }
+    .activeTitle {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .input {
+      border-radius: 8px;
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 30px;
+      height: 35px;
+      background-color: #fff;
+    }
+    .popup-btn {
+      input {
+        width: 120px;
+        height: 35px;
+        border-radius: 8px;
+        font-size: 18px;
+        border-style: solid;
+        margin-top: 30px;
+      }
+      .back-btn {
+        background-color: #fff;
+        color: #22be6d;
+        border-color: #22be6d;
+        margin-left: 70px;
+      }
+      .submit-btn {
+        background-color: #22be6d;
+        color: #fff;
+        border: none;
+        margin-left: 30px;
+      }
     }
   }
   .checkBox {

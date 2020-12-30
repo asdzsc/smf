@@ -14,7 +14,7 @@ export default [{
             title: "个人纪念馆"
         },
         component: () =>
-            import ("@/pages/mobile/views/mark/grjn/grjn-08.vue"),
+            import ("@/pages/mobile/views/mark/grjn/grjn-11.vue"),
     },
     {
         path: "/mark/grjn/index?id=:id",

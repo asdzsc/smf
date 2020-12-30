@@ -8,6 +8,10 @@
           :onerror="defImg"
         />
       </div>
+      <div class="bannerCreate">
+        <a-avatar :size="50" :src="bannerModel.createAvatar" />
+        <p class="bannerCreateName">{{ bannerModel.createName }}</p>
+      </div>
       <p class="bannerName">{{ bannerModel.name }}</p>
       <div class="bannerTime">
         <p>
@@ -21,6 +25,10 @@
       </div>
       <div class="bannerMsg">
         {{ bannerModel.intro }}
+      </div>
+      <div class="bannerTimes">
+        已有<span>{{ bannerModel.msgNum }}</span
+        >次纪念
       </div>
       <div class="bannerBtn">
         纪念她
@@ -36,13 +44,15 @@ export default {
     bannerModel: {
       //type 接收的数据类型
       type: Object,
-      default: {},
+      default: () => {
+        return {};
+      },
     },
   },
   data() {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
-      defImg: 'this.src="/img/zwtp.jpg"',
+      defImg: 'this.src="/img/wfzk.png"',
     };
   },
 };
@@ -70,7 +80,20 @@ export default {
       background: #fff;
       border-radius: 50%;
     }
+    .bannerCreate {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      right: 150px;
+      top: 50px;
 
+      .bannerCreateName {
+        font-size: 20px;
+        padding-left: 5px;
+        color: #ffffff;
+        margin-top: 20px;
+      }
+    }
     .bannerName {
       margin-top: 100px;
       font-size: 40px;
@@ -109,6 +132,21 @@ export default {
       margin: 0 auto;
       margin-top: 220px;
       cursor: pointer;
+    }
+    .bannerTimes {
+      font-size: 26px;
+      line-height: 28px;
+      letter-spacing: 1px;
+      color: #fff;
+      position: absolute;
+      bottom: 130px;
+      left: 50%;
+      margin-left: -100px;
+
+      span {
+        font-size: 40px;
+        font-weight: bold;
+      }
     }
   }
 }

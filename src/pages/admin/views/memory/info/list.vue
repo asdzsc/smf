@@ -56,10 +56,10 @@
 									<a-menu-item @click="showMediaImg(record)">
 										<a-icon type="file-image" />纪念相册
 									</a-menu-item>
-									<a-menu-item>
+									<a-menu-item @click="showMemoryMsg(record)">
 										<a-icon type="message" />祭奠留言
 									</a-menu-item>
-									<a-menu-item>
+									<a-menu-item @click="showMemoryArticle(record)">
 										<a-icon type="profile" />纪念文章
 									</a-menu-item>
 									<a-menu-item @click="showMediaVideo(record)">
@@ -85,6 +85,12 @@
 		<memoryQrcode ref="memoryQrcode"></memoryQrcode>
 		<memoryMedia v-if="showMemoryMediaImg" :memoryId="infoId" mediaType="image" ref="memoryMediaImg" @onClose="mediaImgClose"></memoryMedia>
 		<memoryMedia v-if="showMemoryMediaVideo" :memoryId="infoId" mediaType="video" ref="memoryMediaVideo" @onClose="mediaVideoClose"></memoryMedia>
+
+		<!-- 祭奠留言 -->
+		<memoryMsg v-if="showMemoryMsgList" :memoryInfo="infoObj" ref="memoryMsg" @onClose="memoryMsgClose"></memoryMsg>
+		<!-- 纪念文章 -->
+		<memoryArticle v-if="showMemoryArticleList" :memoryInfo="infoObj" ref="memoryArticle" @onClose="memoryArticleClose"></memoryArticle>
+
 	</a-card>
 </template>
 
@@ -95,18 +101,17 @@
 	import {
 		getMemoryList,
 		setMemoryStatus,
-		saveMemorySort
+		saveMemorySort,
+		delMemory
 	} from "@/pages/admin/api/memory/memory";
-	import {
-		delNews
-	} from "@/pages/admin/api/news/news";
-
 	export default {
 		components: {
 			info: () => import("@/pages/admin/views/memory/info/info"),
 			showImg: () => import("@/pages/admin/components/show-img/show-img.vue"),
 			memoryQrcode: () => import("@/pages/admin/views/memory/info/components/info-qrcode.vue"),
-			memoryMedia: () => import("@/pages/admin/views/memory/info/components/info-media.vue")
+			memoryMedia: () => import("@/pages/admin/views/memory/info/components/info-media.vue"),
+			memoryMsg: () => import("@/pages/admin/views/memory/info/components/info-msg.vue"),
+			memoryArticle: () => import("@/pages/admin/views/memory/info/components/info-article.vue")
 		},
 		data() {
 			return {
@@ -187,10 +192,13 @@
 					}
 				],
 				showInfo: false,
-				infoId: "",
+				infoId: '',
+				infoObj: null,
 				showImgModal: false,
 				showMemoryMediaImg: false, //显示相册附件
-				showMemoryMediaVideo: false //显示视频附件
+				showMemoryMediaVideo: false, //显示视频附件
+				showMemoryMsgList: false, //祭奠留言
+				showMemoryArticleList: false //纪念文章
 			};
 		},
 		mounted() {
@@ -289,11 +297,11 @@
 				});
 			},
 			add() {
-				this.infoId = "";
+				this.infoId = ""
 				this.showInfo = true;
 			},
 			edit(record) {
-				this.infoId = record.id;
+				this.infoId = record.id
 				this.showInfo = true;
 			},
 			infoClose(res) {
@@ -321,7 +329,7 @@
 					title: "确定要删除吗?",
 					content: "",
 					onOk() {
-						delNews({
+						delMemory({
 							ids: list
 						}).then(res => {
 							if (res.code === 0) {
@@ -377,6 +385,25 @@
 			mediaVideoClose() {
 				this.$nextTick(() => {
 					this.showMemoryMediaVideo = false
+				})
+			},
+			//显示留言
+			showMemoryMsg(record) {
+				this.infoObj = record
+				this.showMemoryMsgList = true
+			},
+			memoryMsgClose() {
+				this.$nextTick(() => {
+					this.showMemoryMsgList = false
+				})
+			},
+			showMemoryArticle(record) {
+				this.infoObj = record
+				this.showMemoryArticleList = true
+			},
+			memoryArticleClose() {
+				this.$nextTick(() => {
+					this.showMemoryArticleList = false
 				})
 			}
 		}
