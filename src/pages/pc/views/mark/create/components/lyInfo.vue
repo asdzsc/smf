@@ -1,19 +1,44 @@
 <template>
   <div class="lyInfo">
-    <div class="selfInfo">
-      <span>主题</span>
-      <textarea placeholder="请输入留言主题" style="height:30px;"></textarea>
+    <div class="cont">
+      <div class="selfInfo">
+        <span>主题</span>
+        <textarea
+          v-model="msgList.title"
+          placeholder="请输入留言主题"
+          style="height:30px;"
+        ></textarea>
+      </div>
+      <div class="selfInfo">
+        <span>祭奠留言</span>
+        <textarea
+          v-model="msgList.cont"
+          placeholder="请输入祭奠留言"
+        ></textarea>
+      </div>
     </div>
-    <div class="selfInfo">
-      <span>祭奠留言</span>
-      <textarea placeholder="请输入祭奠留言"></textarea>
-    </div>
-    <div class="btn">再写一条</div>
+    <div @click="handleAdd" class="btn">再写一条</div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    msgList: {
+      type: Array,
+      default: [],
+    },
+  },
+  mounted() {
+    console.log(this.msgList);
+  },
+  methods: {
+    // 添加乘机人
+    handleAdd() {
+      this.users.push({ username: "", id: "" });
+    },
+  },
+};
 </script>
 
 <style lang="less" scoped>

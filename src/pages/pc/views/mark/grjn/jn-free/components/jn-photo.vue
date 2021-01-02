@@ -4,55 +4,15 @@
       <p>纪念相册</p>
       <div class="line"></div>
     </div>
-    <div class="photosInfo">
-      <!-- :autoplay="true" -->
-
+    <div class="photosInfo" v-if="this.model.list != ''">
       <div class="img" v-for="item in this.model.list" :key="item.id">
         <viewer class="viewer">
           <img :src="baseUrl + item.url" :onerror="defImg" alt="" />
         </viewer>
       </div>
-
-      <!--  
-      <a-carousel arrows>
-        <div class="carsoule" v-for="item in this.model.list" :key="item.id">
-          <div class="top">
-            <img :src="baseUrl + item.url" alt="" />
-            <div class="w340"></div>
-            <div class="w340">
-              <img src="/img/pc/1_02.png" alt="" />
-            </div>
-            <div class="w460">
-              <img src="/img/pc/1_03.png" alt="" />
-            </div>
-          </div>
-          <div class="bottom">
-            <div class="w460">
-              <img src="/img/pc/1_04.png" alt="" />
-            </div>
-            <div class="w340">
-              <img src="/img/pc/1_05.png" alt="" />
-            </div>
-            <div class="w340">
-              <img src="/img/pc/1_06.png" alt="" />
-            </div>
-          </div>
-        </div>
-        <div slot="prevArrow" class="custom-slick-arrow left-circle">
-          <a-icon type="left-circle" />
-        </div>
-        <div slot="nextArrow" class="custom-slick-arrow right-circle">
-          <a-icon type="right-circle" />
-        </div>
-      </a-carousel>
-        -->
-      <photoPaging
-        v-if="paginghide"
-        ref="paging"
-        class="page"
-        @setPage="setPage"
-      ></photoPaging>
+      <photoPaging ref="paging" class="page" @setPage="setPage"></photoPaging>
     </div>
+    <div v-else><a-empty /></div>
   </div>
 </template>
 
@@ -81,19 +41,13 @@ export default {
     };
   },
   mounted() {
-    // this.model = this.photoModel;
-    // let filterList = this.model.list;
-    // let loopList = filterList.filter((item) => {
-    //   return item.mediaType === "image";
-    // });
-    // this.model.list = loopList;
-    // console.log(loopList);
     this._memoryMediaList();
   },
   methods: {
     _memoryMediaList() {
       this.loading = true;
       memoryMediaList(this.model).then((res) => {
+        console.log(res);
         this.loading = false;
         if (res.code === 0) {
           Object.assign(this.model, res.data);
@@ -105,11 +59,6 @@ export default {
           setTimeout(() => {
             this.$refs.paging.setPageInfo(this.model);
           }, 200);
-          // let filterList = this.model.list;
-          // let loopList = filterList.filter((item) => {
-          //   return item.mediaType == "image";
-          // });
-          // this.model.list = loopList;
         }
       });
     },

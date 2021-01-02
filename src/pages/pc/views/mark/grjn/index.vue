@@ -142,7 +142,6 @@ export default {
       const id = this.$route.params.id;
       this.loading = true;
       getMemoryInfo({ id: id }).then((res) => {
-        console.log(res);
         this.loading = false;
         if (res.code === 0) {
           Object.assign(this.model, res.data);

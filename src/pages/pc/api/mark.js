@@ -1,13 +1,5 @@
 import request from "@/pages/pc/libs/request";
 
-// 获取模版详情
-export function templateInfo(param) {
-    return request({
-        url: "/web-api/memory/template/templateInfo",
-        method: "post",
-        data: param
-    });
-}
 // 获取查看纪念馆栏目列表
 export function getMemoryColumnList(param) {
     return request({
@@ -45,6 +37,15 @@ export function memoryMediaList(param) {
 export function memoryMsgList(param) {
     return request({
         url: "/web-api/website/memory/msg/memoryMsgList",
+        method: "post",
+        data: param
+    });
+}
+
+// 创建个人主页-激活码
+export function addMemoryPage(param) {
+    return request({
+        url: "/web-api/website/memory/info/addMemoryPage",
         method: "post",
         data: param
     });

@@ -44,20 +44,20 @@ export default {
     return {
       uploadUrl: process.env.VUE_APP_BASE_URL + "/api/upload/fileUpload",
       headers: {
-        token: this.$store.state.account.token
+        token: this.$store.state.account.token,
       },
       imageUrl: "",
       loading: false,
       fileList: [],
       previewVisible: false,
       previewImage: "",
-      width: 520
+      width: 520,
     };
   },
   watch: {
     previewImage() {
       this.imgWH();
-    }
+    },
   },
   created() {},
   mounted() {},
@@ -77,7 +77,7 @@ export default {
         if (res.code === 0) {
           info.file.url = process.env.VUE_APP_BASE_URL + res.uploadUrl;
           info.file.imgUrl = res.uploadUrl;
-          var query = this.fileList.filter(x => x.uid == info.file.uid);
+          var query = this.fileList.filter((x) => x.uid == info.file.uid);
           if (query.length > 0) {
             query[0].url = process.env.VUE_APP_BASE_URL + res.uploadUrl;
             query[0].imgUrl = res.uploadUrl;
@@ -130,8 +130,8 @@ export default {
     },
     getFileList() {
       return this.fileList;
-    }
-  }
+    },
+  },
 };
 </script>
 

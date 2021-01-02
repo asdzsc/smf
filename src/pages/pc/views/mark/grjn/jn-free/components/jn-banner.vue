@@ -138,11 +138,6 @@ export default {
       line-height: 28px;
       letter-spacing: 1px;
       color: #fff;
-      position: absolute;
-      bottom: 130px;
-      left: 50%;
-      margin-left: -100px;
-
       span {
         font-size: 40px;
         font-weight: bold;
