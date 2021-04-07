@@ -1,0 +1,22 @@
+.video-js {
+	margin: auto;
+}
+
+.video-js .vjs-big-play-button {
+	/*
+   播放按钮换成圆形
+  */
+	height: 2em;
+	width: 2em;
+	line-height: 2em;
+	border-radius: 1em;
+	left: calc(50% - 1em) !important;
+	top: calc(50% - 1em) !important;
+	position: absolute;
+	z-index: 20;
+}
+
+video {
+	object-fit: fill;
+	margin: auto;
+}

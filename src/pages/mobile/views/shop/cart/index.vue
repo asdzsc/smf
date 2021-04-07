@@ -1,0 +1,532 @@
+<template>
+  <div class="cart">
+    <div class="cartList">
+      <div class="cartTitle">
+        <div class="link">
+          <a href="/mobile/#/shop">商城首页</a
+          ><span> <van-icon name="arrow" />购物车</span>
+        </div>
+        <div class="allShop">
+          全部商品 : {{ list.length > 0 ? list.length : "0" }}
+        </div>
+      </div>
+      <!--购物车信息  start  -->
+      <div class="cartInfo" v-if="list.length > 0">
+        <ul class="normalGoods">
+          <li v-for="item in list" :key="item.cartId">
+            <div class="check">
+              <van-checkbox
+                v-model="item.check"
+                icon-size=".31rem"
+                @click="check(list)"
+                checked-color="#004930"
+              ></van-checkbox>
+            </div>
+            <van-swipe-cell>
+              <van-card
+                :desc="item.specVal"
+                :title="item.title"
+                class="goods-card"
+                :class="{ invalid: !item.isValid }"
+                :thumb="baseUrl + item.cover"
+              />
+              <span
+                v-if="!item.isValid"
+                style="
+                  color: red;
+                  position: absolute;
+                  left: 110px;
+                  top: 28px;
+                  font-size: 12px;
+                "
+              >
+                该商品信息已失效
+              </span>
+              <template #right>
+                <van-button
+                  square
+                  text="删除"
+                  @click="_delCart([item.cartId])"
+                  type="danger"
+                />
+              </template>
+              <div class="cartNumWrap">
+                <div class="goodsPrice">￥{{ item.price }}</div>
+                <van-stepper
+                  v-model="item.goodsNum"
+                  theme="round"
+                  button-size="22"
+                  disable-input
+                />
+              </div>
+            </van-swipe-cell>
+          </li>
+        </ul>
+      </div>
+      <div v-else>
+        <van-empty description="暂无数据" />
+      </div>
+      <!--购物车信息  end  -->
+      <!-- 底部工具栏 start -->
+      <div class="footerTool" v-if="list.length > 0">
+        <div class="allCheck">
+          <van-checkbox
+            v-model="checkAll"
+            @change="changeCheckAll"
+            icon-size=".31rem"
+            checked-color="#004930"
+            >全选</van-checkbox
+          >
+        </div>
+        <div class="totalPrice">合计：￥{{ ckGoodsTotalPriceText }}</div>
+        <div class="orderPay" @click="buy()">去结算</div>
+      </div>
+      <!-- 底部工具栏 end-->
+    </div>
+  </div>
+</template>
+
+<script>
+import { cartList, updateCartGoodsNum, delCart } from "@/pages/mobile/api/shop";
+import { Dialog } from "vant";
+import * as utils from "@/pages/mobile/libs/utils";
+export default {
+  data() {
+    return {
+      baseUrl: process.env.VUE_APP_BASE_URL,
+      defImg: 'this.src="/img/zwtp.jpg"',
+      loading: false, //列表加载
+      checkAll: false,
+      list: [],
+      isBuy: false, //立即结算
+    };
+  },
+  computed: {
+    totalGoodsNum() {
+      var goodsNum = 0;
+      this.list.forEach((x) => {
+        goodsNum += x.goodsNum;
+      });
+      return goodsNum;
+    },
+    ckCartGoodsNum() {
+      var goodsNum = 0;
+      this.list.forEach((x) => {
+        if (x.check) {
+          goodsNum += x.goodsNum;
+        }
+      });
+      return goodsNum;
+    },
+    ckGoodsTotalPriceText() {
+      var showGoodsPrice = 0;
+      this.list.forEach((x) => {
+        if (x.check) {
+          var goodsPrice = this.goodsTotalPrice(x);
+          showGoodsPrice += goodsPrice;
+        }
+      });
+      return utils.formatMoney(showGoodsPrice);
+    },
+  },
+  mounted() {
+    this._cartList();
+  },
+  beforeDestroy() {
+    //页面关闭前更新购物车商品数量
+    if (!this.isBuy) {
+    }
+  },
+  methods: {
+    check(i) {
+      i.forEach(() => {
+        // if (v.check == true) {
+        //   console.log("aa");
+        //   this.checkAll = true;
+        // }
+      });
+    },
+    _cartList() {
+      this.$toast.loading({
+        message: "加载中...",
+        forbidClick: true,
+      });
+      cartList().then((res) => {
+        this.$toast.clear();
+        if (res.code === 0) {
+          this.list = res.data;
+          this.list.forEach((x) => {
+            this.$set(x, "check", false);
+          });
+        }
+      });
+    },
+    // position 为关闭时点击的位置
+    // instance 为对应的 SwipeCell 实例
+    // 左滑删除
+    beforeClose({ position, instance }) {
+      switch (position) {
+        case "left":
+        case "cell":
+        case "outside":
+          instance.close();
+          break;
+        case "right":
+          break;
+      }
+    },
+    //删除购物车
+    _delCart(cartIds) {
+      // console.log(cartIds);
+      var vm = this;
+      Dialog.confirm({
+        message: "确定删除吗？",
+      })
+        .then(() => {
+          delCart({
+            ids: cartIds,
+          }).then((res) => {
+            if (res.code === 0) {
+              vm.list = vm.list.filter((x) => {
+                return cartIds.indexOf(x.cartId) !== 0;
+              });
+              this.$router.go(0);
+            }
+          });
+        })
+        .catch(() => {
+          // on cancel
+        });
+    },
+    //全选
+    changeCheckAll() {
+      this.list.forEach((v) => {
+        v.check = this.checkAll;
+      });
+    },
+
+    //商品小计
+    goodsTotalPrice(item) {
+      if (typeof item.goodsNum === "number" && !isNaN(item.goodsNum)) {
+      } else {
+        item.goodsNum = 1;
+      }
+      var showGoodsPrice = item.price * item.goodsNum;
+      return showGoodsPrice;
+    },
+    goodsTotalPriceText(item) {
+      var showGoodsPrice = this.goodsTotalPrice(item);
+      return utils.formatMoney(showGoodsPrice);
+    },
+    // 更新购物车商品数量
+    updateCartNum() {
+      updateCartGoodsNum(this.list).then((res) => {
+        if (res.code === 0) {
+          var cartNum = this.$store.state.account.cartNum;
+          var goodsNum = this.totalGoodsNum;
+          if (cartNum !== goodsNum) {
+            this.$store.commit("account/setCartNum", goodsNum);
+          }
+          //跳转订单确认页面
+          this.toBuy();
+        }
+      });
+    },
+    //立即结算
+    buy() {
+      this.isBuy = true;
+      this.updateCartNum();
+    },
+    toBuy() {
+      if (this.isBuy) {
+        var query = this.list.filter((x) => x.check && x.isValid);
+        var cartIds = query.map((x) => {
+          return x.cartId;
+        });
+        if (cartIds.length == 0) {
+          this.$notify({
+            type: "warning",
+            message: "请选中要结算的商品",
+          });
+          this.isBuy = false;
+        } else {
+          var ids = cartIds.toString();
+          this.$router.push({
+            path: "/shop/order/confirmOrder",
+            query: {
+              type: "cart",
+              cids: ids,
+            },
+          });
+        }
+      }
+    },
+    formatMoney(money) {
+      return utils.formatMoney(money);
+    },
+  },
+};
+</script>
+
+<style lang="less" scoped>
+.cart {
+  background: #f4f4f4;
+
+  .cartList {
+    .cartTitle {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.32rem;
+      line-height: 60px;
+      height: 1.1rem;
+      align-items: center;
+      margin: 0 0.2rem;
+
+      .link {
+        /deep/ .van-icon {
+          vertical-align: middle;
+        }
+
+        a {
+          color: #333333;
+        }
+
+        span {
+          color: #004930;
+        }
+      }
+
+      .allShop {
+        font-size: 0.26rem;
+        line-height: 40px;
+        color: #999999;
+      }
+    }
+  }
+
+  .cartInfo {
+    width: 7.1rem;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+
+    .failTitle {
+      line-height: 0.62rem;
+      border-bottom: 0.03rem solid #c8cbd0;
+      display: flex;
+      justify-content: space-between;
+      width: 98%;
+      margin: 0 auto;
+      box-sizing: border-box;
+
+      .name {
+        font-size: 0.28rem;
+        margin-left: 0.1rem;
+        color: #333333;
+      }
+
+      .clear {
+        font-size: 0.24rem;
+        color: #004930;
+        margin-right: 0.1rem;
+      }
+    }
+
+    .normalGoods,
+    .failGoods {
+      li {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0.14rem;
+        box-sizing: border-box;
+
+        /deep/ .van-swipe-cell {
+          width: 100%;
+        }
+        /deep/ .van-stepper--round .van-stepper__minus {
+          color: #004930;
+          border: 1px solid #004930;
+        }
+        /deep/ .van-stepper--round .van-stepper__plus {
+          background-color: #004930;
+          border: 1px solid #004930;
+        }
+        /deep/ .van-swipe-cell__right {
+          top: 30px;
+        }
+
+        /deep/ .van-swipe-cell__wrapper {
+          position: relative;
+        }
+
+        .cartNumWrap {
+          position: absolute;
+          right: 0;
+          top: 17px;
+          width: 2rem;
+          height: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+
+          .goodsPrice {
+            font-size: 0.28rem;
+            font-weight: bold;
+            line-height: 0.3rem;
+            color: #004930;
+          }
+
+          .edit {
+            display: flex;
+
+            .cartEdit {
+              width: 0.3rem;
+              height: 0.3rem;
+              border-radius: 50%;
+              border: 1px solid #666666;
+              text-align: center;
+              line-height: 0.3rem;
+            }
+
+            .goodsNum {
+              width: 0.6rem;
+              height: 0.42rem;
+              background-color: #f5f5f5;
+              border-radius: 0.04rem;
+              text-align: center;
+              line-height: 0.42rem;
+              margin: 0 0.1rem;
+            }
+          }
+        }
+
+        .goods-card {
+          margin: 0;
+          background-color: #fff;
+          &.invalid {
+            background-color: #eeeeee;
+            opacity: 0.5;
+          }
+        }
+
+        .check {
+          flex: 1;
+          display: flex;
+          align-items: center;
+
+          .goodsImg {
+            width: 1.6rem;
+            height: 1.36rem;
+            background-color: #ebebeb;
+            border-radius: 0.04rem;
+            margin-left: 0.2rem;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+
+        .goodsWrap {
+          flex: 5;
+          display: flex;
+          justify-content: space-between;
+
+          .goodsName {
+            display: flex;
+            flex-direction: column;
+            margin-left: 0.2rem;
+            justify-content: space-around;
+
+            .name {
+              font-size: 0.28rem;
+              line-height: 0.42rem;
+              color: #333333;
+            }
+
+            .flowerName {
+              font-size: 0.26rem;
+              line-height: 0.42rem;
+              color: #999999;
+            }
+
+            .goodsSet {
+              display: block;
+              width: 1.2rem;
+              height: 0.5rem;
+              line-height: 0.5rem;
+              background-color: #f5f5f5;
+              border: solid 1px #f5f5f5;
+              font-size: 0.24rem;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+
+    .failGoods {
+      .goodsImg {
+        position: relative;
+
+        .goodsBox {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 0.4rem;
+          line-height: 0.4rem;
+          text-align: center;
+          color: #fff;
+          background-color: #000000;
+          opacity: 0.5;
+          font-size: 0.24rem;
+        }
+      }
+
+      .cartNumWrap {
+        position: inherit !important;
+      }
+    }
+  }
+
+  .footerTool {
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+    display: flex;
+    width: 100%;
+    height: 0.88rem;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f5f5f5;
+    box-shadow: 0px -3px 5px 0px #c1c1c1;
+
+    .allCheck {
+      flex: 0.8;
+      padding-left: 0.2rem;
+
+      .none {
+        display: none;
+      }
+    }
+
+    .totalPrice {
+      margin: 0 0.26rem;
+    }
+
+    .orderPay {
+      flex: 1.5;
+      height: 103%;
+      background-color: #004930;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+  }
+}
+</style>
