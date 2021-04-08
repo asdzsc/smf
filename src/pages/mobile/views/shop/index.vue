@@ -71,7 +71,7 @@
             @click="openGoodsInfo(item)"
             class="v_item"
           >
-            <img :src="getGoodsImg(item.cover)" alt="" />
+            <img :src="getGoodsImg(item.cover)" :onerror="defImg" alt="" />
             <div class="b_box">
               <div class="cont">
                 <p class="name">{{ item.title }}</p>
@@ -175,16 +175,13 @@
 </template>
 
 <script>
-import {
-  bannerList,
-  goodsColumnList,
-  goodsList,
-} from "@/pages/mobile/api/shop";
+import { bannerList, goodsList } from "@/pages/mobile/api/shop";
 import * as utils from "@/pages/mobile/libs/utils";
 export default {
   data() {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
+      defImg: 'this.src="/img/zwtp.jpg"',
       active: 0,
       list: [
         {

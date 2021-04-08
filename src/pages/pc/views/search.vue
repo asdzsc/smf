@@ -16,25 +16,22 @@
                 spin
               />
               <div class="list">
-                <!-- <a-empty v-if="model.list.length === 0" /> -->
-                <div class="item">
+                <a-empty v-if="modelNews.list.length === 0" />
+                <div
+                  v-for="item in modelNews.list"
+                  :key="item.id"
+                  @click="$router.push('/xwzx/newsInfo?id=' + item.id)"
+                  class="item"
+                >
                   <div class="newsImg">
-                    <img
-                      src="https://www.027smf.com/profile/2021-04/202104051347203285198.jpeg"
-                      :onerror="defImg"
-                    />
+                    <img :src="baseUrl + item.cover" :onerror="defImg" />
                   </div>
                   <div class="intro">
-                    <div class="introTitle">
-                      清明追思，缅怀先烈：多家单位来石门峰纪念公园开展“学党史、祭英烈”活动
+                    <div class="introTitle">{{ item.title }}</div>
+                    <div class="introCont" v-html="item.intro"></div>
+                    <div class="dtime">
+                      发布时间：{{ parseTime(item.publishTime, "{y}-{m}-{d}") }}
                     </div>
-                    <div class="introCont">
-                      清慎终追远
-                      缅怀先烈明风雨苍黄百年路高歌奋进新征程今年是中国共产党成立100周年在党的百年华诞之际武汉市各大单位于清明
-                      期间在石门峰纪念公园以多种形式举行“学党史、祭英烈”等主题活动学习党史教育传承红色基因缅怀先烈，致敬英雄每一
-                      次对英烈的缅怀都是一次庄严的洗礼在向革命先烈致敬的同时我们更要牢记使命知史爱党、知史爱国不忘初心砥砺前行
-                    </div>
-                    <div class="dtime">发布时间： 2021-04-05</div>
                   </div>
                 </div>
               </div>
@@ -53,23 +50,25 @@
                 spin
               />
               <div class="list">
-                <!-- <a-empty v-if="model.list.length === 0" /> -->
-                <div class="item">
+                <a-empty v-if="modelShop.list.length === 0" />
+                <div
+                  class="item"
+                  v-for="item in modelShop.list"
+                  :key="item.id"
+                  @click="openGoodsInfo(item)"
+                >
                   <div class="newsImg">
-                    <img
-                      src="https://www.027smf.com/profile/2020-08/202008111558199204989.png"
-                      :onerror="defImg"
-                    />
+                    <img :src="getGoodsImg(item.cover)" :onerror="defImg" />
                   </div>
                   <div class="intro">
-                    <div class="introTitle">一生一世念</div>
-                    <div class="introCont">花 材：99朵玫瑰，精致礼盒。</div>
-                    <div class="dtime">价格：¥ 1,314.00</div>
+                    <div class="introTitle">{{ item.title }}</div>
+                    <div class="introCont" v-html="item.cont"></div>
+                    <div class="dtime">价格：¥ {{ goodsPrice(item) }}</div>
                   </div>
                 </div>
               </div>
             </a-spin>
-            <paging ref="paging" @setPage="setPage"></paging>
+            <pagingShop ref="pagingShop" @setPage="setPageShop"></pagingShop>
           </div>
         </a-tab-pane>
         <a-tab-pane key="3">
@@ -86,27 +85,27 @@
                 spin
               />
               <div class="list">
-                <!-- <a-empty v-if="model.list.length === 0" /> -->
-                <div class="item">
+                <a-empty v-if="model.list.length === 0" />
+                <div
+                  class="item"
+                  v-for="item in model.list"
+                  :key="item.id"
+                  @click="handleClick(item.id)"
+                >
                   <div class="newsImg">
-                    <img
-                      src="https://www.027smf.com/profile/2020-12/202012140930476168091.jpg"
-                      :onerror="defImg"
-                    />
+                    <img :src="baseUrl + item.photo" :onerror="defImg" />
                   </div>
                   <div class="intro">
-                    <div class="introTitle">姚贝娜</div>
+                    <div class="introTitle">{{ item.name }}</div>
                     <div class="introCont">
-                      她会变成天上那颗最耀眼的星星，照亮我们每个人的梦，飞过苍穹，穿越永恒。
-                      永远都不要忘了她，因为她是真正的天使。天堂会收下你的美，会让你在那里生活的更加幸福快睡吧，
-                      睡吧。总有一天，你会醒来......
+                      {{ item.intro }}
                     </div>
-                    <div class="dtime">纪念次数： 124次</div>
+                    <div class="dtime">纪念次数： {{ item.msgNum }}次</div>
                   </div>
                 </div>
               </div>
             </a-spin>
-            <paging ref="paging" @setPage="setPage"></paging>
+            <pagingMark ref="pagingMark" @setPage="setPageMark"></pagingMark>
           </div>
         </a-tab-pane>
       </a-tabs>
@@ -115,19 +114,25 @@
 </template>
 
 <script>
+import { newsList } from "@/pages/pc/api/news";
+import { memoryList } from "@/pages/pc/api/mark.js";
+import { goodsList } from "@/pages/pc/api/shop";
 import * as utils from "@/pages/pc/libs/utils";
 export default {
   components: {
     paging: () => import("@/pages/pc/views/xwzx/components/paging.vue"),
+    pagingShop: () => import("@/pages/pc/views/xwzx/components/paging.vue"),
+    pagingMark: () => import("@/pages/pc/views/xwzx/components/paging.vue"),
   },
   data() {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
       defImg: 'this.src="/img/zwtp.jpg"',
       loading: false,
+      xhAllList: [],
       model: {
-        current: 0,
-        pageSize: 11,
+        current: "1",
+        pageSize: 8,
         searchText: "",
         status: "0",
         columnId: "",
@@ -135,23 +140,157 @@ export default {
         notId: [],
         total: "",
       },
+      modelNews: {
+        current: "1",
+        pageSize: "8",
+        articleType: "1", //新闻类型
+        columnId: "443278534481465344", //栏目id
+        total: "0",
+        list: [],
+        searchText: "",
+      },
+      modelShop: {
+        current: 1,
+        pageSize: "8",
+        status: "1",
+        list: [],
+        total: "",
+        columnId: "445465710975700992",
+        searchText: "",
+      },
     };
   },
   watch: {
-    "$store.state.account.searchKey": function () {
-      this.model.searchText = this.$store.state.account.searchKey;
+    "$store.state.account.searchKeyMain": function () {
+      this.model.searchText = this.$store.state.account.searchKeyMain;
+      this.modelNews.searchText = this.$store.state.account.searchKeyMain;
+      this.modelShop.searchText = this.$store.state.account.searchKeyMain;
       this.search();
     },
   },
   mounted() {
-    if (this.$store.state.account.searchKey) {
-      this.model.searchText = this.$store.state.account.searchKey;
+    if (this.$store.state.account.searchKeyMain) {
+      this.model.searchText = this.$store.state.account.searchKeyMain;
+      this.modelNews.searchText = this.$store.state.account.searchKeyMain;
+      this.modelShop.searchText = this.$store.state.account.searchKeyMain;
     }
+    this._newsList();
+    this._memoryList();
+    this.getXhList();
   },
   methods: {
-    search() {},
+    handleClick(id) {
+      this.$router.push({
+        path: "/mark/grjn/index",
+        query: {
+          id: id,
+        },
+      });
+      setTimeout(() => {
+        this.$router.go(0);
+      }, 100);
+    },
+    search() {
+      this.model.list = [];
+      this.model.notId = [];
+      this.model.current = 0;
+      this._memoryList();
+      this.modelNews.list = [];
+      this.modelNews.current = 0;
+      this._newsList();
+      this.modelShop.list = [];
+      this.modelShop.current = 0;
+      this.getXhList();
+    },
+    _newsList() {
+      this.loading = true;
+      newsList(this.modelNews).then((res) => {
+        this.loading = false;
+        if (res.code === 0) {
+          Object.assign(this.modelNews, res.data);
+          setTimeout(() => {
+            this.$refs.paging.setPageInfo(this.modelNews);
+          }, 200);
+        }
+      });
+    },
+    _memoryList() {
+      this.loading = true;
+      memoryList(this.model).then((res) => {
+        this.loading = false;
+        if (res.code === 0) {
+          Object.assign(this.model, res.data);
+          setTimeout(() => {
+            this.$refs.pagingMark.setPageInfo(this.model);
+          }, 200);
+        }
+      });
+    },
+    getXhList() {
+      this.loading = true;
+      goodsList(this.modelShop).then((res) => {
+        this.loading = false;
+        if (res.code === 0) {
+          Object.assign(this.modelShop, res.data);
+          setTimeout(() => {
+            this.$refs.pagingShop.setPageInfo(this.modelShop);
+          }, 200);
+        }
+      });
+    },
+    getGoodsImg(cover) {
+      if (cover) {
+        if (cover.indexOf("http") >= 0) {
+          return cover;
+        } else {
+          return this.baseUrl + cover;
+        }
+      } else {
+        return "/img/zwtp.jpg";
+      }
+    },
+    goodsPrice(goodsInfo) {
+      if (goodsInfo.isSpec === "1") {
+        return (
+          utils.parseMoney(goodsInfo.minPrice) +
+          " ~ " +
+          utils.parseMoney(goodsInfo.maxPrice)
+        );
+      } else {
+        return utils.parseMoney(goodsInfo.price);
+      }
+    },
+    openUrl(url) {
+      if (url) {
+        if (url.indexOf("http") >= 0) {
+          window.location = url;
+        } else {
+          this.$router.push(url);
+        }
+      }
+    },
+    //商品详情
+    openGoodsInfo(goodsInfo) {
+      if (goodsInfo.id) {
+        this.$router.push({
+          path: "/shop/goodsInfo",
+          query: {
+            id: goodsInfo.id,
+          },
+        });
+      }
+    },
     setPage(pageNum) {
+      this.modelNews.current = pageNum;
+      this._newsList();
+    },
+    setPageMark(pageNum) {
       this.model.current = pageNum;
+      this._memoryList();
+    },
+    setPageShop(pageNum) {
+      this.modelShop.current = pageNum;
+      this.getXhList();
     },
     parseTime(time, cFormat) {
       return utils.parseTime(time, cFormat);

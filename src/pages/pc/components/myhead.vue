@@ -193,6 +193,8 @@ export default {
       }, 300);
     },
     search() {
+      this.searchKey = this.searchKey.trim();
+      console.log("search");
       if (this.searchKey) {
         this.$store.commit("account/setSearchKeyMain", this.searchKey);
         this.$router.push({

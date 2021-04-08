@@ -173,7 +173,7 @@
           class="goodsItem"
         >
           <div class="goodsImg">
-            <img :src="getGoodsImg(item.cover)" />
+            <img :src="getGoodsImg(item.cover)" :onerror="defImg" />
           </div>
           <div class="goodsTitleCont">
             <div class="goodsTitle">{{ item.title }}</div>
@@ -258,6 +258,7 @@ export default {
   data() {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
+      defImg: 'this.src="/img/zwtp.jpg"',
       banners: [],
       columnList: [],
       xhAllList: [],

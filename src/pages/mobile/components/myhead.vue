@@ -1,6 +1,6 @@
 <template>
   <div class="head">
-    <van-row v-show="showMenu">
+    <van-row v-show="showMenu" style="padding: 0 0.4rem">
       <van-col span="8">
         <img
           @click="
@@ -137,7 +137,6 @@ export default {
 .mobile-index {
   .head {
     height: 0.88rem;
-    padding: 0px 0.4rem;
     background-color: #004930;
     position: relative;
     z-index: 6;

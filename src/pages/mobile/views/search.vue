@@ -4,30 +4,37 @@
       <van-tab
         ><template #title> <van-icon name="newspaper-o" />新闻 </template>
         <div class="cont">
-          <!-- <van-empty v-if="model.list.length === 0" description="暂无数据" /> -->
-          <van-list>
+          <van-empty
+            v-if="modelNews.list.length === 0"
+            description="暂无数据"
+          />
+          <van-list
+            v-else
+            v-model="loadingNews"
+            :finished="finishedNews"
+            finished-text="没有更多了"
+            @load="onLoad"
+          >
             <div class="list">
-              <div class="item">
+              <div
+                class="item"
+                v-for="(item, id) in modelNews.list"
+                :key="id"
+                @click="$router.push('/xwzx/newsInfo?id=' + item.id)"
+              >
                 <div class="newsImg">
-                  <img
-                    src="https://www.027smf.com/profile/2021-04/202104051347203285198.jpeg"
-                    :onerror="defImg"
-                    alt=""
-                  />
+                  <img :src="baseUrl + item.cover" :onerror="defImg" alt="" />
                 </div>
                 <div class="desc">
                   <div class="intro">
-                    <div class="introTitle">
-                      清明追思，缅怀先烈：多家单位来石门峰纪念公园开展“学党史、祭英烈”活动
-                    </div>
+                    <div class="introTitle">{{ item.title }}</div>
                     <div class="introCont">
-                      清慎终追远
-                      缅怀先烈明风雨苍黄百年路高歌奋进新征程今年是中国共产党成立100周年在党的百年华诞之际武汉市各大单位于清明
-                      期间在石门峰纪念公园以多种形式举行“学党史、祭英烈”等主题活动学习党史教育传承红色基因缅怀先烈，致敬英雄每一
-                      次对英烈的缅怀都是一次庄严的洗礼在向革命先烈致敬的同时我们更要牢记使命知史爱党、知史爱国不忘初心砥砺前行
+                      {{ item.intro }}
                     </div>
                   </div>
-                  <div class="dtime">发布时间：2021-04-05</div>
+                  <div class="dtime">
+                    发布时间：{{ parseTime(item.publishTime, "{y}-{m}-{d}") }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -37,23 +44,37 @@
       <van-tab
         ><template #title> <van-icon name="shop-collect-o" />商品 </template>
         <div class="cont">
-          <!-- <van-empty v-if="model.list.length === 0" description="暂无数据" /> -->
-          <van-list>
+          <van-empty
+            v-if="modelShop.list.length === 0"
+            description="暂无数据"
+          />
+          <van-list
+            v-else
+            v-model="loadingShop"
+            :finished="finishedShop"
+            finished-text="没有更多了"
+            @load="onLoadShop"
+          >
             <div class="list">
-              <div class="item">
+              <div
+                class="item"
+                v-for="item in modelShop.list"
+                :key="item.id"
+                @click="openGoodsInfo(item)"
+              >
                 <div class="newsImg">
                   <img
-                    src="https://www.027smf.com/profile/2020-08/202008111558199204989.png"
+                    :src="getGoodsImg(item.cover)"
                     :onerror="defImg"
                     alt=""
                   />
                 </div>
                 <div class="desc">
                   <div class="intro">
-                    <div class="introTitle">一生一世念</div>
-                    <div class="introCont">花 材：99朵玫瑰，精致礼盒。</div>
+                    <div class="introTitle">{{ item.title }}</div>
+                    <div class="introCont" v-html="item.cont"></div>
                   </div>
-                  <div class="dtime">价格：¥ 1,314.00</div>
+                  <div class="dtime">价格：¥ {{ goodsPrice(item) }}</div>
                 </div>
               </div>
             </div>
@@ -63,27 +84,32 @@
       <van-tab
         ><template #title><van-icon name="description" />个人主页 </template>
         <div class="cont">
-          <!-- <van-empty v-if="model.list.length === 0" description="暂无数据" /> -->
-          <van-list>
-            <div class="list">
+          <van-empty v-if="model.list.length === 0" description="暂无数据" />
+          <van-list
+            v-else
+            v-model="loadingMark"
+            :finished="finishedMark"
+            finished-text="没有更多了"
+            @load="onLoadMark"
+          >
+            <div
+              class="list"
+              v-for="item in model.list"
+              :key="item.id"
+              @click="$router.push('/mark/grjn/index?id=' + item.id)"
+            >
               <div class="item">
                 <div class="newsImg">
-                  <img
-                    src="https://www.027smf.com/profile/2020-12/202012140930476168091.jpg"
-                    :onerror="defImg"
-                    alt=""
-                  />
+                  <img :src="baseUrl + item.photo" :onerror="defImg" alt="" />
                 </div>
                 <div class="desc">
                   <div class="intro">
-                    <div class="introTitle">姚贝娜</div>
+                    <div class="introTitle">{{ item.name }}</div>
                     <div class="introCont">
-                      她会变成天上那颗最耀眼的星星，照亮我们每个人的梦，飞过苍穹，穿越永恒。
-                      永远都不要忘了她，因为她是真正的天使。天堂会收下你的美，会让你在那里生活的更加幸福快睡吧，
-                      睡吧。总有一天，你会醒来......
+                      {{ item.intro }}
                     </div>
                   </div>
-                  <div class="dtime">纪念次数： 124次</div>
+                  <div class="dtime">纪念次数： {{ item.msgNum }}次</div>
                 </div>
               </div>
             </div>
@@ -95,17 +121,27 @@
 </template>
 
 <script>
+import { newsList } from "@/pages/mobile/api/news";
+import { goodsList } from "@/pages/mobile/api/shop";
+import { memoryList } from "@/pages/mobile/api/mark.js";
+import * as utils from "@/pages/mobile/libs/utils";
 export default {
   data() {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
       defImg: 'this.src="/img/zwtp.jpg"',
-      active: 1,
-      loading: false,
-      finished: false,
+      active: 0,
+      loadingNews: false,
+      loadingShop: false,
+      loadingMark: false,
+      finishedNews: false,
+      finishedShop: false,
+      finishedMark: false,
+      xhAllList: [],
+      // 个人主页
       model: {
-        current: 0,
-        pageSize: 11,
+        current: "1",
+        pageSize: 8,
         searchText: "",
         status: "0",
         columnId: "",
@@ -113,16 +149,174 @@ export default {
         notId: [],
         total: "",
       },
+      // 新闻
+      modelNews: {
+        current: "1",
+        pageSize: "8",
+        articleType: "1", //新闻类型
+        columnId: "443278534481465344", //栏目id
+        total: "0",
+        list: [],
+        searchText: "",
+      },
+      // 商品
+      modelShop: {
+        current: 1,
+        pageSize: "8",
+        status: "1",
+        list: [],
+        total: "",
+        columnId: "445465710975700992",
+        searchText: "",
+      },
     };
   },
+  watch: {
+    "$store.state.account.searchKeyMain": function () {
+      this.model.searchText = this.$store.state.account.searchKeyMain;
+      this.modelNews.searchText = this.$store.state.account.searchKeyMain;
+      this.modelShop.searchText = this.$store.state.account.searchKeyMain;
+      this.search();
+    },
+  },
   mounted() {
+    if (this.$store.state.account.searchKeyMain) {
+      this.model.searchText = this.$store.state.account.searchKeyMain;
+      this.modelNews.searchText = this.$store.state.account.searchKeyMain;
+      this.modelShop.searchText = this.$store.state.account.searchKeyMain;
+    }
     this._newsList();
+    this.getXhList();
+    this._memoryList();
   },
   methods: {
     onLoad() {
       this._newsList();
     },
-    _newsList() {},
+    onLoadShop() {
+      this.getXhList();
+    },
+    onLoadMark() {
+      this._memoryList();
+    },
+    search() {
+      this.model.list = [];
+      this.model.notId = [];
+      this.model.current = 0;
+      this._memoryList();
+      this.modelNews.list = [];
+      this.modelNews.current = 0;
+      this._newsList();
+      this.modelShop.list = [];
+      this.modelShop.current = 0;
+      this.getXhList();
+    },
+    _newsList() {
+      this.$toast.loading({
+        message: "加载中...",
+        forbidClick: true,
+      });
+      this.loadingNews = true;
+      newsList(this.modelNews).then((res) => {
+        this.loadingNews = false;
+        this.$toast.clear();
+        if (res.code === 0) {
+          const results = res.data.list;
+          this.modelNews.list.push(...results);
+          if (res.data.hasNextPage) {
+            this.modelNews.current++;
+          } else {
+            this.finishedNews = true;
+          }
+        }
+      });
+    },
+    _memoryList() {
+      this.$toast.loading({
+        message: "加载中...",
+        forbidClick: true,
+      });
+      this.loadingMark = true;
+      memoryList(this.model).then((res) => {
+        this.loadingMark = false;
+        this.$toast.clear();
+        if (res.code === 0) {
+          const results = res.data.list;
+          this.model.list.push(...results);
+          if (res.data.hasNextPage) {
+            this.model.current++;
+          } else {
+            this.finishedMark = true;
+          }
+        }
+      });
+    },
+    parseTime(time, cFormat) {
+      return utils.parseTime(time, cFormat);
+    },
+    //鲜花推荐
+    getXhList() {
+      this.$toast.loading({
+        message: "加载中...",
+        forbidClick: true,
+      });
+      this.loadingShop = true;
+      goodsList(this.modelShop).then((res) => {
+        this.loadingShop = false;
+        this.$toast.clear();
+        if (res.code === 0) {
+          const results = res.data.list;
+          this.modelShop.list.push(...results);
+          if (res.data.hasNextPage) {
+            this.modelShop.current++;
+          } else {
+            this.finishedShop = true;
+          }
+        }
+      });
+    },
+    getGoodsImg(cover) {
+      if (cover) {
+        if (cover.indexOf("http") >= 0) {
+          return cover;
+        } else {
+          return this.baseUrl + cover;
+        }
+      } else {
+        return "/img/zwtp.jpg";
+      }
+    },
+    goodsPrice(goodsInfo) {
+      if (goodsInfo.isSpec === "1") {
+        return (
+          utils.parseMoney(goodsInfo.minPrice) +
+          " ~ " +
+          utils.parseMoney(goodsInfo.maxPrice)
+        );
+      } else {
+        return utils.parseMoney(goodsInfo.price);
+      }
+    },
+    openUrl(url) {
+      if (url) {
+        if (url.indexOf("http") >= 0) {
+          window.location = url;
+        } else {
+          this.$router.push(url);
+        }
+      }
+    },
+    //商品详情
+    openGoodsInfo(goodsInfo) {
+      if (goodsInfo.id) {
+        this.$router.push({
+          path: "/shop/goodsInfo",
+          query: {
+            id: goodsInfo.id,
+          },
+        });
+      }
+    },
   },
 };
 </script>
@@ -189,11 +383,14 @@ export default {
               -webkit-line-clamp: 2;
               overflow: hidden;
               display: -webkit-box;
+              /deep/ span {
+                font-size: 0.28rem !important;
+                font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+                  Helvetica, Segoe UI, Arial, Roboto, "PingFang SC", miui,
+                  "Hiragino Sans GB", "Microsoft Yahei", sans-serif !important;
+              }
             }
           }
-        }
-        &:last-child {
-          margin-bottom: 0;
         }
       }
     }

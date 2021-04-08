@@ -115,19 +115,18 @@ export default {
     closeSearch() {
       this.isSearch = false;
       this.searchKey = "";
-      this.$store.commit("account/setSearchKey", this.searchKey);
+      this.$store.commit("account/setSearchKeyMain", this.searchKey);
       setTimeout(() => {
         this.showMenu = true;
       }, 300);
     },
     search() {
+      this.searchKey = this.searchKey.trim();
+      console.log("search");
       if (this.searchKey) {
-        // console.log(this.searchKey);
-        this.searchKey = this.searchKey.trim();
-        console.log(this.searchKey);
-        this.$store.commit("account/setSearchKey", this.searchKey);
+        this.$store.commit("account/setSearchKeyMain", this.searchKey);
         this.$router.push({
-          path: "/mark/grjn",
+          path: "/search",
           query: {},
         });
       }
