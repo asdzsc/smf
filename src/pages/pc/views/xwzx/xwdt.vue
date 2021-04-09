@@ -31,7 +31,8 @@
           </div>
         </div>
       </a-spin>
-      <paging ref="paging" @setPage="setPage"></paging>
+      <!-- <paging ref="paging" @setPage="setPage"></paging> -->
+      <a-pagination size="small" :total="model.total" @change="onChange" />
     </div>
     <myserve></myserve>
   </div>
@@ -53,11 +54,11 @@ export default {
       defImg: 'this.src="/img/zwtp.jpg"',
       loading: false,
       model: {
-        current: "1",
-        pageSize: "8",
+        current: 1,
+        pageSize: 8,
         articleType: "1", //新闻类型
         columnId: "443278534481465344", //栏目id
-        total: "0",
+        total: 0,
         list: [],
       },
     };
@@ -72,11 +73,17 @@ export default {
         this.loading = false;
         if (res.code === 0) {
           Object.assign(this.model, res.data);
-          setTimeout(() => {
-            this.$refs.paging.setPageInfo(this.model);
-          }, 200);
+          this.model.total = Number(this.model.total);
+          // setTimeout(() => {
+          //   this.$refs.paging.setPageInfo(this.model);
+          // }, 200);
         }
       });
+    },
+    //分页
+    onChange(page) {
+      this.model.current = page;
+      this._newsList();
     },
     setPage(pageNum) {
       this.model.current = pageNum;
@@ -106,7 +113,21 @@ export default {
   .cont {
     width: 1200px;
     margin: auto;
-
+    /deep/ .ant-pagination-item-active {
+      border: none;
+    }
+    /deep/ .ant-pagination-item-active a {
+      color: #0b9b0b;
+    }
+    /deep/ .ant-pagination-item a:hover {
+      color: #0b9b0b;
+    }
+    /deep/ .ant-pagination-item-link-icon:hover {
+      color: #0b9b0b;
+    }
+    /deep/ .anticon:hover {
+      color: #0b9b0b;
+    }
     .list {
       margin-bottom: 50px;
 
