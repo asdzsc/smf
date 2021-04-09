@@ -58,7 +58,7 @@ export default {
     };
   },
   watch: {
-    topList: function (nv, ov) {
+    topList: function (nv) {
       this.$parent.topList = nv;
     },
   },
@@ -67,7 +67,7 @@ export default {
       this.loading = false;
       if (model.current === 1) {
         this.topList = model.list.slice(0, 3);
-        this.bottomList = model.list.splice(3, 11);
+        this.bottomList = model.list.slice(3, 11);
       } else {
         this.bottomList.push(...model.list);
       }
