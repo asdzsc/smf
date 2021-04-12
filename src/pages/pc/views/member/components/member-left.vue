@@ -82,6 +82,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@themeColor: #004930;
 .memberLeft {
   .item {
     height: 35px;
@@ -93,12 +94,12 @@ export default {
     cursor: pointer;
 
     &.activity {
-      background-color: #004930;
+      background-color: @themeColor;
       color: #ffffff;
     }
 
     &:hover {
-      background-color: #004930;
+      background-color: @themeColor;
       color: #ffffff;
     }
   }
