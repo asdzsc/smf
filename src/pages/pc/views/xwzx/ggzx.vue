@@ -3,11 +3,20 @@
     <div class="banner"></div>
     <xwzxHead name="公告中心"></xwzxHead>
     <div class="cont">
+<<<<<<< HEAD
+=======
+      <xwzxTitle title="公告中心"></xwzxTitle>
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <a-spin size="large" tip="加载中..." :spinning="loading">
         <a-icon
           slot="indicator"
           type="loading"
+<<<<<<< HEAD
           style="font-size: 30px; color: #004930"
+=======
+          style="font-size: 30px; color: #004930;"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           spin
         />
         <div class="list">
@@ -46,7 +55,11 @@ import * as utils from "@/pages/pc/libs/utils";
 export default {
   components: {
     xwzxHead: () => import("@/pages/pc/views/xwzx/components/xwzx-head.vue"),
+<<<<<<< HEAD
     // xwzxTitle: () => import("@/pages/pc/views/xwzx/components/xwzx-title.vue"),
+=======
+    xwzxTitle: () => import("@/pages/pc/views/xwzx/components/xwzx-title.vue"),
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     paging: () => import("@/pages/pc/views/xwzx/components/paging.vue"),
     myserve: () => import("@/pages/pc/components/myserve.vue"),
   },

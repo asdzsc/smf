@@ -1,7 +1,11 @@
 <template>
   <div class="goodsInfo">
     <div class="banner">
+<<<<<<< HEAD
       <img @click="showGoodsImgModal()" :src="goodsImg" alt="" />
+=======
+      <img :src="goodsImg" alt="" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div @click="showGoodsImgModal()" class="magnify">
         <van-icon name="search" class="search" />
       </div>
@@ -60,6 +64,7 @@
     <!-- 商品详情 start -->
     <div class="goodDetail">
       <div class="assessUser">产品详情</div>
+<<<<<<< HEAD
       <div v-html="model.cont" v-if="model.cont" class="htmlCont"></div>
       <div v-else><van-empty description="暂无数据" /></div>
     </div>
@@ -70,6 +75,15 @@
     <div v-else class="detailCart">
       <div class="buy" @click="openConfirmOrder">立即购买</div>
     </div>
+=======
+      <div v-html="model.cont" v-if="model.cont"></div>
+      <div v-else><van-empty description="暂无数据" /></div>
+    </div>
+    <div class="detailCart">
+      <div class="buy" @click="openConfirmOrder">立即购买</div>
+      <div class="add" @click="addCart">加入购物车</div>
+    </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     <!-- 商品详情 end -->
   </div>
 </template>
@@ -149,6 +163,7 @@ export default {
   },
   methods: {
     _goodsInfo() {
+<<<<<<< HEAD
       this.$toast.loading({
         message: "加载中...",
         forbidClick: true,
@@ -157,6 +172,13 @@ export default {
         id: this.model.id,
       }).then((res) => {
         this.$toast.clear();
+=======
+      this.loading = true;
+      goodsInfo({
+        id: this.model.id,
+      }).then((res) => {
+        this.loading = false;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (res.code === 0) {
           Object.assign(this.model, res.data.shopGoods);
           this.goodsColumnList = res.data.goodsColumnList;
@@ -346,7 +368,10 @@ export default {
           gid: this.model.id,
           goodsNum: this.goodsNum,
           spec: "",
+<<<<<<< HEAD
           orderType: "0",
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         };
         if (this.model.isSpec === "1") {
           var sv = this.specValInfo();
@@ -360,6 +385,7 @@ export default {
             data.spec = sv.specVal;
           }
         }
+<<<<<<< HEAD
         if (this.model.goodsType === "2") {
           data.orderType = "1";
         } else if (this.model.goodsType === "3") {
@@ -367,6 +393,8 @@ export default {
         } else if (this.model.goodsType === "4") {
           data.orderType = "4";
         }
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         this.$router.push({
           path: "/shop/order/confirmOrder",
           query: data,
@@ -389,7 +417,10 @@ export default {
 
     img {
       position: absolute;
+<<<<<<< HEAD
       width: 100%;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       height: 100%;
       top: 50%;
       left: 50%;
@@ -593,6 +624,7 @@ export default {
       max-width: 100%;
       height: auto;
     }
+<<<<<<< HEAD
     .htmlCont {
       margin-top: 0.2rem;
       /deep/ span {
@@ -611,21 +643,61 @@ export default {
     text-align: center;
     line-height: 0.88rem;
     width: 100%;
+=======
+    // .detailTitle {
+    // 	color: #333333;
+    // 	line-height: .48rem;
+    // 	font-weight: bolder;
+    // 	font-size: .32rem;
+    // 	margin-left: .45rem;
+    // }
+
+    // .detailDesc {
+    // 	text-align: center;
+    // 	font-family: MicrosoftYaHei;
+    // 	font-size: .28rem;
+    // 	line-height: .38rem;
+    // 	margin-top: .25rem;
+    // 	color: #333333;
+
+    // 	.card {
+    // 		margin-top: .5rem;
+    // 		margin-bottom: .2rem;
+    // 	}
+
+    // 	img {
+    // 		width: 100%;
+    // 	}
+    // }
+  }
+
+  .detailCart {
+    text-align: center;
+    line-height: 0.88rem;
+    margin: 0.2rem 0.14rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     padding: 0.2rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     background: #fff;
+<<<<<<< HEAD
     box-shadow: 0px -3px 5px 0px #c1c1c1;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
     .add {
       width: 2rem;
       font-size: 0.28rem;
       height: 100%;
       color: #004930;
+<<<<<<< HEAD
       border: 2px solid #004930;
       margin: 0 0.2rem;
+=======
+      border-left: 2px solid #004930;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     }
 
     .buy {

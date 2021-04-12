@@ -46,8 +46,13 @@ export default {
         hasNextPage: false, //是否有下一页
         isFirstPage: false, //是否有首页
         isLastPage: false, //是否有尾页
+<<<<<<< HEAD
         navigatepageNums: [], //分页数字
       },
+=======
+        navigatepageNums: [] //分页数字
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {},
@@ -57,8 +62,13 @@ export default {
     },
     setPage(pageNum) {
       this.$emit("setPage", pageNum);
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 

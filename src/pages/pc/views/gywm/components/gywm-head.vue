@@ -15,13 +15,21 @@
       >
         公司荣誉
       </div>
+<<<<<<< HEAD
       <!-- <div
+=======
+      <div
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         @click="openUrl('/gywm/ppgs')"
         class="tabItem"
         :class="{ actvit: this.name === '品牌故事' }"
       >
         品牌故事
+<<<<<<< HEAD
       </div> -->
+=======
+      </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div
         @click="openUrl('/gywm/ppwh')"
         class="tabItem"
@@ -47,8 +55,13 @@ export default {
       type: String,
       default() {
         return "";
+<<<<<<< HEAD
       },
     },
+=======
+      }
+    }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   data() {
     return {};
@@ -60,8 +73,13 @@ export default {
     },
     openUrl(url) {
       this.$router.push(url);
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
@@ -71,7 +89,11 @@ export default {
   background-color: #ffffff;
   box-shadow: 0px 6px 14px 1px rgba(0, 0, 0, 0.1);
   .tabs {
+<<<<<<< HEAD
     width: 816px; //960px
+=======
+    width: 960px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     margin: auto;
     display: flex;
     .tabItem {

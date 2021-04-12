@@ -33,6 +33,7 @@ export default {
       list: [
         {
           title: "网上纪念馆",
+<<<<<<< HEAD
           url: "/mark/grjn",
         },
         {
@@ -54,16 +55,41 @@ export default {
         {
           title: "手续办理",
           url: "/member/cemetery/formalities",
+=======
+          url: "/mark",
+        },
+        {
+          title: "落葬人信息",
+          url: "/cemetery/cemetery-info",
+        },
+        {
+          title: "手续办理",
+          url: "",
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         },
         {
           title: "服务订单",
           url: "/shop/order",
         },
         {
+<<<<<<< HEAD
+=======
+          title: "墓地订单",
+          url: "",
+        },
+        {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           title: "消息通知",
           url: "/member/sys-message-list",
         },
         {
+<<<<<<< HEAD
+=======
+          title: "墓地列表",
+          url: "",
+        },
+        {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           title: "账户设置",
           url: "/member/userInfo",
         },

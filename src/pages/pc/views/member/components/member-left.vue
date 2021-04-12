@@ -19,6 +19,7 @@ export default {
       list: [
         {
           title: "网上纪念馆",
+<<<<<<< HEAD
           url: "/mark/grjn",
         },
         {
@@ -58,6 +59,39 @@ export default {
           url: "/member/userInfo",
         },
       ],
+=======
+          url: "/mark/home"
+        },
+        {
+          title: "落葬人信息",
+          url: ""
+        },
+        {
+          title: "手续办理",
+          url: ""
+        },
+        {
+          title: "服务订单",
+          url: "/shop/order"
+        },
+        {
+          title: "墓地订单",
+          url: ""
+        },
+        {
+          title: "消息通知",
+          url: "/member/sys-message-list"
+        },
+        {
+          title: "墓地列表",
+          url: ""
+        },
+        {
+          title: "账户设置",
+          url: "/member/userInfo"
+        }
+      ]
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {},
@@ -76,13 +110,21 @@ export default {
       if (url) {
         this.$router.push(url);
       }
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
 <style lang="less" scoped>
+<<<<<<< HEAD
 @themeColor: #004930;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 .memberLeft {
   .item {
     height: 35px;
@@ -94,12 +136,20 @@ export default {
     cursor: pointer;
 
     &.activity {
+<<<<<<< HEAD
       background-color: @themeColor;
       color: #ffffff;
     }
 
     &:hover {
       background-color: @themeColor;
+=======
+      background-color: #004930;
+      color: #ffffff;
+    }
+    &:hover {
+      background-color: #004930;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       color: #ffffff;
     }
   }

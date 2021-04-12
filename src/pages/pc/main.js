@@ -72,11 +72,19 @@ VueAMap.initAMapApiLoader({
 });
 
 import VideoPlayer from "vue-video-player";
+<<<<<<< HEAD
 import "videojs-contrib-hls";
 Vue.use(VideoPlayer);
 require("video.js/dist/video-js.css");
 require("vue-video-player/src/custom-theme.css");
 require("@/pages/pc/assets/css/myVideoCss.css");
+=======
+require("video.js/dist/video-js.css");
+require("vue-video-player/src/custom-theme.css");
+require("./assets/css/myVideoCss.css");
+import "videojs-contrib-hls";
+Vue.use(VideoPlayer);
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
 // import VConsole from "vconsole";
 // let vConsole = new VConsole(); //初始化

@@ -6,7 +6,11 @@
         <p>祭奠留言</p>
         <img src="/img/pc/02_star.png" alt="" />
       </div>
+<<<<<<< HEAD
       <div class="lyBtn" @click="handleClick">
+=======
+      <div class="lyBtn">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         我要纪念
       </div>
     </div>
@@ -21,7 +25,11 @@
         <div class="lyList" v-for="item in model.list" :key="item.id">
           <div class="lyListAvatar">
             <div class="lyListGiftName">
+<<<<<<< HEAD
               <a-avatar :size="64" :src="handleAvatar(item.avatar)" />
+=======
+              <a-avatar :size="64" :src="item.avatar" :onerror="defImg" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               <div class="lyListSend" v-if="item.goodsId != null">
                 <p class="name">{{ item.nickname }}</p>
                 <p class="to">送出了</p>
@@ -52,6 +60,7 @@
 <script>
 import { memoryMsgList } from "@/pages/pc/api/mark.js";
 export default {
+<<<<<<< HEAD
   props: {
     //数据
     bannerModel: {
@@ -62,6 +71,8 @@ export default {
       },
     },
   },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   components: {
     paging: () => import("@/pages/pc/views/mark/components/paging.vue"),
   },
@@ -74,7 +85,11 @@ export default {
         current: 1, //	当前页
         pageSize: 3, //每页条数
         searchText: "", //关键字搜索
+<<<<<<< HEAD
         memoryId: this.bannerModel.id, //个人主页id
+=======
+        memoryId: this.$route.params.id, //个人主页id
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         msgType: "1", //消息类型 1留言 2文章
         status: "0", //	0显示 1隐藏
       },
@@ -82,6 +97,7 @@ export default {
   },
   mounted() {
     this._memoryMsgList();
+<<<<<<< HEAD
     this.handleAvatar();
   },
   methods: {
@@ -107,11 +123,19 @@ export default {
         return "/img/zwtp.jpg";
       }
     },
+=======
+  },
+  methods: {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     _memoryMsgList() {
       this.loading = true;
       memoryMsgList(this.model).then((res) => {
         this.loading = false;
         if (res.code === 0) {
+<<<<<<< HEAD
+=======
+          console.log(res);
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           Object.assign(this.model, res.data);
           setTimeout(() => {
             this.$refs.paging.setPageInfo(this.model);

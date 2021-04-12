@@ -5,6 +5,7 @@
         纪念墙
       </div>
       <ul class="topList">
+<<<<<<< HEAD
         <li
           v-for="item in topList"
           :key="item.id"
@@ -19,6 +20,41 @@
             </div>
             <div class="topBoxBtn">
               纪念Ta
+=======
+        <li>
+          <img src="/img/mobile/mark/search_01.png" alt="" />
+          <div class="topBox">
+            <div class="name">
+              <p>刘一曙</p>
+              <span>1213次纪念</span>
+            </div>
+            <div class="topBoxBtn">
+              纪念他
+            </div>
+          </div>
+        </li>
+        <li>
+          <img src="/img/mobile/mark/search_01.png" alt="" />
+          <div class="topBox">
+            <div class="name">
+              <p>刘一曙</p>
+              <span>1213次纪念</span>
+            </div>
+            <div class="topBoxBtn">
+              纪念他
+            </div>
+          </div>
+        </li>
+        <li>
+          <img src="/img/mobile/mark/search_01.png" alt="" />
+          <div class="topBox">
+            <div class="name">
+              <p>刘一曙</p>
+              <span>1213次纪念</span>
+            </div>
+            <div class="topBoxBtn">
+              纪念他
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             </div>
           </div>
         </li>
@@ -26,6 +62,7 @@
     </div>
     <div class="searchBottom">
       <ul class="bottomList">
+<<<<<<< HEAD
         <li
           v-for="item in bottomList"
           :key="item.id"
@@ -47,10 +84,42 @@
     <div v-if="bigMore" class="moreBtn" @click="handleMore()">
       查看更多
     </div>
+=======
+        <li>
+          <img src="/img/mobile/mark/search_02.png" alt="" />
+          <!-- <div class="bottomBox">
+            <div class="name">
+              <p>刘一曙</p>
+              <span>1213次纪念</span>
+            </div>
+            <div class="bottomBoxBtn">
+              纪念他
+            </div>
+          </div> -->
+        </li>
+        <li>
+          <img src="/img/mobile/mark/search_02.png" alt="" />
+        </li>
+        <li>
+          <img src="/img/mobile/mark/search_02.png" alt="" />
+        </li>
+        <li>
+          <img src="/img/mobile/mark/search_02.png" alt="" />
+        </li>
+        <li>
+          <img src="/img/mobile/mark/search_02.png" alt="" />
+        </li>
+        <li>
+          <img src="/img/mobile/mark/search_02.png" alt="" />
+        </li>
+      </ul>
+    </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 export default {
   data() {
     return {
@@ -97,6 +166,9 @@ export default {
     },
   },
 };
+=======
+export default {};
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 </script>
 
 <style lang="less" scoped>
@@ -113,6 +185,7 @@ export default {
     li {
       position: relative;
       margin-top: 0.5rem;
+<<<<<<< HEAD
       height: 6rem;
       line-height: 6rem;
       overflow: hidden;
@@ -122,6 +195,11 @@ export default {
       /deep/ .van-image {
         display: block;
       }
+=======
+      img {
+        width: 100%;
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .topBox {
         position: absolute;
         bottom: 0;
@@ -144,7 +222,11 @@ export default {
           }
           span {
             padding-left: 0.2rem;
+<<<<<<< HEAD
             font-size: 0.3rem;
+=======
+            font-size: 0.22rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           }
         }
         .topBoxBtn {
@@ -154,7 +236,11 @@ export default {
           text-align: center;
           background-color: #ffffff;
           border-radius: 0.36rem;
+<<<<<<< HEAD
           font-size: 0.3rem;
+=======
+          font-size: 0.28rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           font-weight: bold;
           color: #004930;
         }
@@ -172,15 +258,19 @@ export default {
       margin-top: 0.5rem;
       margin-right: 4%;
       width: 48%;
+<<<<<<< HEAD
       height: 4rem;
       line-height: 4rem;
       overflow: hidden;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       &:nth-child(2n) {
         margin-right: 0;
       }
       img {
         width: 100%;
       }
+<<<<<<< HEAD
       .bottomBox {
         position: absolute;
         bottom: 0;
@@ -238,4 +328,46 @@ export default {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+=======
+      // .bottomBox {
+      //   position: absolute;
+      //   bottom: 0;
+      //   background-color: #0d0e08;
+      //   opacity: 0.6;
+      //   width: 100%;
+      //   height: 1.2rem;
+      //   font-weight: bold;
+      //   color: #ffffff;
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: space-between;
+      //   padding: 0 0.1rem;
+      //   box-sizing: border-box;
+      //   .name {
+      //     display: flex;
+      //     align-items: center;
+      //     p {
+      //       font-size: 0.3rem;
+      //     }
+      //     span {
+      //       padding-left: 0.2rem;
+      //       font-size: 0.22rem;
+      //     }
+      //   }
+      //   .bottomBoxBtn {
+      //     width: 2.2rem;
+      //     height: 0.72rem;
+      //     line-height: 0.72rem;
+      //     text-align: center;
+      //     background-color: #ffffff;
+      //     border-radius: 0.36rem;
+      //     font-size: 0.28rem;
+      //     font-weight: bold;
+      //     color: #004930;
+      //   }
+      // }
+    }
+  }
+}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 </style>

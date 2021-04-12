@@ -23,6 +23,7 @@ Vue.use(VueClipboard);
 import VueAMap from "vue-amap";
 Vue.use(VueAMap);
 VueAMap.initAMapApiLoader({
+<<<<<<< HEAD
     key: "128d83dd425d1ef0aa8d1f0663e14ede",
     plugin: [
         "AMap.Autocomplete",
@@ -35,6 +36,20 @@ VueAMap.initAMapApiLoader({
         "AMap.CircleEditor",
     ],
     v: "1.4.9",
+=======
+  key: "128d83dd425d1ef0aa8d1f0663e14ede",
+  plugin: [
+    "AMap.Autocomplete",
+    "AMap.PlaceSearch",
+    "AMap.Scale",
+    "AMap.OverView",
+    "AMap.ToolBar",
+    "AMap.MapType",
+    "AMap.PolyEditor",
+    "AMap.CircleEditor"
+  ],
+  v: "1.4.9"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 });
 
 import VideoPlayer from "vue-video-player";
@@ -44,15 +59,19 @@ require("./assets/css/myVideoCss.css");
 import "videojs-contrib-hls";
 Vue.use(VideoPlayer);
 
+<<<<<<< HEAD
 import VueWechatTitle from "vue-wechat-title";
 Vue.use(VueWechatTitle);
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 // import VConsole from "vconsole";
 // let vConsole = new VConsole(); //初始化
 // Vue.use(vConsole); //设为全局
 
 //系统错误捕获
 const errorHandler = (error, vm) => {
+<<<<<<< HEAD
     console.error("抛出全局异常");
     console.error(vm);
     console.error(error);
@@ -65,3 +84,17 @@ new Vue({
     store,
     render: (h) => h(App),
 }).$mount("#app");
+=======
+  console.error("抛出全局异常");
+  console.error(vm);
+  console.error(error);
+};
+Vue.config.errorHandler = errorHandler;
+Vue.prototype.$throw = error => errorHandler(error, this);
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount("#app");
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95

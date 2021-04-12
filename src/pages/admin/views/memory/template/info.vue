@@ -50,7 +50,11 @@
         />
       </a-form-model-item>
 
+<<<<<<< HEAD
       <!-- <a-form-model-item label="状态">
+=======
+     <!-- <a-form-model-item label="状态">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <a-select
           style="width:200px;"
           v-model="model.statusKey"
@@ -71,7 +75,11 @@
         <a-input-number :min="0" v-model="model.sortId" />
       </a-form-model-item>
 
+<<<<<<< HEAD
       <!-- a-form-model-item label="PC模版内容">
+=======
+      <<!-- a-form-model-item label="PC模版内容">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <codeedit ref="codeedit" height="500px"></codeedit>
       </a-form-model-item>
       <a-form-model-item label="手机模版内容">
@@ -88,7 +96,11 @@
 <script>
 import {
   getMemoryTemplateInfo,
+<<<<<<< HEAD
   saveMemoryTemplate,
+=======
+  saveMemoryTemplate
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 } from "@/pages/admin/api/memory/template";
 import * as utils from "@/pages/admin/libs/utils";
 import moment from "moment";
@@ -97,13 +109,22 @@ export default {
   components: {
     avatarUpload: () => import("@/pages/admin/components/upload/avatar-upload"),
     imgsUpload: () => import("@/pages/admin/components/upload/imgs-upload"),
+<<<<<<< HEAD
     codeedit: () => import("@/pages/admin/components/codeedit/index"),
+=======
+    codeedit: () => import("@/pages/admin/components/codeedit/index")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   props: {
     id: {
       type: String,
+<<<<<<< HEAD
       default: "",
     },
+=======
+      default: ""
+    }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   data() {
     return {
@@ -111,7 +132,11 @@ export default {
       title: "",
       statusList: [
         { id: "1", name: "上架" },
+<<<<<<< HEAD
         { id: "2", name: "下架" },
+=======
+        { id: "2", name: "下架" }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       ],
       model: {
         id: "",
@@ -128,8 +153,13 @@ export default {
         statusKey: { key: "1" },
         status: "1", //状态 0待上架  1上架（默认） 2下架
         template: "", //模版文件路径
+<<<<<<< HEAD
         phoneTemplate: "", //手机端模版文件地址
       },
+=======
+        phoneTemplate: "" //手机端模版文件地址
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {
@@ -141,7 +171,11 @@ export default {
     loadData() {
       if (this.id) {
         this.model.id = this.id;
+<<<<<<< HEAD
         getMemoryTemplateInfo({ id: this.model.id }).then((res) => {
+=======
+        getMemoryTemplateInfo({ id: this.model.id }).then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           if (res.code === 0) {
             Object.assign(this.model, res.data);
             this.model.statusKey = { key: this.model.status };
@@ -161,13 +195,21 @@ export default {
           //展示图片
           this.model.imgsList = [];
           if (this.model.imgs) {
+<<<<<<< HEAD
             this.model.imgs.forEach((img) => {
+=======
+            this.model.imgs.forEach(img => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               var uid = utils.getId();
               this.model.imgsList.push({
                 uid: uid,
                 name: uid + ".jpg",
                 status: "done",
+<<<<<<< HEAD
                 url: process.env.VUE_APP_BASE_URL + img,
+=======
+                url: process.env.VUE_APP_BASE_URL + img
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               });
             });
           }
@@ -188,13 +230,21 @@ export default {
     },
     onSubmit() {
       var fileList = this.$refs.imgsUpload.getFileList();
+<<<<<<< HEAD
       this.model.imgs = fileList.map((x) => {
+=======
+      this.model.imgs = fileList.map(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         return x.imgUrl;
       });
       this.model.template = this.$refs.codeedit.getData();
       this.model.phoneTemplate = this.$refs.codeedit2.getData();
 
+<<<<<<< HEAD
       saveMemoryTemplate(this.model).then((res) => {
+=======
+      saveMemoryTemplate(this.model).then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (res.code === 0) {
           this.$message.success("数据提交成功");
           this.onClose(res);
@@ -204,8 +254,13 @@ export default {
     onClose(res) {
       this.visible = false;
       this.$emit("onClose", res);
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 

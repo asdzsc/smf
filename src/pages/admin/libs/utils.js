@@ -8,6 +8,12 @@ export function convertDateFromString(dateString) {
 }
 
 export function parseTime(time, cFormat) {
+<<<<<<< HEAD
+=======
+	if (arguments.length === 0) {
+		return null;
+	}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 	if (time && time.replace) {
 		time = time.replace(/-/g, "/");
 		const d = new Date(time);
@@ -15,8 +21,13 @@ export function parseTime(time, cFormat) {
 	} else {
 		return parseDate(time, cFormat);
 	}
+<<<<<<< HEAD
 }
 
+=======
+
+}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 export function parseDate(date, cFormat) {
 	const format = cFormat || "{y}-{m}-{d} {h}:{i}:{s}";
 	const formatObj = {

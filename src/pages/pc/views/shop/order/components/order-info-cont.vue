@@ -1,30 +1,64 @@
 <template>
   <div class="orderInfoCont">
     <div>
+<<<<<<< HEAD
       <div class="modelTitle">商品详情</div>
       <a-row type="flex" class="cardTitle">
         <a-col flex="auto"> 订单详情 </a-col>
         <a-col flex="110px"> 数量 </a-col>
         <a-col flex="110px"> 金额 </a-col>
         <a-col flex="110px"> 状态 </a-col>
+=======
+      <div class="modelTitle">
+        商品详情
+      </div>
+      <a-row type="flex" class="cardTitle">
+        <a-col flex="auto">
+          订单详情
+        </a-col>
+        <a-col flex="110px">
+          数量
+        </a-col>
+        <a-col flex="110px">
+          金额
+        </a-col>
+        <a-col flex="110px">
+          状态
+        </a-col>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       </a-row>
 
       <div class="card">
         <a-row type="flex" class="cartHead">
           <a-col class="orderNum">
+<<<<<<< HEAD
             <span style="color: #aaa">订单：</span>{{ shopOrder.orderNum }}
           </a-col>
           <a-col style="padding-left: 30px">
             日期：{{ shopOrder.createDate }}
           </a-col>
           <a-col style="padding-left: 30px">
+=======
+            <span style="color:#aaa;">订单：</span>{{ shopOrder.orderNum }}
+          </a-col>
+          <a-col style="padding-left: 30px;">
+            日期：{{ shopOrder.createDate }}
+          </a-col>
+          <a-col style="padding-left: 30px;">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             服务时间：{{ parseTime(shopOrder.serveTime) }}
           </a-col>
         </a-row>
 
+<<<<<<< HEAD
         <table style="width: 100%; border-collapse: collapse">
           <tr>
             <td style="width: 910px">
+=======
+        <table style="width: 100%; border-collapse:collapse;">
+          <tr>
+            <td style="width: 910px;">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               <a-row
                 v-for="goodsItem in shopOrder.goodsList"
                 :key="goodsItem.id"
@@ -52,9 +86,15 @@
                 </a-col>
               </a-row>
             </td>
+<<<<<<< HEAD
             <td class="status" style="width: 110px">
               <a-tag
                 style="width: 80px"
+=======
+            <td class="status" style="width: 110px;">
+              <a-tag
+                style="width:80px;"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
                 :color="orderStatusText(shopOrder.orderStatus).color"
               >
                 {{ orderStatusText(shopOrder.orderStatus).text }}
@@ -65,8 +105,15 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <div style="padding-top: 30px">
       <div class="modelTitle">订单记录</div>
+=======
+    <div style="padding-top: 30px;">
+      <div class="modelTitle">
+        订单记录
+      </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="card">
         <div class="orderLog">
           <a-timeline>
@@ -84,6 +131,7 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <div style="padding-top: 30px">
       <div class="modelTitle">订单详情</div>
       <div class="card">
@@ -94,6 +142,18 @@
         >
           <a-col flex="300px" class="orderInfoItem">
             <div class="orderInfoItemTitle">服务地址</div>
+=======
+    <div style="padding-top: 30px;">
+      <div class="modelTitle">
+        订单详情
+      </div>
+      <div class="card">
+        <a-row type="flex" class="orderInfo">
+          <a-col flex="300px" class="orderInfoItem">
+            <div class="orderInfoItemTitle">
+              服务地址
+            </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             <table class="itemCont">
               <tr>
                 <td class="lable">服务墓主：</td>
@@ -106,7 +166,13 @@
             </table>
           </a-col>
           <a-col flex="auto" class="orderInfoItem">
+<<<<<<< HEAD
             <div class="orderInfoItemTitle">服务信息</div>
+=======
+            <div class="orderInfoItemTitle">
+              服务信息
+            </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             <table class="itemCont">
               <tr>
                 <td class="lable">服务时间：</td>
@@ -127,6 +193,7 @@
             </table>
           </a-col>
           <a-col flex="300px" class="orderInfoItem">
+<<<<<<< HEAD
             <div class="orderInfoItemTitle">付款信息</div>
             <table class="itemCont">
               <tr>
@@ -143,6 +210,11 @@
         <a-row type="flex" class="orderInfo" v-else>
           <a-col flex="300px" class="orderInfoItem">
             <div class="orderInfoItemTitle">付款信息</div>
+=======
+            <div class="orderInfoItemTitle">
+              付款信息
+            </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             <table class="itemCont">
               <tr>
                 <td class="lable">付款方式：</td>
@@ -169,18 +241,30 @@ export default {
       type: Object,
       default() {
         return {};
+<<<<<<< HEAD
       },
     },
+=======
+      }
+    }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   data() {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
+<<<<<<< HEAD
       defImg: `this.src='/img/zwtp.jpg'`,
     };
   },
   mounted() {
     console.log(this.shopOrder);
   },
+=======
+      defImg: `this.src='/admin/img/usernull.png'`
+    };
+  },
+  mounted() {},
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   methods: {
     //商品小计
     goodsTotalPrice(item) {
@@ -204,8 +288,13 @@ export default {
     },
     orderStatusText(status) {
       return shop.orderStatusText(status);
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 

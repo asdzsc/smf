@@ -22,7 +22,13 @@ export default {
       },
     };
   },
+<<<<<<< HEAD
   mounted() {},
+=======
+  mounted() {
+ 
+  },
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   methods: {
     setPageInfo(pageInfo) {
       Object.assign(this.model, pageInfo);
@@ -30,6 +36,10 @@ export default {
     setPage(pageNum) {
       this.$emit("setPage", pageNum);
     },
+<<<<<<< HEAD
+=======
+   
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
 };
 </script>
@@ -39,11 +49,19 @@ export default {
   text-align: right;
   margin-bottom: 25px;
   margin-top: 25px;
+<<<<<<< HEAD
   display: flex;
   justify-content: space-between;
   position: absolute;
   width: 100%;
   top: 43%;
+=======
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: -295px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
   span {
     margin-left: 20px;

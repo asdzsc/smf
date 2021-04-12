@@ -46,6 +46,7 @@ export default [
       title: "墓碑保洁服务"
     },
     component: () => import("@/pages/mobile/views/zxfw/mbbjfw.vue")
+<<<<<<< HEAD
   },
   {
     path: "/zxfw/info",
@@ -54,5 +55,7 @@ export default [
       title: "预约服务"
     },
     component: () => import("@/pages/mobile/views/zxfw/info.vue")
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   }
 ];

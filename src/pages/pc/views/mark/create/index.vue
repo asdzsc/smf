@@ -1,5 +1,21 @@
 <template>
   <div class="create">
+<<<<<<< HEAD
+=======
+    <!-- 激活码框 start -->
+    <div class="activeDiv">
+      <img src="/img/pc/syjhm.jpg" alt="" />
+      <p class="activeTitle">创建主页</p>
+      <p>请输入我们给您提供的激活码，即可获得该追思主页使用权：</p>
+      <input
+        type="text"
+        class="input"
+        v-model="model.activateCode"
+        placeholder="输入激活码"
+      />
+    </div>
+    <!-- 激活码框 end -->
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     <div class="createBox">
       <div class="avatarUpload">
         <avatarUpload
@@ -7,19 +23,33 @@
           @change="uploadAvatarPhoto"
         ></avatarUpload>
         <div class="search">
+<<<<<<< HEAD
           <span>姓名：</span>
           <a-input
             v-model="model.name"
             @change="_searchCemeteryList()"
+=======
+          <input
+            type="text"
+            v-model="model.name"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             placeholder="请输入亲人姓名"
           />
         </div>
         <div class="search">
+<<<<<<< HEAD
           <span>性别：</span>
           <a-select v-model="model.gender">
             <a-select-option value="男"> 男 </a-select-option>
             <a-select-option value="女"> 女 </a-select-option>
           </a-select>
+=======
+          <input
+            type="text"
+            v-model="model.gender"
+            placeholder="请输入亲人性别"
+          />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         </div>
       </div>
       <div class="intro">
@@ -29,6 +59,7 @@
         </div>
         <!-- 生平简介 start-->
         <div class="introInfo">
+<<<<<<< HEAD
           <div class="dateWrap">
             <div class="date">
               <span>出生地：</span>
@@ -131,6 +162,48 @@
               placeholder="请输入个人简介"
               :auto-size="{ minRows: 5, maxRows: 5 }"
             />
+=======
+          <div class="date">
+            <span>出生日期：</span>
+            <input
+              v-model="model.birthday"
+              type="text"
+              placeholder="请输入出生日期"
+            />
+            示例：（2000-01-01 00:00:00）
+          </div>
+          <div class="date">
+            <span>出生地：</span>
+            <input
+              v-model="model.birthdayAddress"
+              type="text"
+              placeholder="请输入出生地"
+            />
+          </div>
+          <div class="date">
+            <span>离世日期：</span>
+            <input
+              v-model="model.dieTime"
+              type="text"
+              placeholder="请输入离世日期"
+            />
+            示例：（2000-01-01 00:00:00）
+          </div>
+          <div class="date">
+            <span>离世地：</span>
+            <input
+              v-model="model.dieAddress"
+              type="text"
+              placeholder="请输入离世地"
+            />
+          </div>
+          <div class="selfInfo">
+            <span>个人简介</span>
+            <textarea
+              v-model="model.intro"
+              placeholder="请输入个人简介"
+            ></textarea>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           </div>
         </div>
         <!-- 生平简介 end-->
@@ -146,14 +219,22 @@
           <p>祭奠留言</p>
           <div class="line"></div>
         </div>
+<<<<<<< HEAD
         <lyInfo ref="msgUpload"></lyInfo>
+=======
+        <lyInfo :msgList="model.msgList"></lyInfo>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <!-- 祭奠留言 end-->
         <!-- 纪念文章 start-->
         <div class="title">
           <p>纪念文章</p>
           <div class="line"></div>
         </div>
+<<<<<<< HEAD
         <articleUpload ref="articlesUpload"></articleUpload>
+=======
+        <articleUpload></articleUpload>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <!-- 纪念文章 end-->
         <!-- 纪念视频 start-->
         <div class="title">
@@ -255,6 +336,7 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import { searchCemeteryList } from "@/pages/pc/api/user";
 import { addMemoryPage } from "@/pages/pc/api/mark.js";
 export default {
@@ -264,6 +346,16 @@ export default {
       import("@/pages/pc/views/mark/create/components/articleInfo.vue"),
     videoUpload: () =>
       import("@/pages/pc/views/mark/components/file-upload.vue"),
+=======
+import { addMemoryPage } from "@/pages/pc/api/mark.js";
+export default {
+  components: {
+    lyInfo: () => import("@/pages/pc/views/mark/create/components/lyInfo.vue"),
+    articleUpload: () =>
+      import("@/pages/pc/views/mark/create/components/articleUpload.vue"),
+    videoUpload: () =>
+      import("@/pages/pc/views/mark/create/components/videoUpload.vue"),
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     avatarUpload: () =>
       import("@/pages/pc/views/mark/create/components/avatarUpload.vue"),
     photoUpload: () =>
@@ -277,8 +369,13 @@ export default {
         name: "", // 	落葬人姓名
         gender: "", //性别 男 女
         photo: "", //头像
+<<<<<<< HEAD
         birthday: null, //生日
         dieTime: null, //离世日期
+=======
+        birthday: "", //生日
+        dieTime: "", //离世日期
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         birthdayAddress: "", //出生地址
         dieAddress: "", //	 离世地址
         intro: "", //简介
@@ -286,21 +383,30 @@ export default {
         epitaph: "", //	墓志铭
         buryAddress: "", //安葬地址
         templateId: "0", //0免费模版
+<<<<<<< HEAD
         activateCode: this.$route.query.code, //激活码
+=======
+        activateCode: "", //激活码
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         mobiles: [], //关联管理人手机号
         status: "0", //	0展示 1隐藏  默认0
         mediaList: [], //附件列表 图片 视频和一起
         msgList: [], //消息类型 1留言 2文章
+<<<<<<< HEAD
         erpCemeteryId: "", //关联erp墓址id
         masterName: "",
         erpCemeteryIdKey: { key: "" },
       },
       cemeteryList: [],
       showMsg: false,
+=======
+      },
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {},
   methods: {
+<<<<<<< HEAD
     _searchCemeteryList() {
       if (this.model.name) {
         this.model.erpCemeteryId = "";
@@ -346,6 +452,48 @@ export default {
       //上传图片
       let resImg = this.bindPhotosUploadData();
       let resultImg = resImg.map((i) => {
+=======
+    //  提交个人主页
+    onSubmit() {
+      const rules = {
+        // 激活码
+        activateCode: {
+          value: this.model.activateCode,
+          message: "请输入激活码",
+        },
+        // 落葬人姓名
+        name: {
+          value: this.model.name,
+          message: "请输入落葬人姓名",
+        },
+        // 落葬人生日
+        birthday: {
+          value: this.model.birthday,
+          message: "请输入落葬人生日",
+        },
+        // 落葬人离世日期
+        dieTime: {
+          value: this.model.dieTime,
+          message: "请输入落葬人离世日期",
+        },
+      };
+      //验证变量 默认为真
+      let valid = true;
+      Object.keys(rules).map((v) => {
+        if (!valid) return;
+        // 如果有一个数据不存在
+        if (!rules[v].value) {
+          this.$message.error(rules[v].message);
+          valid = false;
+        }
+      });
+      //   验证不通过返回
+      if (!valid) return;
+      //上传图片
+      this.bindPhotosUploadData();
+      const res = this.bindPhotosUploadData();
+      const result = res.map((i) => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         return {
           title: i.name,
           cont: i.name,
@@ -355,6 +503,7 @@ export default {
           sortId: 0,
         };
       });
+<<<<<<< HEAD
       this.model.mediaList = resultImg;
       //视频上传
 
@@ -394,6 +543,19 @@ export default {
           setTimeout(() => {
             this.$router.go(0);
           }, 100);
+=======
+      this.model.mediaList = result;
+      addMemoryPage(this.model).then((res) => {
+        console.log(res);
+        if (res.code == 0) {
+          this.$message.success("提交成功");
+          this.$router.push({
+            name: "/mark/grjn-00",
+            params: {
+              id: res.data,
+            },
+          });
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         }
       });
     },
@@ -408,6 +570,7 @@ export default {
     bindPhotosUploadData() {
       return this.$refs.photosUpload.getFileList();
     },
+<<<<<<< HEAD
     //视频上传
     bindVideoUpload() {
       return this.$refs.memoryMediaVideo.getfileListVideo();
@@ -420,6 +583,8 @@ export default {
     bindArticleUpload() {
       return this.$refs.articlesUpload.getfileArticle();
     },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
 };
 </script>
@@ -427,7 +592,11 @@ export default {
 <style lang="less" scoped>
 .create {
   background-image: url("/img/pc/create_banner.png");
+<<<<<<< HEAD
   padding-top: 70px;
+=======
+  padding-top: 140px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   padding-bottom: 150px;
   .createBtn {
     width: 620px;
@@ -454,7 +623,39 @@ export default {
       color: #fff;
     }
   }
+<<<<<<< HEAD
 
+=======
+  .activeDiv {
+    background-color: #fff;
+    width: 600px;
+    height: 400px;
+    border: 2px;
+    border-radius: 10px;
+    border-color: #22be6d;
+    border-style: solid;
+    text-align: center;
+    z-index: 99;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    img {
+      margin: 30px 0;
+    }
+    .activeTitle {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .input {
+      border-radius: 8px;
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 30px;
+      height: 35px;
+      background-color: #fff;
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   .createBox {
     width: 1200px;
     margin: 0 auto;
@@ -474,7 +675,10 @@ export default {
         background-color: #ffffff;
         border-radius: 50%;
         overflow: hidden;
+<<<<<<< HEAD
         border: none;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         box-shadow: 0px 4px 10px 0px rgba(0, 73, 48, 0.2);
       }
       .avatar-uploader {
@@ -501,6 +705,7 @@ export default {
         width: 280px;
         height: 40px;
         margin: 20px auto;
+<<<<<<< HEAD
         span {
           display: inline-block;
           text-align: right;
@@ -518,6 +723,18 @@ export default {
           line-height: 35px;
           text-align: center;
           background-color: #ffffff;
+=======
+        input {
+          width: 100%;
+          height: 100%;
+          text-align: center;
+          padding-top: 14px;
+          padding-bottom: 14px;
+          background-color: #ffffff;
+          border: none;
+          border-radius: 10px;
+          font-size: 18px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         }
       }
     }
@@ -547,6 +764,7 @@ export default {
         font-size: 14px;
         line-height: 40px;
         margin-top: 20px;
+<<<<<<< HEAD
         .dateWrap {
           display: flex;
           justify-content: space-between;
@@ -579,6 +797,28 @@ export default {
             &:last-child {
               margin-right: 0;
             }
+=======
+        .date {
+          margin-top: 10px;
+          color: #666666;
+          span {
+            display: inline-block;
+            text-align: right;
+            width: 70px;
+          }
+          input {
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            padding-top: 14px;
+            padding-bottom: 14px;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 10px;
+          }
+          &:last-child {
+            margin-right: 0;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           }
         }
         .selfInfo {
@@ -589,6 +829,13 @@ export default {
             text-align: right;
             padding-right: 10px;
           }
+<<<<<<< HEAD
+=======
+          textarea {
+            width: 93%;
+            height: 200px;
+          }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         }
       }
     }

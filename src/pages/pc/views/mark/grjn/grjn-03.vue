@@ -1,5 +1,6 @@
 <template>
   <div class="grjn">
+<<<<<<< HEAD
     <img class="bannerImg" src="/img/pc/03_03.png" alt="" />
     <jn-banner :bannerModel="this.model"></jn-banner>
     <jn-photo :bannerModel="this.model" v-if="photoTag"></jn-photo>
@@ -9,11 +10,19 @@
       @videoMore="videoMore"
       v-if="msgTag"
     ></jn-message>
+=======
+    <jn-banner :bannerModel="this.model"></jn-banner>
+    <jn-photo v-if="photoTag"></jn-photo>
+    <jn-message ref="myChild" @videoMore="videoMore" v-if="msgTag"></jn-message>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     <div class="moreBtn" v-if="hideTag" @click="msgMore()">
       更多留言
     </div>
     <jn-article
+<<<<<<< HEAD
       :bannerModel="this.model"
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       ref="myChild"
       v-if="articleTag"
       @videoMore="videoMore"
@@ -21,6 +30,7 @@
     <div class="moreBtn" v-if="hideTag" @click="articleMore()">
       更多文章
     </div>
+<<<<<<< HEAD
     <jn-video
       :bannerModel="this.model"
       ref="myChild"
@@ -31,6 +41,12 @@
       更多视频
     </div>
     <img class="img" v-if="imgTag" src="/img/pc/03_0.png" alt="" />
+=======
+    <jn-video ref="myChild" v-if="videoTag" @videoMore="videoMore"></jn-video>
+    <div class="moreBtn" v-if="hideTag" @click="videoMore()">
+      更多视频
+    </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   </div>
 </template>
 
@@ -68,7 +84,10 @@ export default {
       articleTag: true,
       videoTag: true,
       hideTag: true,
+<<<<<<< HEAD
       imgTag: true,
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {
@@ -80,10 +99,16 @@ export default {
       this.articleTag = false;
       this.videoTag = false;
       this.hideTag = false;
+<<<<<<< HEAD
       this.imgTag = true;
       $(".grjn").css({
         "background-position": "top",
         "padding-bottom": "450px",
+=======
+      $(".grjn").css({
+        "background-position": "top",
+        "padding-bottom": "100px",
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       });
       $(".paginghide").css("display", "block");
     },
@@ -92,10 +117,16 @@ export default {
       this.msgTag = false;
       this.videoTag = false;
       this.hideTag = false;
+<<<<<<< HEAD
       this.imgTag = true;
       $(".grjn").css({
         "background-position": "top",
         "padding-bottom": "450px",
+=======
+      $(".grjn").css({
+        "background-position": "top",
+        "padding-bottom": "100px",
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       });
       $(".paginghide").css("display", "block");
     },
@@ -104,10 +135,16 @@ export default {
       this.msgTag = false;
       this.articleTag = false;
       this.hideTag = false;
+<<<<<<< HEAD
       this.imgTag = true;
       $(".grjn").css({
         "background-position": "top",
         "padding-bottom": "450px",
+=======
+      $(".grjn").css({
+        "background-position": "top",
+        "padding-bottom": "100px",
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       });
       $(".paginghide").css("display", "block");
     },
@@ -117,6 +154,7 @@ export default {
 
 <style lang="less" scoped>
 .grjn {
+<<<<<<< HEAD
   background: url("/img/pc/03_banner03.png") no-repeat center center;
   background-size: 100% 100%;
   padding-bottom: 450px;
@@ -134,6 +172,11 @@ export default {
     height: 1020px;
     width: 100%;
   }
+=======
+  background: url("/img/pc/03_banner11.png") no-repeat center center;
+  background-size: cover;
+  padding-bottom: 200px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   .moreBtn {
     font-size: 20px;
     width: 100px;

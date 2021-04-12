@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import request from "@/pages/mobile/libs/request";
+=======
+import request from "@/pages/pc/libs/request";
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
 //消息通知
 export function getSysMessageList(param) {

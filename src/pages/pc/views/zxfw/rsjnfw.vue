@@ -4,12 +4,15 @@
     <div class="cont">
       <zxfwTitle title="人生纪念服务"></zxfwTitle>
 
+<<<<<<< HEAD
       <div class="bannerTitle">
         <div class="text1">雕塑、瓷像、墓志铭、纪念馆<br />及人生纪念服务</div>
         <div class="text2">
           多名人生圆满服务设计师、生命文化礼仪师，从“爱”到一种职业
         </div>
       </div>
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="smfwCont">
         <div class="smfwContItem">
           <div class="circle">360<br />课时</div>
@@ -33,7 +36,11 @@
       </div>
 
       <div class="cont1">
+<<<<<<< HEAD
         <div class="title">人生纪念服务 日式收纳一次完成</div>
+=======
+        <div class="title">人生纪念服务 日式收纳一次搞定</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <div class="title2">1个小时，1个标准服务套餐</div>
         <div class="details">
           <div class="detailsItem">
@@ -57,14 +64,24 @@
               <img src="/img/zxfw20.png" />
             </div>
             <div class="detailsTitle">
+<<<<<<< HEAD
               布局碑面,根据人体工学,动线布局碑面空间,完成所有手续收纳式一次完成
+=======
+              布局碑面,根据人体工学,动线布局碑面空间,完成所有手续收纳式一次搞定
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             </div>
           </div>
         </div>
       </div>
 
       <div class="cont2">
+<<<<<<< HEAD
         <div class="title">收纳套餐</div>
+=======
+        <div class="title">
+          收纳套餐
+        </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <div class="title2">
           墓志铭文收纳、墓志铭+瓷像收纳、墓志铭+影雕收纳、纪念馆+纪念服务收纳
         </div>
@@ -97,12 +114,19 @@
         <div class="details2">
           <div class="details2Item">
             <div class="btn"><i class="iconfont iconxiangmu"></i></div>
+<<<<<<< HEAD
             <div class="details2Title">项目任选</div>
+=======
+            <div class="details2Title">
+              项目任选
+            </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             <div class="details2Intro">
               瓷像、影雕和碑文，自由组合选择，任意时间
             </div>
           </div>
           <div class="details2Item">
+<<<<<<< HEAD
             <div class="btn" style="margin: auto">
               <i class="iconfont iconkefu"></i>
             </div>
@@ -117,6 +141,28 @@
             </div>
             <div class="details2Title" style="float: right">周到放心</div>
             <div class="details2Intro">金牌客服保障，服务人员健康</div>
+=======
+            <div class="btn" style="margin: auto;">
+              <i class="iconfont iconkefu"></i>
+            </div>
+            <div class="details2Title" style="margin: auto; margin-top: 25px;">
+              金牌客服
+            </div>
+            <div class="details2Intro">
+              金牌客服人员为您服务
+            </div>
+          </div>
+          <div class="details2Item">
+            <div class="btn" style="float: right;">
+              <i class="iconfont iconfuwu"></i>
+            </div>
+            <div class="details2Title" style="float: right;">
+              周到放心
+            </div>
+            <div class="details2Intro">
+              金牌客服保障，服务人员健康
+            </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           </div>
         </div>
       </div>
@@ -131,13 +177,21 @@ export default {
   components: {
     zxfwTitle: () => import("@/pages/pc/views/zxfw/components/zxfw-title.vue"),
     zxfwLjyy: () => import("@/pages/pc/views/zxfw/components/zxfw-ljyy.vue"),
+<<<<<<< HEAD
     myserve: () => import("@/pages/pc/components/myserve.vue"),
+=======
+    myserve: () => import("@/pages/pc/components/myserve.vue")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   data() {
     return {};
   },
   mounted() {},
+<<<<<<< HEAD
   methods: {},
+=======
+  methods: {}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 <style lang="less" scoped>
@@ -151,6 +205,7 @@ export default {
   }
 
   .cont {
+<<<<<<< HEAD
     .bannerTitle {
       padding-top: 54px;
       .text1 {
@@ -174,6 +229,8 @@ export default {
       }
     }
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .smfwCont {
       width: 1100px;
       margin: auto;

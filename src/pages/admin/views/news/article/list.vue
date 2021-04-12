@@ -12,11 +12,15 @@
       <a-col :span="20">
         <div class="operator">
           <a-row type="flex" justify="start">
+<<<<<<< HEAD
             <a-col style="padding-right: 10px">
               <a-button @click="wx()" type="primary" icon="plus"
                 >微信抓取</a-button
               >
               &nbsp;
+=======
+            <a-col style="padding-right:10px;">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               <a-button @click="add()" type="primary" icon="plus"
                 >新增</a-button
               >
@@ -40,18 +44,30 @@
             size="middle"
             bordered
             :columns="columns"
+<<<<<<< HEAD
             :rowKey="(record) => record.id"
+=======
+            :rowKey="record => record.id"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             :dataSource="list"
             :pagination="pagination"
             :rowSelection="{
               selectedRowKeys: selectedRowKeys,
+<<<<<<< HEAD
               onChange: onSelectChange,
+=======
+              onChange: onSelectChange
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             }"
             :loading="loading"
             @change="onChange"
           >
             <template slot="newsTitle" slot-scope="record">
+<<<<<<< HEAD
               <span v-if="record.isTop === '1'" style="color: #ff4d4f">
+=======
+              <span v-if="record.isTop === '1'" style="color:#ff4d4f;">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
                 【置顶】
               </span>
               {{ record.title }}
@@ -102,12 +118,20 @@ import {
   getNewsColumnList,
   getNewsList,
   setNewsStatus,
+<<<<<<< HEAD
   delNews,
+=======
+  delNews
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 } from "@/pages/admin/api/news/news";
 
 export default {
   components: {
+<<<<<<< HEAD
     articleInfo: () => import("@/pages/admin/views/news/article/info"),
+=======
+    articleInfo: () => import("@/pages/admin/views/news/article/info")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   data() {
     return {
@@ -125,51 +149,85 @@ export default {
         current: 1,
         pageSize: 10,
         showSizeChanger: true,
+<<<<<<< HEAD
         showTotal: (total) => {
           return `共 ${total} 条`;
         },
+=======
+        showTotal: total => {
+          return `共 ${total} 条`;
+        }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       },
       loading: false,
       columns: [
         {
           title: "标题",
           dataIndex: "",
+<<<<<<< HEAD
           scopedSlots: { customRender: "newsTitle" },
+=======
+          scopedSlots: { customRender: "newsTitle" }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         },
         {
           title: "栏目",
           dataIndex: "columnName",
+<<<<<<< HEAD
           width: 200,
+=======
+          width: 200
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         },
         {
           title: "状态",
           dataIndex: "",
           scopedSlots: { customRender: "status" },
           align: "center",
+<<<<<<< HEAD
           width: 100,
+=======
+          width: 100
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         },
         {
           title: "发布时间",
           dataIndex: "publishTime",
           align: "center",
+<<<<<<< HEAD
           width: 150,
+=======
+          width: 150
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         },
         {
           title: "创建日期",
           dataIndex: "createDate",
           align: "center",
+<<<<<<< HEAD
           width: 150,
+=======
+          width: 150
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         },
         {
           title: "操作",
           dataIndex: "",
           width: 130,
           align: "center",
+<<<<<<< HEAD
           scopedSlots: { customRender: "action" },
         },
       ],
       showInfo: false,
       infoId: "",
+=======
+          scopedSlots: { customRender: "action" }
+        }
+      ],
+      showInfo: false,
+      infoId: ""
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {
@@ -178,7 +236,11 @@ export default {
   },
   methods: {
     getColumnList() {
+<<<<<<< HEAD
       getNewsColumnList({ columnType: "1" }).then((res) => {
+=======
+      getNewsColumnList({ columnType: "1" }).then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (res.code === 0) {
           // this.treeData = res.data.treeData;
           this.treeData.splice(0, 0, {
@@ -189,7 +251,11 @@ export default {
             title: "全部数据",
             name: "全部数据",
             isLeaf: false,
+<<<<<<< HEAD
             children: res.data.treeData,
+=======
+            children: res.data.treeData
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           });
           this.expandedKeys = ["0"];
         }
@@ -219,7 +285,11 @@ export default {
       this.loading = true;
       this.selectedRowKeys = [];
       const pagination = { ...this.pagination };
+<<<<<<< HEAD
       getNewsList(pagination).then((res) => {
+=======
+      getNewsList(pagination).then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         this.loading = false;
         if (res.code === 0) {
           this.list = res.data.list;
@@ -236,13 +306,21 @@ export default {
         cancelText: "取消",
         onOk() {
           var status = record.status === "0" ? "1" : "0";
+<<<<<<< HEAD
           setNewsStatus({ id: record.id, status: status }).then((res) => {
+=======
+          setNewsStatus({ id: record.id, status: status }).then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             if (res.code === 0) {
               record.status = status;
             }
           });
         },
+<<<<<<< HEAD
         onCancel() {},
+=======
+        onCancel() {}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       });
     },
     add() {
@@ -269,7 +347,11 @@ export default {
       if (list.length === 0) {
         this.$notification.warning({
           message: "提示",
+<<<<<<< HEAD
           description: "请选择需要删除的数据",
+=======
+          description: "请选择需要删除的数据"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         });
         return;
       }
@@ -278,16 +360,27 @@ export default {
         title: "确定要删除吗?",
         content: "",
         onOk() {
+<<<<<<< HEAD
           delNews({ ids: list }).then((res) => {
+=======
+          delNews({ ids: list }).then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             if (res.code === 0) {
               vm.onSearch();
             }
           });
         },
+<<<<<<< HEAD
         onCancel() {},
       });
     },
   },
+=======
+        onCancel() {}
+      });
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 

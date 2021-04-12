@@ -20,11 +20,19 @@
         size="middle"
         bordered
         :columns="columns"
+<<<<<<< HEAD
         :rowKey="(record) => record.id"
         :dataSource="list"
         :rowSelection="{
           selectedRowKeys: selectedRowKeys,
           onChange: onSelectChange,
+=======
+        :rowKey="record => record.id"
+        :dataSource="list"
+        :rowSelection="{
+          selectedRowKeys: selectedRowKeys,
+          onChange: onSelectChange
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         }"
         :loading="loading"
         :pagination="false"
@@ -91,13 +99,21 @@ import {
   getNewsColumnList,
   setNewsColumnStatus,
   saveNewsColumnSort,
+<<<<<<< HEAD
   delNewsColumn,
+=======
+  delNewsColumn
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 } from "@/pages/admin/api/news/news";
 
 export default {
   name: "module-list",
   components: {
+<<<<<<< HEAD
     newsColumnInfo: () => import("@/pages/admin/views/news/column/info"),
+=======
+    newsColumnInfo: () => import("@/pages/admin/views/news/column/info")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   data() {
     return {
@@ -110,42 +126,71 @@ export default {
         {
           title: "栏目名称",
           dataIndex: "name",
+<<<<<<< HEAD
           width: 250,
+=======
+          width: 250
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         },
         {
           title: "栏目ID",
           dataIndex: "id",
+<<<<<<< HEAD
           width: 165,
         },
         {
           title: "栏目全路径",
           dataIndex: "mergerName",
+=======
+          width: 165
+        },
+        {
+          title: "栏目全路径",
+          dataIndex: "mergerName"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         },
         {
           title: "状态",
           dataIndex: "",
           scopedSlots: { customRender: "status" },
           align: "center",
+<<<<<<< HEAD
           width: 100,
+=======
+          width: 100
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         },
         {
           title: "排序",
           dataIndex: "",
           scopedSlots: { customRender: "sortId" },
           align: "center",
+<<<<<<< HEAD
           width: 100,
+=======
+          width: 100
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         },
         {
           title: "操作",
           dataIndex: "",
           width: 150,
           align: "center",
+<<<<<<< HEAD
           scopedSlots: { customRender: "action" },
         },
       ],
       showInfo: false,
       infoId: "",
       infoPid: "",
+=======
+          scopedSlots: { customRender: "action" }
+        }
+      ],
+      showInfo: false,
+      infoId: "",
+      infoPid: ""
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   activated() {
@@ -164,7 +209,11 @@ export default {
     getList() {
       this.loading = true;
       this.selectedRowKeys = [];
+<<<<<<< HEAD
       getNewsColumnList({ columnType: this.columnType }).then((res) => {
+=======
+      getNewsColumnList({ columnType: this.columnType }).then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         this.loading = false;
         if (res.code === 0) {
           this.list = res.data.treeData;
@@ -178,17 +227,29 @@ export default {
         content: "",
         onOk() {
           var status = record.status === "0" ? "1" : "0";
+<<<<<<< HEAD
           setNewsColumnStatus({ id: record.id, status: status }).then((res) => {
+=======
+          setNewsColumnStatus({ id: record.id, status: status }).then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             if (res.code === 0) {
               record.status = status;
             }
           });
         },
+<<<<<<< HEAD
         onCancel() {},
       });
     },
     changeSort(record) {
       var query = this.newsColumnList.filter((x) => {
+=======
+        onCancel() {}
+      });
+    },
+    changeSort(record) {
+      var query = this.newsColumnList.filter(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         return x.id === record.id;
       });
       if (query.length > 0) {
@@ -196,7 +257,11 @@ export default {
       }
     },
     saveSort() {
+<<<<<<< HEAD
       saveNewsColumnSort(this.newsColumnList).then((res) => {
+=======
+      saveNewsColumnSort(this.newsColumnList).then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (res.code === 0) {
           this.$message.success("数据提交成功");
           this.getList();
@@ -229,7 +294,11 @@ export default {
       if (list.length === 0) {
         this.$notification.warning({
           message: "提示",
+<<<<<<< HEAD
           description: "请选择需要删除的数据",
+=======
+          description: "请选择需要删除的数据"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         });
         return;
       }
@@ -238,16 +307,27 @@ export default {
         title: "确定要删除吗?",
         content: "",
         onOk() {
+<<<<<<< HEAD
           delNewsColumn({ ids: list }).then((res) => {
+=======
+          delNewsColumn({ ids: list }).then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             if (res.code === 0) {
               vm.getList();
             }
           });
         },
+<<<<<<< HEAD
         onCancel() {},
       });
     },
   },
+=======
+        onCancel() {}
+      });
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 

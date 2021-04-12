@@ -3,12 +3,17 @@
     <div class="footContent">
       <div @click="$router.push('/mark/grjn')">个人纪念馆</div>
       <div @click="$router.push('/member/userInfo')">个人中心</div>
+<<<<<<< HEAD
       <div @click="$router.push('/mark')">
+=======
+      <div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <img src="/img/pc/logo.png" alt="" />
       </div>
       <div @click="$router.push('/mark/gybg')">关于本馆</div>
       <div @click="$router.push('/mark/zpg')">族谱馆</div>
     </div>
+<<<<<<< HEAD
     <!-- <div class="search">
       <input
         type="text"
@@ -43,6 +48,24 @@
         </div>
       </a-popover>
 
+=======
+    <div class="search">
+      <input type="text" placeholder="查找亲友姓名" v-model="keyword" />
+      <img @click="handleSearch" src="/img/pc/search.png" alt="" />
+    </div>
+    <div class="copyright">
+      <span style="padding:0 5px;"></span
+      >武汉石门峰纪念公园有限公司版权所有<span style="padding:0 5px;"></span>
+    </div>
+
+    <div v-if="showBackTop" class="backTop pointer">
+      <div class="item">
+        <i class="iconfont iconweixin"></i>
+      </div>
+      <div class="item pointer">
+        <i class="iconfont iconQRcode"></i>
+      </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="item pointer" @click="toTop()">
         <i class="iconfont iconfanhuidingbu"></i>
         <div>顶部</div>
@@ -60,6 +83,7 @@ export default {
   data() {
     return {
       showBackTop: false,
+<<<<<<< HEAD
       allList: [],
       model: {
         current: 0,
@@ -71,6 +95,9 @@ export default {
         notId: [],
         total: "",
       },
+=======
+      keyword: "",
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   computed: {},
@@ -86,6 +113,17 @@ export default {
     });
   },
   methods: {
+<<<<<<< HEAD
+=======
+    handleSearch() {
+      this.$router.push({
+        name: "/mark/grjn-02",
+        params: {
+          keyword: this.keyword,
+        },
+      });
+    },
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     toTop() {
       // window.scrollTo({
       //   top: 0,
@@ -111,7 +149,11 @@ export default {
 
   .backTop {
     width: 53px;
+<<<<<<< HEAD
     height: 150px;
+=======
+    height: 200px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     background-color: rgba(155, 155, 155, 0.8);
     border-radius: 5px;
     position: fixed;
@@ -119,7 +161,11 @@ export default {
     bottom: 50px;
 
     .item {
+<<<<<<< HEAD
       height: 50%;
+=======
+      height: 33%;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       border-bottom: 1px solid rgba(255, 255, 255, 0.8);
       display: flex;
       align-items: center;
@@ -156,13 +202,19 @@ export default {
     right: 15px;
     z-index: 2;
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   .search {
     width: 340px;
     height: 46px;
     margin: 20px auto;
     position: relative;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     input {
       width: 100%;
       height: 100%;
@@ -175,14 +227,20 @@ export default {
       padding-left: 10px;
       padding-right: 48px;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     img {
       position: absolute;
       right: -40px;
       top: 8px;
     }
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   .footContent {
     display: flex;
     width: 100%;
@@ -194,7 +252,10 @@ export default {
     div {
       margin-right: 50px;
       cursor: pointer;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       &:last-child {
         margin-right: 0;
       }
@@ -202,7 +263,10 @@ export default {
   }
 
   .copyright {
+<<<<<<< HEAD
     margin-top: 20px;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     text-align: center;
     width: 100%;
     font-size: 14px;
@@ -215,8 +279,12 @@ export default {
 @media screen and (max-width: 1600px) {
   .footBg {
     .footContent {
+<<<<<<< HEAD
       // width: 1400px;
       width: 100%;
+=======
+      width: 1400px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
       .footTable {
         .menu {

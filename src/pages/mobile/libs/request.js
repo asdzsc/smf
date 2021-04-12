@@ -11,7 +11,11 @@ import {
 
 //提醒错误消息
 function notifyMsg(msg) {
+<<<<<<< HEAD
 	if (msg) {
+=======
+	if(msg){
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 		Notify({
 			type: "warning",
 			message: msg
@@ -42,8 +46,12 @@ service.interceptors.request.use(
 		}
 		// 合并请求参数
 		if (config.params) {
+<<<<<<< HEAD
 			config.data = {
 				...config.data,
+=======
+			config.data = { ...config.data,
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 				...config.params
 			};
 		}
@@ -94,7 +102,11 @@ service.interceptors.response.use(
 					var loginUrl = "/mobile/#/login";
 					if (window.location.hash) {
 						var toUrl = window.location.hash.replace("#", "");
+<<<<<<< HEAD
 						if (toUrl.indexOf('/login?redirect') == -1) {
+=======
+						if(toUrl.indexOf('/login?redirect') == -1){
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 							console.log('501 ' + toUrl)
 							loginUrl += "?redirect=" + encodeURIComponent(toUrl);
 							window.location = loginUrl;

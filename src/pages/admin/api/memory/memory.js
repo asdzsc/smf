@@ -124,6 +124,7 @@ export function exportExcel(param) {
 		data: param
 	});
 }
+<<<<<<< HEAD
 
 // 搜索墓址列表
 export function searchCemeteryList(param) {
@@ -133,3 +134,5 @@ export function searchCemeteryList(param) {
 		data: param
 	});
 }
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95

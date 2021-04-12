@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
   <div id="app" @contextmenu.prevent>
+=======
+  <div id="app">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     <!-- <keep-alive v-if="$route.meta.keepAlive">
       <router-view />
     </keep-alive> -->
@@ -9,12 +13,17 @@
 
 <script>
 import * as utils from "@/pages/mobile/libs/utils";
+<<<<<<< HEAD
 import enquireScreen from "@/comment/device";
+=======
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 export default {
   name: "App",
   data() {
     return {};
   },
+<<<<<<< HEAD
   created() {
     // if (utils.isPc()) {
     //   this.pc();
@@ -62,13 +71,21 @@ export default {
         break;
     }
   },
+=======
+  created() {},
+  mounted() {},
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   watch: {
     $route: {
       handler() {
         try {
           window.scrollTo({
             top: 0,
+<<<<<<< HEAD
             behavior: "smooth",
+=======
+            behavior: "smooth"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           });
           // $("html,body").animate({
           // 	scrollTop: 0
@@ -76,6 +93,7 @@ export default {
         } catch (e) {
           console.log(e);
         }
+<<<<<<< HEAD
         // this.goUrl();
         this.setPageTitle();
       },
@@ -89,6 +107,19 @@ export default {
           this.pc();
         }
       });
+=======
+        this.goUrl();
+        this.setPageTitle();
+      },
+      deep: true
+    }
+  },
+  methods: {
+    goUrl() {
+      if (utils.isPc()) {
+        this.pc();
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     },
     setPageTitle() {
       var title = this.$route.meta.title;
@@ -98,6 +129,7 @@ export default {
         title = "武汉石门峰纪念公园 - " + title;
       }
       utils.setTitle(title);
+<<<<<<< HEAD
       if (utils.isWeiXin()) {
         wx.miniProgram.postMessage({ data: { title: "title" } });
       }
@@ -122,6 +154,18 @@ export default {
             url = url.replace("/mobile/", "/").replace("/mobile#/", "/#/");
             window.location.href = url;
           }
+=======
+    },
+    pc() {
+      var url = window.location.href;
+      if (url.includes("/mobile/") || url.includes("/mobile#/")) {
+        if (url.includes("/mobile/#/index") || url.includes("/mobile#/index")) {
+          window.location.href =
+            window.location.protocol + "//" + window.location.host;
+        } else {
+          url = url.replace("/mobile/", "/").replace("/mobile#/", "/#/");
+          window.location.href = url;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         }
       }
     },
@@ -132,6 +176,7 @@ export default {
         console.log("mobile ", url);
         this.$router.push(url);
       }
+<<<<<<< HEAD
     },
   },
 };
@@ -156,3 +201,11 @@ body {
     Roboto, Noto, Helvetica Neue, sans-serif;
 }
 </style>
+=======
+    }
+  }
+};
+</script>
+
+<style lang="less"></style>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95

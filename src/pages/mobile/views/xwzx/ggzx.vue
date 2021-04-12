@@ -74,6 +74,7 @@ export default {
       this._newsList();
     },
     _newsList() {
+<<<<<<< HEAD
       this.$toast.loading({
         message: "加载中...",
         forbidClick: true,
@@ -82,11 +83,22 @@ export default {
       newsList(this.model).then((res) => {
         this.loading = false;
         this.$toast.clear();
+=======
+      this.loading = true;
+      newsList(this.model).then((res) => {
+        this.loading = false;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (res.code === 0) {
           const results = res.data.list;
           this.model.list.push(...results);
           if (res.data.hasNextPage) {
+<<<<<<< HEAD
             this.model.current++;
+=======
+            setTimeout(() => {
+              this.model.current = ++this.model.current;
+            }, 500);
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           } else {
             this.finished = true;
           }
@@ -140,7 +152,11 @@ export default {
             .dtime {
               margin-top: 0.25rem;
               margin-left: 0.1rem;
+<<<<<<< HEAD
               font-size: 0.25rem;
+=======
+              font-size: 0.22rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               color: #666666;
             }
           }
@@ -151,8 +167,12 @@ export default {
             .introTitle {
               width: 3.16rem;
               color: #004930;
+<<<<<<< HEAD
               font-weight: bold;
               font-size: 0.3rem;
+=======
+              font-size: 0.28rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               margin-bottom: 0.1rem;
               text-overflow: ellipsis;
               -webkit-box-orient: vertical;
@@ -164,7 +184,11 @@ export default {
             .introCont {
               width: 3.61rem;
               font-family: MicrosoftYaHei;
+<<<<<<< HEAD
               font-size: 0.2rem;
+=======
+              font-size: 0.22rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               line-height: 0.32rem;
               letter-spacing: 0px;
               color: #666666;

@@ -84,6 +84,7 @@ export function getUserCode(param) {
   });
 }
 
+<<<<<<< HEAD
 export function logInfo(param) {
   return request({
     url: "/logInfo",
@@ -93,6 +94,8 @@ export function logInfo(param) {
 }
 
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
 export function setToken(data) {
   store.commit("account/setToken", data.token);

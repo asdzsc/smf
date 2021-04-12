@@ -1,28 +1,44 @@
 <template>
   <div class="myfoot">
     <div class="serve">
+<<<<<<< HEAD
       <div class="serveItem">
+=======
+      <div class="serveItem ">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <div class="squere">
           <i class="iconfont iconQQ"></i>
         </div>
         <div class="title">在线客服</div>
       </div>
+<<<<<<< HEAD
       <div class="serveItem">
+=======
+      <div class="serveItem ">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <div class="squere">
           <i class="iconfont iconweixin"></i>
         </div>
         <div class="title">微信客服</div>
       </div>
+<<<<<<< HEAD
       <div
         @click="$router.push('/member/cemetery/cemeteryOrder')"
         class="serveItem"
       >
+=======
+      <div class="serveItem ">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <div class="squere">
           <i class="iconfont iconjiahaocu"></i>
         </div>
         <div class="title">墓地订单</div>
       </div>
+<<<<<<< HEAD
       <div @click="$router.push('/shop/order')" class="serveItem">
+=======
+      <div class="serveItem ">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <div class="squere">
           <i class="iconfont iconaixinjuanzeng"></i>
         </div>
@@ -42,7 +58,11 @@
         </van-row>
       </div> -->
 
+<<<<<<< HEAD
       <div @click="$router.push('/xwzx')" class="title">公司新闻</div>
+=======
+      <div class="title">公司新闻</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="line"></div>
       <!-- <div class="foot-menu">
         <van-row>
@@ -66,7 +86,11 @@
         </van-row>
       </div> -->
 
+<<<<<<< HEAD
       <div @click="$router.push('/bwg')" class="title">博物馆聚落</div>
+=======
+      <div class="title">博物馆群</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="line"></div>
       <!-- <div class="foot-menu">
         <van-row>
@@ -102,9 +126,15 @@
       </div>
 
       <div class="backTop">
+<<<<<<< HEAD
         <!-- <div>
 					<img class="backTop-qq" src="/img/mobile/qq.png" />
 				</div> -->
+=======
+        <div>
+          <img class="backTop-qq" src="/img/mobile/qq.png" />
+        </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <div>
           <img
             @click="toTop()"
@@ -115,6 +145,7 @@
       </div>
 
       <div class="copyright">
+<<<<<<< HEAD
         ©2019 武汉石门峰纪念公园有限公司 版权所有
         <div style="padding-bottom: 0.4rem">
           <a
@@ -126,6 +157,12 @@
             鄂ICP备15004424号-1
           </a>
         </div>
+=======
+        ©2019 武汉石门峰纪念公园有限公司 版权所有<span
+          style="padding-left:.4rem;"
+          >鄂公网安备 42018502001747号</span
+        >
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       </div>
     </div>
   </div>
@@ -139,6 +176,7 @@ export default {
   mounted() {},
   methods: {
     toTop() {
+<<<<<<< HEAD
       $("html,body").animate(
         {
           scrollTop: 0,
@@ -147,6 +185,11 @@ export default {
       );
     },
   },
+=======
+      $("html,body").animate({ scrollTop: 0 }, 500);
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 <style lang="less" scoped>
@@ -158,6 +201,7 @@ export default {
     align-items: center;
     justify-content: center;
     color: #666;
+<<<<<<< HEAD
 
     .serveItem {
       margin: 0 0.3rem;
@@ -169,6 +213,18 @@ export default {
         font-weight: 400;
       }
 
+=======
+    .serveItem {
+      margin: 0 0.33rem;
+      text-align: center;
+      line-height: 0.3rem;
+
+      .title {
+        padding-top: 0.2rem;
+        font-size: 0.24rem;
+        font-weight: 400;
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .squere {
         margin: auto;
         width: 0.64rem;
@@ -178,7 +234,10 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         .iconfont {
           font-size: 0.38rem;
         }
@@ -190,9 +249,14 @@ export default {
     background-color: #004930;
     padding-top: 0.3rem;
     padding-bottom: 0.5rem;
+<<<<<<< HEAD
 
     .title {
       font-size: 0.3rem;
+=======
+    .title {
+      font-size: 0.26rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       letter-spacing: 0px;
       color: #ffffff;
       padding-left: 0.4rem;
@@ -200,12 +264,16 @@ export default {
       padding-top: 0.2rem;
       font-weight: 700;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .line {
       height: 1px;
       background-color: #ffffff;
       opacity: 0.25;
     }
+<<<<<<< HEAD
 
     .foot-menu {
       padding: 0.2rem 0.4rem;
@@ -221,31 +289,59 @@ export default {
       padding-top: 1rem;
       text-align: center;
 
+=======
+    .foot-menu {
+      padding: 0.2rem 0.4rem;
+      .foot-item {
+        color: #fff;
+        font-size: 0.26rem;
+        padding-bottom: 0.2rem;
+      }
+    }
+    .foot-ewm {
+      padding-top: 1rem;
+      text-align: center;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .ewm {
         width: 2rem;
         height: 2rem;
         border-radius: 5px;
       }
+<<<<<<< HEAD
 
       .ewm-title {
         margin: auto;
         font-size: 0.3rem;
+=======
+      .ewm-title {
+        margin: auto;
+        font-size: 0.26rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         line-height: 0.4rem;
         padding-top: 0.1rem;
         color: #fff;
       }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .backTop {
       position: fixed;
       right: 0px;
       bottom: 2rem;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .backTop-qq {
         width: 0.88rem;
         height: 0.64rem;
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .backTop-ding {
         padding-top: 0.1rem;
         width: 0.88rem;
@@ -257,7 +353,11 @@ export default {
   .copyright {
     padding-top: 0.8rem;
     text-align: center;
+<<<<<<< HEAD
     font-size: 0.3rem;
+=======
+    font-size: 0.16rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     color: #ffffff;
   }
 }

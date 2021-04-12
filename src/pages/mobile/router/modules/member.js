@@ -4,54 +4,91 @@ export default [
     path: "/member",
     name: "/member",
     meta: {
+<<<<<<< HEAD
       title: "个人中心",
     },
     redirect: "/member/userInfo",
+=======
+      title: "个人中心"
+    },
+    redirect: "/member/userInfo"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   {
     path: "/member/userInfo",
     name: "/member/userInfo",
     meta: {
+<<<<<<< HEAD
       title: "个人中心",
     },
     component: () => import("@/pages/mobile/views/member/user-info.vue"),
+=======
+      title: "个人中心"
+    },
+    component: () => import("@/pages/mobile/views/member/user-info.vue")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   {
     path: "/member/user-edit-mobile",
     name: "/member/user-edit-mobile",
     meta: {
+<<<<<<< HEAD
       title: "编辑手机号",
     },
     component: () => import("@/pages/mobile/views/member/user-edit-mobile.vue"),
+=======
+      title: "编辑手机号"
+    },
+    component: () => import("@/pages/mobile/views/member/user-edit-mobile.vue")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   {
     path: "/member/user-edit-pwd",
     name: "/member/user-edit-pwd",
     meta: {
+<<<<<<< HEAD
       title: "编辑密码",
     },
     component: () => import("@/pages/mobile/views/member/user-edit-pwd.vue"),
+=======
+      title: "编辑密码"
+    },
+    component: () => import("@/pages/mobile/views/member/user-edit-pwd.vue")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   {
     path: "/member/user-bind-mobile",
     name: "/member/user-bind-mobile",
     meta: {
+<<<<<<< HEAD
       title: "绑定手机号",
     },
     component: () => import("@/pages/mobile/views/member/user-bind-mobile.vue"),
+=======
+      title: "绑定手机号"
+    },
+    component: () => import("@/pages/mobile/views/member/user-bind-mobile.vue")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   {
     path: "/member/cemetery-info",
     name: "/member/cemetery-info",
     meta: {
+<<<<<<< HEAD
       title: "新增服务墓址",
     },
     component: () => import("@/pages/mobile/views/member/cemetery-info.vue"),
+=======
+      title: "新增服务墓址"
+    },
+    component: () => import("@/pages/mobile/views/member/cemetery-info.vue")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   {
     path: "/member/sys-message-list",
     name: "/member/sys-message-list",
     meta: {
+<<<<<<< HEAD
       title: "消息通知",
     },
     component: () => import("@/pages/mobile/views/member/sys-message-list.vue"),
@@ -196,4 +233,10 @@ export default [
     },
     component: () => import("@/pages/mobile/views/member/info/show-pay.vue"),
   },
+=======
+      title: "消息通知"
+    },
+    component: () => import("@/pages/mobile/views/member/sys-message-list.vue")
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 ];

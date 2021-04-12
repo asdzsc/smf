@@ -1,6 +1,7 @@
 <template>
   <div class="grjn">
     <jn-banner :bannerModel="this.model"></jn-banner>
+<<<<<<< HEAD
     <jn-photo :bannerModel="this.model" v-if="photoTag"></jn-photo>
     <jn-message
       ref="myChild"
@@ -8,11 +9,18 @@
       v-if="msgTag"
       :bannerModel="this.model"
     ></jn-message>
+=======
+    <jn-photo v-if="photoTag"></jn-photo>
+    <jn-message ref="myChild" @videoMore="videoMore" v-if="msgTag"></jn-message>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     <div class="moreBtn" v-if="hideTag" @click="msgMore()">
       更多留言
     </div>
     <jn-article
+<<<<<<< HEAD
       :bannerModel="this.model"
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       ref="myChild"
       v-if="articleTag"
       @videoMore="videoMore"
@@ -20,12 +28,16 @@
     <div class="moreBtn" v-if="hideTag" @click="articleMore()">
       更多文章
     </div>
+<<<<<<< HEAD
     <jn-video
       :bannerModel="this.model"
       ref="myChild"
       v-if="videoTag"
       @videoMore="videoMore"
     ></jn-video>
+=======
+    <jn-video ref="myChild" v-if="videoTag" @videoMore="videoMore"></jn-video>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     <div class="moreBtn" v-if="hideTag" @click="videoMore()">
       更多视频
     </div>
@@ -50,9 +62,13 @@ export default {
   props: {
     detailModal: {
       type: Object,
+<<<<<<< HEAD
       default: () => {
         return {};
       },
+=======
+      default: {},
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     },
   },
   data() {

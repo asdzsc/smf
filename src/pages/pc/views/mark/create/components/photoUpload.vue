@@ -12,7 +12,11 @@
       @preview="handlePreview"
       multiple
     >
+<<<<<<< HEAD
       <div>
+=======
+      <div v-if="fileList.length < 6">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <a-icon
           style="font-size:48px;color:#00744c;"
           :type="loading ? 'loading' : 'plus'"
@@ -143,7 +147,10 @@ export default {
   width: 300px;
   height: 200px;
   margin-top: 10px;
+<<<<<<< HEAD
   border: none;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   img {
     width: 100%;
     height: 100%;

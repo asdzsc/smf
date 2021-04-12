@@ -18,9 +18,16 @@
 					<div v-else @click="saveIsCheck(item)" class="defBtn2">
 						设为默认
 					</div>
+<<<<<<< HEAD
 					<span>{{ item.cemeaddress }}</span>
 				</div>
 			</div>
+=======
+					<span>{{item.cemeaddress}}</span>
+				</div>
+			</div>
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 		</div>
 		<div class="moreAddress" v-if="!finished" @click="_cemeteryList()">
 			更多墓址
@@ -45,10 +52,17 @@
 				finished: false,
 				model: {
 					current: 0,
+<<<<<<< HEAD
 					pageSize: 3,
 				},
 				list: [],
 				showInfo: false,
+=======
+					pageSize: 3
+				},
+				list: [],
+				showInfo: false
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 			};
 		},
 		mounted() {
@@ -64,9 +78,15 @@
 			_cemeteryList() {
 				if (!this.finished) {
 					this.model.current++;
+<<<<<<< HEAD
 					cemeteryList(this.model).then((res) => {
 						if (res.code === 0) {
 							res.data.list.forEach((x) => {
+=======
+					cemeteryList(this.model).then(res => {
+						if (res.code === 0) {
+							res.data.list.forEach(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 								if (x.isCheck === "1") {
 									this.$set(x, "check", true);
 								} else {
@@ -92,11 +112,19 @@
 			},
 			saveIsCheck(item) {
 				item.isCheck = "1";
+<<<<<<< HEAD
 				saveCemetery(item).then((res) => {
 					if (res.code === 0) {
 						this.$notify({
 							type: "success",
 							message: "设置成功",
+=======
+				saveCemetery(item).then(res => {
+					if (res.code === 0) {
+						this.$notify({
+							type: "success",
+							message: "设置成功"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 						});
 						this.loadData();
 					} else {
@@ -105,19 +133,28 @@
 				});
 			},
 			setCheck(item) {
+<<<<<<< HEAD
 				this.list.forEach((x) => {
+=======
+				this.list.forEach(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 					x.check = false;
 				});
 				item.check = true;
 			},
 			//获取数据
 			getData() {
+<<<<<<< HEAD
 				var query = this.list.filter((x) => x.check);
+=======
+				var query = this.list.filter(x => x.check);
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 				if (query.length > 0) {
 					return query[0];
 				} else {
 					this.$notify({
 						type: "warning",
+<<<<<<< HEAD
 						message: "请选择服务墓址",
 					});
 					return null;
@@ -125,11 +162,24 @@
 			},
 		},
 	};
+=======
+						message: "请选择服务墓址"
+					});
+					return null;
+				}
+			}
+		}
+	}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 </script>
 
 <style lang="less" scoped>
 	.orderAddress {
+<<<<<<< HEAD
 		margin-top: 0.2rem;
+=======
+		margin-top: .2rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 		background: #fff;
 		padding: 0 4%;
 
@@ -137,15 +187,26 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+<<<<<<< HEAD
 			padding-top: 0.35rem;
 
 			p {
 				font-size: 0.32rem;
+=======
+			padding-top: .35rem;
+
+			p {
+				font-size: .32rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 				color: #333333;
 			}
 
 			.addAddress {
+<<<<<<< HEAD
 				font-size: 0.28rem;
+=======
+				font-size: .28rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
 				a {
 					color: #004930;
@@ -154,13 +215,19 @@
 		}
 
 		.serviceTitle {
+<<<<<<< HEAD
 			margin-top: 0.6rem;
 			font-size: 0.28rem;
+=======
+			margin-top: .6rem;
+			font-size: .28rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 			font-weight: bold;
 			color: #333333;
 		}
 
 		.serviceCont {
+<<<<<<< HEAD
 			margin-top: 0.3rem;
 
 			&:last-child {
@@ -173,6 +240,19 @@
 				padding: 0.2rem;
 				color: #333333;
 
+=======
+			margin-top: .3rem;
+
+			&:last-child {
+				padding-bottom: .3rem;
+			}
+
+			.serviceName {
+				font-size: .28rem;
+				box-sizing: border-box;
+				padding: 0.2rem;
+				color: #333333;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 				&:hover {
 					border: solid 2px #004930;
 				}
@@ -186,10 +266,17 @@
 				}
 
 				.default {
+<<<<<<< HEAD
 					font-size: 0.24rem;
 					display: flex;
 					align-items: center;
 					margin-top: 0.15rem;
+=======
+					font-size: .24rem;
+					display: flex;
+					align-items: center;
+					margin-top: .15rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
 					.defBtn {
 						width: 70px;
@@ -212,6 +299,7 @@
 					}
 
 					span {
+<<<<<<< HEAD
 						margin-left: 0.3rem;
 					}
 				}
@@ -226,6 +314,25 @@
 			border-top: 1px solid #ccc;
 			text-align: center;
 			padding: 0.3rem 0;
+=======
+						margin-left: .3rem;
+					}
+
+
+				}
+			}
+
+		}
+
+		.moreAddress {
+			margin-top: .3rem;
+			font-size: .26rem;
+			line-height: .44rem;
+			color: #999999;
+			border-top: 1px solid #ccc;
+			text-align: center;
+			padding: .3rem 0;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 		}
 	}
 </style>

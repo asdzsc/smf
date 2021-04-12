@@ -1,11 +1,26 @@
 import request from "@/pages/mobile/libs/request";
 
+<<<<<<< HEAD
+=======
+// 获取模版详情
+export function templateInfo(param) {
+    return request({
+        url: "/web-api/memory/template/templateInfo",
+        method: "post",
+        data: param
+    });
+}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 // 获取查看纪念馆栏目列表
 export function getMemoryColumnList(param) {
     return request({
         url: "/web-api/website/memory/column/getMemoryColumnList",
         method: "post",
+<<<<<<< HEAD
         data: param,
+=======
+        data: param
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     });
 }
 // 前端展示纪念馆列表
@@ -13,7 +28,11 @@ export function memoryList(param) {
     return request({
         url: "/web-api/website/memory/info/memoryList",
         method: "post",
+<<<<<<< HEAD
         data: param,
+=======
+        data: param
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     });
 }
 // 个人纪念馆详情
@@ -21,14 +40,22 @@ export function getMemoryInfo(param) {
     return request({
         url: "/web-api/website/memory/info/getMemoryInfo",
         method: "post",
+<<<<<<< HEAD
         data: param,
     });
 }
 //  个人纪念馆附件列表
+=======
+        data: param
+    });
+}
+//  个人纪念馆附件列表  
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 export function memoryMediaList(param) {
     return request({
         url: "/web-api/website/memory/info/memoryMediaList",
         method: "post",
+<<<<<<< HEAD
         data: param,
     });
 }
@@ -135,5 +162,8 @@ export function delMemoryMedia(param) {
         url: "/web-api/website/memory/info/delMemoryMedia",
         method: "post",
         data: param,
+=======
+        data: param
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     });
 }

@@ -12,13 +12,21 @@
       </div>
       <div>微信客服</div>
     </div>
+<<<<<<< HEAD
     <div @click="$router.push('/member/cemetery/cemeteryOrder')" class="serveItem pointer">
+=======
+    <div class="serveItem pointer">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="squere">
         <i class="iconfont iconjiahaocu"></i>
       </div>
       <div>墓地订单</div>
     </div>
+<<<<<<< HEAD
     <div @click="$router.push('/shop/order/orderList')" class="serveItem pointer">
+=======
+    <div class="serveItem pointer">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="squere">
         <i class="iconfont iconaixinjuanzeng"></i>
       </div>

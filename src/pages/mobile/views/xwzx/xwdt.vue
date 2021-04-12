@@ -20,14 +20,21 @@
             @click="$router.push('/xwzx/newsInfo?id=' + item.id)"
           >
             <div class="newsImg">
+<<<<<<< HEAD
               <img :src="baseUrl + item.cover" :onerror="defImg" alt="" />
+=======
+              <img :src="baseUrl + item.cover" alt="" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             </div>
             <div class="desc">
               <div class="intro">
                 <div class="introTitle">{{ item.title }}</div>
+<<<<<<< HEAD
                 <div class="introCont">
                   {{ item.intro }}
                 </div>
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               </div>
               <div class="dtime">
                 发布时间：{{ parseTime(item.publishTime, "{y}-{m}-{d}") }}
@@ -43,8 +50,13 @@
 <script>
 import xwzxHead from "./components/xwzx-head.vue";
 import xwzxTitle from "./components/xwzx-title.vue";
+<<<<<<< HEAD
 import { newsList } from "@/pages/mobile/api/news";
 import * as utils from "@/pages/mobile/libs/utils";
+=======
+import { newsList } from "@/pages/pc/api/news";
+import * as utils from "@/pages/pc/libs/utils";
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 export default {
   components: {
     xwzxHead,
@@ -74,6 +86,7 @@ export default {
       this._newsList();
     },
     _newsList() {
+<<<<<<< HEAD
       this.$toast.loading({
         message: "加载中...",
         forbidClick: true,
@@ -82,11 +95,22 @@ export default {
       newsList(this.model).then((res) => {
         this.loading = false;
         this.$toast.clear();
+=======
+      this.loading = true;
+      newsList(this.model).then((res) => {
+        this.loading = false;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (res.code === 0) {
           const results = res.data.list;
           this.model.list.push(...results);
           if (res.data.hasNextPage) {
+<<<<<<< HEAD
             this.model.current++;
+=======
+            setTimeout(() => {
+              this.model.current = ++this.model.current;
+            }, 500);
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           } else {
             this.finished = true;
           }
@@ -134,14 +158,22 @@ export default {
           flex-direction: column;
           justify-content: space-between;
           .dtime {
+<<<<<<< HEAD
             font-size: 0.25rem;
+=======
+            font-size: 0.22rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             color: #666666;
           }
           .intro {
             .introTitle {
               width: 3.37rem;
               font-weight: bold;
+<<<<<<< HEAD
               font-size: 0.3rem;
+=======
+              font-size: 0.28rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               color: #004930;
               text-overflow: ellipsis;
               -webkit-box-orient: vertical;
@@ -150,6 +182,7 @@ export default {
               display: -webkit-box;
             }
             .introCont {
+<<<<<<< HEAD
               margin-top: 0.1rem;
               width: 3.61rem;
               font-size: 0.2rem;
@@ -162,6 +195,12 @@ export default {
               -webkit-line-clamp: 2;
               overflow: hidden;
               display: -webkit-box;
+=======
+              width: 3.61rem;
+              font-size: 0.22rem;
+              line-height: 0.32rem;
+              color: #666666;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             }
           }
         }

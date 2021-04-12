@@ -14,7 +14,11 @@
 	import vueQr from "vue-qr";
 	export default {
 		components: {
+<<<<<<< HEAD
 			modal: () => import("@/pages/mobile/components/modal.vue"),
+=======
+			modal: () => import("@/pages/pc/components/modal.vue"),
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 			vueQr
 		},
 		props: {

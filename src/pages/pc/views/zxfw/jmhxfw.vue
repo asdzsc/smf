@@ -1,5 +1,6 @@
 <template>
   <div class="w1920 zxfw">
+<<<<<<< HEAD
     <div class="banner"></div>
     <zxfwTitle title="旧墓换新服务"></zxfwTitle>
 
@@ -8,6 +9,14 @@
         <div class="text1">艺术墓碑设计、首创不取福盒换新</div>
       </div>
 
+=======
+    <div class="banner">
+      艺术墓碑设计、首创不取福盒换新
+    </div>
+    <zxfwTitle title="旧墓换新服务"></zxfwTitle>
+
+    <div class="cont1">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="title">深度服务、品质升级</div>
       <div class="title2">服务增加全面清理消毒环节</div>
       <div class="cont1Img">
@@ -16,7 +25,13 @@
       <div class="title">安心服务、旧墓换新</div>
       <div class="title2">服务增加全面清理消毒环节</div>
       <div class="details">
+<<<<<<< HEAD
         <div class="detailsItem">7</div>
+=======
+        <div class="detailsItem">
+          7
+        </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <div class="plus">+</div>
         <div class="detailsItem">1</div>
       </div>
@@ -48,10 +63,16 @@
         <a-row>
           <a-col class="detailsItem" :span="12">
             <img src="/img/zxfw26.png" />
+<<<<<<< HEAD
             <!-- <div class="zi">磨</div> -->
           </a-col>
           <a-col class="detailsItem" :span="12">
             <div class="detailsItemTitle">磨</div>
+=======
+            <div class="zi">磨</div>
+          </a-col>
+          <a-col class="detailsItem " :span="12">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             <div class="intro">
               手工打磨精工细作<br />
               拒绝机器暴力抛光
@@ -59,7 +80,10 @@
             </div>
           </a-col>
           <a-col class="detailsItem" :span="12">
+<<<<<<< HEAD
             <div class="detailsItemTitle right">孝</div>
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             <div class="intro right">
               首创不取福盒换新<br />
               不搅扰亲人才是福孝双全
@@ -67,6 +91,7 @@
           </a-col>
           <a-col class="detailsItem" :span="12">
             <img src="/img/zxfw27.png" />
+<<<<<<< HEAD
             <!-- <div class="zi">孝</div> -->
           </a-col>
           <a-col class="detailsItem zi" :span="12">
@@ -75,6 +100,15 @@
           </a-col>
           <a-col class="detailsItem" :span="12">
             <div class="detailsItemTitle">亮</div>
+=======
+            <div class="zi">孝</div>
+          </a-col>
+          <a-col class="detailsItem zi" :span="12">
+            <img src="/img/zxfw28.png" />
+            <div class="zi">亮</div>
+          </a-col>
+          <a-col class="detailsItem" :span="12">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             <div class="intro">
               要明亮、不要油亮
               <div class="intro2">
@@ -84,7 +118,10 @@
             </div>
           </a-col>
           <a-col class="detailsItem" :span="12">
+<<<<<<< HEAD
             <div class="detailsItemTitle right">色</div>
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             <div class="intro right">
               还原本色<br />
               可能连你都没见过的一面<br />
@@ -98,6 +135,7 @@
           </a-col>
           <a-col class="detailsItem" :span="12">
             <img src="/img/zxfw29.png" />
+<<<<<<< HEAD
             <!-- <div class="zi">色</div> -->
           </a-col>
           <a-col class="detailsItem" :span="12">
@@ -107,6 +145,16 @@
           <a-col class="detailsItem" :span="12">
             <div class="detailsItemTitle">净</div>
             <div class="intro">
+=======
+            <div class="zi">色</div>
+          </a-col>
+          <a-col class="detailsItem" :span="12">
+            <img src="/img/zxfw29.png" />
+            <div class="zi">净</div>
+          </a-col>
+          <a-col class="detailsItem" :span="12">
+            <div class="intro ">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               干燥杀菌<br />
               让亲人住的窗明洁净<br />
               福孝双全
@@ -124,13 +172,21 @@ export default {
   components: {
     zxfwTitle: () => import("@/pages/pc/views/zxfw/components/zxfw-title.vue"),
     zxfwLjyy: () => import("@/pages/pc/views/zxfw/components/zxfw-ljyy.vue"),
+<<<<<<< HEAD
     myserve: () => import("@/pages/pc/components/myserve.vue"),
+=======
+    myserve: () => import("@/pages/pc/components/myserve.vue")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   data() {
     return {};
   },
   mounted() {},
+<<<<<<< HEAD
   methods: {},
+=======
+  methods: {}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 <style lang="less" scoped>
@@ -146,11 +202,15 @@ export default {
     font-size: 60px;
     color: #ffffff;
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   .cont1 {
     width: 1200px;
     margin: auto;
     margin-top: 100px;
+<<<<<<< HEAD
 
     .bannerTitle {
       padding-bottom: 54px;
@@ -165,46 +225,69 @@ export default {
       }
     }
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .title {
       text-align: center;
       font-size: 36px;
       color: #333333;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .title2 {
       text-align: center;
       font-size: 24px;
       color: #666666;
       margin-bottom: 50px;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .cont1Img {
       margin-top: 50px;
       margin-bottom: 100px;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .details {
       display: flex;
       align-items: center;
       justify-content: center;
+<<<<<<< HEAD
 
       &.intr {
         padding-top: 50px;
       }
 
+=======
+      &.intr {
+        padding-top: 50px;
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .detailsItem {
         width: 350px;
         text-align: center;
         font-size: 100px;
         font-weight: normal;
         color: #004930;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         .detailsTitle {
           text-align: center;
           font-size: 28px;
           color: #333333;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         .detailsTitle2 {
           text-align: center;
           font-size: 20px;
@@ -212,7 +295,10 @@ export default {
           padding-top: 20px;
         }
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .plus {
         width: 100px;
         text-align: center;
@@ -220,7 +306,10 @@ export default {
         color: #004930;
       }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .line {
       height: 1px;
       border-top: solid 1px #dedede;
@@ -232,6 +321,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
+<<<<<<< HEAD
 
       .details2Item {
         margin-right: 40px;
@@ -241,6 +331,14 @@ export default {
           margin-right: 0px;
         }
 
+=======
+      .details2Item {
+        margin-right: 40px;
+        line-height: 100px;
+        &:last-child {
+          margin-right: 0px;
+        }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         &:nth-child(odd) {
           width: 100px;
           height: 100px;
@@ -252,7 +350,10 @@ export default {
           font-size: 24px;
           color: #ffffff;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         &:nth-child(even) {
           width: 100px;
           height: 100px;
@@ -272,21 +373,33 @@ export default {
     margin-top: 100px;
     padding: 100px 0px;
     background-color: #f3f3f3;
+<<<<<<< HEAD
 
     .details {
       width: 1200px;
       margin: auto;
 
+=======
+    .details {
+      width: 1200px;
+      margin: auto;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .detailsItem {
         height: 320px;
         position: relative;
         background-color: #ffffff;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         img {
           width: 100%;
           height: 100%;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         .zi {
           position: absolute;
           top: 0px;
@@ -296,6 +409,7 @@ export default {
           font-size: 72px;
           color: #ffffff;
         }
+<<<<<<< HEAD
 
         .intro {
           padding-top: 10px;
@@ -309,12 +423,26 @@ export default {
             padding-right: 90px;
           }
 
+=======
+        .intro {
+          padding-top: 90px;
+          padding-left: 90px;
+          font-size: 24px;
+          color: #333333;
+          &.right {
+            text-align: right;
+            padding-top: 90px;
+            padding-left: 0px;
+            padding-right: 90px;
+          }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           .intro2 {
             font-size: 18px;
             color: #666666;
             padding-top: 20px;
           }
         }
+<<<<<<< HEAD
 
         .detailsItemTitle {
           font-size: 36px;
@@ -329,6 +457,8 @@ export default {
             padding-right: 90px;
           }
         }
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       }
     }
   }

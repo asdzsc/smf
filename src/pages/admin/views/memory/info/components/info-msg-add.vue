@@ -1,6 +1,10 @@
 <template>
 	<a-modal :title="title" v-model="visible" width="600px" :bodyStyle="{ padding: '10px' }" @cancel="onClose"
 	 @ok="handleOk">
+<<<<<<< HEAD
+=======
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 		<a-form-model :model="model" :label-col="{ span: 4 }" :wrapper-col="{ span: 18 }">
 			<a-form-model-item label="纪念者">
 				<div>{{ model.memoryName }}</div>

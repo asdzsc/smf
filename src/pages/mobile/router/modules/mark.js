@@ -2,12 +2,17 @@ export default [{
         path: "/mark/grjn",
         name: "/mark/grjn",
         meta: {
+<<<<<<< HEAD
             title: "个人纪念馆"
+=======
+            title: "查找纪念馆"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         },
         component: () =>
             import ("@/pages/mobile/views/mark/grjn/search-index.vue"),
     },
     {
+<<<<<<< HEAD
         path: "/mark/grjn/index",
         name: "/mark/grjn/index",
         meta: {
@@ -24,6 +29,24 @@ export default [{
         },
         component: () =>
             import ("@/pages/mobile/views/mark/shop/goods-list.vue"),
+=======
+        path: "/mark/grjn/grjn-00",
+        name: "/mark/grjn-00",
+        meta: {
+            title: "个人纪念馆"
+        },
+        component: () =>
+            import ("@/pages/mobile/views/mark/grjn/grjn-11.vue"),
+    },
+    {
+        path: "/mark/grjn/index?id=:id",
+        name: "/mark/grjn-00",
+        meta: {
+            title: "个人纪念馆"
+        },
+        component: () =>
+            import ("@/pages/mobile/views/mark/grjn/index.vue"),
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     },
     {
         path: "/mark/gybg",

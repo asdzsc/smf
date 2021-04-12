@@ -87,7 +87,11 @@ export default {
   }
 
   .intro {
+<<<<<<< HEAD
     font-size: 0.3rem;
+=======
+    font-size: 0.24rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     line-height: 0.5rem;
     letter-spacing: 1px;
     color: #333333;

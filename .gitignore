@@ -21,4 +21,7 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
 /.env.development
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95

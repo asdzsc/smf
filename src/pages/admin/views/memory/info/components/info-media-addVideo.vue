@@ -156,7 +156,10 @@
 			},
 			//视频上传成功事件
 			changeFileUpload(file) {
+<<<<<<< HEAD
 				console.log('file')
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 				this.loadingFile = false
 				if (!this.model.title) {
 					this.model.title = file.name

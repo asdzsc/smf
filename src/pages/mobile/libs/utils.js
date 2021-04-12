@@ -295,6 +295,7 @@ export function isPc() {
     return true;
   }
 }
+<<<<<<< HEAD
 
 export function isWeiXin(){
   var ua = window.navigator.userAgent.toLowerCase();
@@ -304,3 +305,5 @@ export function isWeiXin(){
       return false;
   }
 }
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95

@@ -33,8 +33,13 @@ export default {
   data() {
     return {
       model: {
+<<<<<<< HEAD
         payType: "支付宝",
       },
+=======
+        payType: "支付宝"
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {},
@@ -47,13 +52,22 @@ export default {
       if (!this.model.payType) {
         this.$notification.error({
           message: "提示",
+<<<<<<< HEAD
           description: "请选择支付方式",
+=======
+          description: "请选择支付方式"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         });
         return null;
       }
       return this.model.payType;
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 

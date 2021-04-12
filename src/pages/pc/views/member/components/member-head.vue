@@ -34,7 +34,11 @@
 export default {
   data() {
     return {
+<<<<<<< HEAD
       searchText: "",
+=======
+      searchText: ""
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {
@@ -51,8 +55,13 @@ export default {
       if (url) {
         this.$router.push(url);
       }
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 

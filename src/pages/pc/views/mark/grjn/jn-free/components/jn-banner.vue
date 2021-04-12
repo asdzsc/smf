@@ -9,7 +9,11 @@
         />
       </div>
       <div class="bannerCreate">
+<<<<<<< HEAD
         <a-avatar :size="50" :src="handleAvatar(bannerModel.createAvatar)" />
+=======
+        <a-avatar :size="50" :src="bannerModel.createAvatar" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <p class="bannerCreateName">{{ bannerModel.createName }}</p>
       </div>
       <p class="bannerName">{{ bannerModel.name }}</p>
@@ -30,8 +34,13 @@
         已有<span>{{ bannerModel.msgNum }}</span
         >次纪念
       </div>
+<<<<<<< HEAD
       <div class="bannerBtn" @click="handleClick">
         纪念Ta
+=======
+      <div class="bannerBtn">
+        纪念她
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       </div>
     </div>
   </div>
@@ -52,6 +61,7 @@ export default {
   data() {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
+<<<<<<< HEAD
       defImg: 'this.src="/img/zwtp.png"',
     };
   },
@@ -81,6 +91,11 @@ export default {
       });
     },
   },
+=======
+      defImg: 'this.src="/img/wfzk.png"',
+    };
+  },
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
@@ -89,7 +104,10 @@ export default {
   height: 880px;
   display: flex;
   justify-content: center;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   .bannerTitle {
     width: 800px;
     // height: 613px;
@@ -107,7 +125,10 @@ export default {
       background: #fff;
       border-radius: 50%;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .bannerCreate {
       display: flex;
       align-items: center;
@@ -122,7 +143,10 @@ export default {
         margin-top: 20px;
       }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .bannerName {
       margin-top: 100px;
       font-size: 40px;
@@ -141,17 +165,24 @@ export default {
     .bannerMsg {
       text-align: justify;
       width: 580px;
+<<<<<<< HEAD
       // height: 160px;
+=======
+      height: 160px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       font-size: 20px;
       line-height: 28px;
       color: #ffffff;
       margin-left: 85px;
       margin-top: 40px;
+<<<<<<< HEAD
       text-overflow: ellipsis;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 10;
       overflow: hidden;
       display: -webkit-box;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     }
 
     .bannerBtn {
@@ -164,17 +195,26 @@ export default {
       font-size: 28px;
       color: #ffffff;
       margin: 0 auto;
+<<<<<<< HEAD
       margin-top: 60px;
       cursor: pointer;
     }
 
+=======
+      margin-top: 220px;
+      cursor: pointer;
+    }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .bannerTimes {
       font-size: 26px;
       line-height: 28px;
       letter-spacing: 1px;
       color: #fff;
+<<<<<<< HEAD
       margin: 20px 0;
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       span {
         font-size: 40px;
         font-weight: bold;

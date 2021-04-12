@@ -9,7 +9,11 @@
         />
       </div>
       <div class="bannerCreate">
+<<<<<<< HEAD
         <a-avatar :size="50" :src="handleAvatar(bannerModel.createAvatar)" />
+=======
+        <a-avatar :size="50" :src="bannerModel.createAvatar" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <p class="bannerCreateName">{{ bannerModel.createName }}</p>
       </div>
       <p class="bannerName">{{ bannerModel.name }}</p>
@@ -26,8 +30,13 @@
       <div class="bannerMsg">
         {{ bannerModel.intro }}
       </div>
+<<<<<<< HEAD
       <div class="bannerBtn" @click="handleClick">
         纪念Ta
+=======
+      <div class="bannerBtn">
+        纪念她
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       </div>
       <div class="line"></div>
       <div class="bannerTimes">
@@ -46,9 +55,12 @@ export default {
     bannerModel: {
       //type 接收的数据类型
       type: Object,
+<<<<<<< HEAD
       default: () => {
         return {};
       },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     },
   },
   data() {
@@ -57,6 +69,7 @@ export default {
       defImg: 'this.src="/img/zwtp.jpg"',
     };
   },
+<<<<<<< HEAD
   mounted() {
     this.bannerModel.birthday = this.bannerModel.birthday.substring(0, 10);
     this.bannerModel.dieTime = this.bannerModel.dieTime.substring(0, 10);
@@ -83,6 +96,8 @@ export default {
       });
     },
   },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
@@ -149,11 +164,14 @@ export default {
       color: #333333;
       margin-top: 20px;
       text-align: justify;
+<<<<<<< HEAD
       text-overflow: ellipsis;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 10;
       overflow: hidden;
       display: -webkit-box;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     }
 
     .bannerBtn {
@@ -184,8 +202,16 @@ export default {
       font-size: 26px;
       line-height: 28px;
       letter-spacing: 1px;
+<<<<<<< HEAD
       color: #fff;
       margin-top: 30px;
+=======
+      color: #0d1351;
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      margin-left: -100px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
       span {
         font-size: 40px;

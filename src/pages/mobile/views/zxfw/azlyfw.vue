@@ -22,8 +22,13 @@
       </div>
     </div>
 
+<<<<<<< HEAD
    <!-- <div class="cont">
       <div class="title" style="padding-top: 1.45rem;">人生告别太单调、让人伤心和伤感</div>
+=======
+    <div class="cont">
+      <div class="title" style="padding-top: 1.45rem;">礼仪追思 无忧圆满</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <van-grid :column-num="2" :border="false" style="padding:0rem 0.4rem;">
         <van-grid-item>
           <div>
@@ -58,7 +63,11 @@
           </div>
         </van-grid-item>
       </van-grid>
+<<<<<<< HEAD
     </div> -->
+=======
+    </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
     <div class="cont">
       <div class="title" style="padding-top: 1.17rem;">
@@ -84,7 +93,11 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <zxfwLjyy ref="zxfwLjyy" goodsId="491476588290318337"></zxfwLjyy>
+=======
+    <zxfwLjyy ref="zxfwLjyy"></zxfwLjyy>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   </div>
 </template>
 

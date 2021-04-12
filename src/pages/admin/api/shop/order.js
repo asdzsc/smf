@@ -81,6 +81,7 @@ export function delOrderComment(param) {
   });
 }
 
+<<<<<<< HEAD
 // 保存订单评论
 export function saveOrderComment(param) {
   return request({
@@ -89,6 +90,8 @@ export function saveOrderComment(param) {
     data: param
   });
 }
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
 
 

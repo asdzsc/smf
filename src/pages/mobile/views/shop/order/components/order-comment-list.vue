@@ -1,5 +1,6 @@
 <template>
   <div class="orderCommentList">
+<<<<<<< HEAD
     <div class="title">
       <p>评论内容</p>
       <p><van-icon @click="handleCancel" name="cross" /></p>
@@ -51,10 +52,14 @@
         <van-empty v-if="list.length === 0" description="评论不存在或已删除" />
       </div>
     </div>
+=======
+      order-comment-list
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { orderCommentList, delMyOrderComment } from "@/pages/mobile/api/shop";
 import * as utils from "@/pages/mobile/libs/utils";
 import { Dialog, ImagePreview } from "vant";
@@ -257,3 +262,13 @@ export default {
   }
 }
 </style>
+=======
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95

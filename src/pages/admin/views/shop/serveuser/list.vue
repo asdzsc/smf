@@ -8,8 +8,11 @@
 				<div class="operator">
 					<a-row type="flex" justify="start">
 						<a-col style="padding-right:10px;">
+<<<<<<< HEAD
 							<a-button @click="_syncOrgUser()" type="primary" icon="sync">同步组织架构</a-button>
 							&nbsp;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 							<a-button @click="add()" type="primary" icon="plus">新增</a-button>
 							&nbsp;
 							<a-button @click="delAll()" icon="delete" type="danger">批量删除</a-button>
@@ -62,9 +65,12 @@
 	import {
 		getSysDeptTree
 	} from "@/pages/admin/api/sys/sysdept";
+<<<<<<< HEAD
 	import {
 		syncOrgUser
 	} from "@/pages/admin/api/smferp";
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
 	export default {
 		name: "user-list",
@@ -305,6 +311,7 @@
 					},
 					onCancel() {}
 				});
+<<<<<<< HEAD
 			},
 			_syncOrgUser() {
 				syncOrgUser().then(res => {
@@ -315,6 +322,8 @@
 						});
 					}
 				})
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 			}
 		}
 	};

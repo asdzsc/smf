@@ -16,7 +16,11 @@
         :title-style="{ fontWeight: 700 }"
       >
       </van-tab>
+<<<<<<< HEAD
       <div style="background-color: #ffffff; height: 0.2rem"></div>
+=======
+      <div style="background-color: #FFFFFF; height: 0.2rem;"></div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     </van-tabs>
   </div>
 </template>
@@ -29,6 +33,7 @@ export default {
       list: [
         {
           title: "公司简介",
+<<<<<<< HEAD
           url: "/gywm/gsjj",
         },
         {
@@ -48,6 +53,27 @@ export default {
           url: "/gywm/qysp",
         },
       ],
+=======
+          url: "/gywm/gsjj"
+        },
+        {
+          title: "公司荣誉",
+          url: "/gywm/gsry"
+        },
+        {
+          title: "品牌故事",
+          url: "/gywm/ppgs"
+        },
+        {
+          title: "品牌文化",
+          url: "/gywm/ppwh"
+        },
+        {
+          title: "企业视频",
+          url: "/gywm/qysp"
+        }
+      ]
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {
@@ -56,7 +82,11 @@ export default {
   methods: {
     ckMenu() {
       var url = this.$route.path;
+<<<<<<< HEAD
       var query = this.list.filter((x) => {
+=======
+      var query = this.list.filter(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (x.url && url.indexOf(x.url) >= 0) {
           return true;
         } else {
@@ -70,15 +100,24 @@ export default {
       }
     },
     tabClick(name, title) {
+<<<<<<< HEAD
       var query = this.list.filter((x) => x.title === title);
+=======
+      var query = this.list.filter(x => x.title === title);
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       if (query.length > 0) {
         var item = query[0];
         if (item.url) {
           this.$router.push(item.url);
         }
       }
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 

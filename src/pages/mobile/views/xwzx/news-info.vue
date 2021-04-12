@@ -44,8 +44,13 @@
 
 <script>
 import xwzxTitle from "./components/xwzx-title.vue";
+<<<<<<< HEAD
 import { newsList, newsInfo } from "@/pages/mobile/api/news";
 import * as utils from "@/pages/mobile/libs/utils";
+=======
+import { newsList, newsInfo } from "@/pages/pc/api/news";
+import * as utils from "@/pages/pc/libs/utils";
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 export default {
   components: {
     xwzxTitle,
@@ -77,6 +82,7 @@ export default {
     this._newsInfo();
     this._newsList();
   },
+<<<<<<< HEAD
   watch: {
     $route(to, from) {
       //监听路由是否变化
@@ -87,6 +93,8 @@ export default {
       }
     },
   },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   methods: {
     _newsInfo() {
       if (this.model.id) {
@@ -115,10 +123,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
+<<<<<<< HEAD
 /deep/ .video-js {
   margin: auto;
 }
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 .newsInfo {
   .line {
     margin-top: 5px;
@@ -127,12 +138,18 @@ export default {
     width: 89.5%;
     margin: 0 auto;
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   .top {
     width: 89.5%;
     margin: 0 auto;
     margin-top: 0.5rem;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .topTitle {
       text-align: center;
 
@@ -140,6 +157,7 @@ export default {
         color: #004930;
         font-size: 0.35rem;
       }
+<<<<<<< HEAD
 
       .author {
         margin-top: 0.25rem;
@@ -181,16 +199,45 @@ export default {
   .bottom {
     padding-bottom: 0.5rem;
 
+=======
+      .author {
+        margin-top: 0.25rem;
+        font-size: 0.25rem;
+        color: #666666;
+      }
+    }
+    .htmlContent {
+      padding: 0.45rem 0px;
+      width: 100%;
+      /deep/ p,
+      span {
+        font-size: 0.3rem !important;
+        width: 100% !important;
+        text-align: justify;
+      }
+      /deep/ img {
+        max-width: 100%;
+      }
+    }
+  }
+  .bottom {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .listContent {
       margin-top: 0.35rem;
       width: 89.5%;
       margin: 0 auto;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .item {
         cursor: pointer;
         display: flex;
         margin-top: 0.3rem;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         img {
           width: 2.26rem;
           height: 1.76rem;
@@ -204,7 +251,10 @@ export default {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           .nameTitle {
             text-overflow: ellipsis;
             -webkit-box-orient: vertical;

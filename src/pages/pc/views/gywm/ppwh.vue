@@ -36,13 +36,21 @@
 <script>
 export default {
   components: {
+<<<<<<< HEAD
     gywmHead: () => import("@/pages/pc/views/gywm/components/gywm-head.vue"),
+=======
+    gywmHead: () => import("@/pages/pc/views/gywm/components/gywm-head.vue")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   data() {
     return {};
   },
   mounted() {},
+<<<<<<< HEAD
   methods: {},
+=======
+  methods: {}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 

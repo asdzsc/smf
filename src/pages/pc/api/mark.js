@@ -32,6 +32,10 @@ export function memoryMediaList(param) {
         data: param
     });
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 // 留言/文章列表
 export function memoryMsgList(param) {
     return request({
@@ -40,6 +44,7 @@ export function memoryMsgList(param) {
         data: param
     });
 }
+<<<<<<< HEAD
 // 获取留言/文章详情
 export function memoryMsgInfo(param) {
     return request({
@@ -73,6 +78,9 @@ export function verifyCode(param) {
         data: param
     });
 }
+=======
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 // 创建个人主页-激活码
 export function addMemoryPage(param) {
     return request({
@@ -80,6 +88,7 @@ export function addMemoryPage(param) {
         method: "post",
         data: param
     });
+<<<<<<< HEAD
 }
 // 保存订单
 export function saveOrder(param) {
@@ -136,4 +145,6 @@ export function delMemoryMedia(param) {
         method: "post",
         data: param
     });
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 }

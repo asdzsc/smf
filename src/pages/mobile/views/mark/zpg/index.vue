@@ -13,14 +13,28 @@
     <div class="cont">
       <div class="contMain">
         <div class="contTitle">
+<<<<<<< HEAD
           <!-- <div class="line"></div> -->
           <p class="name">在线族谱馆</p>
+=======
+          <div class="line"></div>
+          <p class="name">
+            在线族谱馆
+          </p>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         </div>
         <img src="/img/mobile/mark/main1.png" alt="" />
       </div>
       <div class="contTitle">
+<<<<<<< HEAD
         <!-- <div class="line"></div> -->
         <p class="name">他们的美好，需要你来留住</p>
+=======
+        <div class="line"></div>
+        <p class="name">
+          他们的美好，需要你来留住
+        </p>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <p class="desc">海量模版为您的“他/她”量身打造私人网上纪念馆</p>
       </div>
       <!-- 轮播图 start-->
@@ -36,7 +50,11 @@
         </van-swipe-item>
       </van-swipe>
       <!-- 轮播图 end-->
+<<<<<<< HEAD
       <div class="makeBtn" @click="handleCreate">我要制作</div>
+=======
+      <div class="makeBtn">我要制作</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="contList">
         <div class="contItem">
           <div class="avatar">
@@ -94,6 +112,7 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
     <!-- 激活码框 start -->
     <!-- <div class="activeDiv" v-show="activeDiv">
       <img src="/img/pc/syjhm.jpg" alt="" />
@@ -110,10 +129,13 @@
       </div>
     </div> -->
     <!-- 激活码框 end -->
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { Dialog } from "vant";
 export default {
   data() {
@@ -132,10 +154,14 @@ export default {
     },
   },
 };
+=======
+export default {};
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 </script>
 
 <style lang="less" scoped>
 .zpg {
+<<<<<<< HEAD
   .activeDiv {
     text-align: center;
     z-index: 99;
@@ -206,13 +232,26 @@ export default {
   .banner {
     position: relative;
     height: 16.2rem;
+=======
+  .banner {
+    position: relative;
+    height: 12.46rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     width: 100%;
     background: url("/img/mobile/mark/banner4.png") no-repeat center center;
     background-size: cover;
 
     .bannerTitle {
+<<<<<<< HEAD
       color: #ffffff;
       padding-top: 4rem;
+=======
+      position: absolute;
+      color: #ffffff;
+      left: 10%;
+      top: 15%;
+      width: 82%;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       text-align: center;
 
       .bannerTitleName {
@@ -228,29 +267,46 @@ export default {
         margin-top: 0.2rem;
       }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .searchBtn {
       margin: 0.2rem auto;
     }
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   .cont {
     .contMain {
       background: url("/img/mobile/mark/main.png") no-repeat center center;
       background-size: cover;
+<<<<<<< HEAD
       height: 16.2rem;
       text-align: center;
 
+=======
+      height: 13.35rem;
+      text-align: center;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       img {
         width: 95%;
         margin-top: 1rem;
       }
     }
+<<<<<<< HEAD
 
     .contTitle {
       padding-top: 2rem;
       text-align: center;
 
+=======
+    .contTitle {
+      padding-top: 0.75rem;
+      text-align: center;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .line {
         width: 0.81rem;
         height: 0.06rem;
@@ -258,7 +314,10 @@ export default {
         border-radius: 0.03rem;
         margin: 0.3rem auto;
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .name {
         font-size: 0.36rem;
         font-weight: bold;
@@ -266,7 +325,10 @@ export default {
         letter-spacing: 0.02rem;
         color: #333333;
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .desc {
         font-size: 0.24rem;
         line-height: 0.66rem;
@@ -274,16 +336,25 @@ export default {
         color: #666666;
       }
     }
+<<<<<<< HEAD
 
     .my-swipe {
       width: 85%;
       margin: 0.3rem auto;
 
+=======
+    .my-swipe {
+      width: 85%;
+      margin: 0.3rem auto;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       img {
         width: 100%;
       }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .makeBtn {
       width: 2.4rem;
       height: 0.73rem;
@@ -316,18 +387,27 @@ export default {
           display: flex;
           align-items: center;
           justify-content: space-between;
+<<<<<<< HEAD
 
           .van-image {
             vertical-align: middle;
           }
 
+=======
+          .van-image {
+            vertical-align: middle;
+          }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           p {
             font-size: 0.22rem;
             line-height: 0.2rem;
             letter-spacing: 0.01rem;
             color: #333333;
           }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           span {
             font-size: 0.28rem;
             line-height: 0.2px;

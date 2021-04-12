@@ -145,7 +145,11 @@ import * as utils from "@/pages/pc/libs/utils";
 export default {
   components: {
     numCalculate: () => import("@/pages/pc/components/num-calculate.vue"),
+<<<<<<< HEAD
     myserve: () => import("@/pages/pc/components/myserve.vue"),
+=======
+    myserve: () => import("@/pages/pc/components/myserve.vue")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   data() {
     return {
@@ -154,20 +158,32 @@ export default {
       loading: false, //列表加载
       checkAll: false,
       list: [],
+<<<<<<< HEAD
       isBuy: false, //立即结算
+=======
+      isBuy: false //立即结算
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   computed: {
     totalGoodsNum() {
       var goodsNum = 0;
+<<<<<<< HEAD
       this.list.forEach((x) => {
+=======
+      this.list.forEach(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         goodsNum += x.goodsNum;
       });
       return goodsNum;
     },
     ckCartGoodsNum() {
       var goodsNum = 0;
+<<<<<<< HEAD
       this.list.forEach((x) => {
+=======
+      this.list.forEach(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (x.check) {
           goodsNum += x.goodsNum;
         }
@@ -176,14 +192,22 @@ export default {
     },
     ckGoodsTotalPriceText() {
       var showGoodsPrice = 0;
+<<<<<<< HEAD
       this.list.forEach((x) => {
+=======
+      this.list.forEach(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (x.check) {
           var goodsPrice = this.goodsTotalPrice(x);
           showGoodsPrice += goodsPrice;
         }
       });
       return utils.formatMoney(showGoodsPrice);
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   mounted() {
     this._cartList();
@@ -197,11 +221,19 @@ export default {
   methods: {
     _cartList() {
       this.loading = true;
+<<<<<<< HEAD
       cartList().then((res) => {
         this.loading = false;
         if (res.code === 0) {
           this.list = res.data;
           this.list.forEach((x) => {
+=======
+      cartList().then(res => {
+        this.loading = false;
+        if (res.code === 0) {
+          this.list = res.data;
+          this.list.forEach(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             this.$set(x, "check", false);
           });
         }
@@ -209,7 +241,11 @@ export default {
     },
     //全选
     changeCheckAll() {
+<<<<<<< HEAD
       this.list.forEach((x) => {
+=======
+      this.list.forEach(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         x.check = this.checkAll;
       });
     },
@@ -229,7 +265,11 @@ export default {
     },
     // 更新购物车商品数量
     updateCartNum() {
+<<<<<<< HEAD
       updateCartGoodsNum(this.list).then((res) => {
+=======
+      updateCartGoodsNum(this.list).then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (res.code === 0) {
           var cartNum = this.$store.state.account.cartNum;
           var goodsNum = this.totalGoodsNum;
@@ -249,29 +289,49 @@ export default {
         content: "",
         onOk() {
           delCart({
+<<<<<<< HEAD
             ids: cartIds,
           }).then((res) => {
             if (res.code === 0) {
               vm.list = vm.list.filter((x) => {
+=======
+            ids: cartIds
+          }).then(res => {
+            if (res.code === 0) {
+              vm.list = vm.list.filter(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
                 return cartIds.indexOf(x.cartId) !== 0;
               });
             }
           });
         },
+<<<<<<< HEAD
         onCancel() {},
+=======
+        onCancel() {}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       });
     },
     //批量删除
     delCartList() {
       // var vm = this;
+<<<<<<< HEAD
       var query = this.list.filter((x) => x.check);
       var cartIds = query.map((x) => {
+=======
+      var query = this.list.filter(x => x.check);
+      var cartIds = query.map(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         return x.cartId;
       });
       if (cartIds.length == 0) {
         this.$notification.error({
           message: "提示",
+<<<<<<< HEAD
           description: "请选中要删除的商品",
+=======
+          description: "请选中要删除的商品"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         });
       } else {
         this._delCart(cartIds);
@@ -279,13 +339,21 @@ export default {
     },
     delCartAll() {
       // var vm = this;
+<<<<<<< HEAD
       var cartIds = this.list.map((x) => {
+=======
+      var cartIds = this.list.map(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         return x.cartId;
       });
       if (this.list.length == 0) {
         this.$notification.error({
           message: "提示",
+<<<<<<< HEAD
           description: "没有要清理的商品",
+=======
+          description: "没有要清理的商品"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         });
       } else {
         this._delCart(cartIds);
@@ -298,14 +366,23 @@ export default {
     },
     toBuy() {
       if (this.isBuy) {
+<<<<<<< HEAD
         var query = this.list.filter((x) => x.check && x.isValid);
         var cartIds = query.map((x) => {
+=======
+        var query = this.list.filter(x => x.check && x.isValid);
+        var cartIds = query.map(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           return x.cartId;
         });
         if (cartIds.length == 0) {
           this.$notification.error({
             message: "提示",
+<<<<<<< HEAD
             description: "请选中要结算的商品",
+=======
+            description: "请选中要结算的商品"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           });
           this.isBuy = false;
         } else {
@@ -314,16 +391,26 @@ export default {
             path: "/shop/order/confirmOrder",
             query: {
               type: "cart",
+<<<<<<< HEAD
               cids: ids,
             },
+=======
+              cids: ids
+            }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           });
         }
       }
     },
     formatMoney(money) {
       return utils.formatMoney(money);
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 <style lang="less" scoped>

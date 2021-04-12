@@ -1,4 +1,5 @@
 export default {
+<<<<<<< HEAD
 	namespaced: true,
 	state: {
 		tabHeight: 200,
@@ -37,4 +38,9 @@ export default {
 		  state.tabHeight = tabHeight;
 		}
 	}
+=======
+  namespaced: true,
+  state: {},
+  mutations: {}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };

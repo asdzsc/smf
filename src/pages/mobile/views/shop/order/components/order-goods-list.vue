@@ -31,8 +31,13 @@
 	import {
 		getGoodsListByCartId,
 		getGoodsByCart
+<<<<<<< HEAD
 	} from "@/pages/mobile/api/shop";
 	import * as utils from "@/pages/mobile/libs/utils";
+=======
+	} from "@/pages/pc/api/shop";
+	import * as utils from "@/pages/pc/libs/utils";
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 	export default {
 		data() {
 			return {
@@ -140,7 +145,11 @@
 				align-items: center;
 				justify-content: space-between;
 				border-radius: 10px;
+<<<<<<< HEAD
 				border: solid 1px #dcdcdc;
+=======
+				border: solid 2px #dcdcdc;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 				flex-direction: column;
 				padding: 4%;
 				box-sizing: border-box;

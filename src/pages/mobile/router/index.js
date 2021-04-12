@@ -17,10 +17,14 @@ const router = new VueRouter({
   routes
 });
 
+<<<<<<< HEAD
 const filtrList = ["/shop/order", "/shop/cart", "/member", "/mark/shop", "/gjfw"];
 //直接使用微信身份登录
 const filtrWxList = ["/gjfw", "/member/cemetery/buryPersonList"];
 
+=======
+const filtrList = ["/shop/order", "/shop/cart", "/member"];
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
 router.beforeEach((to, from, next) => {
   NProgress.start();
@@ -65,6 +69,7 @@ function verifyLogin(to, from, next) {
     return to.path.indexOf(x) !== -1;
   });
   if (query.length > 0) {
+<<<<<<< HEAD
     var queryWx = filtrWxList.filter(x => {
       return to.path.indexOf(x) !== -1;
     });
@@ -92,6 +97,11 @@ function verifyLogin(to, from, next) {
     //   }
     // }
     // var toUrl = encodeURIComponent(to.path + urlQuery);
+=======
+    var toUrl = encodeURIComponent(to.path);
+    next(`/login?redirect=${toUrl}`);
+    NProgress.done();
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   } else {
     next();
   }

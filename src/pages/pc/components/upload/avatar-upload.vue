@@ -120,9 +120,14 @@ export default {
     color: #666;
   }
   img {
+<<<<<<< HEAD
     width: 180px;
     height: 180px;
     overflow: hidden;
+=======
+    width: 100%;
+    max-height: 100%;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   }
 }
 </style>

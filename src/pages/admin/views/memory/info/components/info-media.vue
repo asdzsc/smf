@@ -305,7 +305,11 @@
 	}
 
 	.fmImg {
+<<<<<<< HEAD
 		min-width: 40px; 	
+=======
+		min-width: 40px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 		min-height: 40px;
 		max-width: 100px;
 		max-height: 60px;

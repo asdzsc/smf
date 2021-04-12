@@ -1,12 +1,16 @@
 <template>
   <div class="article">
     <div class="articleBox" v-show="show">
+<<<<<<< HEAD
       <a-icon
         class="close"
         style="color:#004830"
         @click="handleClose"
         type="close"
       />
+=======
+      <a-icon class="close" @click="handleClose" type="close" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <p></p>
     </div>
     <div class="title">
@@ -51,6 +55,7 @@
 import { memoryMsgList } from "@/pages/pc/api/mark.js";
 import $ from "jquery";
 export default {
+<<<<<<< HEAD
   props: {
     //数据
     bannerModel: {
@@ -61,6 +66,8 @@ export default {
       },
     },
   },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   components: {
     paging: () => import("@/pages/pc/views/mark/components/paging.vue"),
   },
@@ -74,7 +81,11 @@ export default {
         current: 1, //	当前页
         pageSize: 3, //每页条数
         searchText: "", //关键字搜索
+<<<<<<< HEAD
         memoryId: this.bannerModel.id, //个人主页id
+=======
+        memoryId: this.$route.params.id, //个人主页id
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         msgType: "2", //消息类型 1留言 2文章
         status: "0", //	0显示 1隐藏
       },
@@ -127,7 +138,11 @@ export default {
     top: 10%;
     z-index: 88;
     transform: translate(-50%, 0);
+<<<<<<< HEAD
     border: 1px solid #00744c;
+=======
+    border: 1px solid #000;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     border-radius: 10px;
     padding: 20px;
     box-sizing: border-box;

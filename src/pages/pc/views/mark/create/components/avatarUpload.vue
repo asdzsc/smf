@@ -109,10 +109,17 @@ export default {
 
 <style lang="less" scoped>
 .avatar-uploader {
+<<<<<<< HEAD
   /deep/ .ant-upload {
     padding: 0;
   }
 
+=======
+  .ant-upload {
+    width: 128px;
+    height: 128px;
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   .ant-upload-select-picture-card i {
     font-size: 32px;
     color: #999;
@@ -123,9 +130,14 @@ export default {
     color: #666;
   }
   img {
+<<<<<<< HEAD
     width: 180px;
     height: 180px;
     overflow: hidden;
+=======
+    width: 100%;
+    max-height: 100%;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   }
 }
 </style>

@@ -29,7 +29,11 @@
           编辑
         </div>
       </van-field>
+<<<<<<< HEAD
       <!-- <van-field
+=======
+      <van-field
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         :value="user.qqOpenid ? '已绑定' : '未绑定'"
         readonly
         label="QQ"
@@ -37,7 +41,11 @@
         <div v-if="!user.qqOpenid" slot="extra" class="fieldOperation">
           绑定
         </div>
+<<<<<<< HEAD
       </van-field> -->
+=======
+      </van-field>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <van-field :value="isBindWx ? '已绑定' : '未绑定'" readonly label="微信">
         <div
           v-if="!isBindWx"
@@ -76,6 +84,7 @@
             </div>
           </van-col>
           <van-col style="text-align: right;flex: 1;">
+<<<<<<< HEAD
             <!-- <span
               @click="$router.push('/member/cemetery-info?id=' + item.id)"
               class="operation"
@@ -86,6 +95,15 @@
             <van-button @click="delAddress(item.id)" size="small" type="danger"
               >删除</van-button
             >
+=======
+            <span
+              @click="$router.push('/member/cemetery-info?id=' + item.id)"
+              class="operation"
+              >编辑</span
+            >
+            <span class="operation">|</span>
+            <span @click="delAddress(item.id)" class="operation del">删除</span>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           </van-col>
         </van-row>
         <van-row type="flex" style="padding-top: 0.2rem;">
@@ -116,24 +134,37 @@ import {
   getMemberInfo,
   verifyBindWx,
   saveCemetery,
+<<<<<<< HEAD
   delCemetery,
+=======
+  delCemetery
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 } from "@/pages/mobile/api/user";
 import { delToken } from "@/pages/mobile/api/sso";
 import { getUserCode } from "@/pages/mobile/api/sso";
 
 export default {
   components: {
+<<<<<<< HEAD
     memberTabs: () =>
       import("@/pages/mobile/views/member/components/member-tabs.vue"),
     userEditName: () =>
       import("@/pages/mobile/views/member/components/user-edit-name.vue"),
+=======
+    memberTabs: () => import("@/pages/mobile/views/member/components/member-tabs.vue"),
+    userEditName: () => import("@/pages/mobile/views/member/components/user-edit-name.vue")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   data() {
     return {
       isBindWx: false,
       user: {
         name: "",
+<<<<<<< HEAD
         mobile: "",
+=======
+        mobile: ""
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       },
       showEditName: false, //编辑昵称
       showEditMobile: false, //编辑手机号
@@ -143,9 +174,15 @@ export default {
       finished: false,
       model: {
         current: 0,
+<<<<<<< HEAD
         pageSize: 3,
       },
       list: [],
+=======
+        pageSize: 3
+      },
+      list: []
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {
@@ -157,7 +194,11 @@ export default {
   },
   methods: {
     _getMemberInfo() {
+<<<<<<< HEAD
       getMemberInfo().then((res) => {
+=======
+      getMemberInfo().then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (res.code === 0) {
           Object.assign(this.user, res.data);
           this.$store.commit("account/setUser", res.data);
@@ -165,7 +206,11 @@ export default {
       });
     },
     _verifyBindWx() {
+<<<<<<< HEAD
       verifyBindWx().then((res) => {
+=======
+      verifyBindWx().then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (res.code === 0) {
           this.isBindWx = res.data;
         }
@@ -191,7 +236,11 @@ export default {
     },
     //绑定微信
     bindWx() {
+<<<<<<< HEAD
       getUserCode().then((res) => {
+=======
+      getUserCode().then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (res.code === 0) {
           var url = encodeURIComponent(
             process.env.VUE_APP_BASE_URL + "/mobile/#/member/userInfo"
@@ -215,6 +264,7 @@ export default {
       if (!this.finished) {
         this.$toast.loading({
           message: "加载中...",
+<<<<<<< HEAD
           forbidClick: true,
         });
         this.model.current++;
@@ -222,6 +272,15 @@ export default {
           this.$toast.clear();
           if (res.code === 0) {
             res.data.list.forEach((x) => {
+=======
+          forbidClick: true
+        });
+        this.model.current++;
+        cemeteryList(this.model).then(res => {
+          this.$toast.clear();
+          if (res.code === 0) {
+            res.data.list.forEach(x => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               if (x.isCheck === "1") {
                 this.$set(x, "check", true);
               } else {
@@ -240,11 +299,19 @@ export default {
     //设置默认服务墓址
     saveIsCheck(item) {
       item.isCheck = "1";
+<<<<<<< HEAD
       saveCemetery(item).then((res) => {
         if (res.code === 0) {
           this.$notify({
             type: "success",
             message: "设置成功",
+=======
+      saveCemetery(item).then(res => {
+        if (res.code === 0) {
+          this.$notify({
+            type: "success",
+            message: "设置成功"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           });
           this.loadCemeteryList();
         } else {
@@ -257,12 +324,21 @@ export default {
       var vm = this;
       this.$dialog
         .confirm({
+<<<<<<< HEAD
           message: "确认要删除吗?",
         })
         .then(() => {
           delCemetery({
             id: nid,
           }).then((res) => {
+=======
+          message: "确认要删除吗?"
+        })
+        .then(() => {
+          delCemetery({
+            id: nid
+          }).then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             if (res.code === 0) {
               vm.loadCemeteryList();
             }
@@ -276,7 +352,11 @@ export default {
     logout() {
       this.$dialog
         .confirm({
+<<<<<<< HEAD
           message: "确认要退出吗?",
+=======
+          message: "确认要退出吗?"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         })
         .then(() => {
           delToken().then(() => {
@@ -286,8 +366,13 @@ export default {
         .catch(() => {
           // on cancel
         });
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
@@ -300,8 +385,12 @@ export default {
 .title {
   font-size: 0.32rem;
   color: #333333;
+<<<<<<< HEAD
   padding: 4%;
   font-weight: bold;
+=======
+  padding: 0.2rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 }
 
 .fieldOperation {

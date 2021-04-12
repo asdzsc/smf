@@ -18,7 +18,11 @@
           <a-select
             v-model="model.tabTypeKey"
             labelInValue
+<<<<<<< HEAD
             placeholder="请选择选项卡类型"
+=======
+            placeholder="请选择横竖屏直播"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             @change="changeTabType"
             style="width:500px;"
           >
@@ -28,9 +32,21 @@
             <a-select-option value="2" :disabled="isComment">
               互动评论
             </a-select-option>
+<<<<<<< HEAD
             <a-select-option value="3">
               跳转链接
             </a-select-option>
+=======
+            <a-select-option value="3" :disabled="isInfo">
+              品牌展示
+            </a-select-option>
+            <a-select-option value="4">
+              跳转链接
+            </a-select-option>
+            <a-select-option value="5" :disabled="isRecommend">
+              直播推荐
+            </a-select-option>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           </a-select>
         </a-form-model-item>
 
@@ -46,12 +62,55 @@
         </a-form-model-item>
 
         <a-divider
+<<<<<<< HEAD
           v-show="model.tabType === '3'"
+=======
+          v-show="model.tabType === '3' || model.tabType === '4'"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           orientation="left"
         >
           配置内容
         </a-divider>
         <div v-show="model.tabType === '3'">
+<<<<<<< HEAD
+=======
+          <a-form-model-item label="楼盘名称">
+            <a-input
+              v-model="model.housesName"
+              placeholder="请输入楼盘名称"
+              style="width:500px;"
+            />
+          </a-form-model-item>
+          <a-form-model-item label="楼盘价格">
+            <a-input-number
+              :min="0"
+              v-model="model.housesPrice"
+              placeholder="请输入楼盘价格"
+              style="width:150px;"
+            />
+          </a-form-model-item>
+          <a-form-model-item label="楼盘类型">
+            <a-input
+              v-model="model.housesType"
+              placeholder="请输入楼盘类型"
+              style="width:500px;"
+            />
+          </a-form-model-item>
+          <a-form-model-item label="楼盘地址">
+            <a-input
+              v-model="model.housesAddress"
+              placeholder="请输入楼盘地址"
+              style="width:500px;"
+            />
+          </a-form-model-item>
+
+          <a-divider orientation="left">
+            户型图
+          </a-divider>
+          <imgs-upload ref="imgsUpload"></imgs-upload>
+        </div>
+        <div v-show="model.tabType === '4'">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           <a-form-model-item label="链接地址">
             <a-input
               v-model="model.url"
@@ -61,7 +120,17 @@
           </a-form-model-item>
         </div>
 
+<<<<<<< HEAD
         <div v-show="model.tabType === '1'">
+=======
+        <!-- 配置推荐 -->
+        <tab-info-recommend
+          v-show="model.tabType === '5'"
+          ref="tabInfoRecommend"
+        ></tab-info-recommend>
+
+        <div v-show="model.tabType === '1' || model.tabType === '3'">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           <a-divider orientation="left">
             内容
           </a-divider>
@@ -80,6 +149,12 @@ import * as utils from "@/pages/admin/libs/utils";
 export default {
   name: "tab-info",
   components: {
+<<<<<<< HEAD
+=======
+    imgsUpload: () => import("@/pages/admin/components/upload/imgs-upload"),
+    tabInfoRecommend: () =>
+      import("@/pages/admin/views/live/room/components/tab-info-recommend")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   props: {
     isAdd: {
@@ -161,9 +236,37 @@ export default {
       }
       if (info) {
         Object.assign(this.model, info);
+<<<<<<< HEAD
         this.model.tabTypeKey = [{ key: this.model.tabType }];
       }
       this.isComment = this.disabledTabType("2");
+=======
+        this.model.housesImgs = this.model.housesImgs || [];
+        this.model.tabTypeKey = [{ key: this.model.tabType }];
+        //户型图
+        this.model.housesImgsList = [];
+        this.model.housesImgs.forEach(img => {
+          var uid = utils.getId();
+          this.model.housesImgsList.push({
+            uid: uid,
+            name: uid + ".jpg",
+            status: "done",
+            url: process.env.VUE_APP_BASE_URL + img
+          });
+        });
+      }
+      this.$nextTick(() => {
+        setTimeout(() => {
+          this.$refs.imgsUpload.setFileList(this.model.housesImgsList);
+          this.$refs.tabInfoRecommend.setRecommendList(
+            this.model.recommendList
+          );
+        }, 500);
+      });
+      this.isComment = this.disabledTabType("2");
+      this.isInfo = this.disabledTabType("3");
+      this.isRecommend = this.disabledTabType("5");
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
       vm.model.cont = vm.model.cont || "";
       this.$nextTick(() => {
@@ -183,6 +286,15 @@ export default {
         return;
       }
       this.model.cont = this.ue.getContent();
+<<<<<<< HEAD
+=======
+      var fileList = this.$refs.imgsUpload.getFileList();
+      this.model.housesImgs = fileList.map(x => {
+        return x.imgUrl;
+      });
+      this.model.recommendList = this.$refs.tabInfoRecommend.getRecommendList();
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       this.$emit("getInfo", this.model);
       this.visible = false;
     },

@@ -1,6 +1,10 @@
 <template>
   <div class="head">
+<<<<<<< HEAD
     <van-row v-show="showMenu" style="padding: 0 0.4rem">
+=======
+    <van-row>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <van-col span="8">
         <img
           @click="
@@ -12,17 +16,26 @@
           src="/img/mobile/nav.png"
         />
       </van-col>
+<<<<<<< HEAD
       <van-col span="8" style="text-align: center">
         <img class="head-logo" src="/img/mobile/logo.png" />
       </van-col>
       <van-col class="head-icon" span="8">
         <i @click="openSearch()" class="iconfont iconsousuo"></i>
+=======
+      <van-col span="8" style="text-align:center;">
+        <img class="head-logo" src="/img/mobile/logo.png" />
+      </van-col>
+      <van-col class="head-icon" span="8">
+        <i class="iconfont iconsousuo"></i>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <i
           @click="$router.push('/member/userInfo')"
           class="iconfont iconyonghu"
         ></i>
       </van-col>
     </van-row>
+<<<<<<< HEAD
     <transition name="right-slide">
       <van-row>
         <van-col span="24">
@@ -38,6 +51,9 @@
         </van-col>
       </van-row>
     </transition>
+=======
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     <transition name="meun">
       <div v-show="show" class="meun">
         <div
@@ -47,7 +63,11 @@
         >
           <van-row class="meun-item">
             <van-col span="20">{{ item.name }}</van-col>
+<<<<<<< HEAD
             <van-col style="text-align: right" span="4">
+=======
+            <van-col style="text-align:right" span="4">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               <van-icon name="arrow" />
             </van-col>
           </van-row>
@@ -66,6 +86,7 @@ export default {
       menuList: [
         { name: "首页", url: "/" },
         { name: "关于我们", url: "/gywm" },
+<<<<<<< HEAD
         {
           name: "VR720实景购墓",
           url: "http://vr100.jsfq.net:19999/tour/65aece4b2f2d4cea",
@@ -78,21 +99,33 @@ export default {
       isSearch: false,
       showMenu: true,
       searchKey: "",
+=======
+        { name: "VR720实景购墓", url: "/shop/more" },
+        { name: "在线服务", url: "/zxfw" },
+        { name: "博物馆群", url: "/mark" },
+        { name: "公司新闻", url: "/xwzx" },
+        { name: "联系我们", url: "/lxwm" },
+      ],
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   watch: {
     $route: {
       handler() {
         this.show = false;
+<<<<<<< HEAD
         if (this.$route.path !== "/search") {
           this.closeSearch();
         }
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       },
       deep: true,
     },
   },
   mounted() {},
   methods: {
+<<<<<<< HEAD
     openSearch() {
       this.showMenu = false;
       this.isSearch = true;
@@ -128,6 +161,11 @@ export default {
         } else {
           this.$router.push(url);
         }
+=======
+    openUrl(url) {
+      if (url) {
+        this.$router.push(url);
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       }
     },
   },
@@ -137,6 +175,7 @@ export default {
 .mobile-index {
   .head {
     height: 0.88rem;
+<<<<<<< HEAD
     background-color: #004930;
     position: relative;
     z-index: 6;
@@ -154,6 +193,12 @@ export default {
     .van-search {
       padding: 5px 0px;
     }
+=======
+    padding: 0px 0.4rem;
+    background-color: #004930;
+    position: relative;
+    z-index: 6;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .head-nav {
       width: 0.42rem;
       padding-top: 0.25rem;

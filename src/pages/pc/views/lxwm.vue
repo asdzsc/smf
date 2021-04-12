@@ -23,6 +23,7 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
     <!-- <div style="text-align: center; padding-bottom: 50px; ">
 			<img src="/img/ewm.png" />
 			<div style="font-size: 16px;">
@@ -30,6 +31,8 @@
 			</div>
 		</div> -->
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     <myserve></myserve>
   </div>
 </template>
@@ -37,7 +40,11 @@
 <script>
 export default {
   components: {
+<<<<<<< HEAD
     myserve: () => import("@/pages/pc/components/myserve.vue"),
+=======
+    myserve: () => import("@/pages/pc/components/myserve.vue")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   data() {
     return {};
@@ -47,8 +54,13 @@ export default {
     yjdh() {
       var tempPage = window.open("", "_blank");
       tempPage.location = "https://surl.amap.com/x0iIcMbz1";
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
@@ -95,7 +107,11 @@ export default {
     display: flex;
     width: 1200px;
     margin: auto;
+<<<<<<< HEAD
     margin-bottom: 20px;
+=======
+    margin-bottom: 70px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
     .address {
       width: 430px;

@@ -3,7 +3,11 @@
     <div class="banner">
       <img src="/img/pc/gybg_banner.png" alt="" />
       <div class="bannerTitle">
+<<<<<<< HEAD
         <p class="name">人生圆满，为您服务</p>
+=======
+        <p class="name">圆满人生，为人民服务</p>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <p class="desc">颠覆对传统祭祀的所有想象！</p>
       </div>
     </div>
@@ -45,12 +49,18 @@ export default {
 .gybg {
   .banner {
     position: relative;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     img {
       height: 600px;
       width: 100%;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .bannerTitle {
       position: absolute;
       left: 50%;
@@ -59,7 +69,10 @@ export default {
       color: #ffffff;
       width: 750px;
       text-align: center;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .name {
         font-size: 48px;
         line-height: 27px;
@@ -70,7 +83,10 @@ export default {
         background-color: #004830;
         opacity: 0.6;
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .desc {
         font-size: 24px;
         line-height: 27px;
@@ -78,6 +94,7 @@ export default {
       }
     }
   }
+<<<<<<< HEAD
 
   .gybgInfo {
     width: 1200px;
@@ -87,19 +104,33 @@ export default {
       margin-top: 80px;
       display: flex;
 
+=======
+  .gybgInfo {
+    width: 1200px;
+    margin: 0 auto;
+    .infoTitle {
+      margin-top: 80px;
+      display: flex;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .line {
         width: 8px;
         height: 40px;
         background-color: #004930;
         margin-right: 20px;
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       font-size: 24px;
       line-height: 40px;
       letter-spacing: 1px;
       color: #666666;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .infoCont {
       .infoList {
         img {
@@ -108,12 +139,18 @@ export default {
           height: 220px;
           margin-right: 30px;
           margin-top: 30px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           &:nth-child(3n) {
             margin-right: 0;
           }
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         margin-bottom: 100px;
       }
     }

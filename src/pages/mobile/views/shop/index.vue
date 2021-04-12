@@ -11,6 +11,7 @@
       </div>
       <div class="contHead">
         <div class="contTitle">VR720°实景选墓</div>
+<<<<<<< HEAD
         <a
           href="http://vr100.jsfq.net:19999/tour/65aece4b2f2d4cea"
           target="_blank"
@@ -51,18 +52,48 @@
             </div>
           </div>
         </a>
+=======
+        <div class="more"><a href="/mobile/#/shop/more">查看更多</a></div>
+      </div>
+      <!-- vr实景选墓 start -->
+      <div class="vrxuanmu">
+        <div class="xuanbeiBox">
+          <div class="item">
+            <img src="/img/mobile/mubei1.jpg" />
+            <div class="name">明星产品</div>
+            <div class="intr">最畅销精简设计的纪念碑</div>
+            <div class="price">￥999</div>
+          </div>
+          <div class="item">
+            <img src="/img/mobile/mubei2.jpg" />
+            <div class="name">经典立式</div>
+            <div class="intr">精品典雅纪念碑</div>
+            <div class="price">￥999</div>
+          </div>
+          <div class="item">
+            <img src="/img/mobile/mubei3.jpg" />
+            <div class="name">经典卧式</div>
+            <div class="intr">宝石精品纪念碑</div>
+            <div class="price">￥999</div>
+          </div>
+        </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       </div>
       <!-- vr实景选墓 end -->
       <!-- 鲜花推荐 start-->
       <van-tab :title="'鲜花推荐'">
         <div class="contHead">
           <div class="contTitle">鲜花推荐</div>
+<<<<<<< HEAD
           <div
             class="more"
             @click="$router.push('/shop/goodsList?cid=445465710975700992')"
           >
             查看更多
           </div>
+=======
+          <!-- <div class="more">查看更多</div> -->
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         </div>
         <ul class="xhtj" v-if="xhAllList.length > 0">
           <li
@@ -71,7 +102,11 @@
             @click="openGoodsInfo(item)"
             class="v_item"
           >
+<<<<<<< HEAD
             <img :src="getGoodsImg(item.cover)" :onerror="defImg" alt="" />
+=======
+            <img :src="getGoodsImg(item.cover)" alt="" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             <div class="b_box">
               <div class="cont">
                 <p class="name">{{ item.title }}</p>
@@ -90,12 +125,15 @@
         <div class="contHead">
           <div class="contTitle">代客祭扫</div>
           <!-- <div class="more">查看更多</div> -->
+<<<<<<< HEAD
           <div
             class="more"
             @click="$router.push('/shop/goodsList?cid=451643107446018048')"
           >
             查看更多
           </div>
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         </div>
         <ul class="xhtj dkjs" v-if="dkjsList.length > 0">
           <li
@@ -122,12 +160,15 @@
       <van-tab :title="'礼仪服务'">
         <div class="contHead">
           <div class="contTitle">礼仪服务</div>
+<<<<<<< HEAD
           <div
             class="more"
             @click="$router.push('/shop/goodsList?cid=445465805926354944')"
           >
             查看更多
           </div>
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         </div>
         <van-swipe
           @change="onChange"
@@ -175,13 +216,24 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import { bannerList, goodsList } from "@/pages/mobile/api/shop";
+=======
+import {
+  bannerList,
+  goodsColumnList,
+  goodsList,
+} from "@/pages/mobile/api/shop";
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 import * as utils from "@/pages/mobile/libs/utils";
 export default {
   data() {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
+<<<<<<< HEAD
       defImg: 'this.src="/img/zwtp.jpg"',
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       active: 0,
       list: [
         {
@@ -234,6 +286,7 @@ export default {
       this.current = index;
     },
     _bannerList() {
+<<<<<<< HEAD
       this.$toast.loading({
         message: "加载中...",
         forbidClick: true,
@@ -242,6 +295,11 @@ export default {
         bannerType: "2",
       }).then((res) => {
         this.$toast.clear();
+=======
+      bannerList({
+        bannerType: "2",
+      }).then((res) => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (res.code === 0) {
           this.banners = res.data;
         }
@@ -249,6 +307,7 @@ export default {
     },
     //鲜花推荐
     getXhList() {
+<<<<<<< HEAD
       this.$toast.loading({
         message: "加载中...",
         forbidClick: true,
@@ -260,6 +319,14 @@ export default {
         columnId: "445465710975700992",
       }).then((res) => {
         this.$toast.clear();
+=======
+      goodsList({
+        current: 1,
+        pageSize: 5,
+        status: "1",
+        columnId: "445465710975700992",
+      }).then((res) => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (res.code === 0) {
           this.xhAllList = res.data.list;
           if (this.xhAllList.length > 0) {
@@ -276,7 +343,11 @@ export default {
     getDkjsList() {
       goodsList({
         current: 1,
+<<<<<<< HEAD
         pageSize: 6,
+=======
+        pageSize: 10,
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         status: "1",
         columnId: "451643107446018048",
       }).then((res) => {
@@ -397,7 +468,14 @@ export default {
     .more {
       line-height: 0.41rem;
       font-size: 0.22rem;
+<<<<<<< HEAD
       color: #999999;
+=======
+
+      a {
+        color: #999999;
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     }
   }
 
@@ -477,7 +555,10 @@ export default {
 
       img {
         width: 100%;
+<<<<<<< HEAD
         height: 4rem;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       }
 
       .b_box {

@@ -12,13 +12,21 @@
     <div class="cont">
       <div class="contMain">
         <div class="contTitle">
+<<<<<<< HEAD
           <!-- <div class="line"></div> -->
+=======
+          <div class="line"></div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           <p class="name">在线族谱馆</p>
         </div>
         <img src="/img/pc/main1.png" alt="" />
       </div>
       <div class="contTitle">
+<<<<<<< HEAD
         <!-- <div class="line"></div> -->
+=======
+        <div class="line"></div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <p class="name">他们的美好，需要你来留住</p>
         <p class="desc">海量模版为您的“他/她”量身打造私人网上纪念馆</p>
       </div>
@@ -40,6 +48,7 @@
         <div class="swiper-button-prev" slot="button"></div>
         <div class="swiper-button-next" slot="button"></div>
       </div>
+<<<<<<< HEAD
       <div class="makeBtn" @click="$router.push('/member/zpg')">我要制作</div>
       <!-- 轮播图片 end -->
       <div class="contTitle">
@@ -61,6 +70,17 @@
           </p>
         </div>
       </div> -->
+=======
+      <div class="makeBtn">
+        我要制作
+      </div>
+      <!-- 轮播图片 end -->
+      <div class="contTitle">
+        <div class="line"></div>
+        <p class="name">他们的纪念，让爱长存</p>
+        <p class="desc">同一个家族，共一份亲情，让爱长存</p>
+      </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="contList">
         <div class="contItem">
           <div class="avatar">
@@ -124,11 +144,15 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
     <!-- <paging class="paginghide" ref="paging" @setPage="setPage"></paging> -->
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { memoryMsgList } from "@/pages/pc/api/mark.js";
 export default {
   components: {
@@ -149,6 +173,11 @@ export default {
         status: "0", //	0显示 1隐藏
         list: [],
       },
+=======
+export default {
+  data() {
+    return {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       swiperOption: {
         //banner轮播
         navigation: {
@@ -173,6 +202,7 @@ export default {
       },
     };
   },
+<<<<<<< HEAD
   mounted() {
     this._memoryMsgList();
     this.handleAvatar();
@@ -207,6 +237,8 @@ export default {
       this._memoryMsgList();
     },
   },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
@@ -275,11 +307,17 @@ export default {
       }
       .swiper-wrap {
         .swipera {
+<<<<<<< HEAD
           // width: 500px;
           width: 720px;
           img {
             height: 420px;
             width: 720px;
+=======
+          width: 500px;
+          img {
+            height: 420px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           }
         }
       }
@@ -326,12 +364,20 @@ export default {
         line-height: 28px;
         letter-spacing: 1px;
         color: #333333;
+<<<<<<< HEAD
         // margin-top: 25px;
+=======
+        margin-top: 25px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       }
 
       .desc {
         font-size: 24px;
+<<<<<<< HEAD
         // line-height: 66px;
+=======
+        line-height: 66px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         letter-spacing: 1px;
         color: #666666;
       }

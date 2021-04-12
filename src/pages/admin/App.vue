@@ -13,7 +13,11 @@ export default {
   name: "App",
   data() {
     return {
+<<<<<<< HEAD
       locale: zhCN,
+=======
+      locale: zhCN
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   created() {
@@ -21,7 +25,11 @@ export default {
     // enquireScreen(isMobile => {
     //   _this.$store.commit("adminSetting/setDevice", isMobile);
     // });
+<<<<<<< HEAD
   },
+=======
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 

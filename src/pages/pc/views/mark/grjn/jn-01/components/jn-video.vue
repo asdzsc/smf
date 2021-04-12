@@ -1,6 +1,7 @@
 <template>
   <div class="video">
     <div class="title">
+<<<<<<< HEAD
       <div class="top">
         <p>纪</p>
         <p>念</p>
@@ -12,12 +13,23 @@
       </div>
     </div>
 
+=======
+      <p>纪</p>
+      <p>念</p>
+      <p>视</p>
+      <p>频</p>
+    </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     <div class="videoInfo" v-if="this.model.list.length != 0">
       <a-spin size="large" tip="加载中..." :spinning="loading">
         <a-icon
           slot="indicator"
           type="loading"
+<<<<<<< HEAD
           style="font-size: 30px; color: #004930"
+=======
+          style="font-size: 30px; color: #004930;"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           spin
         />
         <div class="videoItem">
@@ -25,12 +37,22 @@
             <div class="videoPlay">
               <video
                 :src="baseUrl + item.url"
+<<<<<<< HEAD
                 :poster="item.cover != '' ? baseUrl + item.cover : ''"
                 controls
               ></video>
               <!-- <div class="video_icon">
                 <img src="/img/pc/1_video.png" alt="" />
               </div> -->
+=======
+                :poster="baseUrl + item.cover"
+                :onerror="defImg"
+                controls
+              ></video>
+              <div class="video_icon">
+                <img src="/img/pc/1_video.png" alt="" />
+              </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             </div>
             <div class="videoCont">
               <p class="videoTitle">{{ item.title }}</p>
@@ -47,6 +69,7 @@
 <script>
 import { memoryMediaList } from "@/pages/pc/api/mark.js";
 export default {
+<<<<<<< HEAD
   props: {
     //数据
     bannerModel: {
@@ -57,6 +80,8 @@ export default {
       },
     },
   },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   components: {
     paging: () => import("@/pages/pc/views/mark/components/paging.vue"),
   },
@@ -65,13 +90,21 @@ export default {
       baseUrl: process.env.VUE_APP_BASE_URL,
       defImg: 'this.src="/img/zwtp.jpg"',
       loading: false,
+<<<<<<< HEAD
+=======
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       model: {
         isPage: true,
         current: 1,
         list: [],
         pageSize: 3,
         searchText: "",
+<<<<<<< HEAD
         memoryId: this.bannerModel.id,
+=======
+        memoryId: this.$route.params.id,
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         mediaType: "video",
       },
     };
@@ -113,6 +146,7 @@ export default {
     text-align: center;
     margin: 50px 0;
     margin-top: 100px;
+<<<<<<< HEAD
     .top {
       height: 70px;
       display: flex;
@@ -132,6 +166,24 @@ export default {
       &:last-child {
         margin-right: 0;
       }
+=======
+    display: flex;
+    justify-content: center;
+
+    p {
+      width: 71px;
+      height: 71px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: solid 6px #872121;
+      margin-right: 2px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     }
   }
 

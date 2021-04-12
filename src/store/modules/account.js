@@ -4,10 +4,14 @@ export default {
 		token: "",
 		user: {},
 		cartNum: 0, //购物车商品数量
+<<<<<<< HEAD
 		sysMessageNum: 0, //消息通知数量
 		liveVerifyPwd: '', //直播观看密码
 		searchKey: '', //导航栏搜索
 		searchKeyMain: '' //主站搜索
+=======
+		sysMessageNum: 0 //消息通知数量
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 	},
 	mutations: {
 		setToken(state, token) {
@@ -21,6 +25,7 @@ export default {
 		},
 		setSysMessageNum(state, sysMessageNum) {
 			state.sysMessageNum = sysMessageNum;
+<<<<<<< HEAD
 		},
 		setLiveVerifyPwd(state, liveVerifyPwd) {
 			state.liveVerifyPwd = liveVerifyPwd;
@@ -30,6 +35,8 @@ export default {
 		},
 		setSearchKeyMain(state, searchKeyMain) {
 			state.searchKeyMain = searchKeyMain;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 		}
 	}
 };

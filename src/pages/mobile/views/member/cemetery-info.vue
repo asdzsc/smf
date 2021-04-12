@@ -6,7 +6,13 @@
 
     <div class="form">
       <div class="formItem">
+<<<<<<< HEAD
         <div class="label">落葬人</div>
+=======
+        <div class="label">
+          落葬人
+        </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <div class="inputCont">
           <input
             v-model="model.bpname"
@@ -16,6 +22,7 @@
         </div>
       </div>
       <div class="formItem">
+<<<<<<< HEAD
         <div class="label">墓址</div>
         <div class="inputCont">
           <van-field
@@ -39,12 +46,25 @@
         </div>
         <div class="inputCont inputCont1" v-if="showMsg">
           <van-field placeholder="没有查询到墓址信息" />
+=======
+        <div class="label">
+          墓址
+        </div>
+        <div class="inputCont">
+          <input v-model="model.cemeaddress" placeholder="请输入墓址" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         </div>
       </div>
     </div>
 
     <div class="loginBtnCont">
+<<<<<<< HEAD
       <div @click="submit()" class="loginBtn">保存服务墓址</div>
+=======
+      <div @click="submit()" class="loginBtn">
+        保存服务墓址
+      </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     </div>
 
     <div class="page-line"></div>
@@ -52,6 +72,7 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 // getCemeteryInfo,
 import { searchCemeteryList, saveCemetery } from "@/pages/mobile/api/user";
 export default {
@@ -59,24 +80,36 @@ export default {
     return {
       show: false,
       showMsg: false,
+=======
+import { searchCemeteryList, getCemeteryInfo, saveCemetery } from "@/pages/mobile/api/user";
+export default {
+  data() {
+    return {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       baseUrl: process.env.VUE_APP_BASE_URL,
       title: "",
       model: {
         id: "",
         bpname: "",
         cemeaddress: "",
+<<<<<<< HEAD
         isCheck: "0",
         erpCemeteryId: "", //关联erp墓址id
         masterName: "",
         erpCemeteryIdKey: { key: "" },
       },
       cemeteryList: [],
+=======
+        isCheck: "0"
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {
     this.loadData();
   },
   methods: {
+<<<<<<< HEAD
     showSheet() {
       if (this.model.bpname == "") {
         this.$notify({
@@ -104,10 +137,25 @@ export default {
         //       Object.assign(this.model, res.data);
         //     }
         //   });
+=======
+    loadData() {
+      if (!this.$route.query.id) {
+        this.title = "新增服务墓址";
+      } else {
+        this.title = "编辑服务墓址";
+        getCemeteryInfo({
+          id: this.$route.query.id
+        }).then(res => {
+          if (res.code === 0) {
+            Object.assign(this.model, res.data);
+          }
+        });
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       }
     },
     _searchCemeteryList() {
       if (this.model.bpname) {
+<<<<<<< HEAD
         this.model.erpCemeteryId = "";
         this.model.erpCemeteryIdKey = { key: "" };
         this.cemeteryList = [];
@@ -130,12 +178,24 @@ export default {
               this.show = false;
               this.showMsg = true;
               this.model.cemeaddress = "";
+=======
+        searchCemeteryList({
+          current: 1,
+          pageSize: 1,
+          searchText: this.model.bpname
+        }).then(res => {
+          if (res.code === 0) {
+            if (res.data.list.length > 0) {
+              var info = res.data.list[0];
+              this.model.cemeaddress = info.cemeaddress;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             }
           }
         });
       }
     },
     submit() {
+<<<<<<< HEAD
       saveCemetery(this.model).then((res) => {
         if (res.code === 0) {
           this.$notify({
@@ -147,6 +207,19 @@ export default {
       });
     },
   },
+=======
+      saveCemetery(this.model).then(res => {
+        if (res.code === 0) {
+          this.$notify({
+            type: "success",
+            message: "数据提交成功"
+          });
+          this.$router.push("/member/userInfo");
+        }
+      })
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
@@ -171,13 +244,18 @@ export default {
     padding-bottom: 0.3rem;
 
     .label {
+<<<<<<< HEAD
       font-size: 0.3rem;
+=======
+      font-size: 0.22rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       font-weight: 700;
       color: #333333;
     }
 
     .inputCont {
       padding-top: 0.1rem;
+<<<<<<< HEAD
       /deep/ .van-action-sheet__content {
         .content {
           line-height: 0.8rem;
@@ -202,6 +280,9 @@ export default {
           line-height: 0.8rem;
         }
       }
+=======
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       input {
         width: 6.1rem;
         height: 0.8rem;
@@ -210,6 +291,7 @@ export default {
         outline: none;
       }
     }
+<<<<<<< HEAD
     .inputCont1 {
       /deep/ input::-webkit-input-placeholder {
         color: red;
@@ -228,6 +310,8 @@ export default {
         }
       }
     }
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
     .verifyCode {
       padding-top: 0.1rem;

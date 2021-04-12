@@ -37,12 +37,20 @@
 				<div>
 					<imgsUpload ref="imgsUpload"></imgsUpload>
 				</div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 			</div>
 
 			<div @click="submit()" class="btn" :class="{ loading: isSubmit }">
 				<a-icon v-if="isSubmit" type="loading" spin />
 				提交评论
 			</div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 		</div>
 	</modal>
 </template>
@@ -50,7 +58,11 @@
 <script>
 	import {
 		saveOrderComment
+<<<<<<< HEAD
 	} from "@/pages/pc/api/shop";
+=======
+	} from '@/pages/pc/api/shop'
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 	export default {
 		components: {
 			modal: () => import("@/pages/pc/components/modal.vue"),
@@ -60,15 +72,22 @@
 			shopOrder: {
 				type: Object,
 				default () {
+<<<<<<< HEAD
 					return {};
 				},
 			},
+=======
+					return {}
+				}
+			}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 		},
 		data() {
 			return {
 				baseUrl: process.env.VUE_APP_BASE_URL,
 				defImg: `this.src='/img/usernull.png'`,
 				model: {
+<<<<<<< HEAD
 					id: "",
 					orderId: "",
 					orderNum: "",
@@ -106,6 +125,45 @@
 				this.$emit("onClose", res);
 			},
 		},
+=======
+					id: '',
+					orderId: '',
+					orderNum: '',
+					orderSubject: '',
+					commentType: '1',
+					pid: '0',
+					img: [],
+					cont: '',
+					score: 0
+				},
+				isSubmit: false
+			};
+		},
+		mounted() {
+			this.model.orderId = this.shopOrder.id
+			this.model.orderNum = this.shopOrder.orderNum
+			this.model.orderSubject = this.shopOrder.orderSubject
+		},
+		methods: {
+			submit() {
+				this.isSubmit = true
+				var fileList = this.$refs.imgsUpload.getFileList();
+				this.model.img = fileList.map(x => {
+					return x.imgUrl;
+				});
+				saveOrderComment(this.model).then(res => {
+					this.isSubmit = false
+					if (res.code === 0) {
+						this.$message.success("评论提交成功");
+						this.handleCancel(res)
+					}
+				})
+			},
+			handleCancel(res) {
+				this.$emit("onClose", res);
+			}
+		}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 	};
 </script>
 

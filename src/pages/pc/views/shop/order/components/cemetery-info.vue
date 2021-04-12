@@ -14,6 +14,7 @@
           />
         </a-form-model-item>
         <a-form-model-item label="墓址:">
+<<<<<<< HEAD
           <a-dropdown :trigger="['click']">
             <div>
               <a-input
@@ -67,6 +68,9 @@
               message="没有查询到墓址信息"
             />
           </div>
+=======
+          <a-input v-model="model.cemeaddress" placeholder="请输入墓址" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         </a-form-model-item>
       </a-form-model>
 
@@ -76,6 +80,7 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import {
   searchCemeteryList,
   getCemeteryInfo,
@@ -84,14 +89,25 @@ import {
 export default {
   components: {
     modal: () => import("@/pages/pc/components/modal.vue"),
+=======
+import { searchCemeteryList, getCemeteryInfo, saveCemetery } from "@/pages/pc/api/user";
+export default {
+  components: {
+    modal: () => import("@/pages/pc/components/modal.vue")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   props: {
     id: {
       type: String,
       default() {
         return "";
+<<<<<<< HEAD
       },
     },
+=======
+      }
+    }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   data() {
     return {
@@ -101,6 +117,7 @@ export default {
         id: "",
         bpname: "",
         cemeaddress: "",
+<<<<<<< HEAD
         isCheck: "0",
         masterName: "",
         erpCemeteryId: "", //关联erp墓址id
@@ -108,6 +125,10 @@ export default {
       },
       cemeteryList: [],
       showMsg: false,
+=======
+        isCheck: "0"
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {
@@ -121,8 +142,13 @@ export default {
       } else {
         this.title = "编辑服务墓址";
         getCemeteryInfo({
+<<<<<<< HEAD
           id: this.model.id,
         }).then((res) => {
+=======
+          id: this.model.id
+        }).then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           if (res.code === 0) {
             Object.assign(this.model, res.data);
           }
@@ -131,6 +157,7 @@ export default {
     },
     _searchCemeteryList() {
       if (this.model.bpname) {
+<<<<<<< HEAD
         this.model.erpCemeteryId = "";
         this.model.erpCemeteryIdKey = { key: "" };
         this.cemeteryList = [];
@@ -142,10 +169,23 @@ export default {
           if (res.code === 0) {
             this.cemeteryList = res.data.data;
             this.showMsg = this.cemeteryList.length > 0 ? false : true;
+=======
+        searchCemeteryList({
+          current: 1,
+          pageSize: 1,
+          searchText: this.model.bpname
+        }).then(res => {
+          if (res.code === 0) {
+            if (res.data.list.length > 0) {
+              var info = res.data.list[0];
+              this.model.cemeaddress = info.cemeaddress;
+            }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           }
         });
       }
     },
+<<<<<<< HEAD
     changeCemetery(value, option) {
       this.model.erpCemeteryId = value.key;
       var query = this.cemeteryList.filter((x) => {
@@ -163,6 +203,10 @@ export default {
     },
     submit() {
       saveCemetery(this.model).then((res) => {
+=======
+    submit() {
+      saveCemetery(this.model).then(res => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (res.code === 0) {
           this.$message.success("数据提交成功");
           this.handleCancel(res);
@@ -171,8 +215,13 @@ export default {
     },
     handleCancel(res) {
       this.$emit("onClose", res);
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 

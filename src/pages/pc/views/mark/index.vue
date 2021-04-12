@@ -13,21 +13,30 @@
         </div>
       </a-carousel>
     </div>
+<<<<<<< HEAD
     <!-- 顶部图片 end -->
     <!-- 激活码框 start -->
     <activeCode v-show="activeDiv"></activeCode>
     <!-- 激活码框 end -->
+=======
+
+    <!-- 顶部图片 end -->
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     <div class="cont">
       <div class="title">
         <p class="titleName">名 人 先 贤</p>
         <p class="titleDesc">
           整理记录名人先贤生命故事，追忆他们的卓越功绩，让名人精神千古流传
         </p>
+<<<<<<< HEAD
         <div
           class="searchBtn"
           @click="openUrl('/mark/grjn')"
           style="margin: 0 auto"
         >
+=======
+        <div class="searchBtn" @click="openUrl()" style="margin: 0 auto;">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           查找名人
         </div>
       </div>
@@ -60,14 +69,26 @@
           为了民族和国家的美好明天而抛头颅洒热血的革命先烈们<br />
           如一座座丰碑永远展现在我们面前
         </p>
+<<<<<<< HEAD
         <div class="searchBtn" @click="openUrl('/mark/grjn')">查找先烈</div>
+=======
+        <div class="searchBtn" @click="openUrl('/mark/grjn')">
+          查找先烈
+        </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       </div>
     </div>
     <div class="cont2">
       <div class="title">
         <p class="titleName">全方位服务<br />让您轻松享受便捷网上纪念服务</p>
         <p class="titleDesc">海量模版为您的“他/她”快捷创建网上纪念馆</p>
+<<<<<<< HEAD
         <div class="searchBtn" @click="createMemory()">创建纪念馆</div>
+=======
+        <div class="searchBtn" @click="openUrl('/mark/create')">
+          创建纪念馆
+        </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       </div>
     </div>
     <div class="cont3">
@@ -77,7 +98,13 @@
           你是谁？你从哪里来？ <br />
           在这里，你将追根溯源，找到你想要知道的答案
         </p>
+<<<<<<< HEAD
         <div class="searchBtn" @click="openUrl('/mark/zpg')">查找族谱</div>
+=======
+        <div class="searchBtn" @click="openUrl('/mark/zpg')">
+          查找族谱
+        </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       </div>
     </div>
   </div>
@@ -87,25 +114,34 @@
 import { bannerList } from "@/pages/pc/api/shop";
 
 export default {
+<<<<<<< HEAD
   components: {
     activeCode: () =>
       import("@/pages/pc/views/mark/components/active-code.vue"),
   },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   data() {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
       dotPosition: "right",
       banners: [],
+<<<<<<< HEAD
       activeDiv: false,
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {
     this._bannerList();
   },
   methods: {
+<<<<<<< HEAD
     handleHide() {
       this.activeDiv = false;
     },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     _bannerList() {
       bannerList({
         bannerType: "3",
@@ -124,6 +160,7 @@ export default {
         }
       }
     },
+<<<<<<< HEAD
     //创建纪念馆
     createMemory() {
       var token = this.$store.state.account.token;
@@ -136,6 +173,8 @@ export default {
         });
       }
     },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
 };
 </script>
@@ -154,7 +193,10 @@ export default {
 
   .carouselWrap {
     height: calc(100vh - 70px);
+<<<<<<< HEAD
     overflow: hidden;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     // 顶部图片
     /deep/ .ant-carousel {
       .slick-slide {
@@ -173,8 +215,13 @@ export default {
   }
 
   .cont {
+<<<<<<< HEAD
     width: 1240px;
     margin: 0 auto;
+=======
+	  width: 1240px;
+	  margin:  0 auto;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .title {
       text-align: center;
       margin-top: 110px;

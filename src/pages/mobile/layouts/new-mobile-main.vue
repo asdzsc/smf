@@ -1,7 +1,13 @@
 <template>
+<<<<<<< HEAD
   <div class="mobile-index" style="min-height: 100%">
     <myhead />
     <router-view class="mobile-content" v-wechat-title="$route.meta.title" />
+=======
+  <div class="mobile-index" style="min-height:100%">
+    <myhead />
+    <router-view class="mobile-content" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     <myfoot />
   </div>
 </template>

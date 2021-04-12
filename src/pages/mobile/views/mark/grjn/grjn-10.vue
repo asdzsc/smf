@@ -9,16 +9,24 @@
               round
               width=".50rem"
               height=".50rem"
+<<<<<<< HEAD
               :src="handleCreateAvatar(detailModal.createAvatar)"
             />
           </div>
           <div class="createName">{{ detailModal.createName }}</div>
+=======
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+          </div>
+          <div class="createName">创建者</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         </div>
         <div class="bannerAvatar">
           <van-image
             round
             width="1.60rem"
             height="1.60rem"
+<<<<<<< HEAD
             :src="baseUrl + detailModal.photo"
             :error-icon="defImg"
           />
@@ -45,11 +53,31 @@
             >次纪念
           </p>
           <div class="bannerBtn" @click="handleClick">纪念Ta</div>
+=======
+            src="https://img.yzcdn.cn/vant/cat.jpeg"
+          />
+        </div>
+        <div class="bannerInfo">
+          <p class="bannerName">姚贝娜</p>
+          <div class="bannerTime">
+            <p>出生：1981年09月26日 中国 武汉</p>
+            <p>离世：2015年01月16日 中国 北京</p>
+          </div>
+          <div class="bannerMsg">
+            她会变成天上那颗最耀眼的星星，照亮我们每个人的梦，飞过苍穹，穿越永恒。永远都不要忘了她，因为她是真正的天使。天堂会收下你的美，会让你在那里生活的更加幸福快乐。你的笑容，挥之不去。
+            睡吧，睡吧。总有一天，你会醒来。 时光不老，伊人不朽…
+          </div>
+          <p class="bannerTimes">已有<span>432</span>次纪念</p>
+          <div class="bannerBtn">
+            纪念他
+          </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         </div>
       </div>
     </div>
     <!-- banner end -->
     <!-- photo start -->
+<<<<<<< HEAD
     <div class="photo" v-if="showPhoto">
       <div class="title" style="margin-top: 1rem">
         <p>纪念相册</p>
@@ -75,17 +103,50 @@
       </div>
       <div v-else>
         <van-empty description="暂无数据" />
+=======
+    <div class="photo">
+      <div class="title" style="margin-top:1rem;">
+        <p>纪念相册</p>
+      </div>
+      <div class="photoInfo">
+        <van-swipe
+          class="my-swipe"
+          :autoplay="3000"
+          indicator-color="transparent"
+        >
+          <van-swipe-item>
+            <img src="/img/mobile/mark/photo_01.png" alt="" />
+            <img src="/img/mobile/mark/photo_02.png" alt="" />
+            <img src="/img/mobile/mark/photo_03.png" alt="" />
+            <img src="/img/mobile/mark/photo_04.png" alt="" />
+          </van-swipe-item>
+          <van-swipe-item>
+            <img src="/img/mobile/mark/photo_01.png" alt="" />
+            <img src="/img/mobile/mark/photo_02.png" alt="" />
+            <img src="/img/mobile/mark/photo_03.png" alt="" />
+            <img src="/img/mobile/mark/photo_04.png" alt="" />
+          </van-swipe-item>
+        </van-swipe>
+        <div class="moreBtn">查看更多</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       </div>
     </div>
     <!-- photo end -->
     <!-- ly start -->
+<<<<<<< HEAD
     <div class="ly" v-if="showLy">
       <div class="lyTitle">
         <div class="lyBtn" @click="handleClick">我要纪念</div>
+=======
+    <div class="ly">
+      <div class="lyTitle">
+        <div class="lyBtn">我要纪念</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <div class="title">
           <p>祭奠留言</p>
         </div>
       </div>
+<<<<<<< HEAD
       <div class="lyInfo" v-if="this.modelMsg.list != ''">
         <van-list :finished="finishedMsg" finished-text="没有更多了">
           <div class="lyList" v-for="item in modelMsg.list" :key="item.id">
@@ -199,12 +260,152 @@
       <div class="moreBtn" v-show="moreBtnVideo" @click="handleMoreVideo">
         更多视频
       </div>
+=======
+      <div class="lyInfo">
+        <div class="lyList">
+          <div class="lyListAvatar">
+            <van-image
+              round
+              width=".64rem"
+              height=".64rem"
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+          </div>
+          <div class="lyListInfo">
+            <div class="lyListGift">
+              <div class="lyListGiftName">
+                <p>“小姑姑”</p>
+                给
+                <p>“姚贝娜”</p>
+                送出了
+                <p>月季</p>
+              </div>
+              <div class="lyListGiftIcon">
+                <van-image
+                  round
+                  width=".64rem"
+                  height=".64rem"
+                  src="https://img.yzcdn.cn/vant/cat.jpeg"
+                />
+              </div>
+            </div>
+            <div class="lyListMsg">
+              贝娜，我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。贝娜我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。
+            </div>
+            <div class="lyListName">
+              <p style="margin-right: .20rem;">爸爸</p>
+              <p>2020年1月1日 11:40</p>
+            </div>
+          </div>
+        </div>
+        <div class="lyList">
+          <div class="lyListAvatar">
+            <van-image
+              round
+              width=".64rem"
+              height=".64rem"
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+          </div>
+          <div class="lyListInfo">
+            <div class="lyListGift">
+              <div class="lyListGiftName">
+                <p>“小姑姑”</p>
+                给
+                <p>“姚贝娜”</p>
+                送出了
+                <p>月季</p>
+              </div>
+              <div class="lyListGiftIcon">
+                <van-image
+                  round
+                  width=".64rem"
+                  height=".64rem"
+                  src="https://img.yzcdn.cn/vant/cat.jpeg"
+                />
+              </div>
+            </div>
+            <div class="lyListMsg">
+              贝娜，我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。贝娜我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。
+            </div>
+            <div class="lyListName">
+              <p style="margin-right: .20rem;">爸爸</p>
+              <p>2020年1月1日 11:40</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="moreBtn">更多留言</div>
+    </div>
+    <!-- ly end -->
+    <!-- article start -->
+    <div class="article">
+      <div class="title">
+        <p>纪念文章</p>
+      </div>
+      <div class="articleInfo">
+        <div class="articleList">
+          <img src="/img/mobile/mark/photo_05.png" alt="" />
+          <div class="articleCont">
+            <p class="articleTitle">纪念你</p>
+            <p class="articleMsg">
+              时间一晃黄的，跨过了2014，在时间的长河中，你我她，都如大海里的一滴水，渺小的激不起一点点涟漪。感叹生命的短暂，然又为生命的伟大而惊奇。
+            </p>
+          </div>
+        </div>
+        <div class="articleList">
+          <img src="/img/mobile/mark/photo_06.png" alt="" />
+          <div class="articleCont">
+            <p class="articleTitle">纪念你</p>
+            <p class="articleMsg">
+              时间一晃黄的，跨过了2014，在时间的长河中，你我她，都如大海里的一滴水，渺小的激不起一点点涟漪。感叹生命的短暂，然又为生命的伟大而惊奇。
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="moreBtn">更多文章</div>
+    </div>
+    <!-- article end -->
+    <!-- video start -->
+    <div class="video">
+      <div class="title">
+        <p>纪念视频</p>
+      </div>
+      <div class="videoInfo">
+        <div class="videoList">
+          <video
+            src=""
+            poster="/img/mobile/mark/photo_07.png"
+            :onerror="defImg"
+          ></video>
+          <div class="videoCont">
+            <van-icon size=".94rem" name="play-circle-o" />
+          </div>
+          <p class="videoTitle">第一次演唱会</p>
+          <p class="videoTime">2020年1月1日</p>
+        </div>
+        <div class="videoList">
+          <video
+            src=""
+            poster="/img/mobile/mark/photo_08.png"
+            :onerror="defImg"
+          ></video>
+          <div class="videoCont">
+            <van-icon size=".94rem" name="play-circle-o" />
+          </div>
+          <p class="videoTitle">第一次演唱会</p>
+          <p class="videoTime">2020年1月1日</p>
+        </div>
+      </div>
+      <div class="moreBtn">更多视频</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     </div>
     <!-- video end -->
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { memoryMediaList, memoryMsgList } from "@/pages/mobile/api/mark.js";
 import { ImagePreview } from "vant";
 import $ from "jquery";
@@ -219,10 +420,14 @@ export default {
       },
     },
   },
+=======
+export default {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   data() {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
       defImg: 'this.src="/img/zwtp.jpg"',
+<<<<<<< HEAD
       loading: false, //加载中
       finishedImg: false, //没有更多了
       finishedMsg: false, //没有更多了
@@ -438,12 +643,17 @@ export default {
       this._memoryMediaVideo();
     },
   },
+=======
+    };
+  },
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
 <style lang="less" scoped>
 .grjn {
   background-image: url("/img/mobile/mark/banner_10.png");
+<<<<<<< HEAD
   background-size: 100% 100%;
   .moreBtn {
     font-size: 0.3rem;
@@ -451,6 +661,14 @@ export default {
     margin: 0.3rem auto 0.7rem;
     text-align: center;
     padding-bottom: 0.5rem;
+=======
+  background-size: cover;
+  .moreBtn {
+    font-size: 0.24rem;
+    color: #ffffff;
+    margin: 0.3rem auto 0.7rem;
+    text-align: center;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   }
   .title {
     font-size: 0.36rem;
@@ -470,9 +688,15 @@ export default {
     width: 92%;
     margin: 0 auto;
     padding: 20% 0;
+<<<<<<< HEAD
     padding-bottom: 0;
     .bannerTimes {
       font-size: 0.3rem;
+=======
+    padding-bottom: 3%;
+    .bannerTimes {
+      font-size: 0.26rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       line-height: 0.28rem;
       color: #9e142c;
       text-align: center;
@@ -484,7 +708,11 @@ export default {
       }
     }
     .bannerTitle {
+<<<<<<< HEAD
       height: 7.54rem;
+=======
+      height: 6.54rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       position: relative;
       text-align: center;
 
@@ -505,18 +733,29 @@ export default {
         left: 50%;
         transform: translateX(-50%);
         top: 0.8rem;
+<<<<<<< HEAD
         width: 90%;
         .bannerName {
           color: #9e142c;
           // margin: 0.2rem 0;
           margin-top: 0.2rem;
+=======
+        width: 70%;
+        .bannerName {
+          color: #9e142c;
+          margin: 0.2rem 0;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           font-size: 0.4rem;
           font-weight: bold;
           line-height: 0.7rem;
           letter-spacing: 0.01rem;
         }
         .bannerTime {
+<<<<<<< HEAD
           font-size: 0.3rem;
+=======
+          font-size: 0.24rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           line-height: 0.5rem;
         }
         .bannerMsg {
@@ -526,12 +765,16 @@ export default {
           line-height: 0.3rem;
           letter-spacing: 0.01rem;
           margin: 0.1rem auto;
+<<<<<<< HEAD
           color: #000;
           text-overflow: ellipsis;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 10;
           overflow: hidden;
           display: -webkit-box;
+=======
+          color: #333333;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         }
         .bannerBtn {
           width: 3rem;
@@ -547,6 +790,7 @@ export default {
       }
     }
   }
+<<<<<<< HEAD
 
   .photo {
     padding: 0 0.4rem;
@@ -567,13 +811,20 @@ export default {
       }
     }
 
+=======
+  .photo {
+    padding: 0 0.4rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .my-swipe {
       img {
         display: inline-block;
         margin-top: 0.5rem;
         margin-right: 4%;
         width: 48%;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         &:nth-child(2n) {
           margin-right: 0;
         }
@@ -603,7 +854,11 @@ export default {
       .lyBtn {
         width: 1.58rem;
         height: 0.55rem;
+<<<<<<< HEAD
         font-size: 0.3rem;
+=======
+        font-size: 0.24rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         line-height: 0.55rem;
         color: #eae9e9;
         background: #c71c00;
@@ -635,13 +890,21 @@ export default {
             }
             .lyListGiftName {
               display: flex;
+<<<<<<< HEAD
               font-size: 0.3rem;
+=======
+              font-size: 0.2rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               line-height: 0.62rem;
               color: #333333;
             }
           }
           .lyListMsg {
+<<<<<<< HEAD
             font-size: 0.3rem;
+=======
+            font-size: 0.24rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             line-height: 0.32rem;
             color: #333333;
             margin: 0.2rem 0;
@@ -649,7 +912,11 @@ export default {
           .lyListName {
             display: flex;
             color: #333333;
+<<<<<<< HEAD
             font-size: 0.3rem;
+=======
+            font-size: 0.2rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           }
         }
       }
@@ -657,6 +924,7 @@ export default {
   }
   .article {
     padding: 0 0.4rem;
+<<<<<<< HEAD
     .wrapper {
       display: flex;
       align-items: center;
@@ -669,6 +937,8 @@ export default {
         box-sizing: border-box;
       }
     }
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .articleInfo {
       background-color: #ffffff;
       box-shadow: 0px 0.04rem 0.19rem 0.01rem rgba(158, 143, 140, 0.2);
@@ -680,7 +950,10 @@ export default {
         box-sizing: border-box;
         img {
           width: 100%;
+<<<<<<< HEAD
           height: 3.35rem;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         }
         .articleCont {
           // padding: 0.3rem 0.5rem;
@@ -693,6 +966,7 @@ export default {
           }
           .articleMsg {
             text-align: justify;
+<<<<<<< HEAD
             font-size: 0.3rem;
             line-height: 0.32rem;
             color: #999999;
@@ -700,6 +974,11 @@ export default {
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 4;
             overflow: hidden;
+=======
+            font-size: 0.24rem;
+            line-height: 0.32rem;
+            color: #999999;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           }
         }
       }
@@ -731,7 +1010,11 @@ export default {
           color: #ffffff;
         }
         .videoTime {
+<<<<<<< HEAD
           font-size: 0.3rem;
+=======
+          font-size: 0.22rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           line-height: 0.7rem;
           color: #ffffff;
         }

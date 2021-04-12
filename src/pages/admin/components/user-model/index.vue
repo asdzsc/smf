@@ -117,9 +117,15 @@
 			// eslint-disable-next-line no-unused-vars
 			onSelectTree(selectedKeys, event) {
 				var item = event.node;
+<<<<<<< HEAD
 
 				if (this.showUser) {
 					if (item.value.indexOf("user_") >= 0) {
+=======
+				
+				if (this.showUser) {
+					if (item.value.indexOf("user_") >= 0){
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 						//选择用户
 						var id = item.value.replace(new RegExp("user_", "gm"), "");
 						this.setCheckedItem(id, 'user', item.title);
@@ -206,8 +212,12 @@
 					this.checkedList.push({
 						id: id,
 						treeType: treeType,
+<<<<<<< HEAD
 						title: title,
 						name: title
+=======
+						title: title
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 					});
 					this.selectedKeys.push(treeKey);
 				}

@@ -33,49 +33,92 @@
             <ul class="tableCont">
               <li class="item1">
                 <div class="left">
+<<<<<<< HEAD
                   <div>招标数</div>
                 </div>
                 <div class="right">
                   <div>{{ item.zbNum }}</div>
+=======
+                  <div>
+                    {{ item.zbNum }}
+                  </div>
+                </div>
+                <div class="right">
+                  <div>3<span>家</span></div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
                 </div>
               </li>
               <li class="item1">
                 <div class="left">
+<<<<<<< HEAD
                   <div>投标数</div>
                 </div>
                 <div class="right">
                   <div>{{ item.tbNum }}</div>
+=======
+                  <div>{{ item.tbNum }}</div>
+                </div>
+                <div class="right">
+                  <div>5</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
                 </div>
               </li>
               <li class="item1">
                 <div class="left">
+<<<<<<< HEAD
                   <div>招标截至日期</div>
                 </div>
                 <div class="right">
                   <div>{{ parseTime(item.endTime, "{y}-{m}-{d}") }}</div>
+=======
+                  <div>{{ parseTime(item.endTime, "{y}-{m}-{d}") }}</div>
+                </div>
+                <div class="right">
+                  <div>2020.08.19</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
                 </div>
               </li>
               <li class="item1">
                 <div class="left">
+<<<<<<< HEAD
                   <div>结算形式</div>
                 </div>
                 <div class="right">
                   <div>{{ item.jsxs }}</div>
+=======
+                  <div>{{ item.jsxs }}</div>
+                </div>
+                <div class="right">
+                  <div>TT 30%</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
                 </div>
               </li>
               <li class="item1">
                 <div class="left">
+<<<<<<< HEAD
                   <div>项目日期</div>
                 </div>
                 <div class="right">
                   <div>{{ parseTime(item.proTime, "{y}-{m}-{d}") }}</div>
+=======
+                  <div>{{ parseTime(item.proTime, "{y}-{m}-{d}") }}</div>
+                </div>
+                <div class="right">
+                  <div>2020.09.20</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
                 </div>
               </li>
               <li class="item1">
                 <div class="left">
                   <div>招投标的状态</div>
                 </div>
+<<<<<<< HEAD
                 <div class="right" v-html="statusText(item)"></div>
+=======
+                <div class="right" v-html="statusText(item)">
+                  <div>即将开始</div>
+                </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               </li>
             </ul>
           </div>
@@ -89,8 +132,13 @@
 import xwzxHead from "./components/xwzx-head.vue";
 import xwzxTitle from "./components/xwzx-title.vue";
 import paging from "./components/paging.vue";
+<<<<<<< HEAD
 import { newsZbggList } from "@/pages/mobile/api/news";
 import * as utils from "@/pages/mobile/libs/utils";
+=======
+import { newsZbggList } from "@/pages/pc/api/news";
+import * as utils from "@/pages/pc/libs/utils";
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 export default {
   components: {
     xwzxHead,
@@ -102,6 +150,10 @@ export default {
       defImg: 'this.src="/img/zwtp.jpg"',
       loading: false,
       finished: false,
+<<<<<<< HEAD
+=======
+      show: false,
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       model: {
         current: "1",
         pageSize: "8",
@@ -118,6 +170,7 @@ export default {
       this._newsList();
     },
     _newsList() {
+<<<<<<< HEAD
       this.$toast.loading({
         message: "加载中...",
         forbidClick: true,
@@ -126,6 +179,12 @@ export default {
       newsZbggList(this.model).then((res) => {
         this.$toast.clear();
         this.loading = false;
+=======
+      this.loading = true;
+      newsZbggList(this.model).then((res) => {
+        this.loading = false;
+        this.show = false;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         if (res.code === 0) {
           const results = res.data.list;
           this.model.list.push(...results);
@@ -260,7 +319,10 @@ export default {
             .right {
               color: #0f513a;
               width: 60%;
+<<<<<<< HEAD
               text-align: center;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               background-color: #f8f8f8;
 
               div {

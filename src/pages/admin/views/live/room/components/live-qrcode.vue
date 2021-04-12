@@ -25,9 +25,15 @@ export default {
   },
   computed: {
     codeValue() {
+<<<<<<< HEAD
       var url = this.baseUrl + "/mobile/#/live/live-play?id=" + this.model.id;
       if (this.model.state === "0" || this.model.state === "1") {
         url = this.baseUrl + "/mobile/#/live/live-info?id=" + this.model.id;
+=======
+      var url = this.baseUrl + "/mobile/#/live-play?id=" + this.model.id;
+      if (this.model.state === "0" || this.model.state === "1") {
+        url = this.baseUrl + "/mobile/#/live-info?id=" + this.model.id;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       }
       return url;
     }

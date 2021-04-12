@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
   <div id="app" @contextmenu.prevent>
+=======
+  <div id="app">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     <!-- <keep-alive v-if="$route.meta.keepAlive">
       <router-view />
     </keep-alive> -->
@@ -14,7 +18,11 @@
 import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
 import $ from "jquery";
 import * as utils from "@/pages/pc/libs/utils";
+<<<<<<< HEAD
 import enquireScreen from "@/comment/device";
+=======
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 export default {
   name: "App",
   data() {
@@ -22,6 +30,7 @@ export default {
       locale: zhCN,
     };
   },
+<<<<<<< HEAD
   created() {
     // if (!utils.isPc()) {
     //   this.mobile();
@@ -32,6 +41,9 @@ export default {
     }
     this.goUrl();
   },
+=======
+  created() {},
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   mounted() {},
   watch: {
     $route: {
@@ -50,7 +62,11 @@ export default {
         } catch (e) {
           console.log(e);
         }
+<<<<<<< HEAD
         // this.goUrl();
+=======
+        this.goUrl();
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         this.setPageTitle();
 
         // document.querySelector('meta[name="keywords"]').setAttribute('content', 接口获取的keywords)
@@ -61,11 +77,17 @@ export default {
   },
   methods: {
     goUrl() {
+<<<<<<< HEAD
       enquireScreen((isMobile) => {
         if (isMobile) {
           this.mobile();
         }
       });
+=======
+      if (!utils.isPc()) {
+        this.mobile();
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     },
     setPageTitle() {
       var title = this.$route.meta.title;

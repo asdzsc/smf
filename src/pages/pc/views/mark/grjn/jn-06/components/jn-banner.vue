@@ -9,7 +9,11 @@
         />
       </div>
       <div class="bannerCreate">
+<<<<<<< HEAD
         <a-avatar :size="50" :src="handleAvatar(bannerModel.createAvatar)" />
+=======
+        <a-avatar :size="50" :src="bannerModel.createAvatar" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <p class="bannerCreateName">{{ bannerModel.createName }}</p>
       </div>
       <p class="bannerName">{{ bannerModel.name }}</p>
@@ -26,8 +30,13 @@
       <div class="bannerMsg">
         {{ bannerModel.intro }}
       </div>
+<<<<<<< HEAD
       <div class="bannerBtn" @click="handleClick">
         纪念Ta
+=======
+      <div class="bannerBtn">
+        纪念她
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       </div>
       <div class="bannerTimes">
         已有<span>{{ bannerModel.msgNum }}</span
@@ -55,6 +64,7 @@ export default {
       defImg: 'this.src="/img/zwtp.jpg"',
     };
   },
+<<<<<<< HEAD
   mounted() {
     this.bannerModel.birthday = this.bannerModel.birthday.substring(0, 10);
     this.bannerModel.dieTime = this.bannerModel.dieTime.substring(0, 10);
@@ -81,6 +91,8 @@ export default {
       }
     },
   },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
@@ -144,11 +156,14 @@ export default {
       color: #e6e6e6;
       margin-left: 120px;
       margin-top: 20px;
+<<<<<<< HEAD
       text-overflow: ellipsis;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 10;
       overflow: hidden;
       display: -webkit-box;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     }
 
     .bannerBtn {
@@ -178,8 +193,16 @@ export default {
       font-size: 26px;
       line-height: 28px;
       letter-spacing: 1px;
+<<<<<<< HEAD
       color: #343437;
       margin-top: 50px;
+=======
+      color: #e6e6e6;
+      position: absolute;
+      bottom: 90px;
+      left: 50%;
+      margin-left: -100px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
       span {
         font-size: 40px;

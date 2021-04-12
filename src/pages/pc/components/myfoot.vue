@@ -6,11 +6,29 @@
           <td class="menu">
             <table>
               <tr>
+<<<<<<< HEAD
                 <td class="title">关于我们</td>
                 <td class="title">公司新闻</td>
                 <td class="title">在线服务</td>
                 <td class="title">博物馆聚落</td>
                 <td class="title">纪念园区</td>
+=======
+                <td class="title">
+                  关于我们
+                </td>
+                <td class="title">
+                  公司新闻
+                </td>
+                <td class="title">
+                  在线服务
+                </td>
+                <td class="title">
+                  博物馆群
+                </td>
+                <td class="title">
+                  纪念园区
+                </td>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               </tr>
               <tr>
                 <td class="menuName">
@@ -33,6 +51,7 @@
                   <div @click="$router.push('/zxfw/mbbjfw')">墓碑保洁服务</div>
                 </td>
                 <td class="menuName">
+<<<<<<< HEAD
                   <div @click="$router.push('/bwg/info?id=515384113068720128')">
                     湖北军民抗战博物馆
                   </div>
@@ -66,6 +85,21 @@
                   <div @click="$router.push('/bwg/info?id=515381642971791360')">
                     感恩广场
                   </div>
+=======
+                  <div>湖北军民抗战博物馆</div>
+                  <div>楚天将帅馆</div>
+                  <div>时代记忆馆</div>
+                  <div>计划经济票证馆</div>
+                  <div>百家姓族谱馆</div>
+                  <div>人生圆满博物馆</div>
+                </td>
+                <td class="menuName">
+                  <div>辛亥革命纪念园</div>
+                  <div>武汉抗战纪念园</div>
+                  <div>开国元勋雕塑园</div>
+                  <div>保卫大武汉中国抗战空军纪念墓园</div>
+                  <div>感恩广场</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
                 </td>
               </tr>
             </table>
@@ -78,6 +112,7 @@
       </table>
     </div>
     <div class="copyright">
+<<<<<<< HEAD
       ©2019<span style="padding: 0 5px"></span>武汉石门峰纪念公园有限公司<span
         style="padding: 0 5px"
       ></span
@@ -106,6 +141,21 @@
           <i class="iconfont iconQRcode"></i>
         </div>
       </a-popover>
+=======
+      ©2019<span style="padding:0 5px;"></span>武汉石门峰纪念公园有限公司<span
+        style="padding:0 5px;"
+      ></span
+      >版权所有<span style="padding:0 20px;"></span>鄂公网安备 42018502001747号
+    </div>
+
+    <div v-if="showBackTop" class="backTop pointer">
+      <div class="item">
+        <i class="iconfont iconweixin"></i>
+      </div>
+      <div class="item pointer">
+        <i class="iconfont iconQRcode"></i>
+      </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="item pointer" @click="toTop()">
         <i class="iconfont iconfanhuidingbu"></i>
         <div>顶部</div>
@@ -122,7 +172,11 @@ export default {
   name: "myhead",
   data() {
     return {
+<<<<<<< HEAD
       showBackTop: false,
+=======
+      showBackTop: false
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   computed: {},
@@ -143,6 +197,7 @@ export default {
       //   top: 0,
       //   behavior: "smooth"
       // });
+<<<<<<< HEAD
       $("html,body").animate(
         {
           scrollTop: 0,
@@ -151,6 +206,11 @@ export default {
       );
     },
   },
+=======
+      $("html,body").animate({ scrollTop: 0 }, 500);
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
@@ -160,25 +220,39 @@ export default {
   color: #fff;
   height: 670px;
   position: relative;
+<<<<<<< HEAD
 
   .backTop {
     width: 53px;
     height: 150px;
+=======
+  .backTop {
+    width: 53px;
+    height: 200px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     background-color: rgba(155, 155, 155, 0.8);
     border-radius: 5px;
     position: fixed;
     right: 15px;
     bottom: 50px;
+<<<<<<< HEAD
 
     .item {
       height: 50%;
+=======
+    .item {
+      height: 33%;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       border-bottom: 1px solid rgba(255, 255, 255, 0.8);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 16px;
       line-height: 1;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       .iconfont {
         font-size: 36px;
         height: 36px;
@@ -186,14 +260,20 @@ export default {
         align-items: center;
         justify-content: center;
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       &:last-child {
         border: none;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         .iconfont {
           font-size: 30px;
           height: 22px;
@@ -214,27 +294,41 @@ export default {
     width: 1477px;
     margin: auto;
     padding-top: 135px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .footTable {
       width: 100%;
       border-collapse: collapse;
       border-spacing: 0px;
+<<<<<<< HEAD
 
       .menu {
         width: 1170px;
 
+=======
+      .menu {
+        width: 1170px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         .title {
           font-size: 19px;
           font-weight: 600;
           border-bottom: 1px solid rgba(255, 255, 255, 0.5);
           padding-right: 100px;
           padding-bottom: 10px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           &:last-child {
             padding-right: 0px;
           }
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         .menuName {
           vertical-align: top;
           line-height: 35px;
@@ -243,11 +337,17 @@ export default {
           letter-spacing: 1px;
           padding-top: 15px;
           padding-right: 100px;
+<<<<<<< HEAD
 
           &:last-child {
             padding-right: 0px;
           }
 
+=======
+          &:last-child {
+            padding-right: 0px;
+          }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           div {
             cursor: pointer;
           }
@@ -257,7 +357,10 @@ export default {
       .code {
         padding-left: 130px;
         text-align: center;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         .codeText {
           width: 140px;
           text-align: center;
@@ -267,7 +370,10 @@ export default {
           font-weight: 400;
           line-height: 25px;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         img {
           border-radius: 5px;
           width: 165px;
@@ -290,6 +396,7 @@ export default {
 @media screen and (max-width: 1600px) {
   .footBg {
     .footContent {
+<<<<<<< HEAD
       width: 1200px;
 
       .footTable {
@@ -310,6 +417,19 @@ export default {
         .code {
           padding-left: 0px;
         }
+=======
+      width: 1400px;
+      .footTable {
+        .menu {
+          width: 1170px;
+          .title {
+            font-size: 16px;
+          }
+          .menuName {
+            font-size: 16px;
+          }
+        }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       }
     }
 

@@ -10,18 +10,31 @@
           <a-icon
             slot="indicator"
             type="loading"
+<<<<<<< HEAD
             style="font-size: 30px; color: #004930"
+=======
+            style="font-size: 30px; color: #004930;"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             spin
           />
           <div class="videoItem">
             <div class="videoList" v-for="item in model.list" :key="item.id">
               <video
                 :src="baseUrl + item.url"
+<<<<<<< HEAD
                 :poster="item.cover != '' ? baseUrl + item.cover : ''"
                 controls
               ></video>
               <div class="videoCont">
                 <!-- <img src="/img/pc/1_video.png" alt="" /> -->
+=======
+                :poster="baseUrl + item.cover"
+                :onerror="defImg"
+                controls
+              ></video>
+              <div class="videoCont">
+                <img src="/img/pc/1_video.png" alt="" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
                 <p class="videoTitle">{{ item.title }}</p>
                 <p class="videoTime">{{ item.createDate }}</p>
               </div>
@@ -39,6 +52,7 @@
 import { memoryMediaList } from "@/pages/pc/api/mark.js";
 import $ from "jquery";
 export default {
+<<<<<<< HEAD
   props: {
     //数据
     bannerModel: {
@@ -49,6 +63,8 @@ export default {
       },
     },
   },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   components: {
     paging: () => import("@/pages/pc/views/mark/components/paging.vue"),
   },
@@ -62,7 +78,11 @@ export default {
         current: 1,
         pageSize: 3,
         searchText: "",
+<<<<<<< HEAD
         memoryId: this.bannerModel.id,
+=======
+        memoryId: this.$route.params.id,
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         mediaType: "video",
       },
     };

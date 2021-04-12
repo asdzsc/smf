@@ -1,62 +1,110 @@
 <template>
   <div>
     <def
+<<<<<<< HEAD
       v-if="(!model.templateId || model.templateId === '0') && !loading"
+=======
+      v-if="!model.templateId || model.templateId === '0'"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       :detailModal="this.model"
     ></def>
     <!-- 辛亥英烈 -->
     <grjn01
+<<<<<<< HEAD
       v-else-if="model.templateId === '491872340996337665' && !loading"
+=======
+      v-else-if="model.templateId === '491872340996337665'"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       :detailModal="this.model"
     ></grjn01>
     <!-- 抗战英雄 -->
     <grjn02
+<<<<<<< HEAD
       v-else-if="model.templateId === '491875274498977792' && !loading"
+=======
+      v-else-if="model.templateId === '491875274498977792'"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       :detailModal="this.model"
     ></grjn02>
     <!-- 红色先烈 -->
     <grjn03
+<<<<<<< HEAD
       v-else-if="model.templateId === '491877416861380608' && !loading"
+=======
+      v-else-if="model.templateId === '491877416861380608'"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       :detailModal="this.model"
     ></grjn03>
     <!-- 共和国卫士 -->
     <grjn04
+<<<<<<< HEAD
       v-else-if="model.templateId === '492120168356458496' && !loading"
+=======
+      v-else-if="model.templateId === '492120168356458496'"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       :detailModal="this.model"
     ></grjn04>
     <!-- 爱心天使 -->
     <grjn05
+<<<<<<< HEAD
       v-else-if="model.templateId === '492123533807267840' && !loading"
+=======
+      v-else-if="model.templateId === '492123533807267840'"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       :detailModal="this.model"
     ></grjn05>
     <!-- 文学巨匠 -->
     <grjn06
+<<<<<<< HEAD
       v-else-if="model.templateId === '492123993989525504' && !loading"
+=======
+      v-else-if="model.templateId === '492123993989525504'"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       :detailModal="this.model"
     ></grjn06>
     <!-- 艺术大师 -->
     <grjn07
+<<<<<<< HEAD
       v-else-if="model.templateId === '492124529899941889' && !loading"
+=======
+      v-else-if="model.templateId === '492124529899941889'"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       :detailModal="this.model"
     ></grjn07>
     <!-- 白衣天使 -->
     <grjn08
+<<<<<<< HEAD
       v-else-if="model.templateId === '492126737685098497' && !loading"
+=======
+      v-else-if="model.templateId === '492126737685098497'"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       :detailModal="this.model"
     ></grjn08>
     <!-- 辛勤园丁 -->
     <grjn09
+<<<<<<< HEAD
       v-else-if="model.templateId === '492128198536015872' && !loading"
+=======
+      v-else-if="model.templateId === '492128198536015872'"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       :detailModal="this.model"
     ></grjn09>
     <!-- 钢铁英雄 -->
     <grjn10
+<<<<<<< HEAD
       v-else-if="model.templateId === '492129719520669696' && !loading"
+=======
+      v-else-if="model.templateId === '492129719520669696'"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       :detailModal="this.model"
     ></grjn10>
     <!-- 不凡人生 -->
     <grjn11
+<<<<<<< HEAD
       v-else-if="model.templateId === '492130170567733248' && !loading"
+=======
+      v-else-if="model.templateId === '492130170567733248'"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       :detailModal="this.model"
     ></grjn11>
   </div>
@@ -83,9 +131,15 @@ export default {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
       defImg: 'this.src="/img/zwtp.jpg"',
+<<<<<<< HEAD
       loading: true,
       model: {
         id: "",
+=======
+      loading: false,
+      model: {
+        id: "1",
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         createId: null,
         createDate: "2020-11-27 13:59:18",
         updateDate: "2020-12-02 10:02:51",
@@ -114,7 +168,11 @@ export default {
         cont: null,
         columnName: null,
         mergerId: null,
+<<<<<<< HEAD
         templateName: "",
+=======
+        templateName: "null",
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       },
     };
   },
@@ -124,6 +182,7 @@ export default {
   methods: {
     // 个人纪念馆详情
     _getMemoryInfo() {
+<<<<<<< HEAD
       const id = this.$route.query.id;
       const psid = this.$route.query.psid;
       this.loading = true;
@@ -135,6 +194,14 @@ export default {
           this.$router.push({
             path: "/mark/index",
           });
+=======
+      const id = this.$route.params.id;
+      this.loading = true;
+      getMemoryInfo({ id: id }).then((res) => {
+        this.loading = false;
+        if (res.code === 0) {
+          Object.assign(this.model, res.data);
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         }
       });
     },

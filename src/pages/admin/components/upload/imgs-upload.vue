@@ -1,8 +1,13 @@
 <template>
 	<div>
+<<<<<<< HEAD
 		<a-upload name="file" listType="picture-card" accept="image/*" :headers="headers" :data="formData" :action="uploadUrl"
 		 :beforeUpload="beforeUpload" @change="handleChange" :file-list="fileList" @preview="handlePreview" :remove="remove"
 		 :multiple="multiple">
+=======
+		<a-upload name="file" listType="picture-card" accept="image/*" :headers="headers" :action="uploadUrl" :beforeUpload="beforeUpload"
+		 @change="handleChange" :file-list="fileList" @preview="handlePreview" :remove="remove" :multiple="multiple">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 			<div v-if="isUpload">
 				<a-icon :type="loading ? 'loading' : 'plus'" />
 				<div class="ant-upload-text">
@@ -35,9 +40,12 @@
 				headers: {
 					token: this.$store.state.adminAccount.token || ''
 				},
+<<<<<<< HEAD
 				formData: {
 					isThumbnails: true
 				},
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 				imageUrl: "",
 				loading: false,
 				fileList: [],
@@ -90,8 +98,13 @@
 				}
 				return isLt4M;
 			},
+<<<<<<< HEAD
 			remove(file) {
 				console.log('remove', file)
+=======
+			remove(file){
+				console.log('remove',file)
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 				this.$emit("remove", file)
 			},
 			async handlePreview(file) {

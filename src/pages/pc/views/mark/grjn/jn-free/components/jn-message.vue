@@ -5,7 +5,11 @@
         <p>祭奠留言</p>
         <div class="line"></div>
       </div>
+<<<<<<< HEAD
       <div class="lyBtn" @click="handleClick">
+=======
+      <div class="lyBtn">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         我要纪念
       </div>
     </div>
@@ -19,11 +23,15 @@
         />
         <div class="lyList" v-for="item in model.list" :key="item.id">
           <div class="lyListAvatar">
+<<<<<<< HEAD
             <a-avatar
               :size="70"
               :src="handleAvatar(item.avatar)"
               :onerror="defImg"
             />
+=======
+            <a-avatar :size="70" :src="item.goodsCover" :onerror="defImg" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           </div>
           <div class="lyListInfo">
             <div class="lyListGift" v-if="item.goodsId != null">
@@ -61,6 +69,7 @@
 <script>
 import { memoryMsgList } from "@/pages/pc/api/mark.js";
 export default {
+<<<<<<< HEAD
   props: {
     //数据
     bannerModel: {
@@ -71,19 +80,29 @@ export default {
       },
     },
   },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   components: {
     paging: () => import("@/pages/pc/views/mark/components/paging.vue"),
   },
   data() {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
+<<<<<<< HEAD
       defImg: 'this.src="/img/zwtp.jpg"',
+=======
+      defImg: 'this.src="/img/wfck.png"',
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       loading: false,
       model: {
         current: 1, //	当前页
         pageSize: 3, //每页条数
         searchText: "", //关键字搜索
+<<<<<<< HEAD
         memoryId: this.bannerModel.id, //个人主页id
+=======
+        memoryId: this.$route.params.id, //个人主页id
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         msgType: "1", //消息类型 1留言 2文章
         status: "0", //	0显示 1隐藏
       },
@@ -99,6 +118,10 @@ export default {
       memoryMsgList(this.model).then((res) => {
         this.loading = false;
         if (res.code === 0) {
+<<<<<<< HEAD
+=======
+          console.log(res);
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           Object.assign(this.model, res.data);
           setTimeout(() => {
             this.$refs.paging.setPageInfo(this.model);
@@ -106,6 +129,7 @@ export default {
         }
       });
     },
+<<<<<<< HEAD
     handleClick() {
       this.$router.push({
         path: "/mark/shop/goodsList",
@@ -128,6 +152,9 @@ export default {
         return "/img/zwtp.jpg";
       }
     },
+=======
+    handleAvatar(item) {},
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     setPage(pageNum) {
       this.model.current = pageNum;
       this._memoryMsgList();

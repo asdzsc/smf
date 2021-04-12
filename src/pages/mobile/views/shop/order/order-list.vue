@@ -11,12 +11,16 @@
       @load="onLoad"
     >
       <div class="goodsList">
+<<<<<<< HEAD
         <div
           class="goodsItem"
           v-for="item in model.list"
           :key="item.id"
           @click.stop="openOrderInfo(item)"
         >
+=======
+        <div class="goodsItem" v-for="item in model.list" :key="item.id">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           <div class="goodsItemTitle">
             <p class="goodsOrderNum">订单号：{{ item.orderNum }}</p>
             <p class="goodsOrderTime">日期：{{ item.createDate }}</p>
@@ -47,6 +51,7 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
           <div class="btnWrap" style="padding-top:.2rem;">
             <ul>
               <li v-if="item.isFeedback === '1'">
@@ -81,12 +86,22 @@
                 >
                   {{ orderStatusText(item.orderStatus).text }}</van-tag
                 >
+=======
+          <div class="btnWrap">
+            <ul>
+              <li class="detailBtn" @click="openOrderInfo(item)">查看详情</li>
+              <li>
+                <span :color="orderStatusText(item.orderStatus).color">
+                  {{ orderStatusText(item.orderStatus).text }}
+                </span>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               </li>
             </ul>
           </div>
         </div>
       </div>
     </van-list>
+<<<<<<< HEAD
     <van-overlay v-show="showSaveComment">
       <div class="wrapper" @click="showSaveComment = false">
         <div class="block"></div>
@@ -126,6 +141,8 @@
       commentType="2"
       @onClose="closeOrderFeedback"
     ></orderCommentList>
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     <div class="cartIcon" @click="openUrl('/shop/cart')">
       <van-icon size="0.4rem" color="#fff" name="shopping-cart-o" />
     </div>
@@ -137,6 +154,7 @@ import { orderList } from "@/pages/mobile/api/shop";
 import * as utils from "@/pages/mobile/libs/utils";
 import * as shop from "@/comment/dictionary";
 export default {
+<<<<<<< HEAD
   components: {
     memberTabs: () =>
       import("@/pages/mobile/views/member/components/member-tabs.vue"),
@@ -147,6 +165,8 @@ export default {
         "@/pages/mobile/views/shop/order/components/order-comment-list.vue"
       ),
   },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   data() {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
@@ -167,7 +187,15 @@ export default {
       shopOrder: null,
     };
   },
+<<<<<<< HEAD
 
+=======
+  components: {
+    memberTabs: () =>
+      import("@/pages/mobile/views/member/components/member-tabs.vue"),
+    paging: () => import("@/pages/mobile/views/xwzx/components/paging.vue"),
+  },
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   mounted() {
     this._orderList();
   },
@@ -186,6 +214,7 @@ export default {
       this._orderList();
     },
     _orderList() {
+<<<<<<< HEAD
       this.$toast.loading({
         message: "加载中...",
         forbidClick: true,
@@ -194,12 +223,23 @@ export default {
       vm.loading = true;
       orderList(this.model).then((res) => {
         vm.$toast.clear();
+=======
+      var vm = this;
+      vm.loading = true;
+      orderList(this.model).then((res) => {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         vm.loading = false;
         if (res.code === 0) {
           const results = res.data.list;
           vm.model.list.push(...results);
           if (res.data.hasNextPage) {
+<<<<<<< HEAD
             vm.model.current++;
+=======
+            setTimeout(() => {
+              vm.model.current = ++vm.model.current;
+            }, 500);
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           } else {
             this.finished = true;
           }
@@ -238,7 +278,10 @@ export default {
       });
     },
     showFeedback(item) {
+<<<<<<< HEAD
       console.log(item);
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       this.orderId = item.id;
       this.showFeedbackList = true;
     },
@@ -265,12 +308,20 @@ export default {
       this.$nextTick(() => {
         this.showSaveComment = false;
       });
+<<<<<<< HEAD
       if (res.code === 0) {
         //刷新
         // this._orderList();
         this.$router.go(0);
       }
       try {
+=======
+      try {
+        if (res.code === 0) {
+          //刷新
+          this._orderList();
+        }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       } catch {}
     },
     //商品详情
@@ -395,6 +446,7 @@ export default {
         ul {
           display: flex;
           flex-direction: row-reverse;
+<<<<<<< HEAD
           // margin-top: 0.3rem;
 
           li {
@@ -402,6 +454,17 @@ export default {
             padding: 5px 10px;
             box-sizing: border-box;
             font-size: 0.24rem;
+=======
+          margin-top: 0.3rem;
+
+          li {
+            width: 1.4rem;
+            height: 0.5rem;
+            display: flex;
+            font-size: 0.24rem;
+            align-items: center;
+            justify-content: center;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             margin-right: 0.1rem;
 
             span {
@@ -409,6 +472,7 @@ export default {
               font-size: 0.24rem;
               display: inline-block;
               width: 100%;
+<<<<<<< HEAD
               line-height: 0.5rem;
               text-align: center;
               background: #d9d9d9d9;
@@ -429,6 +493,41 @@ export default {
             border: solid 1px #004930;
             color: #004930;
           }
+=======
+              height: 100%;
+              line-height: 0.5rem;
+              text-align: center;
+              background: #fafafa;
+              border: solid 1px #004930;
+            }
+          }
+
+          .assignBtn {
+            background-color: #f68b19;
+            color: #ffffff;
+          }
+
+          .detailBtn,
+          .assessBtn {
+            border: solid 1px #004930;
+            color: #004930;
+          }
+
+          .completeBtn {
+            background-color: #43c643;
+            color: #ffffff;
+          }
+
+          .payBtn {
+            background-color: #43bec6;
+            color: #ffffff;
+          }
+
+          .closeBtn {
+            color: #666666;
+            background-color: #e2e2e2;
+          }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         }
       }
     }
@@ -451,8 +550,12 @@ export default {
   }
 
   .cartIcon {
+<<<<<<< HEAD
     position: fixed;
     bottom: 2.5rem;
+=======
+    margin-top: -0.5rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     width: 0.88rem;
     height: 0.64rem;
     display: flex;

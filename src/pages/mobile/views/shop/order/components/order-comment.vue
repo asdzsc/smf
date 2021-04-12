@@ -1,5 +1,6 @@
 <template>
   <div class="orderComment">
+<<<<<<< HEAD
     <div class="title">
       <p>订单评论</p>
       <p><van-icon @click="handleCancel" name="cross" /></p>
@@ -30,10 +31,14 @@
     <div class="btn" @click="submit()">
       提交评论
     </div>
+=======
+      comment
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { saveOrderComment } from "@/pages/mobile/api/shop";
 export default {
   components: {
@@ -141,3 +146,13 @@ export default {
   }
 }
 </style>
+=======
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95

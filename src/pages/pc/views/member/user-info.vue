@@ -12,6 +12,7 @@
 
         <div class="card">
           <div class="title">基本资料</div>
+<<<<<<< HEAD
           <div class="cardCont" style="width: 50%">
             <a-row type="flex" class="cartRow">
               <a-col class="lable"> 昵称： </a-col>
@@ -33,6 +34,43 @@
               <a-col @click="editPwd()" class="edit"> 编辑 </a-col>
             </a-row>
             <!-- <a-row type="flex" class="cartRow">
+=======
+          <div class="cardCont" style="width: 50%;">
+            <a-row type="flex" class="cartRow">
+              <a-col class="lable">
+                昵称：
+              </a-col>
+              <a-col flex="auto" class="input">
+                {{ user.name }}
+              </a-col>
+              <a-col @click="editName()" class="edit">
+                编辑
+              </a-col>
+            </a-row>
+            <a-row type="flex" class="cartRow">
+              <a-col class="lable">
+                手机号：
+              </a-col>
+              <a-col flex="auto" class="input">
+                {{ user.mobile }}
+              </a-col>
+              <a-col @click="editMobile()" class="edit">
+                编辑
+              </a-col>
+            </a-row>
+            <a-row type="flex" class="cartRow">
+              <a-col class="lable">
+                密码：
+              </a-col>
+              <a-col flex="auto" class="input">
+                ******
+              </a-col>
+              <a-col @click="editPwd()" class="edit">
+                编辑
+              </a-col>
+            </a-row>
+            <a-row type="flex" class="cartRow">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               <a-col class="lable">
                 QQ：
               </a-col>
@@ -42,6 +80,7 @@
               <a-col class="edit">
                 绑定
               </a-col>
+<<<<<<< HEAD
             </a-row> -->
             <a-row type="flex" class="cartRow">
               <a-col class="lable"> 微信： </a-col>
@@ -49,13 +88,32 @@
                 {{ isBindWx ? "已绑定" : "未绑定" }}
               </a-col>
               <a-col v-if="!isBindWx" class="edit"> 绑定 </a-col>
+=======
+            </a-row>
+            <a-row type="flex" class="cartRow">
+              <a-col class="lable">
+                微信：
+              </a-col>
+              <a-col flex="auto" class="input">
+                {{ isBindWx ? "已绑定" : "未绑定" }}
+              </a-col>
+              <a-col v-if="!isBindWx" class="edit">
+                绑定
+              </a-col>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             </a-row>
           </div>
 
           <div class="title">服务墓址</div>
           <div v-for="item in list" :key="item.id" class="cardCont cardLine">
             <a-row type="flex" class="cartRow">
+<<<<<<< HEAD
               <a-col class="lable"> 落葬人： </a-col>
+=======
+              <a-col class="lable">
+                落葬人：
+              </a-col>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               <a-col flex="auto" class="input">
                 {{ item.bpname }}
                 <span v-if="item.isCheck === '1'" class="defCk">默认地址</span>
@@ -64,8 +122,15 @@
                 <a-icon @click="delAddress(item.id)" type="close" />
               </a-col>
             </a-row>
+<<<<<<< HEAD
             <a-row type="flex" class="cartRow" style="margin-bottom: 0px">
               <a-col class="lable"> 墓址： </a-col>
+=======
+            <a-row type="flex" class="cartRow" style="margin-bottom: 0px;">
+              <a-col class="lable">
+                墓址：
+              </a-col>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
               <a-col flex="auto" class="input">
                 {{ item.cemeaddress }}
               </a-col>
@@ -79,9 +144,15 @@
               >
                 设为默认地址
               </a-col>
+<<<<<<< HEAD
               <!-- <a-col @click="editAddress(item.id)" class="editAddress">
                 编辑
               </a-col> -->
+=======
+              <a-col @click="editAddress(item.id)" class="editAddress">
+                编辑
+              </a-col>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             </a-row>
           </div>
           <a-empty v-if="list.length === 0" />
@@ -91,7 +162,13 @@
           <a-icon type="down" />
         </div>
 
+<<<<<<< HEAD
         <div @click="addAddress()" class="addAddress">新增服务墓址</div>
+=======
+        <div @click="addAddress()" class="addAddress">
+          新增服务墓址
+        </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       </div>
     </div>
 
@@ -119,6 +196,10 @@
     <cemeteryInfo
       v-if="showAddress"
       ref="cemeteryInfo"
+<<<<<<< HEAD
+=======
+      :id="cemeteryId"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       @onClose="closeAddress"
     ></cemeteryInfo>
   </div>
@@ -231,6 +312,10 @@ export default {
       if (!this.finished) {
         this.model.current++;
         cemeteryList(this.model).then((res) => {
+<<<<<<< HEAD
+=======
+          console.log(res);
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           if (res.code === 0) {
             res.data.list.forEach((x) => {
               if (x.isCheck === "1") {

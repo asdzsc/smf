@@ -22,6 +22,7 @@
           墓址
         </div>
         <div class="inputCont">
+<<<<<<< HEAD
           <van-field
             v-model="model.cemeaddress"
             right-icon="arrow"
@@ -42,6 +43,9 @@
         </div>
         <div class="inputCont inputCont1" v-if="showMsg">
           <van-field placeholder="没有查询到墓址信息" />
+=======
+          <input v-model="model.cemeaddress" placeholder="请输入墓址" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         </div>
       </div>
     </div>
@@ -57,29 +61,42 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import { searchCemeteryList, saveCemetery } from "@/pages/mobile/api/user";
 export default {
   data() {
     return {
       show: false,
       showMsg: false,
+=======
+import { searchCemeteryList, getCemeteryInfo, saveCemetery } from "@/pages/mobile/api/user";
+export default {
+  data() {
+    return {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       baseUrl: process.env.VUE_APP_BASE_URL,
       title: "",
       model: {
         id: "",
         bpname: "",
         cemeaddress: "",
+<<<<<<< HEAD
         isCheck: "0",
         erpCemeteryId: "", //关联erp墓址id
         erpCemeteryIdKey: { key: "" },
       },
       cemeteryList: [],
+=======
+        isCheck: "0"
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {
     this.loadData();
   },
   methods: {
+<<<<<<< HEAD
     showSheet() {
       if (this.model.bpname == "") {
         this.$notify({
@@ -107,10 +124,25 @@ export default {
         //       Object.assign(this.model, res.data);
         //     }
         //   });
+=======
+    loadData() {
+      if (!this.$route.query.id) {
+        this.title = "新增服务墓址";
+      } else {
+        this.title = "编辑服务墓址";
+        getCemeteryInfo({
+          id: this.$route.query.id
+        }).then(res => {
+          if (res.code === 0) {
+            Object.assign(this.model, res.data);
+          }
+        });
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       }
     },
     _searchCemeteryList() {
       if (this.model.bpname) {
+<<<<<<< HEAD
         this.model.erpCemeteryId = "";
         this.model.erpCemeteryIdKey = { key: "" };
         this.cemeteryList = [];
@@ -137,12 +169,24 @@ export default {
               this.show = false;
               this.showMsg = true;
               this.model.cemeaddress = "";
+=======
+        searchCemeteryList({
+          current: 1,
+          pageSize: 1,
+          searchText: this.model.bpname
+        }).then(res => {
+          if (res.code === 0) {
+            if (res.data.list.length > 0) {
+              var info = res.data.list[0];
+              this.model.cemeaddress = info.cemeaddress;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
             }
           }
         });
       }
     },
     submit() {
+<<<<<<< HEAD
       saveCemetery(this.model).then((res) => {
         if (res.code === 0) {
           this.$notify({
@@ -154,6 +198,15 @@ export default {
       });
     },
   },
+=======
+      saveCemetery(this.model).then(res => {
+        if (res.code === 0) {
+          this.$router.back();
+        }
+      });
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
@@ -182,6 +235,7 @@ export default {
       font-weight: 700;
       color: #333333;
     }
+<<<<<<< HEAD
     .inputCont1 {
       /deep/ input::-webkit-input-placeholder {
         color: red;
@@ -200,6 +254,9 @@ export default {
         }
       }
     }
+=======
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .inputCont {
       padding-top: 0.1rem;
 
@@ -255,6 +312,7 @@ export default {
     }
   }
 }
+<<<<<<< HEAD
 /deep/ .van-action-sheet__content {
   .content {
     height: 0.8rem;
@@ -263,6 +321,9 @@ export default {
     font-size: 0.35rem;
   }
 }
+=======
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 .loginBtnCont {
   padding: 0.5rem;
   padding-top: 0rem;

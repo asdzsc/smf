@@ -9,7 +9,11 @@
         />
       </div>
       <div class="bannerCreate">
+<<<<<<< HEAD
         <a-avatar :size="50" :src="handleAvatar(bannerModel.createAvatar)" />
+=======
+        <a-avatar :size="50" :src="bannerModel.createAvatar" />
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <p class="bannerCreateName">{{ bannerModel.createName }}</p>
       </div>
       <p class="bannerName">{{ bannerModel.name }}</p>
@@ -30,8 +34,13 @@
         已有<span>{{ bannerModel.msgNum }}</span
         >次纪念
       </div>
+<<<<<<< HEAD
       <div class="bannerBtn" @click="handleClick">
         纪念Ta
+=======
+      <div class="bannerBtn">
+        纪念她
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       </div>
     </div>
   </div>
@@ -55,6 +64,7 @@ export default {
       defImg: 'this.src="/img/zwtp.jpg"',
     };
   },
+<<<<<<< HEAD
   mounted() {
     this.bannerModel.birthday = this.bannerModel.birthday.substring(0, 10);
     this.bannerModel.dieTime = this.bannerModel.dieTime.substring(0, 10);
@@ -81,6 +91,8 @@ export default {
       });
     },
   },
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
@@ -132,11 +144,16 @@ export default {
     }
 
     .bannerMsg {
+<<<<<<< HEAD
       width: 656px;
+=======
+      width: 516px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       font-size: 20px;
       line-height: 30px;
       letter-spacing: 1px;
       color: #666666;
+<<<<<<< HEAD
       margin-left: 70px;
       margin-top: 40px;
       text-overflow: ellipsis;
@@ -144,6 +161,10 @@ export default {
       -webkit-line-clamp: 10;
       overflow: hidden;
       display: -webkit-box;
+=======
+      margin-left: 160px;
+      margin-top: 40px;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     }
 
     .bannerBtn {

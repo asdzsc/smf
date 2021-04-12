@@ -29,7 +29,11 @@
 
     // 服务器统一请求接口路径
     // , serverUrl: URL + "jsp/controller.jsp"   http://www.ct.027smf.com
+<<<<<<< HEAD
     serverUrl: "https://www.027smf.com/ueditor/config", // lib/config.js 网站前端全局配置
+=======
+    serverUrl: "https://www.ct.027smf.com/ueditor/config", // lib/config.js 网站前端全局配置
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 
     //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的重新定义
     toolbars: [

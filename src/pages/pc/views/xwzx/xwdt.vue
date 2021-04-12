@@ -3,11 +3,19 @@
     <div class="banner"></div>
     <xwzxHead name="新闻动态"></xwzxHead>
     <div class="cont">
+<<<<<<< HEAD
+=======
+      <xwzxTitle title="新闻动态"></xwzxTitle>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <a-spin size="large" tip="加载中..." :spinning="loading">
         <a-icon
           slot="indicator"
           type="loading"
+<<<<<<< HEAD
           style="font-size: 30px; color: #004930"
+=======
+          style="font-size: 30px; color: #004930;"
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           spin
         />
         <div class="list">
@@ -31,8 +39,12 @@
           </div>
         </div>
       </a-spin>
+<<<<<<< HEAD
       <!-- <paging ref="paging" @setPage="setPage"></paging> -->
       <a-pagination size="small" :total="model.total" @change="onChange" />
+=======
+      <paging ref="paging" @setPage="setPage"></paging>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     </div>
     <myserve></myserve>
   </div>
@@ -44,7 +56,11 @@ import * as utils from "@/pages/pc/libs/utils";
 export default {
   components: {
     xwzxHead: () => import("@/pages/pc/views/xwzx/components/xwzx-head.vue"),
+<<<<<<< HEAD
     // xwzxTitle: () => import("@/pages/pc/views/xwzx/components/xwzx-title.vue"),
+=======
+    xwzxTitle: () => import("@/pages/pc/views/xwzx/components/xwzx-title.vue"),
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     paging: () => import("@/pages/pc/views/xwzx/components/paging.vue"),
     myserve: () => import("@/pages/pc/components/myserve.vue"),
   },
@@ -54,11 +70,19 @@ export default {
       defImg: 'this.src="/img/zwtp.jpg"',
       loading: false,
       model: {
+<<<<<<< HEAD
         current: 1,
         pageSize: 8,
         articleType: "1", //新闻类型
         columnId: "443278534481465344", //栏目id
         total: 0,
+=======
+        current: "1",
+        pageSize: "8",
+        articleType: "1", //新闻类型
+        columnId: "443278534481465344", //栏目id
+        total: "0",
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         list: [],
       },
     };
@@ -73,6 +97,7 @@ export default {
         this.loading = false;
         if (res.code === 0) {
           Object.assign(this.model, res.data);
+<<<<<<< HEAD
           this.model.total = Number(this.model.total);
           // setTimeout(() => {
           //   this.$refs.paging.setPageInfo(this.model);
@@ -85,6 +110,14 @@ export default {
       this.model.current = page;
       this._newsList();
     },
+=======
+          setTimeout(() => {
+            this.$refs.paging.setPageInfo(this.model);
+          }, 200);
+        }
+      });
+    },
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     setPage(pageNum) {
       this.model.current = pageNum;
       this._newsList();
@@ -113,6 +146,7 @@ export default {
   .cont {
     width: 1200px;
     margin: auto;
+<<<<<<< HEAD
     /deep/ .ant-pagination-item-active {
       border: none;
     }
@@ -128,6 +162,9 @@ export default {
     /deep/ .anticon:hover {
       color: #0b9b0b;
     }
+=======
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .list {
       margin-bottom: 50px;
 

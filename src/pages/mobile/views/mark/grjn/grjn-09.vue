@@ -9,16 +9,24 @@
               round
               width=".50rem"
               height=".50rem"
+<<<<<<< HEAD
               :src="handleCreateAvatar(detailModal.createAvatar)"
             />
           </div>
           <div class="createName">{{ detailModal.createName }}</div>
+=======
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+          </div>
+          <div class="createName">创建者</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         </div>
         <div class="bannerAvatar">
           <van-image
             round
             width="1.60rem"
             height="1.60rem"
+<<<<<<< HEAD
             :src="baseUrl + detailModal.photo"
             :error-icon="defImg"
           />
@@ -47,18 +55,44 @@
             已有<span>{{ detailModal.msgNum }}</span
             >次纪念
           </p>
+=======
+            src="https://img.yzcdn.cn/vant/cat.jpeg"
+          />
+        </div>
+        <div class="bannerInfo">
+          <p class="bannerName">姚贝娜</p>
+          <div class="bannerTime">
+            <p>出生：1981年09月26日 中国 武汉</p>
+            <p>离世：2015年01月16日 中国 北京</p>
+          </div>
+          <div class="bannerMsg">
+            她会变成天上那颗最耀眼的星星，照亮我们每个人的梦，飞过苍穹，穿越永恒。永远都不要忘了她，因为她是真正的天使。天堂会收下你的美，会让你在那里生活的更加幸福快乐。你的笑容，挥之不去。
+            睡吧，睡吧。总有一天，你会醒来。 时光不老，伊人不朽…
+          </div>
+          <div class="bannerBtn">
+            纪念他
+            <img src="/img/mobile/mark/pen.png" alt="" />
+          </div>
+          <p class="bannerTimes">已有<span>432</span>次纪念</p>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         </div>
       </div>
     </div>
     <!-- banner end -->
     <!-- photo start -->
+<<<<<<< HEAD
     <div class="photo" v-if="showPhoto">
       <div class="title" style="margin-top: 2rem">
+=======
+    <div class="photo">
+      <div class="title" style="margin-top:2rem;">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <p>纪</p>
         <p>念</p>
         <p>相</p>
         <p>册</p>
       </div>
+<<<<<<< HEAD
       <div class="photoInfo" v-if="this.modelImg.list != ''">
         <van-list :finished="finishedImg" finished-text="没有更多了">
           <div
@@ -80,13 +114,41 @@
       </div>
       <div v-else>
         <van-empty description="暂无数据" />
+=======
+      <div class="photoInfo">
+        <van-swipe
+          class="my-swipe"
+          :autoplay="3000"
+          indicator-color="transparent"
+        >
+          <van-swipe-item>
+            <img src="/img/mobile/mark/photo_01.png" alt="" />
+            <img src="/img/mobile/mark/photo_02.png" alt="" />
+            <img src="/img/mobile/mark/photo_03.png" alt="" />
+            <img src="/img/mobile/mark/photo_04.png" alt="" />
+          </van-swipe-item>
+          <van-swipe-item>
+            <img src="/img/mobile/mark/photo_01.png" alt="" />
+            <img src="/img/mobile/mark/photo_02.png" alt="" />
+            <img src="/img/mobile/mark/photo_03.png" alt="" />
+            <img src="/img/mobile/mark/photo_04.png" alt="" />
+          </van-swipe-item>
+        </van-swipe>
+        <div class="moreBtn">查看更多</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       </div>
     </div>
     <!-- photo end -->
     <!-- ly start -->
+<<<<<<< HEAD
     <div class="ly" v-if="showLy">
       <div class="lyTitle">
         <div class="lyBtn" @click="handleClick">我要纪念</div>
+=======
+    <div class="ly">
+      <div class="lyTitle">
+        <div class="lyBtn">我要纪念</div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         <div class="title">
           <p>祭</p>
           <p>奠</p>
@@ -94,6 +156,7 @@
           <p>言</p>
         </div>
       </div>
+<<<<<<< HEAD
       <div class="lyInfo" v-if="this.modelMsg.list != ''">
         <van-list :finished="finishedMsg" finished-text="没有更多了">
           <div class="lyList" v-for="item in modelMsg.list" :key="item.id">
@@ -144,12 +207,94 @@
     <!-- ly end -->
     <!-- article start -->
     <div class="article" v-if="showArticle">
+=======
+      <div class="lyInfo">
+        <div class="lyList">
+          <div class="lyListAvatar">
+            <van-image
+              round
+              width=".64rem"
+              height=".64rem"
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+          </div>
+          <div class="lyListInfo">
+            <div class="lyListGift">
+              <div class="lyListGiftName">
+                <p>“小姑姑”</p>
+                给
+                <p>“姚贝娜”</p>
+                送出了
+                <p>月季</p>
+              </div>
+              <div class="lyListGiftIcon">
+                <van-image
+                  round
+                  width=".64rem"
+                  height=".64rem"
+                  src="https://img.yzcdn.cn/vant/cat.jpeg"
+                />
+              </div>
+            </div>
+            <div class="lyListMsg">
+              贝娜，我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。贝娜我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。
+            </div>
+            <div class="lyListName">
+              <p style="margin-right: .20rem;">爸爸</p>
+              <p>2020年1月1日 11:40</p>
+            </div>
+          </div>
+        </div>
+        <div class="lyList">
+          <div class="lyListAvatar">
+            <van-image
+              round
+              width=".64rem"
+              height=".64rem"
+              src="https://img.yzcdn.cn/vant/cat.jpeg"
+            />
+          </div>
+          <div class="lyListInfo">
+            <div class="lyListGift">
+              <div class="lyListGiftName">
+                <p>“小姑姑”</p>
+                给
+                <p>“姚贝娜”</p>
+                送出了
+                <p>月季</p>
+              </div>
+              <div class="lyListGiftIcon">
+                <van-image
+                  round
+                  width=".64rem"
+                  height=".64rem"
+                  src="https://img.yzcdn.cn/vant/cat.jpeg"
+                />
+              </div>
+            </div>
+            <div class="lyListMsg">
+              贝娜，我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。贝娜我真的好想你，你不在的日子，每天都在想念你。希望你在天上面，能一切都好，爸爸会一直一直都想你的，我亲爱的宝贝。
+            </div>
+            <div class="lyListName">
+              <p style="margin-right: .20rem;">爸爸</p>
+              <p>2020年1月1日 11:40</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="moreBtn">更多留言</div>
+    </div>
+    <!-- ly end -->
+    <!-- article start -->
+    <div class="article">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="title">
         <p>纪</p>
         <p>念</p>
         <p>文</p>
         <p>章</p>
       </div>
+<<<<<<< HEAD
       <van-overlay v-show="showArticleCont">
         <div class="wrapper" @click="showArticleCont = false">
           <div class="block"></div>
@@ -185,12 +330,40 @@
     <!-- article end -->
     <!-- video start -->
     <div class="video" v-if="showVideo">
+=======
+      <div class="articleInfo">
+        <div class="articleList">
+          <img src="/img/mobile/mark/photo_05.png" alt="" />
+          <div class="articleCont">
+            <p class="articleTitle">纪念你</p>
+            <p class="articleMsg">
+              时间一晃黄的，跨过了2014，在时间的长河中，你我她，都如大海里的一滴水，渺小的激不起一点点涟漪。感叹生命的短暂，然又为生命的伟大而惊奇。
+            </p>
+          </div>
+        </div>
+        <div class="articleList">
+          <img src="/img/mobile/mark/photo_06.png" alt="" />
+          <div class="articleCont">
+            <p class="articleTitle">纪念你</p>
+            <p class="articleMsg">
+              时间一晃黄的，跨过了2014，在时间的长河中，你我她，都如大海里的一滴水，渺小的激不起一点点涟漪。感叹生命的短暂，然又为生命的伟大而惊奇。
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="moreBtn">更多文章</div>
+    </div>
+    <!-- article end -->
+    <!-- video start -->
+    <div class="video">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="title">
         <p>纪</p>
         <p>念</p>
         <p>视</p>
         <p>频</p>
       </div>
+<<<<<<< HEAD
       <div class="videoInfo" v-if="this.modelVideo.list != ''">
         <van-list :finished="finishedVideo" finished-text="没有更多了">
           <div class="videoList" v-for="item in modelVideo.list" :key="item.id">
@@ -216,10 +389,42 @@
     </div>
     <!-- video end -->
     <img style="width: 100%" src="/img/mobile/mark/09.png" alt="" />
+=======
+      <div class="videoInfo">
+        <div class="videoList">
+          <video
+            src=""
+            poster="/img/mobile/mark/photo_07.png"
+            :onerror="defImg"
+          ></video>
+          <div class="videoCont">
+            <van-icon size=".94rem" name="play-circle-o" />
+          </div>
+          <p class="videoTitle">第一次演唱会</p>
+          <p class="videoTime">2020年1月1日</p>
+        </div>
+        <div class="videoList">
+          <video
+            src=""
+            poster="/img/mobile/mark/photo_08.png"
+            :onerror="defImg"
+          ></video>
+          <div class="videoCont">
+            <van-icon size=".94rem" name="play-circle-o" />
+          </div>
+          <p class="videoTitle">第一次演唱会</p>
+          <p class="videoTime">2020年1月1日</p>
+        </div>
+      </div>
+      <div class="moreBtn">更多视频</div>
+    </div>
+    <!-- video end -->
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { memoryMediaList, memoryMsgList } from "@/pages/mobile/api/mark.js";
 import { ImagePreview } from "vant";
 import $ from "jquery";
@@ -234,10 +439,14 @@ export default {
       },
     },
   },
+=======
+export default {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   data() {
     return {
       baseUrl: process.env.VUE_APP_BASE_URL,
       defImg: 'this.src="/img/zwtp.jpg"',
+<<<<<<< HEAD
       loading: false, //加载中
       finishedImg: false, //没有更多了
       finishedMsg: false, //没有更多了
@@ -455,6 +664,13 @@ export default {
   },
 };
 </script>
+=======
+    };
+  },
+};
+</script>
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 <style lang="less" scoped>
 .grjn {
   background-image: url("/img/mobile/mark/banner_09.png");
@@ -464,7 +680,10 @@ export default {
     color: #666666;
     margin: 0.3rem auto 0.7rem;
     text-align: center;
+<<<<<<< HEAD
     padding-bottom: 0.5rem;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   }
   .title {
     font-size: 0.36rem;
@@ -486,7 +705,11 @@ export default {
     width: 92%;
     margin: 0 auto;
     padding: 20% 0;
+<<<<<<< HEAD
     padding-bottom: 0;
+=======
+    padding-bottom: 3%;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .bannerTimes {
       font-size: 0.26rem;
       line-height: 0.28rem;
@@ -500,7 +723,11 @@ export default {
       }
     }
     .bannerTitle {
+<<<<<<< HEAD
       height: 7.54rem;
+=======
+      height: 6.54rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       position: relative;
       text-align: center;
       color: #865647;
@@ -521,10 +748,16 @@ export default {
         left: 50%;
         transform: translateX(-50%);
         top: 0.8rem;
+<<<<<<< HEAD
         width: 90%;
         .bannerName {
           // margin: 0.2rem 0;
           margin-top: 0.2rem;
+=======
+        width: 70%;
+        .bannerName {
+          margin: 0.2rem 0;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           font-size: 0.4rem;
           font-weight: bold;
           line-height: 0.7rem;
@@ -542,11 +775,14 @@ export default {
           letter-spacing: 0.01rem;
           margin: 0.1rem auto;
           color: #333333;
+<<<<<<< HEAD
           text-overflow: ellipsis;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 10;
           overflow: hidden;
           display: -webkit-box;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         }
         .bannerBtn {
           width: 3rem;
@@ -568,6 +804,7 @@ export default {
       }
     }
   }
+<<<<<<< HEAD
 
   .photo {
     padding: 0 0.4rem;
@@ -588,13 +825,20 @@ export default {
       }
     }
 
+=======
+  .photo {
+    padding: 0 0.4rem;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .my-swipe {
       img {
         display: inline-block;
         margin-top: 0.5rem;
         margin-right: 4%;
         width: 48%;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         &:nth-child(2n) {
           margin-right: 0;
         }
@@ -680,6 +924,7 @@ export default {
   }
   .article {
     padding: 0 0.4rem;
+<<<<<<< HEAD
     .wrapper {
       display: flex;
       align-items: center;
@@ -692,6 +937,8 @@ export default {
         box-sizing: border-box;
       }
     }
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .articleInfo {
       background-color: #ffffff;
       box-shadow: 0px 0.04rem 0.19rem 0.01rem rgba(158, 143, 140, 0.2);
@@ -703,7 +950,10 @@ export default {
         box-sizing: border-box;
         img {
           width: 100%;
+<<<<<<< HEAD
           height: 3.35rem;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         }
         .articleCont {
           // padding: 0.3rem 0.5rem;
@@ -719,10 +969,13 @@ export default {
             font-size: 0.24rem;
             line-height: 0.32rem;
             color: #999999;
+<<<<<<< HEAD
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 4;
             overflow: hidden;
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           }
         }
       }

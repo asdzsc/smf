@@ -73,9 +73,15 @@
 						searchText: this.model.bpname
 					}).then(res => {
 						if (res.code === 0) {
+<<<<<<< HEAD
 							if (res.data.data.length > 0) {
 								var info = res.data.data[0];
 								this.model.cemeaddress = info.cemetery;
+=======
+							if (res.data.list.length > 0) {
+								var info = res.data.list[0];
+								this.model.cemeaddress = info.cemeaddress;
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 							}
 						}
 					});

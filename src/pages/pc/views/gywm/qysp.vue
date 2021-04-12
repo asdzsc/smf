@@ -2,6 +2,10 @@
   <div class="gywm">
     <div class="banner"></div>
     <gywmHead name="企业视频"></gywmHead>
+<<<<<<< HEAD
+=======
+
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     <div class="cont">
       <div class="title1">
         到石门峰寻找生命到意义......
@@ -27,7 +31,11 @@
 // import $ from "jquery";
 export default {
   components: {
+<<<<<<< HEAD
     gywmHead: () => import("@/pages/pc/views/gywm/components/gywm-head.vue"),
+=======
+    gywmHead: () => import("@/pages/pc/views/gywm/components/gywm-head.vue")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   data() {
     return {
@@ -45,8 +53,13 @@ export default {
         sources: [
           {
             type: "video/mp4",
+<<<<<<< HEAD
             src: "",
           },
+=======
+            src: ""
+          }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
         ],
         poster: "/img/mp4gb.png", //你的封面地址
         notSupportedMessage: "此视频暂无法播放，请稍后再试", //允许覆盖Video.js无法播放媒体源时显示的默认信息。
@@ -54,9 +67,15 @@ export default {
           timeDivider: true,
           durationDisplay: true,
           remainingTimeDisplay: false,
+<<<<<<< HEAD
           fullscreenToggle: true, //全屏按钮
         },
       },
+=======
+          fullscreenToggle: true //全屏按钮
+        }
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {
@@ -70,9 +89,15 @@ export default {
       // }
     },
     // eslint-disable-next-line
+<<<<<<< HEAD
     onPlayerPlay(player) {},
     // eslint-disable-next-line
     onPlayerPause(player) {
+=======
+		onPlayerPlay(player) {},
+    // eslint-disable-next-line
+		onPlayerPause(player) {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       console.log(player);
     },
     onFullscreenChange(player) {
@@ -85,8 +110,13 @@ export default {
         // $(".vjs-tech").css({ height: "600px" });
         // $(".vjs-fluid").css({ height: "600px" });
       }
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
@@ -95,6 +125,7 @@ export default {
   width: 100%;
   height: 600px;
 }
+<<<<<<< HEAD
 
 /deep/ .vjs-fluid {
   padding-top: 600px;
@@ -105,6 +136,11 @@ export default {
   top: calc(50%) !important;
 }
 
+=======
+/deep/ .vjs-fluid {
+  padding-top: 600px;
+}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 .gywm {
   .banner {
     background: url("/img/banner13.png") no-repeat center center;
@@ -113,13 +149,19 @@ export default {
     text-align: center;
     position: relative;
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   .cont {
     width: 1200px;
     margin: auto;
     margin-top: 60px;
     margin-bottom: 100px;
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .title1 {
       text-align: center;
       font-size: 28px;
@@ -127,7 +169,10 @@ export default {
       letter-spacing: 3px;
       color: #333333;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     .contMp4 {
       margin-top: 70px;
       height: "600px";

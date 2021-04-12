@@ -3,10 +3,19 @@
     <div class="banner">
       <van-image class="bannerImg" fit="cover" src="/img/mobile/banner14.png" />
     </div>
+<<<<<<< HEAD
     <div class="cont" style="padding-top: 0.6rem">
       <div class="titleCont">
         <div class="titleLine"></div>
         <div class="title">联系我们</div>
+=======
+    <div class="cont" style="padding-top: 0.6rem;">
+      <div class="titleCont">
+        <div class="titleLine"></div>
+        <div class="title">
+          联系我们
+        </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       </div>
       <div class="lxwm">
         <div class="lxwmCont">
@@ -18,12 +27,24 @@
           <div class="lxwmLine"></div>
           <div class="lxwmItem">
             <div class="lable">电话：</div>
+<<<<<<< HEAD
             <div class="text">027-87635298 / 87635632 / 87639736</div>
+=======
+            <div class="text">
+              027-87635298 / 87635632 / 87639736
+            </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           </div>
           <div class="lxwmLine"></div>
           <div class="lxwmItem">
             <div class="lable">公众号：</div>
+<<<<<<< HEAD
             <div class="text">smfgzh</div>
+=======
+            <div class="text">
+              smfgzh
+            </div>
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
           </div>
           <div class="lxwmLine"></div>
         </div>
@@ -50,6 +71,7 @@
           <div @click="openMap()" class="btn">一键导航</div>
         </div>
       </div>
+<<<<<<< HEAD
 
       <!-- <div style="text-align: center; padding-bottom: 0.5rem; ">
 				<img src="/img/ewm.png" style="width: 3rem; height: 3rem;" />
@@ -57,6 +79,8 @@
 					关注石门峰公众号<br/>更多了解我们
 				</div>
 			</div> -->
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     </div>
   </div>
 </template>
@@ -71,6 +95,7 @@ export default {
         zoom: 13,
         center: [114.487783, 30.513501],
         events: {
+<<<<<<< HEAD
           init: () => {},
         },
       },
@@ -78,15 +103,30 @@ export default {
         {
           pName: "ToolBar",
         },
+=======
+          init: () => {}
+        }
+      },
+      plugin: [
+        {
+          pName: "ToolBar"
+        }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       ],
       marker: {
         position: [114.487783, 30.513501],
         events: {
           click: () => {
             this.openMap();
+<<<<<<< HEAD
           },
         },
       },
+=======
+          }
+        }
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   mounted() {
@@ -100,8 +140,13 @@ export default {
         "https://www.amap.com/search?id=B0FFGH8SFR&city=420111&geoobj=113.338398%7C30.03371%7C115.807417%7C31.17591&query_type=IDQ&query=%E7%9F%B3%E9%97%A8%E5%B3%B0%E7%BA%AA%E5%BF%B5%E5%85%AC%E5%9B%AD&zoom=9.68";
       var tempPage = window.open("", "_blank");
       tempPage.location = url;
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 

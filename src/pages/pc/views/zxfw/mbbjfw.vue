@@ -4,10 +4,13 @@
     <zxfwTitle title="墓碑保洁服务"></zxfwTitle>
 
     <div class="cont">
+<<<<<<< HEAD
       <div class="bannerTitle">
         <div class="text1">1小时全福位日式保洁<br />金牌专职保洁师</div>
       </div>
 
+=======
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="title">日式保洁、服务升级</div>
       <div class="title2">服务增加消杀护理环节</div>
       <div class="contImg">
@@ -29,7 +32,11 @@
       </div>
     </div>
 
+<<<<<<< HEAD
     <div class="cont" style="padding-bottom: 100px">
+=======
+    <div class="cont" style="padding-bottom: 100px;">
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       <div class="title">进口日式工具组 有效清除顽渍尘污</div>
       <div class="contImg">
         <img src="/img/zxfw34.png" />
@@ -45,13 +52,21 @@ export default {
   components: {
     zxfwTitle: () => import("@/pages/pc/views/zxfw/components/zxfw-title.vue"),
     zxfwLjyy: () => import("@/pages/pc/views/zxfw/components/zxfw-ljyy.vue"),
+<<<<<<< HEAD
     myserve: () => import("@/pages/pc/components/myserve.vue"),
+=======
+    myserve: () => import("@/pages/pc/components/myserve.vue")
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   data() {
     return {};
   },
   mounted() {},
+<<<<<<< HEAD
   methods: {},
+=======
+  methods: {}
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 <style lang="less" scoped>
@@ -69,6 +84,7 @@ export default {
     margin: auto;
     margin-top: 100px;
 
+<<<<<<< HEAD
     .bannerTitle {
       padding-top: 54px;
       .text1 {
@@ -84,6 +100,9 @@ export default {
 
     .title {
       font-family: MicrosoftYaHei;
+=======
+    .title {
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
       text-align: center;
       font-size: 36px;
       letter-spacing: 2px;

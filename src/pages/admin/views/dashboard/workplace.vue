@@ -58,15 +58,24 @@ export default {
         osName: "",
         javaVersion: "",
         fileSize: "",
+<<<<<<< HEAD
         datasource: "",
       },
+=======
+        datasource: ""
+      }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
     };
   },
   components: {},
   computed: {
     currUser() {
       return this.$store.state.adminAccount.user || {};
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
   },
   watch: {},
   created() {},
@@ -82,8 +91,13 @@ export default {
   methods: {
     formatMoney(num, len) {
       return utils.formatMoney(num, len);
+<<<<<<< HEAD
     },
   },
+=======
+    }
+  }
+>>>>>>> c823db4e54d491eefefbdbbe1503b25dd47f1e95
 };
 </script>
 
